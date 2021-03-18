@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>python集合 | cuikuikui&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="cuikuikui,cuikuikui's Blog">
+  
+  <meta name="description" content="1 &amp;#x96C6;&amp;#x5408;&amp;#x548C;&amp;#x5217;&amp;#x8868;&amp;#x7684;&amp;#x533A;&amp;#x522B;- &amp;#x96C6;&amp;#x5408;&amp;#x548C;&amp;#x5217;&amp;#x8868;&amp;#x975E;&amp;#x5E38;&amp;#x76F8;&amp;#x4F3C; - &amp;#x4E0D;&amp;#x540C;&amp;#x70B9;&amp;#xFF1A;     1.&amp;#x96C6;&amp;#x5408;&amp;#">
+<meta name="keywords" content="集合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python集合">
+<meta property="og:url" content="http://cuikuikui.github.io/2019/08/20/python集合/index.html">
+<meta property="og:site_name" content="cuikuikui&#39;s blog">
+<meta property="og:description" content="1 &amp;#x96C6;&amp;#x5408;&amp;#x548C;&amp;#x5217;&amp;#x8868;&amp;#x7684;&amp;#x533A;&amp;#x522B;- &amp;#x96C6;&amp;#x5408;&amp;#x548C;&amp;#x5217;&amp;#x8868;&amp;#x975E;&amp;#x5E38;&amp;#x76F8;&amp;#x4F3C; - &amp;#x4E0D;&amp;#x540C;&amp;#x70B9;&amp;#xFF1A;     1.&amp;#x96C6;&amp;#x5408;&amp;#">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-20T14:44:45.918Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python集合">
+<meta name="twitter:description" content="1 &amp;#x96C6;&amp;#x5408;&amp;#x548C;&amp;#x5217;&amp;#x8868;&amp;#x7684;&amp;#x533A;&amp;#x522B;- &amp;#x96C6;&amp;#x5408;&amp;#x548C;&amp;#x5217;&amp;#x8868;&amp;#x975E;&amp;#x5E38;&amp;#x76F8;&amp;#x4F3C; - &amp;#x4E0D;&amp;#x540C;&amp;#x70B9;&amp;#xFF1A;     1.&amp;#x96C6;&amp;#x5408;&amp;#">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">崔魁魁的博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        崔魁魁的博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        博客学习
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="cuikuikui" target="_blank" href="https://www.cuikuikui.top/ck/cuikuikui.com/index.html">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/cuikuikui">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/cuikuikui">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-python集合" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      python集合
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/python教程/">python 教程</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-08-20
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="1-&#x96C6;&#x5408;&#x548C;&#x5217;&#x8868;&#x7684;&#x533A;&#x522B;"><a href="#1-&#x96C6;&#x5408;&#x548C;&#x5217;&#x8868;&#x7684;&#x533A;&#x522B;" class="headerlink" title="1 &#x96C6;&#x5408;&#x548C;&#x5217;&#x8868;&#x7684;&#x533A;&#x522B;"></a>1 &#x96C6;&#x5408;&#x548C;&#x5217;&#x8868;&#x7684;&#x533A;&#x522B;</h3><pre><code>- &#x96C6;&#x5408;&#x548C;&#x5217;&#x8868;&#x975E;&#x5E38;&#x76F8;&#x4F3C;
+- &#x4E0D;&#x540C;&#x70B9;&#xFF1A;
+    1.&#x96C6;&#x5408;&#x4E2D;&#x53EA;&#x80FD;&#x5B58;&#x50A8;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;
+    2.&#x96C6;&#x5408;&#x4E2D;&#x5B58;&#x50A8;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x65E0;&#x5E8F;&#xFF08;&#x4E0D;&#x662F;&#x6309;&#x7167;&#x5143;&#x7D20;&#x7684;&#x63D2;&#x5165;&#x987A;&#x5E8F;&#x4FDD;&#x5B58;&#xFF09;
+    3.&#x96C6;&#x5408;&#x4E2D;&#x4E0D;&#x80FD;&#x51FA;&#x73B0;&#x91CD;&#x590D;&#x7684;&#x5143;&#x7D20;</code></pre><h3 id="2-&#x521B;&#x5EFA;&#x96C6;&#x5408;"><a href="#2-&#x521B;&#x5EFA;&#x96C6;&#x5408;" class="headerlink" title="2 &#x521B;&#x5EFA;&#x96C6;&#x5408;"></a>2 &#x521B;&#x5EFA;&#x96C6;&#x5408;</h3><h4 id="2-1-&#x4F7F;&#x7528;-&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;"><a href="#2-1-&#x4F7F;&#x7528;-&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;" class="headerlink" title="2-1 &#x4F7F;&#x7528; {} &#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;"></a>2-1 &#x4F7F;&#x7528; {} &#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;</h4><pre><code>&gt;&gt;&gt; s = {10,3,5,1,2,1,2,3,1,1,1,1}
+&gt;&gt;&gt; s
+{1, 2, 3, 5, 10}
+&gt;&gt;&gt; 
+&#x7ED9;&#x51FA;&#x7684;&#x96C6;&#x5408;&#x662F;&#x5177;&#x6709;&#x91CD;&#x590D;&#x6570;&#x5B57;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x8F93;&#x51FA;&#x540E;&#x96C6;&#x5408;&#x9ED8;&#x8BA4;&#x5177;&#x6709;&#x53BB;&#x91CD;&#x529F;&#x80FD;</code></pre><h3 id="2-2-&#x4F7F;&#x7528;-set-&#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;"><a href="#2-2-&#x4F7F;&#x7528;-set-&#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;" class="headerlink" title="2-2 &#x4F7F;&#x7528; set() &#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;"></a>2-2 &#x4F7F;&#x7528; set() &#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;</h3><pre><code>&gt;&gt;&gt; s = {[1,2,3],[4,6,7]}
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: unhashable type: &apos;list&apos;
+&#x5982;&#x4E0A;&#x6240;&#x793A;&#x5728;&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;&#x521B;&#x5EFA;&#x5C31;&#x4E0D;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x5F15;&#x51FA;&#x53E6;&#x4E00;&#x79CD;&#x96C6;&#x5408;&#x7684;&#x521B;&#x5EFA;&#x65B9;&#x6CD5;&#x3002;
+
+s = set() # &#x7A7A;&#x96C6;&#x5408;
+# &#x53EF;&#x4EE5;&#x901A;&#x8FC7;set()&#x6765;&#x5C06;&#x5E8F;&#x5217;&#x548C;&#x5B57;&#x5178;&#x8F6C;&#x6362;&#x4E3A;&#x96C6;&#x5408;
+&gt;&gt;&gt; s = set([1,2,3,4,5,1,1,2,3,4,5])
+&gt;&gt;&gt; s
+{1, 2, 3, 4, 5}
+&gt;&gt;&gt; 
+
+# &#x4F7F;&#x7528;set()&#x5C06;&#x5B57;&#x5178;&#x8F6C;&#x6362;&#x4E3A;&#x96C6;&#x5408;&#x65F6;&#xFF0C;&#x53EA;&#x4F1A;&#x5305;&#x542B;&#x5B57;&#x5178;&#x4E2D;&#x7684;&#x952E;
+&gt;&gt;&gt; s = set({&apos;a&apos;:1,&apos;b&apos;:2,&apos;c&apos;:3}) 
+&gt;&gt;&gt; s
+{&apos;c&apos;, &apos;b&apos;, &apos;a&apos;}
+&gt;&gt;&gt; </code></pre><h3 id="3-&#x8BBF;&#x95EE;&#x96C6;&#x5408;"><a href="#3-&#x8BBF;&#x95EE;&#x96C6;&#x5408;" class="headerlink" title="3 &#x8BBF;&#x95EE;&#x96C6;&#x5408;"></a>3 &#x8BBF;&#x95EE;&#x96C6;&#x5408;</h3><pre><code>&#x7531;&#x4E8E;&#x96C6;&#x5408;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#x6240;&#x4EE5;&#x65E0;&#x6CD5;&#x50CF;&#x5E8F;&#x5217;&#x90A3;&#x6837;&#x7528;&#x4E0B;&#x6807;&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FED;&#x4EE3;&#x8FDB;&#x884C;&#x53D6;&#x51FA;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x3002;
+
+1) &#x8FED;&#x4EE3;&#x8BBF;&#x95EE;
+sets={1,2,3,4,5}
+for each in sets:
+    print(each)
+&#x8F93;&#x51FA;&#xFF1A;
+    1
+    2
+    3
+    4
+    5
+
+2) &#x4F7F;&#x7528;in&#x548C;not in&#x6765;&#x68C0;&#x67E5;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5B58;&#x5728;
+
+&gt;&gt;&gt; sets={1,2,3,4,5}
+&gt;&gt;&gt; sets
+{1, 2, 3, 4, 5}
+&gt;&gt;&gt; 5 in sets
+True
+&gt;&gt;&gt; 6 in sets
+False
+
+3) &#x4F7F;&#x7528;len()&#x6765;&#x83B7;&#x53D6;&#x96C6;&#x5408;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;
+&gt;&gt;&gt; print(len(sets))
+5
+&gt;&gt;&gt; 
+
+4) add() &#x5411;&#x96C6;&#x5408;&#x4E2D;&#x6DFB;&#x52A0;&#x5143;&#x7D20;
+&gt;&gt;&gt; sets
+{1, 2, 3, 4, 5}
+&gt;&gt;&gt; sets.add(&quot;helloworld&quot;)
+&gt;&gt;&gt; sets.add(&quot;hellopython&quot;)
+&gt;&gt;&gt; sets
+{1, 2, 3, 4, 5, &apos;helloworld&apos;, &apos;hellopython&apos;}
+&gt;&gt;&gt; 
+
+5) update() 
+&#x5C06;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x5230;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x4E2D;update()
+&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x5E8F;&#x5217;&#x6216;&#x5B57;&#x5178;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x5B57;&#x5178;&#x53EA;&#x4F1A;&#x4F7F;&#x7528;&#x952E;
+
+&gt;&gt;&gt; sets
+{1, 2, 3, 4, 5, &apos;helloworld&apos;, &apos;hellopython&apos;}
+&gt;&gt;&gt; sets.update(set(&apos;hello&apos;))
+&gt;&gt;&gt; sets.update((10,20,30,40,50))
+&gt;&gt;&gt; sets.update({100:1,200:2,300:3,400:4,500:5})
+&gt;&gt;&gt; sets
+{1, 2, 3, 4, 5, 200, 10, 400, &apos;hellopython&apos;, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, &apos;helloworld&apos;, 50, 500, &apos;e&apos;, &apos;o&apos;}
+&gt;&gt;&gt; 
+
+6) remove()&#x5220;&#x9664;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6307;&#x5B9A;&#x5143;&#x7D20;
+&gt;&gt;&gt; sets
+{1, 2, 3, 4, 5, 200, 10, 400, &apos;hellopython&apos;, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, &apos;helloworld&apos;, 50, 500, &apos;e&apos;, &apos;o&apos;}
+&gt;&gt;&gt; sets.remove(&apos;hellopython&apos;)
+&gt;&gt;&gt; sets.remove(&quot;helloworld&quot;)
+&gt;&gt;&gt; sets
+{1, 2, 3, 4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
+&gt;&gt;&gt; 
+
+
+7) pop()&#x968F;&#x673A;&#x5220;&#x9664;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;
+
+&#x8FD9;&#x91CC;&#x968F;&#x673A;&#x9009;&#x62E9;&#x4ECE;&#x9996;&#x5143;&#x7D20;&#x6216;&#x8005;&#x5C3E;&#x5143;&#x7D20;&#x5F00;&#x59CB;&#x3002;
+&gt;&gt;&gt; sets
+{1, 2, 3, 4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
+&gt;&gt;&gt; sets.pop()
+1
+&gt;&gt;&gt; sets.pop()
+2
+&gt;&gt;&gt; sets.pop()
+3
+&gt;&gt;&gt; sets
+{4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
+&gt;&gt;&gt;
+
+8) copy()&#x5BF9;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x6D45;&#x590D;&#x5236;
+&gt;&gt;&gt; sets_copy=sets.copy()
+&gt;&gt;&gt; sets_copy
+{4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
+&gt;&gt;&gt; sets
+{4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
+&gt;&gt;&gt; 
+
+9&#xFF09; clear()&#x6E05;&#x7A7A;&#x96C6;&#x5408;
+  &gt;&gt;&gt; sets
+{4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
+&gt;&gt;&gt; sets.clear()
+&gt;&gt;&gt; sets
+ {}
+&gt;&gt;&gt; </code></pre><h3 id="4-&#x4E0D;&#x53EF;&#x53D8;&#x96C6;&#x5408;"><a href="#4-&#x4E0D;&#x53EF;&#x53D8;&#x96C6;&#x5408;" class="headerlink" title="4 &#x4E0D;&#x53EF;&#x53D8;&#x96C6;&#x5408;"></a>4 &#x4E0D;&#x53EF;&#x53D8;&#x96C6;&#x5408;</h3><pre><code>&#x6709;&#x65F6;&#x5019;&#x5E0C;&#x671B;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x5177;&#x6709;&#x7A33;&#x5B9A;&#x6027;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x50CF;&#x5143;&#x7956;&#x4E00;&#x6837;&#x4E0D;&#x80FD;&#x968F;&#x610F;&#x7684;&#x589E;&#x52A0;&#x548C;&#x4FEE;&#x6539;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x6210;&#x4E0D;&#x53EF;&#x53D8;&#x96C6;&#x5408;&#x3002;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;frozenset() &#x51FD;&#x6570;&#x3002;&#x8FD9;&#x91CC;&#x4FD7;&#x79F0;&#x628A;&#x5143;&#x7D20;&#x7ED9;&#x51B0;&#x51BB;&#x8D77;&#x6765;&#x4E86;&#x3002;
+
+&gt;&gt;&gt; sets=frozenset({1,2,3,4,5,6,7,8})
+&gt;&gt;&gt; sets
+frozenset({1, 2, 3, 4, 5, 6, 7, 8})
+&gt;&gt;&gt; sets.add(9)
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+AttributeError: &apos;frozenset&apos; object has no attribute &apos;add&apos;
+&gt;&gt;&gt; sets.remove(1)
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+AttributeError: &apos;frozenset&apos; object has no attribute &apos;remove&apos;
+&gt;&gt;&gt; </code></pre><h3 id="5-&#x96C6;&#x5408;&#x7684;&#x8FD0;&#x7B97;"><a href="#5-&#x96C6;&#x5408;&#x7684;&#x8FD0;&#x7B97;" class="headerlink" title="5 &#x96C6;&#x5408;&#x7684;&#x8FD0;&#x7B97;"></a>5 &#x96C6;&#x5408;&#x7684;&#x8FD0;&#x7B97;</h3><pre><code># &#x5728;&#x5BF9;&#x96C6;&#x5408;&#x505A;&#x8FD0;&#x7B97;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x539F;&#x6765;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x800C;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8FD0;&#x7B97;&#x7ED3;&#x679C;
+# &#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x96C6;&#x5408;
+&gt;&gt;&gt; sets1={1,2,3,4,5}
+&gt;&gt;&gt; sets2={3,4,5,6,7}
+
+# &amp; &#x4EA4;&#x96C6;&#x8FD0;&#x7B97;
+sets1&#x548C;sets2&#x5171;&#x540C;&#x7684;&#x5143;&#x7D20;
+&gt;&gt;&gt; sets1 &amp; sets2
+{3, 4, 5}
+
+# | &#x5E76;&#x96C6;&#x8FD0;&#x7B97;
+sets1&#x548C;sets2&#x6240;&#x6709;&#x7684;&#x5143;&#x7D20;
+&gt;&gt;&gt; sets1 | sets2
+{1, 2, 3, 4, 5, 6, 7}
+&gt;&gt;&gt;
+
+# - &#x5DEE;&#x96C6;
+&#x5B58;&#x5728;sets1&#x4E2D;&#x4F46;&#x662F;&#x4E0D;&#x5B58;&#x5728;sets2&#x4E2D;
+&gt;&gt;&gt; sets1 - sets2
+{1, 2}
+&gt;&gt;&gt; 
+
+# ^ &#x5F02;&#x6216;&#x96C6; 
+&#x83B7;&#x53D6;&#x53EA;&#x5728;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x5143;&#x7D20;
+&gt;&gt;&gt; sets1 ^ sets2
+{1, 2, 6, 7}
+&gt;&gt;&gt; 
+
+# &lt;= 
+&#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x662F;&#x5426;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x7684;&#x5B50;&#x96C6;
+# &#x5982;&#x679C;a&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x5168;&#x90E8;&#x90FD;&#x5728;b&#x96C6;&#x5408;&#x4E2D;&#x51FA;&#x73B0;&#xFF0C;&#x90A3;&#x4E48;a&#x96C6;&#x5408;&#x5C31;&#x662F;b&#x96C6;&#x5408;&#x7684;&#x5B50;&#x96C6;&#xFF0C;b&#x96C6;&#x5408;&#x662F;a&#x96C6;&#x5408;&#x8D85;&#x96C6;
+a = {1,2,3}
+b = {1,2,3,4,5}
+
+result = a &lt;= b # True
+result = {1,2,3} &lt;= {1,2,3} # True
+result = {1,2,3,4,5} &lt;= {1,2,3} # False
+
+# &lt; 
+&#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x662F;&#x5426;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x7684;&#x771F;&#x5B50;&#x96C6;
+# &#x5982;&#x679C;&#x8D85;&#x96C6;b&#x4E2D;&#x542B;&#x6709;&#x5B50;&#x96C6;a&#x4E2D;&#x6240;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x4E14;b&#x4E2D;&#x8FD8;&#x6709;a&#x4E2D;&#x6CA1;&#x6709;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;b&#x5C31;&#x662F;a&#x7684;&#x771F;&#x8D85;&#x96C6;&#xFF0C;a&#x662F;b&#x7684;&#x771F;&#x5B50;&#x96C6;
+result = {1,2,3} &lt; {1,2,3} # False
+result = {1,2,3} &lt; {1,2,3,4,5} # True
+
+# &gt;= &#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x662F;&#x5426;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x7684;&#x8D85;&#x96C6;
+# &gt; &#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x662F;&#x5426;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x7684;&#x771F;&#x8D85;&#x96C6;</code></pre>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年08月20日 22:44</p>
+        <p>原始链接： <a class="post-url" href="/2019/08/20/python集合/" title="python集合">http://cuikuikui.github.io/2019/08/20/python集合/</a></p>
+        <footer>
+            <a href="http://cuikuikui.github.io">
+                <img src="/images/logo.png" alt="cuikuikui">
+                cuikuikui
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cuikuikui.github.io/2019/08/20/python集合/&title=《python集合》 — cuikuikui's blog&pic=http://cuikuikui.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cuikuikui.github.io/2019/08/20/python集合/&title=《python集合》 — cuikuikui's blog&source=专注 WEB 开发的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cuikuikui.github.io/2019/08/20/python集合/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python集合》 — cuikuikui's blog&url=http://cuikuikui.github.io/2019/08/20/python集合/&via=http://cuikuikui.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cuikuikui.github.io/2019/08/20/python集合/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://cuikuikui.github.io/2019/08/20/python集合/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/集合/" class="color3">集合</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-集合和列表的区别"><span class="post-toc-text">1 集合和列表的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-创建集合"><span class="post-toc-text">2 创建集合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-使用-来创建集合"><span class="post-toc-text">2-1 使用 {} 来创建集合</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-使用-set-函数来创建集合"><span class="post-toc-text">2-2 使用 set() 函数来创建集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-访问集合"><span class="post-toc-text">3 访问集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-不可变集合"><span class="post-toc-text">4 不可变集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-集合的运算"><span class="post-toc-text">5 集合的运算</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/08/21/python-文件/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          python 文件
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/08/19/python字典/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python字典</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+
+
+
+  
+  <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMi8yMjg0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+
+  
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 cuikuikui<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://cuikuikui.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/API教程/">API教程</a><a class="category-link" href="/categories/Http服务器/">Http服务器</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/Markdown-教程/">Markdown 教程</a><a class="category-link" href="/categories/Python3爬虫教程/">Python3爬虫教程</a><a class="category-link" href="/categories/Quick-BI介绍/">Quick BI介绍</a><a class="category-link" href="/categories/Windows/">Windows</a><a class="category-link" href="/categories/git-教程/">git 教程</a><a class="category-link" href="/categories/nginx教程/">nginx教程</a><a class="category-link" href="/categories/python-教程/">python 教程</a><a class="category-link" href="/categories/python爬虫教程/">python爬虫教程</a><a class="category-link" href="/categories/微信小程序教程/">微信小程序教程</a><a class="category-link" href="/categories/软件安装教程/">软件安装教程</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

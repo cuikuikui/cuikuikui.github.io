@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Quick BI企业报表制作 | cuikuikui&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="cuikuikui,cuikuikui's Blog">
+  
+  <meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#xFF1A;&amp;#x5927;&amp;#x5BB6;&amp;#x597D;&amp;#x524D;&amp;#x4E00;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x4E00;&amp;#x4E0B;&amp;#x963F;&amp;#x91CC;&amp;#x4E91;Quick BI&amp;#x4F01;&amp;#x4E1A;&amp;#x62A5;&amp;#x8868;&amp;#x7684">
+<meta name="keywords" content="图形化报表介绍,Quick BI介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quick BI企业报表制作">
+<meta property="og:url" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/index.html">
+<meta property="og:site_name" content="cuikuikui&#39;s blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#xFF1A;&amp;#x5927;&amp;#x5BB6;&amp;#x597D;&amp;#x524D;&amp;#x4E00;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x4E00;&amp;#x4E0B;&amp;#x963F;&amp;#x91CC;&amp;#x4E91;Quick BI&amp;#x4F01;&amp;#x4E1A;&amp;#x62A5;&amp;#x8868;&amp;#x7684">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/0.png">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/1.jpg">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/2.png">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/3.jpg">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/4.jpg">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/5.png">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/6.png">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/7.png">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/1.7.jpg">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/2.2.png">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/2.3.jpg">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/2.4.png">
+<meta property="og:updated_time" content="2019-02-09T16:07:22.395Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Quick BI企业报表制作">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#xFF1A;&amp;#x5927;&amp;#x5BB6;&amp;#x597D;&amp;#x524D;&amp;#x4E00;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x4E00;&amp;#x4E0B;&amp;#x963F;&amp;#x91CC;&amp;#x4E91;Quick BI&amp;#x4F01;&amp;#x4E1A;&amp;#x62A5;&amp;#x8868;&amp;#x7684">
+<meta name="twitter:image" content="http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/0.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">崔魁魁的博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        崔魁魁的博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        博客学习
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="cuikuikui" target="_blank" href="https://www.cuikuikui.top/ck/cuikuikui.com/index.html">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/cuikuikui">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/cuikuikui">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Quick-BI企业报表制作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Quick BI企业报表制作
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/QuickBI介绍/">Quick BI介绍</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-02-08
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <blockquote>
+<p>&#x524D;&#x8A00;&#xFF1A;&#x5927;&#x5BB6;&#x597D;&#x524D;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5B66;&#x4E60;&#x4E86;&#x4E00;&#x4E0B;&#x963F;&#x91CC;&#x4E91;Quick BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x7684;&#x5236;&#x4F5C;,&#x901A;&#x8FC7;&#x62A5;&#x8868;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x89C2;&#x7684;&#x770B;&#x5230;&#x5404;&#x9879;&#x6570;&#x636E;&#x7684;&#x8D70;&#x5411;,&#x5E76;&#x8FDB;&#x884C;&#x4E8B;&#x7269;&#x7684;&#x9884;&#x6D4B;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x7ED9;&#x5927;&#x5BB6;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;QuickBI.</p>
+</blockquote>
+<h1 id="1-&#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;&#x4ECB;&#x7ECD;"><a href="#1-&#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;&#x4ECB;&#x7ECD;" class="headerlink" title="1 &#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;&#x4ECB;&#x7ECD;"></a>1 &#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;&#x4ECB;&#x7ECD;</h1><h2 id="1-1-&#x62A5;&#x8868;"><a href="#1-1-&#x62A5;&#x8868;" class="headerlink" title="1.1 &#x62A5;&#x8868;"></a>1.1 &#x62A5;&#x8868;</h2><p><strong>&#x4EC0;&#x4E48;&#x662F;&#x62A5;&#x8868;&#x5462;&#xFF1F;</strong><br>&#x7528;&#x8868;&#x683C;&#x3001;&#x56FE;&#x8868;&#x7B49;&#x683C;&#x5F0F;&#x6765;&#x663E;&#x793A;&#x6570;&#x636E;&#x3002;&#x5E38;&#x89C1;&#x7684;&#x62A5;&#x8868;&#x683C;&#x5F0F;&#x6709;&#x6570;&#x5B57;&#x8868;&#x683C;&#x3001;&#x56FE;&#x8868;&#x7B49;&#x3002;&#x62A5;&#x8868;&#x662F;&#x5546;&#x4E1A;&#x667A;&#x80FD;&#xFF08;BI&#xFF09;&#x7684;&#x57FA;&#x7840;&#x5E94;&#x7528;&#x3002;<br><strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/0.png" alt="0.png"></p>
+<h2 id="1-2-&#x6570;&#x636E;&#x7684;&#x53EF;&#x89C6;&#x5316;"><a href="#1-2-&#x6570;&#x636E;&#x7684;&#x53EF;&#x89C6;&#x5316;" class="headerlink" title="1.2 &#x6570;&#x636E;&#x7684;&#x53EF;&#x89C6;&#x5316;"></a>1.2 &#x6570;&#x636E;&#x7684;&#x53EF;&#x89C6;&#x5316;</h2><p><strong>1.&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;</strong><br>&#x662F;&#x6307;&#x5C06;&#x76F8;&#x5BF9;&#x590D;&#x6742;&#x7684;&#x6570;&#x636E;&#x901A;&#x8FC7;&#x53EF;&#x89C6;&#x7684;&#x3001;&#x4EA4;&#x4E92;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x5C55;&#x793A;&#xFF0C;&#x4ECE;&#x800C;&#x5F62;&#x8C61;&#x3001;&#x76F4;&#x89C2;&#x5730;&#x8868;&#x8FBE;&#x6570;&#x636E;&#x8574;&#x542B;&#x7684;&#x4FE1;&#x606F;&#x548C;&#x89C4;&#x5F8B;&#x3002;<br><strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/1.jpg" alt="1.png"></p>
+<p><strong>2.&#x5C06;&#x4E8B;&#x7269;&#x7684;&#x6570;&#x503C;&#x56FE;&#x5F62;&#x5316;</strong><br>&#x6BCF;&#x4E2A;&#x4E8B;&#x7269;&#x7684;&#x6570;&#x503C;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x7684;&#x5927;&#x5C0F;&#x4EE5;&#x56FE;&#x5F62;&#x7684;&#x65B9;&#x5F0F;&#x8868;&#x73B0;&#x3002;<br><strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/2.png" alt="2.png"></p>
+<p><strong>3.&#x5C06;&#x4E8B;&#x7269;&#x56FE;&#x5F62;&#x5316;</strong><br>&#x5229;&#x7528;&#x56FE;&#x5F62;&#x8868;&#x793A;&#x4E8B;&#x7269;&#xFF0C;&#x65B9;&#x4FBF;&#x770B;&#x56FE;&#x4EBA;&#x5458;&#xFF0C;&#x4F20;&#x9012;&#x4FE1;&#x606F;&#x3002;<br><strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/3.jpg" alt="3.png"></p>
+<p><strong>4.&#x5C06;&#x4E8B;&#x7269;&#x7684;&#x5173;&#x7CFB;&#x56FE;&#x5F62;&#x5316;</strong><br>&#x5F53;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x6307;&#x6807;&#x65F6;&#xFF0C;&#x6316;&#x6398;&#x6307;&#x6807;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x56FE;&#x5F62;&#x5316;&#x8868;&#x8FBE;&#xFF0C;&#x53EF;&#x63D0;&#x5347;&#x56FE;&#x8868;&#x7684;&#x53EF;&#x89C6;&#x5316;&#x6DF1;&#x5EA6;&#x501F;&#x52A9;<br>&#x5DF2;&#x6709;&#x7684;&#x573A;&#x666F;&#x8868;&#x73B0;&#x901A;&#x8FC7;&#x6784;&#x5EFA;&#x573A;&#x666F;&#x8868;&#x73B0;.<br><strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/4.jpg" alt="4.png"></p>
+<p><strong>5.&#x5C06;&#x65F6;&#x95F4;&#x548C;&#x7A7A;&#x95F4;&#x53EF;&#x89C6;&#x5316;</strong><br><strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/5.png" alt="5.png"></p>
+<p><strong>6.&#x5C06;&#x6982;&#x5FF5;&#x8FDB;&#x884C;&#x8F6C;&#x6362;</strong><br>&#x5BF9;&#x6570;&#x636E;&#x7684;&#x5927;&#x5C0F;&#x96BE;&#x4EE5;&#x611F;&#x77E5;&#x65F6;&#xFF0C;&#x901A;&#x5E38;&#x8FDB;&#x884C;&#x6982;&#x5FF5;&#x8F6C;&#x6362;</p>
+<p>&#x5E38;&#x7528;&#x65B9;&#x6CD5;&#x6709;&#x5BF9;&#x6BD4;&#x548C;&#x6BD4;&#x55BB;   </p>
+<ul>
+<li><strong>&#x5BF9;&#x6BD4;</strong>&#xFF1A;&#x901A;&#x8FC7;&#x5BF9;&#x6BD4;&#x6765;&#x8BA9;&#x7528;&#x6237;&#x611F;&#x77E5;&#x6570;&#x636E;  </li>
+<li><strong>&#x6BD4;&#x55BB;</strong>&#xFF1A;&#x901A;&#x8FC7;&#x6BD4;&#x55BB;&#x624B;&#x6CD5;&#x6765;&#x8BA9;&#x7528;&#x6237;&#x611F;&#x77E5;<br>&#x6570;&#x636E;  </li>
+<li><em>&#x6837;&#x4F8B;&#x56FE;&#x793A;*</em><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/6.png" alt="6.png"></li>
+</ul>
+<h2 id="1-3-&#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;"><a href="#1-3-&#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;" class="headerlink" title="1.3.&#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;"></a>1.3.&#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;</h2><p>&#x4E5F;&#x662F;&#x62A5;&#x8868;&#x7684;&#x4E00;&#x79CD;&#xFF0C;&#x4E5F;&#x662F;&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x56FE;&#x8868;&#x5C06;&#x6570;&#x636E;&#x66F4;&#x76F4;&#x89C2;&#x7684;&#x5C55;&#x793A;&#x51FA;&#x6765;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x4E2D;&#x5173;&#x952E;&#x7684;&#x4FE1;&#x606F;&#x8F6C;&#x5316;&#x6210;&#x53EF;&#x5FEB;&#x901F;&#x83B7;&#x5F97;&#x7684;&#x6613;&#x61C2;&#x7684;&#x4FE1;&#x606F;&#x3002;<br><strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/7.png" alt="7.png">  </p>
+<p>##1.4 &#x56FE;&#x8868;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;  </p>
+<ul>
+<li><strong>&#x6570;&#x636E;&#x5C55;&#x793A;</strong><br>&#x5C06;&#x5DF2;&#x77E5;&#x7684;&#x6570;&#x636E;&#x6216;&#x6570;&#x636E;&#x5206;&#x6790;&#x7ED3;&#x679C;&#x901A;&#x8FC7;&#x53EF;&#x89C6;&#x5316;&#x56FE;&#x8868;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x5C55;&#x793A;&#xFF0C;&#x501F;&#x52A9;&#x4E8E;&#x56FE;&#x5F62;&#x5316;&#x624B;&#x6BB5;&#xFF0C;&#x6E05;&#x6670;&#x6709;&#x6548;&#x5730;&#x4F20;&#x8FBE;&#x4E0E;&#x6C9F;&#x901A;&#x4FE1;&#x606F;&#x3002;  </li>
+<li><strong>&#x6570;&#x636E;&#x5206;&#x6790;</strong><br>&#x57FA;&#x4E8E;&#x56FE;&#x8868;&#x7684;&#x201C;&#x4E8C;&#x6B21;&#x5206;&#x6790;&#x201D;&#xFF0C;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x6DF1;&#x5C42;&#x6B21;&#x6316;&#x6398;&#x3002;&#x901A;&#x8FC7;&#x5BF9;&#x56FE;&#x8868;&#x4E2D;&#x7684;&#x7279;&#x70B9;&#x5206;&#x6790;&#xFF0C;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x6D1E;&#x5BDF;&#x5206;&#x6790;&#x3002;</li>
+</ul>
+<h2 id="1-5-&#x56FE;&#x8868;&#x8BBE;&#x8BA1;&#x6B65;&#x9AA4;"><a href="#1-5-&#x56FE;&#x8868;&#x8BBE;&#x8BA1;&#x6B65;&#x9AA4;" class="headerlink" title="1.5 &#x56FE;&#x8868;&#x8BBE;&#x8BA1;&#x6B65;&#x9AA4;"></a>1.5 &#x56FE;&#x8868;&#x8BBE;&#x8BA1;&#x6B65;&#x9AA4;</h2><ol>
+<li><strong>&#x660E;&#x786E;&#x95EE;&#x9898;</strong><br>&#x8FD9;&#x4E2A;&#x56FE;&#x8868;&#x8981;&#x89E3;&#x51B3;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#xFF1F;&#x5E0C;&#x671B;&#x4F20;&#x8FBE;&#x7ED9;&#x7528;&#x6237;&#x4EC0;&#x4E48;&#x5185;&#x5BB9;&#xFF1F;  </li>
+<li><strong>&#x57FA;&#x672C;&#x6846;&#x67B6;</strong><br>&#x5BF9;&#x6574;&#x4E2A;&#x56FE;&#x8868;&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x521D;;&#x6B65;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x5373;&#x6982;&#x89C8;&#x56FE;;  </li>
+<li><strong>&#x786E;&#x5B9A;&#x6307;&#x6807;</strong><br>&#x5C06;&#x6700;&#x7EC8;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x7684;&#x4FE1;&#x606F;;&#x8F6C;&#x6362;&#x6210;&#x660E;&#x786E;&#x7684;&#x6307;&#x6807;;  </li>
+<li><strong>&#x786E;&#x5B9A;&#x56FE;&#x8868;&#x7C7B;&#x578B;</strong><br>&#x6839;&#x636E;&#x8981;&#x5C55;&#x73B0;&#x7684;&#x5185;&#x5BB9;&#x548C;&#x4FE1;&#x606F;;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x56FE;&#x6807;&#x7C7B;&#x578B;.  </li>
+<li><strong>&#x7A81;&#x51FA;&#x5173;&#x952E;&#x4FE1;&#x606F;</strong><br>&#x901A;&#x8FC7;&#x56FE;&#x8868;&#x8BBE;&#x8BA1;&#x5C06;&#x7528;&#x6237;&#x7684;&#x6CE8;;&#x610F;&#x529B;&#x5F15;&#x5411;&#x5173;&#x952E;&#x4FE1;&#x606F;.</li>
+</ol>
+<h2 id="1-6-&#x597D;&#x56FE;&#x8868;&#x7684;&#x6807;&#x51C6;"><a href="#1-6-&#x597D;&#x56FE;&#x8868;&#x7684;&#x6807;&#x51C6;" class="headerlink" title="1.6 &#x597D;&#x56FE;&#x8868;&#x7684;&#x6807;&#x51C6;"></a>1.6 &#x597D;&#x56FE;&#x8868;&#x7684;&#x6807;&#x51C6;</h2><ul>
+<li>&#x76F4;&#x89C2;&#x6613;&#x61C2;&#x5339;&#x914D;&#x9700;&#x6C42;  </li>
+<li>&#x5173;&#x952E;&#x4FE1;&#x606F;&#x5C55;&#x793A;&#x5230;&#x4F4D; </li>
+<li>&#x5C55;&#x73B0;&#x65B9;&#x5F0F;&#x9009;&#x62E9;&#x5408;&#x9002;  </li>
+<li>&#x56FE;&#x8868;&#x89C6;&#x89C9;&#x6548;&#x679C;&#x826F;&#x597D;</li>
+</ul>
+<h2 id="1-7-&#x4F01;&#x4E1A;&#x7EA7;&#x62A5;&#x8868;&#x95E8;&#x6237;"><a href="#1-7-&#x4F01;&#x4E1A;&#x7EA7;&#x62A5;&#x8868;&#x95E8;&#x6237;" class="headerlink" title="1.7 &#x4F01;&#x4E1A;&#x7EA7;&#x62A5;&#x8868;&#x95E8;&#x6237;"></a>1.7 &#x4F01;&#x4E1A;&#x7EA7;&#x62A5;&#x8868;&#x95E8;&#x6237;</h2><p><strong>&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x95E8;&#x6237;&#xFF08;Portal&#xFF09;</strong>&#x53EF;&#x4EE5;&#x4E3A;&#x4F01;&#x4E1A;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x8BBF;&#x95EE;&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x4FE1;&#x606F;&#x7684;&#x5165;&#x53E3;&#xFF0C;&#x4F01;&#x4E1A;&#x7684;&#x9AD8;&#x5C42;&#x3001;&#x5458;&#x5DE5;&#x53CA;&#x76F8;&#x5173;&#x4EBA;&#x5458;&#x7B49;&#x90FD;<br>&#x53EF;&#x4EE5;&#x7533;&#x8BF7;&#x76F8;&#x5E94;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x901A;&#x8FC7;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A;&#x95E8;&#x6237;&#x83B7;&#x5F97;&#x4E2A;&#x6027;&#x5316;&#x7684;&#x4FE1;&#x606F;&#x548C;&#x670D;&#x52A1;&#x3002;<br><strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/1.7.jpg" alt="1.7.png">    </p>
+<h2 id="1-8-&#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;&#x5E38;&#x7528;&#x5DE5;&#x5177;"><a href="#1-8-&#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;&#x5E38;&#x7528;&#x5DE5;&#x5177;" class="headerlink" title="1.8 &#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;&#x5E38;&#x7528;&#x5DE5;&#x5177;"></a>1.8 &#x56FE;&#x5F62;&#x5316;&#x62A5;&#x8868;&#x5E38;&#x7528;&#x5DE5;&#x5177;</h2><ul>
+<li><strong>Excel&#xFF1A;</strong>&#x4F7F;&#x7528;&#x8F83;&#x5E7F;&#x6CDB;&#xFF0C;&#x53EF;&#x505A;&#x7B80;&#x5355;&#x56FE;&#x8868;&#xFF0C;&#x901A;&#x8FC7;&#x7CBE;&#x5FC3;&#x8BBE;&#x8BA1;&#xFF0C;&#x4E5F;&#x80FD;&#x7ED8;&#x5236;&#x7CBE;&#x7F8E;&#x56FE;&#x8868;&#x3001;&#x52A8;&#x6001;&#x4EA4;&#x4E92;&#x56FE;&#x6548;&#x679C;&#xFF0C;&#x4F46;- &#x6570;&#x636E;&#x91CF;&#x53CA;&#x7075;&#x6D3B;&#x5EA6;&#x53D7;&#x9650;&#x3002;  </li>
+<li><strong>Visual</strong>.ly&#x56FE;&#x8868;&#x79C0;&#xFF1A;&#x5728;&#x7EBF;&#x4FE1;&#x606F;&#x5316;&#x56FE;&#x8868;&#x5236;&#x4F5C;&#x5DE5;&#x5177;&#x3002;  </li>
+<li><strong>Tableau&#xFF1A;</strong>&#x66F4;&#x7075;&#x6D3B;&#x6DF1;&#x5165;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x66F4;&#x7F8E;&#x89C2;&#x7684;&#x5C55;&#x793A;&#x4E0E;&#x4EA4;&#x4E92;&#xFF1B;&#x514D;&#x8D39;Public&#x7248;&#x672C;&#xFF0C;&#x9700;&#x8981;&#x5C06;&#x6570;&#x636E;&#x653E;&#x5230;&#x7F51;&#x4E0A;&#x3002;   - iCharts&#xFF1A;&#x521B;&#x5EFA;&#x56FE;&#x8868;&#x7684;&#x4E91;&#x670D;&#x52A1;&#xFF0C;&#x5728;iCharts&#x5E73;&#x53F0;&#x521B;&#x5EFA;&#x53EF;&#x5B9A;&#x5236;&#x5316;&#x7684;&#x56FE;&#x8868;&#x3002;  </li>
+<li><strong>R&#xFF1A;</strong>&#x5F00;&#x6E90;&#xFF0C;&#x6709;&#x5E7F;&#x6CDB;&#x7684;&#x6269;&#x5C55;&#x5305;&#xFF0C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x5236;&#x4F5C;&#x9759;&#x6001;&#x56FE;&#x5F62;&#x3002;  </li>
+<li><strong>Processing&#xFF1A;</strong>&#x504F;&#x5411;&#x4E8E;&#x7F8E;&#x5DE5;&#x8BBE;&#x8BA1;&#x7684;&#xFF0C;&#x975E;&#x5E38;&#x70AB;&#x76EE;&#x7684;&#x53EF;&#x89C6;&#x5316;&#x6548;&#x679C;&#x56FE;.  </li>
+<li><strong>JavaScript&#x5B9E;&#x73B0;&#x7684;&#x5DE5;&#x5177;&#xFF1A;</strong>&#x66F4;&#x7075;&#x6D3B;&#x6DF1;&#x5165;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x66F4;&#x7F8E;&#x89C2;&#x7684;&#x5C55;&#x793A;&#x4E0E;&#x4EA4;&#x4E92;(Chart.js/D3.js/FusionCharts/Google Charts/Echarts/Moment.js/Dygraphs/Highcharts&#x2026;&#x2026;)&#x3002;  </li>
+<li><strong>Python&#xFF1A;</strong>&#x5E7F;&#x6CDB;&#x7528;&#x4E8E;&#x6570;&#x636E;&#x5904;&#x7406;&#x548C;&#x6570;&#x636E;&#x5206;&#x6790;&#xFF0C;&#x6709;matplotlib&#x7B49;&#x652F;&#x6301;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x5305;&#x652F;&#x6301;&#xFF0C;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x4E0D;&#x9519;&#x7684;&#x53EF;&#x89C6;&#x5316;&#x4F5C;&#x54C1;&#x3002;  </li>
+<li><strong>Gephi&#xFF1A;</strong>&#x5F00;&#x6E90;&#xFF0C;&#x652F;&#x6301;&#x4EA4;&#x4E92;&#x5F0F;&#x63A2;&#x7D22;&#x7F51;&#x7EDC;&#x4E0E;&#x5C42;&#x6B21;&#x7ED3;&#x679C;&#x7684;&#x5DE5;&#x5177;&#x3002;  </li>
+<li><strong>Quick BI&#xFF1A;</strong>&#x63D0;&#x4F9B;&#x6D77;&#x91CF;&#x6570;&#x636E;&#x5B9E;&#x65F6;&#x5728;&#x7EBF;&#x5206;&#x6790;&#xFF0C;&#x62D6;&#x62FD;&#x5F0F;&#x64CD;&#x4F5C;&#x3001;&#x4E30;&#x5BCC;&#x7684;&#x53EF;&#x89C6;&#x5316;&#x6548;&#x679C;&#xFF0C;&#x5E2E;&#x52A9;&#x60A8;&#x8F7B;&#x677E;&#x81EA;&#x5982;&#x5730;&#x5B8C;&#x6210;&#x6570;&#x636E;&#x5206;&#x6790;&#x3001;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x63A2;&#x67E5;&#x3002;  <h1 id="2-Quick-BI&#x4ECB;&#x7ECD;"><a href="#2-Quick-BI&#x4ECB;&#x7ECD;" class="headerlink" title="2 Quick BI&#x4ECB;&#x7ECD;"></a>2 Quick BI&#x4ECB;&#x7ECD;</h1><h2 id="2-1-Quick-BI&#x4ECB;&#x7ECD;"><a href="#2-1-Quick-BI&#x4ECB;&#x7ECD;" class="headerlink" title="2.1 Quick BI&#x4ECB;&#x7ECD;"></a>2.1 Quick BI&#x4ECB;&#x7ECD;</h2></li>
+</ul>
+<p><strong>Quick BI</strong> &#x63D0;&#x4F9B;&#x6D77;&#x91CF;&#x6570;&#x636E;&#x5B9E;&#x65F6;&#x5728;&#x7EBF;&#x5206;&#x6790;&#xFF0C;&#x62D6;&#x62FD;&#x5F0F;&#x64CD;&#x4F5C;&#x3001;&#x4E30;&#x5BCC;&#x7684;&#x53EF;&#x89C6;&#x5316;&#x6548;&#x679C;&#xFF0C;&#x5E2E;&#x52A9;&#x60A8;&#x8F7B;&#x677E;&#x81EA;&#x5982;&#x5730;&#x5B8C;&#x6210;&#x6570;&#x636E;&#x5206;&#x6790;&#x3001;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x63A2;&#x67E5;&#x3002;&#x5B83;&#x4E0D;&#x6B62;&#x662F;&#x4E1A;&#x52A1;&#x4EBA;&#x5458;&#x770B;&#x6570;&#x636E;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x66F4;&#x662F;&#x6570;&#x636E;&#x5316;&#x8FD0;&#x8425;&#x7684;&#x52A9;&#x63A8;&#x5668;&#xFF0C;&#x89E3;&#x51B3;&#x5927;&#x6570;&#x636E;&#x5E94;&#x7528;&#x201C;&#x6700;&#x540E;&#x4E00;&#x516C;&#x91CC;&#x201D;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5B9E;&#x73B0;&#x4EBA;&#x4EBA;&#x90FD;&#x662F;&#x6570;&#x636E;&#x5206;&#x6790;&#x5E08;&#x3002;<br> <strong>Quick BI&#x7279;&#x70B9;&#x603B;&#x7ED3;&#xFF1A;</strong><br><strong>&#x591A;&#xFF1A;</strong>&#x652F;&#x6301;&#x591A;&#x79CD;&#x7C7B;&#x578B;&#x6570;&#x636E;&#x6E90;;&#x652F;&#x6301;&#x591A;&#x79CD;&#x53EF;&#x89C6;&#x5316;&#x7EC4;&#x4EF6;&#x3002;<br><strong>&#x5FEB;&#xFF1A;</strong>&#x6D77;&#x91CF;&#x6570;&#x636E;&#x7684;&#x5B9E;&#x65F6;&#x5206;&#x6790;&#xFF1B;&#x63D0;&#x4F9B;&#x667A;&#x80FD;&#x7684;&#x4E00;&#x952E;&#x52A0;&#x901F;&#x3002;<br><strong>&#x597D;&#xFF1A;</strong>&#x7075;&#x6D3B;&#x7684;&#x62A5;&#x8868;&#x96C6;&#x6210;&#x65B9;&#x6848;&#xFF1B;&#x4E25;&#x5BC6;&#x7684;&#x5B89;&#x5168;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x3002;<br><strong>&#x7701;&#xFF1A;</strong>&#x95E8;&#x69DB;&#x4F4E;&#x6613;&#x4E0A;&#x624B;&#x7701;&#x65F6;&#x95F4;&#xFF1B;&#x4E91;&#x8BA1;&#x7B97;&#x8D39;&#x7528;&#x4F4E;&#x7701;&#x6210;&#x672C;&#x3002;</p>
+<h2 id="2-2-Quick-BI&#x4EA7;&#x54C1;&#x67B6;&#x6784;"><a href="#2-2-Quick-BI&#x4EA7;&#x54C1;&#x67B6;&#x6784;" class="headerlink" title="2.2 Quick BI&#x4EA7;&#x54C1;&#x67B6;&#x6784;"></a>2.2 Quick BI&#x4EA7;&#x54C1;&#x67B6;&#x6784;</h2><p><strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/2.2.png" alt="2.2"> </p>
+<h2 id="2-3-Quick-BI&#x5728;&#x5927;&#x6570;&#x636E;&#x65B9;&#x6848;&#x4E2D;&#x7684;&#x89D2;&#x8272;"><a href="#2-3-Quick-BI&#x5728;&#x5927;&#x6570;&#x636E;&#x65B9;&#x6848;&#x4E2D;&#x7684;&#x89D2;&#x8272;" class="headerlink" title="2.3 Quick BI&#x5728;&#x5927;&#x6570;&#x636E;&#x65B9;&#x6848;&#x4E2D;&#x7684;&#x89D2;&#x8272;"></a>2.3 Quick BI&#x5728;&#x5927;&#x6570;&#x636E;&#x65B9;&#x6848;&#x4E2D;&#x7684;&#x89D2;&#x8272;</h2><p> <strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/2.3.jpg" alt="2.3">   </p>
+<h1 id="2-4-Quick-BI-&#x4E94;&#x6B65;&#x8D70;"><a href="#2-4-Quick-BI-&#x4E94;&#x6B65;&#x8D70;" class="headerlink" title="2.4 Quick BI &#x4E94;&#x6B65;&#x8D70;"></a>2.4 Quick BI &#x4E94;&#x6B65;&#x8D70;</h1><p> <strong>&#x6837;&#x4F8B;&#x56FE;&#x793A;</strong><br><img src="/2019/02/08/Quick-BI&#x4F01;&#x4E1A;&#x62A5;&#x8868;&#x5236;&#x4F5C;/2.4.png" alt="2.4">   </p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年02月10日 00:07</p>
+        <p>原始链接： <a class="post-url" href="/2019/02/08/Quick-BI企业报表制作/" title="Quick BI企业报表制作">http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/</a></p>
+        <footer>
+            <a href="http://cuikuikui.github.io">
+                <img src="/images/logo.png" alt="cuikuikui">
+                cuikuikui
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/&title=《Quick BI企业报表制作》 — cuikuikui's blog&pic=http://cuikuikui.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/&title=《Quick BI企业报表制作》 — cuikuikui's blog&source=专注 WEB 开发的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Quick BI企业报表制作》 — cuikuikui's blog&url=http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/&via=http://cuikuikui.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://cuikuikui.github.io/2019/02/08/Quick-BI企业报表制作/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/图形化报表介绍/" class="color3">图形化报表介绍</a>
+      
+    <a href="/tags/QuickBI介绍/" class="color1">Quick BI介绍</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-图形化报表介绍"><span class="post-toc-text">1 图形化报表介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-报表"><span class="post-toc-text">1.1 报表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-数据的可视化"><span class="post-toc-text">1.2 数据的可视化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-图形化报表"><span class="post-toc-text">1.3.图形化报表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-5-图表设计步骤"><span class="post-toc-text">1.5 图表设计步骤</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-6-好图表的标准"><span class="post-toc-text">1.6 好图表的标准</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-7-企业级报表门户"><span class="post-toc-text">1.7 企业级报表门户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-8-图形化报表常用工具"><span class="post-toc-text">1.8 图形化报表常用工具</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Quick-BI介绍"><span class="post-toc-text">2 Quick BI介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-Quick-BI介绍"><span class="post-toc-text">2.1 Quick BI介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-Quick-BI产品架构"><span class="post-toc-text">2.2 Quick BI产品架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-Quick-BI在大数据方案中的角色"><span class="post-toc-text">2.3 Quick BI在大数据方案中的角色</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-4-Quick-BI-五步走"><span class="post-toc-text">2.4 Quick BI 五步走</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/02/09/第二章-nginx信号量/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          第二章 nginx信号量
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/02/05/第四章-nginx日志管理/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">第四章 nginx日志管理</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+
+
+
+  
+  <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMi8yMjg0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+
+  
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 cuikuikui<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://cuikuikui.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/API教程/">API教程</a><a class="category-link" href="/categories/Http服务器/">Http服务器</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/Markdown-教程/">Markdown 教程</a><a class="category-link" href="/categories/Python3爬虫教程/">Python3爬虫教程</a><a class="category-link" href="/categories/Quick-BI介绍/">Quick BI介绍</a><a class="category-link" href="/categories/Windows/">Windows</a><a class="category-link" href="/categories/git-教程/">git 教程</a><a class="category-link" href="/categories/nginx教程/">nginx教程</a><a class="category-link" href="/categories/python-教程/">python 教程</a><a class="category-link" href="/categories/python爬虫教程/">python爬虫教程</a><a class="category-link" href="/categories/微信小程序教程/">微信小程序教程</a><a class="category-link" href="/categories/软件安装教程/">软件安装教程</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

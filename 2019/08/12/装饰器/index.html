@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>python的装饰器 | cuikuikui&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="cuikuikui,cuikuikui's Blog">
+  
+  <meta name="description" content="&amp;#x4E00;&amp;#x3001; &amp;#x5F15;&amp;#x8A00; &amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#x662F;&amp;#x6BCF;&amp;#x4E00;&amp;#x4E2A;&amp;#x4F7F;&amp;#x7528;Python&amp;#x7684;&amp;#x4EBA;&amp;#x90FD;&amp;#x4F1A;&amp;#x63A5;&amp;#x89E6;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x589E;">
+<meta name="keywords" content="装饰器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python的装饰器">
+<meta property="og:url" content="http://cuikuikui.github.io/2019/08/12/装饰器/index.html">
+<meta property="og:site_name" content="cuikuikui&#39;s blog">
+<meta property="og:description" content="&amp;#x4E00;&amp;#x3001; &amp;#x5F15;&amp;#x8A00; &amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#x662F;&amp;#x6BCF;&amp;#x4E00;&amp;#x4E2A;&amp;#x4F7F;&amp;#x7528;Python&amp;#x7684;&amp;#x4EBA;&amp;#x90FD;&amp;#x4F1A;&amp;#x63A5;&amp;#x89E6;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x589E;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-15T15:16:23.987Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python的装饰器">
+<meta name="twitter:description" content="&amp;#x4E00;&amp;#x3001; &amp;#x5F15;&amp;#x8A00; &amp;#x88C5;&amp;#x9970;&amp;#x5668;&amp;#x662F;&amp;#x6BCF;&amp;#x4E00;&amp;#x4E2A;&amp;#x4F7F;&amp;#x7528;Python&amp;#x7684;&amp;#x4EBA;&amp;#x90FD;&amp;#x4F1A;&amp;#x63A5;&amp;#x89E6;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x589E;">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">崔魁魁的博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        崔魁魁的博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        博客学习
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="cuikuikui" target="_blank" href="https://www.cuikuikui.top/ck/cuikuikui.com/index.html">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/cuikuikui">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/cuikuikui">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-装饰器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      python的装饰器
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/python教程/">python 教程</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-08-12
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="&#x4E00;&#x3001;-&#x5F15;&#x8A00;"><a href="#&#x4E00;&#x3001;-&#x5F15;&#x8A00;" class="headerlink" title="&#x4E00;&#x3001; &#x5F15;&#x8A00;"></a>&#x4E00;&#x3001; &#x5F15;&#x8A00;</h3><p> &#x88C5;&#x9970;&#x5668;&#x662F;&#x6BCF;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;Python&#x7684;&#x4EBA;&#x90FD;&#x4F1A;&#x63A5;&#x89E6;&#x5230;&#x7684;&#x4E00;&#x79CD;&#x589E;&#x5F3A;&#x51FD;&#x6570;&#x529F;&#x80FD;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4E5F;&#x662F;&#x9762;&#x8BD5;&#x5B98;&#x7ECF;&#x5E38;&#x4F1A;&#x95EE;&#x5230;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#xFF0C;&#x8FD9;&#x91CC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x7684;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;&#x5E38;&#x89C1;&#x7684;&#x56DB;&#x79CD;&#x88C5;&#x9970;&#x5668;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;</p>
+<h3 id="1-&#x88C5;&#x9970;&#x5668;&#x7684;&#x5B9A;&#x4E49;"><a href="#1-&#x88C5;&#x9970;&#x5668;&#x7684;&#x5B9A;&#x4E49;" class="headerlink" title="1 &#x88C5;&#x9970;&#x5668;&#x7684;&#x5B9A;&#x4E49;**"></a>1 &#x88C5;&#x9970;&#x5668;&#x7684;&#x5B9A;&#x4E49;**</h3><p><strong>&#x5728;python&#x4E2D;&#x88C5;&#x9970;&#x5668;&#x7684;&#x529F;&#x80FD;&#x662F;&#x5C06;&#x88AB;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;&#x5F53;&#x4F5C;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x4E0E;&#x88C5;&#x9970;&#x5668;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;&#xFF08;&#x540D;&#x79F0;&#x76F8;&#x540C;&#x7684;&#x51FD;&#x6570;&#xFF09;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5305;&#x88C5;&#x540E;&#x7684;&#x88AB;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;&#x3002;</strong></p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;&#x73B0;&#x5728;&#x6709;&#x4E00;&#x4E2A;&#x9700;&#x6C42;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6267;&#x884C;&#x8BE5;&#x51FD;&#x6570;&#x65F6;&#x52A0;&#x4E0A;&#x65E5;&#x5FD7;<br>    &#x5148;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF1A;<br>    def eat():<br>        print(&#x201C;&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&#x201D;)<br>    &#x9700;&#x6C42;&#xFF1A;&#x5728;&#x6267;&#x884C;eat()&#x65F6;&#x52A0;&#x4E0A;&#x51FD;&#x6570;&#x6267;&#x884C;&#x65E5;&#x5FD7;&#x3002;</p>
+<h4 id="1-1-&#x4E00;&#x822C;&#x65B9;&#x6CD5;&#xFF1A;"><a href="#1-1-&#x4E00;&#x822C;&#x65B9;&#x6CD5;&#xFF1A;" class="headerlink" title="1-1 &#x4E00;&#x822C;&#x65B9;&#x6CD5;&#xFF1A;"></a>1-1 &#x4E00;&#x822C;&#x65B9;&#x6CD5;&#xFF1A;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;..........&#x5F00;&#x59CB;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;........&quot;)</span><br><span class="line">eat()</span><br><span class="line">print(&quot;..........&#x7ED3;&#x675F;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;........&quot;)</span><br><span class="line"></span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;</span><br><span class="line">    &#x5F00;&#x59CB;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;</span><br><span class="line">    &#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;</span><br><span class="line">    &#x7ED3;&#x675F;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;</span><br><span class="line">&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x867D;&#x7136;&#x5B9E;&#x73B0;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x9700;&#x6C42;&#x4FB5;&#x5165;&#x5230;&#x539F;&#x6765;&#x7684;&#x4EE3;&#x7801;&#x91CC;&#x9762;&#xFF0C;&#x4F7F;&#x5F97;&#x539F;&#x6765;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x53D8;&#x5F97;&#x590D;&#x6742;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#x4E5F;&#x4E0D;&#x7B26;&#x5408;&#x201C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x53EA;&#x505A;&#x4E00;&#x4EF6;&#x4E8B;&#x60C5;&#x201D;&#x7684;&#x539F;&#x5219;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-&#x95ED;&#x5305;&#x65B9;&#x6CD5;&#xFF1A;"><a href="#1-2-&#x95ED;&#x5305;&#x65B9;&#x6CD5;&#xFF1A;" class="headerlink" title="1-2 &#x95ED;&#x5305;&#x65B9;&#x6CD5;&#xFF1A;"></a>1-2 &#x95ED;&#x5305;&#x65B9;&#x6CD5;&#xFF1A;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def log(func):</span><br><span class="line">    def wrapper():</span><br><span class="line">        print(&quot;&#x5F00;&#x59CB;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&quot;)</span><br><span class="line">        func()</span><br><span class="line">        print(&quot;&#x7ED3;&#x675F;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&quot;)</span><br><span class="line">    return wrapper</span><br><span class="line">def eat():</span><br><span class="line">    print(&quot;&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&quot;)</span><br><span class="line">eat=log(eat)</span><br><span class="line">eat()</span><br><span class="line"></span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;</span><br><span class="line">    &#x5F00;&#x59CB;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;</span><br><span class="line">    &#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;</span><br><span class="line">    &#x7ED3;&#x675F;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;</span><br><span class="line">  log(eat)&#x5C06;eat&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;log(),&#x7531;&#x4E8E;wrapper()&#x662F;log()&#x95ED;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;log()</span><br><span class="line">log()&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;func, &#x4E5F;&#x5C31;&#x662F;&#x521A;&#x521A;&#x4F20;&#x9012;&#x8FDB;&#x6765;&#x7684;eat&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x6267;&#x884C;func()&#x4E0E;&#x6267;&#x884C;eat()&#x662F;&#x4E00;&#x4E2A;&#x6548;&#x679C;&#x3002;</span><br><span class="line">&#x8FD9;&#x6837;&#x5C31;&#x6CA1;&#x6709;&#x4FEE;&#x6539;eat()&#x51FD;&#x6570;&#x91CC;&#x9762;&#x7684;&#x903B;&#x8F91;&#x7ED3;&#x6784;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x7ED9;&#x4E3B;&#x7A0B;&#x5E8F;&#x5E26;&#x6765;&#x592A;&#x591A;&#x5E72;&#x6270;&#x3002;&#x4F46;&#x603B;&#x662F;&#x611F;&#x89C9;&#x8FD9;&#x4E2A;eat()&#x51FD;&#x6570;&#x6709;&#x70B9;&#x522B;&#x626D;&#x3002;</span><br><span class="line">  &#x56E0;&#x6B64;python&#x53D1;&#x660E;&#x4E86;&#x201C;@&#x8BED;&#x6CD5;&#x7CD6;&#x201D;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;"><a href="#1-3-&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;" class="headerlink" title="1-3 &#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;"></a>1-3 &#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x6240;&#x8C13;&#x8BED;&#x6CD5;&#x7CD6;&#x5C31;&#x662F;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x8BED;&#x8A00;&#x4E2D;&#x6DFB;&#x52A0;&#x7684;&#x67D0;&#x79CD;&#x8BED;&#x6CD5;&#xFF0C;&#x8FD9;&#x79CD;&#x8BED;&#x6CD5;&#x5BF9;&#x8BED;&#x8A00;&#x7684;&#x529F;&#x80FD;&#x6CA1;&#x6709;&#x5F71;&#x54CD;&#xFF0C;&#x4F46;&#x662F;&#x66F4;&#x52A0;&#x65B9;&#x9762;&#x7A0B;&#x5E8F;&#x5458;&#xFF0C;&#x8BA9;&#x7A0B;&#x5E8F;&#x66F4;&#x52A0;&#x7B80;&#x6D01;&#xFF0C;&#x6709;&#x66F4;&#x9AD8;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x3002;</span><br><span class="line"></span><br><span class="line">def log(func):</span><br><span class="line">    def wrapper():</span><br><span class="line">        print(&quot;&#x5F00;&#x59CB;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&quot;)</span><br><span class="line">        func()</span><br><span class="line">        print(&quot;&#x7ED3;&#x675F;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&quot;)</span><br><span class="line">    return wrapper</span><br><span class="line">@log</span><br><span class="line">def eat():</span><br><span class="line">    print(&quot;&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&quot;)</span><br><span class="line">eat()</span><br><span class="line"></span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;</span><br><span class="line">    &#x5F00;&#x59CB;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;</span><br><span class="line">    &#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;</span><br><span class="line">    &#x7ED3;&#x675F;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;</span><br><span class="line">&#x8FD9;&#x6837;&#x5C31;&#x7701;&#x53BB;&#x4E86;&#x624B;&#x52A8;&#x5C06;eat()&#x51FD;&#x6570;&#x4F20;&#x9012;&#x7ED9;log()&#x518D;&#x5C06;&#x8FD4;&#x56DE;&#x503C;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#x7684;&#x6B65;&#x9AA4;&#x3002;&#x4F46;&#x662F;&#x4E0B;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x5982;&#x679C;eat()&#x51FD;&#x6570;&#x6709;&#x53C2;&#x6570;&#x600E;&#x4E48;&#x529E;&#x3002;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;"><a href="#1-4-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;" class="headerlink" title="1-4 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;"></a>1-4 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x53C2;&#x6570;&#x5185;&#x90E8;&#x7684;wrapper()&#x53C2;&#x6570;</span><br><span class="line">def log(func):</span><br><span class="line">    def wrapper(name):</span><br><span class="line">        print(&quot;&#x5F00;&#x59CB;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&quot;)</span><br><span class="line">        func(name)</span><br><span class="line">        print(&quot;&#x7ED3;&#x675F;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&quot;)</span><br><span class="line">    return wrapper</span><br><span class="line">@log</span><br><span class="line">def eat(name):</span><br><span class="line">    print(&quot;%s&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&quot; % name)</span><br><span class="line">eat(&quot;&#x5C0F;&#x7532;&#x9C7C;&quot;)</span><br><span class="line"></span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;</span><br><span class="line">    &#x5F00;&#x59CB;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;</span><br><span class="line">    &#x5C0F;&#x7532;&#x9C7C;&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;</span><br><span class="line">    &#x7ED3;&#x675F;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;</span><br><span class="line">&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5173;&#x6CE8;eat()&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x6570;&#x91CF;</span><br><span class="line"></span><br><span class="line">&#x4F46;&#x662F;&#x8BE5;&#x88C5;&#x9970;&#x5668;&#x4F9D;&#x7136;&#x5B58;&#x5728;&#x5F88;&#x5927;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x4FEE;&#x6539;&#x4E86;eat()&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x8981;&#x4FEE;&#x6539;&#x88C5;&#x9970;&#x5668;log() ,&#x4E0D;&#x4EC5;&#x4E0D;&#x65B9;&#x9762;&#x800C;&#x4E14;&#x4E5F;&#x5BB9;&#x6613;&#x51FA;&#x9519;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5728;&#x8BBE;&#x8BA1;&#x88C5;&#x9970;&#x5668;&#x65F6;&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x6539;&#x52A8;&#x3002;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#x5B8C;&#x7F8E;&#x7248;&#xFF1A;"><a href="#1-5-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#x5B8C;&#x7F8E;&#x7248;&#xFF1A;" class="headerlink" title="1-5 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#x5B8C;&#x7F8E;&#x7248;&#xFF1A;"></a>1-5 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#x5B8C;&#x7F8E;&#x7248;&#xFF1A;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x5728;&#x5B9A;&#x4E49;&#x88C5;&#x9970;&#x5668;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x624B;&#x673A;&#x53C2;&#x6570;&#xFF0C;&#x5C06;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x6253;&#x5305;&#x5230;&#x4E00;&#x4E2A;&#x5143;&#x7956;&#x4E2D;&#xFF0C;&#x5728;&#x8C03;&#x7528;&#x65F6;&#x53EA;&#x8981;&#x4F7F;&#x7528;&#xFF08;*&#xFF09;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x89E3;&#x5305;&#x5373;&#x53EF;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x8BBA;eat()&#x51FD;&#x6570;&#x91CC;&#x65E0;&#x8BBA;&#x4F20;&#x5165;&#x591A;&#x5C11;&#x53C2;&#x6570;&#xFF0C;&#x90FD;&#x65E0;&#x4F24;&#x5927;&#x96C5;&#x4E86;&#x3002;</span><br><span class="line"></span><br><span class="line">def log(func):</span><br><span class="line">    def decorator(*param,**params):</span><br><span class="line">        print(&quot;&#x5F00;&#x59CB;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&quot;)</span><br><span class="line">        func(*param,**params)</span><br><span class="line">        print(&quot;&#x7ED3;&#x675F;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&quot;)</span><br><span class="line">    return wrapper</span><br><span class="line">@log</span><br><span class="line">def eat(age,name):</span><br><span class="line">    print(&quot;%s&#x5C81;&#x7684;%s&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&quot; % (age,name))</span><br><span class="line">eat(10,&quot;&#x5C0F;&#x7532;&#x9C7C;&quot;)</span><br><span class="line"></span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;</span><br><span class="line">    &#x5F00;&#x59CB;&#x8C03;&#x7528;eat&#x51FD;&#x6570;</span><br><span class="line">    10&#x5C81;&#x7684;&#x5C0F;&#x7532;&#x9C7C;&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;</span><br><span class="line">    &#x7ED3;&#x675F;&#x8C03;&#x7528;eat&#x51FD;&#x6570;</span><br><span class="line"></span><br><span class="line">decorator&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x4F7F;&#x7528;@decorator&#x88C5;&#x9970;eat&#x51FD;&#x6570;&#x4E4B;&#x540E;&#xFF0C;</span><br><span class="line">&#x76F8;&#x5F53;&#x4E8E;&#x6267;&#x884C;&#x4E86;eat= decorator(eat),&#x800C;decorator&#x65B9;&#x6CD5;return wrapper&#xFF0C;</span><br><span class="line">&#x56E0;&#x6B64;&#x88AB;&#x88C5;&#x9970;&#x540E;&#x6267;&#x884C;&#x7684;eat()&#x76F8;&#x5F53;&#x4E8E;&#x6267;&#x884C;&#x4E86;wrapper()&#x8FD9;&#x91CC;decorator(*param, **params)</span><br><span class="line">&#x63A5;&#x6536;&#x6240;&#x6709;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x628A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;func&#x5F62;&#x53C2;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;(&#x4E5F;&#x5C31;&#x662F;eat&#x51FD;&#x6570;)&#x6267;&#x884C;.</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-6-&#x88C5;&#x9970;&#x5668;&#x7684;&#x9AD8;&#x7EA7;&#x73A9;&#x6CD5;-&#x591A;&#x5C42;&#x88C5;&#x9970;&#x5668;&#xFF1A;"><a href="#1-6-&#x88C5;&#x9970;&#x5668;&#x7684;&#x9AD8;&#x7EA7;&#x73A9;&#x6CD5;-&#x591A;&#x5C42;&#x88C5;&#x9970;&#x5668;&#xFF1A;" class="headerlink" title="1-6 &#x88C5;&#x9970;&#x5668;&#x7684;&#x9AD8;&#x7EA7;&#x73A9;&#x6CD5;-&#x591A;&#x5C42;&#x88C5;&#x9970;&#x5668;&#xFF1A;"></a>1-6 &#x88C5;&#x9970;&#x5668;&#x7684;&#x9AD8;&#x7EA7;&#x73A9;&#x6CD5;-&#x591A;&#x5C42;&#x88C5;&#x9970;&#x5668;&#xFF1A;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@buffer</span><br><span class="line">@performance</span><br><span class="line">@log</span><br><span class="line">def eat(name):</span><br><span class="line">    print(&quot;%s&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&quot; %name)</span><br><span class="line"></span><br><span class="line">&#x5728;&#x8C03;&#x7528;&#x65F6;&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528;&#x4E86;buffer(performance(log(eat)))</span><br></pre></td></tr></table></figure>
+
+<h3 id="&#x4E8C;-&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x51FD;&#x6570;"><a href="#&#x4E8C;-&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x51FD;&#x6570;" class="headerlink" title="&#x4E8C; &#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x51FD;&#x6570;"></a>&#x4E8C; &#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x51FD;&#x6570;</h3><h5 id="2-1-&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;"><a href="#2-1-&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;" class="headerlink" title="2-1 &#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;"></a>2-1 &#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#x5728;&#x9762;&#x8BD5;&#x65F6;&#x5927;&#x591A;&#x6570;&#x9762;&#x8BD5;&#x5B98;&#x90FD;&#x4F1A;&#x8BA9;&#x4F60;&#x5199;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x4E00;&#x822C;&#x4F1A;&#x8BA9;&#x4F60;&#x5199;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x7684;&#x88C5;&#x9970;&#x5668;&#x3002;</span><br><span class="line">&#x4E0B;&#x9762;&#x5C31;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x7684;&#x88C5;&#x9970;&#x5668;&#x8FDB;&#x884C;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;</span><br><span class="line"></span><br><span class="line">import time</span><br><span class="line">def calculate_time(func):</span><br><span class="line">    def wrapper(*args, **kwargs):</span><br><span class="line">        start = time.time()</span><br><span class="line">        result = func(*args, **kwargs)</span><br><span class="line">        end = time.time()</span><br><span class="line">        print(&quot;Function run time is: &quot;, end - start)</span><br><span class="line">        return result</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">@calculate_time</span><br><span class="line">def test_func(time_val):</span><br><span class="line">    time.sleep(time_val)</span><br><span class="line">    print(&quot;Function sleep %s second&quot; % time_val)</span><br><span class="line">    return &quot;end&quot;</span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    test_func(2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x6574;&#x4E2A;&#x7A0B;&#x5E8F;&#x7684;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;,</span><br><span class="line">&#x7B2C;&#x4E00; : @calculate_time&#x7B49;&#x4EF7;&#x4E8E;test_func=calculate_time(test_func(2))</span><br><span class="line">&#x7B2C;&#x4E8C; : func=test_func(2),&#x8FDB;&#x5165;wrapper&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x4E4B;&#x540E;&#x8FDB;&#x5165;func&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5373;&#x6267;&#x884C;test_func() </span><br><span class="line">&#x7B2C;&#x4E09; : &#x8F93;&#x51FA;&#xFF1A;Function sleep 2 second</span><br><span class="line">&#x7B2C;&#x56DB; : &#x8F93;&#x51FA;&#xFF1A;Function run time is:  2.0002989768981934</span><br><span class="line">&#x6CE8;&#x91CA;&#xFF1A;wrapper(*args, **kwargs)&#x63A5;&#x6536;&#x4EFB;&#x610F;&#x53C2;&#x6570;&#x3002;*args&#x6307;&#x7684;&#x662F;&#x6536;&#x96C6;&#x53C2;&#x6570;&#xFF08;&#x5305;&#x62EC;&#x6574;&#x578B;&#xFF0C;&#x5217;&#x8868;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5143;&#x7956;&#xFF09;&#xFF0C;**kwargs&#x662F;&#x5B57;&#x5178;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-&#x542B;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;"><a href="#2-2-&#x542B;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;" class="headerlink" title="2-2 &#x542B;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;"></a>2-2 &#x542B;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x88C5;&#x9970;&#x5668;&#x5F80;&#x5F80;&#x9700;&#x8981;&#x63A5;&#x6536;&#x53C2;&#x6570;&#xFF0C;&#x6839;&#x636E;&#x4F20;&#x5165;&#x88C5;&#x9970;&#x5668;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x540C;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x529F;&#x80FD;&#xFF0C;</span><br><span class="line">&#x90A3;&#x5C31;&#x9700;&#x8981;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;decorator&#x7684;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#xFF0C;&#x5199;&#x51FA;&#x6765;&#x4F1A;&#x66F4;&#x590D;&#x6742;</span><br><span class="line"></span><br><span class="line">import time</span><br><span class="line">def cacular(time_val):</span><br><span class="line">    def decorot(func):</span><br><span class="line">        def wrapper(*param,**params):</span><br><span class="line">            star=time.time()</span><br><span class="line">            result=func(time_val=time_val,*param,**params)</span><br><span class="line">            end=time.time()</span><br><span class="line">            print(&quot;Function run time is: &quot;, end-star )</span><br><span class="line">            return result</span><br><span class="line">        return wrapper</span><br><span class="line">    return decorot</span><br><span class="line">@cacular(2)</span><br><span class="line">def test_time(time_val):</span><br><span class="line">    time.sleep(time_val)</span><br><span class="line">    print(&quot;Function sleep %s second&quot; %time_val)</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    test_time()</span><br><span class="line"></span><br><span class="line">&#x5728;&#x8FD9;&#x4E2A;&#x6848;&#x4F8B;&#x4E2D;&#x5C06;&#x88C5;&#x9970;&#x5668;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x7ED9;&#x4E86;&#x539F;&#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x6B64;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#x4E0D;&#x9700;&#x8981;&#x4F20;&#x503C;&#x3002;</span><br><span class="line">&#x5E26;&#x53C2;&#x6570;&#x7684;&#x88C5;&#x9970;&#x5668;&#x76F8;&#x5F53;&#x4E8E;&#x6267;&#x884C;&#x4E86;test_func = calculate_time(2)(test_func)</span><br><span class="line">&#x9996;&#x5148;&#x6267;&#x884C;calculate_time(2)&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;decorator&#x51FD;&#x6570;&#xFF0C;&#x518D;&#x8C03;&#x7528;&#x8FD4;&#x56DE;&#x7684;decorator&#x51FD;&#x6570;&#xFF0C;&#x53C2;&#x6570;&#x662F;test_func&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x6700;&#x7EC8;&#x8DDF;&#x65E0;&#x53C2;&#x6570;&#x7684;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x662F;wrapper&#x51FD;&#x6570;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-3-&#x7C7B;&#x88C5;&#x9970;&#x5668;"><a href="#2-3-&#x7C7B;&#x88C5;&#x9970;&#x5668;" class="headerlink" title="2-3 &#x7C7B;&#x88C5;&#x9970;&#x5668;"></a>2-3 &#x7C7B;&#x88C5;&#x9970;&#x5668;</h5><h6 id="2-3-1-call-&#x65B9;&#x6CD5;-&#x4EFF;&#x51FD;&#x6570;-&#x51FD;&#x6570;&#x5BF9;&#x8C61;"><a href="#2-3-1-call-&#x65B9;&#x6CD5;-&#x4EFF;&#x51FD;&#x6570;-&#x51FD;&#x6570;&#x5BF9;&#x8C61;" class="headerlink" title="2-3-1 call &#x65B9;&#x6CD5;(&#x4EFF;&#x51FD;&#x6570;/&#x51FD;&#x6570;&#x5BF9;&#x8C61;)"></a>2-3-1 <strong>call</strong> &#x65B9;&#x6CD5;(&#x4EFF;&#x51FD;&#x6570;/&#x51FD;&#x6570;&#x5BF9;&#x8C61;)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x5F53;&#x5B9E;&#x4F8B;&#x4EE5;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;&#x4F7F;&#x7528;&#x65F6;, &#x8C03;&#x7528;&#x7684;&#x662F;__call__&#x65B9;&#x6CD5;&#x5185;&#x7684;&#x51FD;&#x6570;</span><br><span class="line">&#x5B9E;&#x73B0;__call__&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5BF9;&#x8C61;&#x5F53;&#x505A;&#x51FD;&#x6570;&#x4E00;&#x6837;&#x53BB;&#x4F7F;&#x7528;&#xFF0C;&#x79F0;&#x4E3A;&#x4EFF;&#x51FD;&#x6570;&#x6216;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x4F8B;&#x5982;</span><br><span class="line"></span><br><span class="line">class Student(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def __call__(self):</span><br><span class="line">        print(&apos;My name is %s.&apos; % self.name)</span><br><span class="line"></span><br><span class="line">test = Student(&apos;Michael&apos;)</span><br><span class="line">test()</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-3-2-&#x4F7F;&#x7528;&#x7C7B;&#x7684;call&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x88C5;&#x9970;&#x5668;"><a href="#2-3-2-&#x4F7F;&#x7528;&#x7C7B;&#x7684;call&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x88C5;&#x9970;&#x5668;" class="headerlink" title="2-3-2 &#x4F7F;&#x7528;&#x7C7B;&#x7684;call&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x88C5;&#x9970;&#x5668;"></a>2-3-2 &#x4F7F;&#x7528;&#x7C7B;&#x7684;<strong>call</strong>&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x88C5;&#x9970;&#x5668;</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">class CalculateTime(object):</span><br><span class="line">    def __init__(self, func):</span><br><span class="line">        self.__func = func</span><br><span class="line"></span><br><span class="line">    def __call__(self, *args, **kwargs):</span><br><span class="line">        start = time.time()</span><br><span class="line">        result = self.__func(*args, **kwargs)</span><br><span class="line">        end = time.time()</span><br><span class="line">        print(&quot;Function run time is: &quot;, end - start)</span><br><span class="line">        return result</span><br><span class="line"></span><br><span class="line">@CalculateTime</span><br><span class="line">def test_func(time_val):</span><br><span class="line">    time.sleep(time_val)</span><br><span class="line">    print(&quot;Function sleep %s second&quot; % time_val)</span><br><span class="line">    return &quot;end&quot;</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    test_func(2)</span><br><span class="line"></span><br><span class="line">&#x5982;&#x4E0A;&#x6240;&#x793A;&#xFF0C;@CalculateTime&#x7B49;&#x4EF7;&#x4E8E;test_func=CalculateTime(test_func),</span><br><span class="line">&#x5E76;&#x8C03;&#x7528;__init__&#x51FD;&#x6570;&#xFF0C;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;&#x4E4B;&#x540E;&#x8C03;&#x7528;__call__()&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;result&#xFF0C;</span><br><span class="line">&#x7B49;&#x4EF7;&#x4E8E;test_func(),&#x5373;&#x6267;&#x884C;test_func()&#x51FD;&#x6570;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-4-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x88C5;&#x9970;&#x5668;"><a href="#2-4-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x88C5;&#x9970;&#x5668;" class="headerlink" title="2-4 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x88C5;&#x9970;&#x5668;"></a>2-4 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x88C5;&#x9970;&#x5668;</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x4F7F;&#x7528;&#x7C7B;&#x5B9E;&#x73B0;&#x5E26;&#x53C2;&#x6570;&#x7684;&#x88C5;&#x9970;&#x5668;&#x7684;&#x601D;&#x60F3;&#x4E0E;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x88C5;&#x9970;&#x5668;&#x4E00;&#x81F4;&#xFF0C;&#x540C;&#x6837;&#x662F;&#x5C06;&#x88C5;&#x9970;&#x5668;&#x7684;&#x6DF1;&#x5EA6;&#x52A0;&#x6DF1;&#x4E00;&#x5C42;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;&#x5728;__call__&#x65B9;&#x6CD5;&#x5C06;&#x539F;&#x51FD;&#x6570;&#x518D;&#x5305;&#x4E00;&#x5C42;</span><br><span class="line">&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x7C7B;&#x7684;__init__&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x88C5;&#x9970;&#x5668;&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x800C;&#x4E0D;&#x518D;&#x63A5;&#x6536;&#x539F;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;</span><br><span class="line">&#x539F;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;__call__&#x7684;&#x5F62;&#x53C2;&#x4F20;&#x5165;&#xFF0C;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;wrapper&#x51FD;&#x6570;</span><br><span class="line"></span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">class CalculateTime(object):</span><br><span class="line">    def __init__(self, time_val):</span><br><span class="line">        self.__time_val = time_val</span><br><span class="line"></span><br><span class="line">    def __call__(self, func):</span><br><span class="line">        def wrapper(*args, **kwargs):</span><br><span class="line">            start = time.time()</span><br><span class="line">            result = func(time_val=self.__time_val, *args, **kwargs)</span><br><span class="line">            end = time.time()</span><br><span class="line">            print(&quot;Function run time is: &quot;, end - start)</span><br><span class="line">            return result</span><br><span class="line">        return wrapper</span><br><span class="line"></span><br><span class="line">@CalculateTime(2)</span><br><span class="line">def test_func(time_val):</span><br><span class="line">    time.sleep(time_val)</span><br><span class="line">    print(&quot;Function sleep %s second&quot; % time_val)</span><br><span class="line">    return &quot;end&quot;</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    test_func()</span><br><span class="line"></span><br><span class="line">&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;test_func = CalculateTime(2)(test_func)&#xFF0C;</span><br><span class="line">&#x5176;&#x4E2D;&#x5148;&#x6267;&#x884C;CalculateTime(2)&#x8FDB;&#x884C;&#x7C7B;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4E4B;&#x540E;&#x76F8;&#x5F53;&#x4E8E;&#x6267;&#x884C;__call__(test_func)&#xFF0C;&#x6700;&#x7EC8;&#x8FD4;&#x56DE;wrapper&#x51FD;&#x6570;</span><br></pre></td></tr></table></figure>
+
+<h3 id="&#x4E09;&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x7C7B;"><a href="#&#x4E09;&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x7C7B;" class="headerlink" title="&#x4E09;&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x7C7B;"></a>&#x4E09;&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x7C7B;</h3><p>1&#x3001;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def DecoratorClass(cls):</span><br><span class="line">    def wrapper(*args, **kwargs):</span><br><span class="line">        print(&apos;class name:&apos;, cls.__name__)</span><br><span class="line">        return cls(*args, **kwargs)</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">@DecoratorClass</span><br><span class="line">class Example(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def fun(self):</span><br><span class="line">        print(&apos;self.name =&apos;, self.name)</span><br><span class="line"></span><br><span class="line">e = Example(&apos;Bryce&apos;)</span><br><span class="line">e.fun()</span><br><span class="line"></span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;</span><br><span class="line">    class name: Example</span><br><span class="line">    self.name = Bryce</span><br></pre></td></tr></table></figure>
+
+<p>2&#x3001;&#x5E26;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">def DecoratorClass(description):</span><br><span class="line">    def decorator(cls):</span><br><span class="line">        def wrapper(*args, **kwargs):</span><br><span class="line">            print(description, cls.__name__)</span><br><span class="line">            return cls(*args, **kwargs)</span><br><span class="line">        return wrapper</span><br><span class="line">    return decorator</span><br><span class="line"></span><br><span class="line">@DecoratorClass(&apos;class name:&apos;)</span><br><span class="line">class Example(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def fun(self):</span><br><span class="line">        print(&apos;self.name =&apos;, self.name)</span><br><span class="line"></span><br><span class="line">e = Example(&apos;Bryce&apos;)</span><br><span class="line">e.fun()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;</span><br><span class="line">    class name: Example</span><br><span class="line">    self.name = Bryce</span><br></pre></td></tr></table></figure>
+
+<p>3&#x3001;&#x7C7B;&#x88C5;&#x9970;&#x5668;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class DecoratorClass(object):</span><br><span class="line">    def __init__(self, cls):</span><br><span class="line">        self._cls = cls</span><br><span class="line"></span><br><span class="line">    def __call__(self, *args, **kwargs):</span><br><span class="line">        print(&apos;class name:&apos;, self._cls.__name__)</span><br><span class="line">        return self._cls(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">@DecoratorClass</span><br><span class="line">class Example(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def fun(self):</span><br><span class="line">        print(&apos;self.name =&apos;, self.name)</span><br><span class="line"></span><br><span class="line">e = Example(&apos;Bryce&apos;)</span><br><span class="line">e.fun()</span><br><span class="line"></span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;</span><br><span class="line">    class name: Example</span><br><span class="line">    self.name = Bryce</span><br></pre></td></tr></table></figure>
+
+<p>4&#x3001;&#x5E26;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x88C5;&#x9970;&#x5668;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class DecoratorClass(object):</span><br><span class="line">    def __init__(self, description):</span><br><span class="line">        self.__description = description</span><br><span class="line"></span><br><span class="line">    def __call__(self, cls):</span><br><span class="line">        def wrapper(*args, **kwargs):</span><br><span class="line">            print(self.__description, cls.__name__)</span><br><span class="line">            return cls(*args, **kwargs)</span><br><span class="line">        return wrapper</span><br><span class="line"></span><br><span class="line">@DecoratorClass(&apos;class name:&apos;)</span><br><span class="line">class Example(object):</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def fun(self):</span><br><span class="line">        print(&apos;self.name =&apos;, self.name)</span><br><span class="line"></span><br><span class="line">e = Example(&apos;Bryce&apos;)</span><br><span class="line">e.fun()</span><br><span class="line"></span><br><span class="line">&#x8F93;&#x51FA;&#xFF1A;</span><br><span class="line">    class name: Example</span><br><span class="line">    self.name = Bryce</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年08月15日 23:16</p>
+        <p>原始链接： <a class="post-url" href="/2019/08/12/装饰器/" title="python的装饰器">http://cuikuikui.github.io/2019/08/12/装饰器/</a></p>
+        <footer>
+            <a href="http://cuikuikui.github.io">
+                <img src="/images/logo.png" alt="cuikuikui">
+                cuikuikui
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cuikuikui.github.io/2019/08/12/装饰器/&title=《python的装饰器》 — cuikuikui's blog&pic=http://cuikuikui.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cuikuikui.github.io/2019/08/12/装饰器/&title=《python的装饰器》 — cuikuikui's blog&source=专注 WEB 开发的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cuikuikui.github.io/2019/08/12/装饰器/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python的装饰器》 — cuikuikui's blog&url=http://cuikuikui.github.io/2019/08/12/装饰器/&via=http://cuikuikui.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cuikuikui.github.io/2019/08/12/装饰器/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://cuikuikui.github.io/2019/08/12/装饰器/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/装饰器/" class="color4">装饰器</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、-引言"><span class="post-toc-text">一、 引言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-装饰器的定义"><span class="post-toc-text">1 装饰器的定义**</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-一般方法："><span class="post-toc-text">1-1 一般方法：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-闭包方法："><span class="post-toc-text">1-2 闭包方法：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-3-语法糖："><span class="post-toc-text">1-3 语法糖：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-4-带参数的语法糖："><span class="post-toc-text">1-4 带参数的语法糖：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-5-带参数的语法糖完美版："><span class="post-toc-text">1-5 带参数的语法糖完美版：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-6-装饰器的高级玩法-多层装饰器："><span class="post-toc-text">1-6 装饰器的高级玩法-多层装饰器：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-、使用装饰器装饰函数"><span class="post-toc-text">二 、使用装饰器装饰函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-1-函数装饰器"><span class="post-toc-text">2-1 函数装饰器</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-2-含有参数的函数装饰器"><span class="post-toc-text">2-2 含有参数的函数装饰器</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-3-类装饰器"><span class="post-toc-text">2-3 类装饰器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-3-1-call-方法-仿函数-函数对象"><span class="post-toc-text">2-3-1 call 方法(仿函数/函数对象)</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-3-2-使用类的call方法实现装饰器"><span class="post-toc-text">2-3-2 使用类的call方法实现装饰器</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-4-带参数的类装饰器"><span class="post-toc-text">2-4 带参数的类装饰器</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、使用装饰器装饰类"><span class="post-toc-text">三、使用装饰器装饰类</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/08/15/函数式编程/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          函数式编程
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/08/11/python必包的作用/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python闭包的作用</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+
+
+
+  
+  <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMi8yMjg0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+
+  
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 cuikuikui<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://cuikuikui.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/API教程/">API教程</a><a class="category-link" href="/categories/Http服务器/">Http服务器</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/Markdown-教程/">Markdown 教程</a><a class="category-link" href="/categories/Python3爬虫教程/">Python3爬虫教程</a><a class="category-link" href="/categories/Quick-BI介绍/">Quick BI介绍</a><a class="category-link" href="/categories/Windows/">Windows</a><a class="category-link" href="/categories/git-教程/">git 教程</a><a class="category-link" href="/categories/nginx教程/">nginx教程</a><a class="category-link" href="/categories/python-教程/">python 教程</a><a class="category-link" href="/categories/python爬虫教程/">python爬虫教程</a><a class="category-link" href="/categories/微信小程序教程/">微信小程序教程</a><a class="category-link" href="/categories/软件安装教程/">软件安装教程</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

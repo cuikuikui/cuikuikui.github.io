@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>第五章 定时日志切割 | cuikuikui&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="cuikuikui,cuikuikui's Blog">
+  
+  <meta name="description" content="&amp;#x7B2C;&amp;#x4E94;&amp;#x7AE0; nginx&amp;#x5B9A;&amp;#x65F6;&amp;#x4EFB;&amp;#x52A1;&amp;#x5B8C;&amp;#x6210;&amp;#x65E5;&amp;#x5FD7;&amp;#x5207;&amp;#x5272;5.1 &amp;#x4F8B;&amp;#x5B50;&amp;#x5B9A;&amp;#x65F6;&amp;#x5B8C;&amp;#x6210;&amp;#x524D;&amp;#x4E00;&amp;#x5929;&amp;#x65E5;&amp;#x5FD">
+<meta name="keywords" content="定时日志切割">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第五章 定时日志切割">
+<meta property="og:url" content="http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/index.html">
+<meta property="og:site_name" content="cuikuikui&#39;s blog">
+<meta property="og:description" content="&amp;#x7B2C;&amp;#x4E94;&amp;#x7AE0; nginx&amp;#x5B9A;&amp;#x65F6;&amp;#x4EFB;&amp;#x52A1;&amp;#x5B8C;&amp;#x6210;&amp;#x65E5;&amp;#x5FD7;&amp;#x5207;&amp;#x5272;5.1 &amp;#x4F8B;&amp;#x5B50;&amp;#x5B9A;&amp;#x65F6;&amp;#x5B8C;&amp;#x6210;&amp;#x524D;&amp;#x4E00;&amp;#x5929;&amp;#x65E5;&amp;#x5FD">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/yesterday_time.png">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/runlog.png">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/test_runlog.png">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/zhenglidatamulu.png">
+<meta property="og:updated_time" content="2019-02-09T14:47:07.617Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第五章 定时日志切割">
+<meta name="twitter:description" content="&amp;#x7B2C;&amp;#x4E94;&amp;#x7AE0; nginx&amp;#x5B9A;&amp;#x65F6;&amp;#x4EFB;&amp;#x52A1;&amp;#x5B8C;&amp;#x6210;&amp;#x65E5;&amp;#x5FD7;&amp;#x5207;&amp;#x5272;5.1 &amp;#x4F8B;&amp;#x5B50;&amp;#x5B9A;&amp;#x65F6;&amp;#x5B8C;&amp;#x6210;&amp;#x524D;&amp;#x4E00;&amp;#x5929;&amp;#x65E5;&amp;#x5FD">
+<meta name="twitter:image" content="http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/yesterday_time.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">崔魁魁的博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        崔魁魁的博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        博客学习
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="cuikuikui" target="_blank" href="https://www.cuikuikui.top/ck/cuikuikui.com/index.html">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/cuikuikui">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/cuikuikui">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-第五章-定时日志切割" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      第五章 定时日志切割
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/nginx教程/">nginx教程</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-02-09
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="&#x7B2C;&#x4E94;&#x7AE0;-nginx&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x65E5;&#x5FD7;&#x5207;&#x5272;"><a href="#&#x7B2C;&#x4E94;&#x7AE0;-nginx&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x65E5;&#x5FD7;&#x5207;&#x5272;" class="headerlink" title="&#x7B2C;&#x4E94;&#x7AE0; nginx&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x65E5;&#x5FD7;&#x5207;&#x5272;"></a>&#x7B2C;&#x4E94;&#x7AE0; nginx&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x65E5;&#x5FD7;&#x5207;&#x5272;</h1><h1 id="5-1-&#x4F8B;&#x5B50;&#x5B9A;&#x65F6;&#x5B8C;&#x6210;&#x524D;&#x4E00;&#x5929;&#x65E5;&#x5FD7;&#x5207;&#x5272;"><a href="#5-1-&#x4F8B;&#x5B50;&#x5B9A;&#x65F6;&#x5B8C;&#x6210;&#x524D;&#x4E00;&#x5929;&#x65E5;&#x5FD7;&#x5207;&#x5272;" class="headerlink" title="5.1 &#x4F8B;&#x5B50;&#x5B9A;&#x65F6;&#x5B8C;&#x6210;&#x524D;&#x4E00;&#x5929;&#x65E5;&#x5FD7;&#x5207;&#x5272;"></a><strong>5.1 &#x4F8B;&#x5B50;&#x5B9A;&#x65F6;&#x5B8C;&#x6210;&#x524D;&#x4E00;&#x5929;&#x65E5;&#x5FD7;&#x5207;&#x5272;</strong></h1><p>&#x8BF4;&#x660E;&#xFF1A;&#x7531;&#x4E8E;&#x8981;&#x7528;&#x5230;&#x65E5;&#x671F;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8981;&#x7528;&#x5230;<strong>data -d yesterday +%Y%m%d%M</strong>&#x547D;&#x4EE4;</p>
+<p><em>&#x7B2C;&#x4E00;&#x6B65;: &#x83B7;&#x53D6;&#x524D;&#x4E00;&#x5929;&#x65F6;&#x95F4;</em></p>
+<p><strong>&#x7ED3;&#x679C;&#x622A;&#x56FE;&#xFF1A;</strong><br><img src="/2019/02/09/&#x7B2C;&#x4E94;&#x7AE0;-&#x5B9A;&#x65F6;&#x65E5;&#x5FD7;&#x5207;&#x5272;/yesterday_time.png" alt="yesterday_time"></p>
+<p><em>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x5199;&#x4E00;&#x4E2A;shell&#x811A;&#x672C;</em></p>
+<blockquote>
+<p>&#x5728; nginx&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;data&#x76EE;&#x5F55;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;runlog.sh&#x811A;&#x672C;</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx</span><br><span class="line">mkdir data</span><br><span class="line">cd data</span><br><span class="line">vim runlog.sh</span><br></pre></td></tr></table></figure>
+
+<p>&#x5728;runlog.sh&#x7F16;&#x8F91;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<p><strong>&#x7ED3;&#x679C;&#x622A;&#x56FE;&#xFF1A;</strong></p>
+<p><img src="/2019/02/09/&#x7B2C;&#x4E94;&#x7AE0;-&#x5B9A;&#x65F6;&#x65E5;&#x5FD7;&#x5207;&#x5272;/runlog.png" alt="runlog"></p>
+<p><em>&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5B9A;&#x65F6;</em><br>&#x8F93;&#x5165;crontab -e &#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x5B9A;&#x65F6;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x7684;&#x662F;&#x6BCF;&#x5206;&#x949F;&#x81EA;&#x52A8;&#x5907;&#x4EFD;&#x4E00;&#x6B21;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/1 * * * * sh /data/runlog.sh</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>&#x4E0A;&#x9762;&#x547D;&#x4EE4;&#x8868;&#x793A;&#xFF1A; &#x5206; &#x65F6; &#x65E5; &#x6708; &#x5468; &#x547D;&#x4EE4;</p>
+</blockquote>
+<p><em>&#x7B2C;&#x56DB;&#x6B65;&#xFF1A;&#x6D4B;&#x8BD5;</em></p>
+<p>&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x662F;&#x6BCF;&#x5206;&#x949F;&#x81EA;&#x52A8;&#x5907;&#x4EFD;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;</p>
+<p><strong>&#x7ED3;&#x679C;&#x622A;&#x56FE;&#xFF1A;</strong></p>
+<p><img src="/2019/02/09/&#x7B2C;&#x4E94;&#x7AE0;-&#x5B9A;&#x65F6;&#x65E5;&#x5FD7;&#x5207;&#x5272;/test_runlog.png" alt="test_runlog"></p>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<strong>more</strong>&#x547D;&#x4EE4;&#x67E5;&#x8BE2;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;</p>
+<p><em>&#x7B2C;&#x4E94;&#x6B65;&#xFF1A;&#x6574;&#x7406;data&#x76EE;&#x5F55;</em></p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x6240;&#x6709;&#x4FE1;&#x606F;&#x90FD;&#x653E;&#x5728;data&#x76EE;&#x5F55;&#x4E0B;&#x4E0D;&#x65B9;&#x9762;&#x67E5;&#x770B;&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x597D;&#x80FD;&#x81EA;&#x52A8;&#x7684;&#x6309;&#x4E00;&#x5B9A;&#x683C;&#x5F0F;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x76EE;&#x5F55;</p>
+</blockquote>
+<p><strong>&#x7ED3;&#x679C;&#x622A;&#x56FE;&#xFF1A;</strong></p>
+<p><img src="/2019/02/09/&#x7B2C;&#x4E94;&#x7AE0;-&#x5B9A;&#x65F6;&#x65E5;&#x5FD7;&#x5207;&#x5272;/zhenglidatamulu.png" alt="zhenglidatamulu">  </p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年02月09日 22:47</p>
+        <p>原始链接： <a class="post-url" href="/2019/02/09/第五章-定时日志切割/" title="第五章 定时日志切割">http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/</a></p>
+        <footer>
+            <a href="http://cuikuikui.github.io">
+                <img src="/images/logo.png" alt="cuikuikui">
+                cuikuikui
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/&title=《第五章 定时日志切割》 — cuikuikui's blog&pic=http://cuikuikui.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/&title=《第五章 定时日志切割》 — cuikuikui's blog&source=专注 WEB 开发的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第五章 定时日志切割》 — cuikuikui's blog&url=http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/&via=http://cuikuikui.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://cuikuikui.github.io/2019/02/09/第五章-定时日志切割/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/定时日志切割/" class="color2">定时日志切割</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第五章-nginx定时任务完成日志切割"><span class="post-toc-text">第五章 nginx定时任务完成日志切割</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-1-例子定时完成前一天日志切割"><span class="post-toc-text">5.1 例子定时完成前一天日志切割</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/02/09/第六章-Location-详解（精准匹配）/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          第六章 Location 详解（精准匹配）
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/02/09/第三章-nginx虚拟主机配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">第三章 nginx虚拟主机配置</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+
+
+
+  
+  <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMi8yMjg0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+
+  
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 cuikuikui<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://cuikuikui.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/API教程/">API教程</a><a class="category-link" href="/categories/Http服务器/">Http服务器</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/Markdown-教程/">Markdown 教程</a><a class="category-link" href="/categories/Python3爬虫教程/">Python3爬虫教程</a><a class="category-link" href="/categories/Quick-BI介绍/">Quick BI介绍</a><a class="category-link" href="/categories/Windows/">Windows</a><a class="category-link" href="/categories/git-教程/">git 教程</a><a class="category-link" href="/categories/nginx教程/">nginx教程</a><a class="category-link" href="/categories/python-教程/">python 教程</a><a class="category-link" href="/categories/python爬虫教程/">python爬虫教程</a><a class="category-link" href="/categories/微信小程序教程/">微信小程序教程</a><a class="category-link" href="/categories/软件安装教程/">软件安装教程</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

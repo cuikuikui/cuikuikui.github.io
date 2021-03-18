@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>微信小程序Css选择器::after和::before的使用 | cuikuikui&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="cuikuikui,cuikuikui's Blog">
+  
+  <meta name="description" content="&amp;#x57FA;&amp;#x672C;&amp;#x6982;&amp;#x5FF5; ::before&amp;#x5373;view::before&amp;#xFF0C;&amp;#x8868;&amp;#x793A;&amp;#x548B;&amp;#x8BE5;view&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x524D;&amp;#x9762;&amp;#x52A0;&amp;#x5165;&amp;#x5185;&amp;#x5BB9; ::after&amp;#x5373;view::a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序Css选择器::after和::before的使用">
+<meta property="og:url" content="http://cuikuikui.github.io/2019/03/29/微信小程序Css选择器-after和-before的使用/index.html">
+<meta property="og:site_name" content="cuikuikui&#39;s blog">
+<meta property="og:description" content="&amp;#x57FA;&amp;#x672C;&amp;#x6982;&amp;#x5FF5; ::before&amp;#x5373;view::before&amp;#xFF0C;&amp;#x8868;&amp;#x793A;&amp;#x548B;&amp;#x8BE5;view&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x524D;&amp;#x9762;&amp;#x52A0;&amp;#x5165;&amp;#x5185;&amp;#x5BB9; ::after&amp;#x5373;view::a">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://cuikuikui.github.io/2019/03/29/微信小程序Css选择器-after和-before的使用/price.png">
+<meta property="og:updated_time" content="2019-03-29T06:37:50.614Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序Css选择器::after和::before的使用">
+<meta name="twitter:description" content="&amp;#x57FA;&amp;#x672C;&amp;#x6982;&amp;#x5FF5; ::before&amp;#x5373;view::before&amp;#xFF0C;&amp;#x8868;&amp;#x793A;&amp;#x548B;&amp;#x8BE5;view&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x524D;&amp;#x9762;&amp;#x52A0;&amp;#x5165;&amp;#x5185;&amp;#x5BB9; ::after&amp;#x5373;view::a">
+<meta name="twitter:image" content="http://cuikuikui.github.io/2019/03/29/微信小程序Css选择器-after和-before的使用/price.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">崔魁魁的博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        崔魁魁的博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        博客学习
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="cuikuikui" target="_blank" href="https://www.cuikuikui.top/ck/cuikuikui.com/index.html">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/cuikuikui">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/cuikuikui">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-微信小程序Css选择器-after和-before的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      微信小程序Css选择器::after和::before的使用
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/微信小程序教程/">微信小程序教程</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-03-29
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;"><a href="#&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="headerlink" title="&#x57FA;&#x672C;&#x6982;&#x5FF5;"></a>&#x57FA;&#x672C;&#x6982;&#x5FF5;</h1><ul>
+<li>::before&#x5373;view::before&#xFF0C;&#x8868;&#x793A;&#x548B;&#x8BE5;view&#x7EC4;&#x4EF6;&#x7684;&#x524D;&#x9762;&#x52A0;&#x5165;&#x5185;&#x5BB9;</li>
+<li>::after&#x5373;view::after,&#x8868;&#x793A;&#x5728;&#x8BE5;view&#x7EC4;&#x4EF6;&#x7684;&#x540E;&#x9762;&#x52A0;&#x5165;&#x5185;&#x5BB9;<blockquote>
+<p>&#x8FD9;&#x91CC;&#x53CC;&#x5192;&#x53F7;&#x8868;&#x793A;&#x662F;css3&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5355;&#x5192;&#x53F7;&#x8868;&#x793A;css2&#x7684;&#x6837;&#x5F0F;  </p>
+</blockquote>
+</li>
+</ul>
+<h1 id="&#x4F8B;&#x5B50;"><a href="#&#x4F8B;&#x5B50;" class="headerlink" title="&#x4F8B;&#x5B50;"></a>&#x4F8B;&#x5B50;</h1><p><strong>wxml</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;view class=&quot;price&quot;&gt;{{price}}&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>wxss</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">.container{</span><br><span class="line">    width:auto;</span><br><span class="line">    margin: 30rpx;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    text-align: center</span><br><span class="line">}  </span><br><span class="line">.price{</span><br><span class="line">    position: relative;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    font-size: 78rpx;</span><br><span class="line">    color: red</span><br><span class="line">}  </span><br><span class="line">.price::before{</span><br><span class="line">    content: &quot;&#x91D1;&#x989D;:&#xFFE5;&quot;;</span><br><span class="line">    position: absolute;</span><br><span class="line">    font-size: 40rpx;</span><br><span class="line">    top:30rpx;</span><br><span class="line">    left:-160rpx;</span><br><span class="line">    color:black</span><br><span class="line">}  </span><br><span class="line">.price::after{</span><br><span class="line">    content:&quot;.00&#x5143;&quot;;</span><br><span class="line">    font-size: 35rpx;</span><br><span class="line">    top:40rpx;</span><br><span class="line">    position: absolute;</span><br><span class="line">    right:-90rpx;</span><br><span class="line">    color:black</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p><strong>js</strong> </p>
+<pre><code>onLoad: function (options) {
+  this.setData({
+    price:100
+  })
+}</code></pre><h1 id="&#x6548;&#x679C;"><a href="#&#x6548;&#x679C;" class="headerlink" title="&#x6548;&#x679C;"></a>&#x6548;&#x679C;</h1><p><img src="/2019/03/29/&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;Css&#x9009;&#x62E9;&#x5668;-after&#x548C;-before&#x7684;&#x4F7F;&#x7528;/price.png" alt="price">  </p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年03月29日 14:37</p>
+        <p>原始链接： <a class="post-url" href="/2019/03/29/微信小程序Css选择器-after和-before的使用/" title="微信小程序Css选择器::after和::before的使用">http://cuikuikui.github.io/2019/03/29/微信小程序Css选择器-after和-before的使用/</a></p>
+        <footer>
+            <a href="http://cuikuikui.github.io">
+                <img src="/images/logo.png" alt="cuikuikui">
+                cuikuikui
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cuikuikui.github.io/2019/03/29/微信小程序Css选择器-after和-before的使用/&title=《微信小程序Css选择器::after和::before的使用》 — cuikuikui's blog&pic=http://cuikuikui.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cuikuikui.github.io/2019/03/29/微信小程序Css选择器-after和-before的使用/&title=《微信小程序Css选择器::after和::before的使用》 — cuikuikui's blog&source=专注 WEB 开发的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cuikuikui.github.io/2019/03/29/微信小程序Css选择器-after和-before的使用/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《微信小程序Css选择器::after和::before的使用》 — cuikuikui's blog&url=http://cuikuikui.github.io/2019/03/29/微信小程序Css选择器-after和-before的使用/&via=http://cuikuikui.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cuikuikui.github.io/2019/03/29/微信小程序Css选择器-after和-before的使用/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://cuikuikui.github.io/2019/03/29/微信小程序Css选择器-after和-before的使用/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本概念"><span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#例子"><span class="post-toc-text">例子</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#效果"><span class="post-toc-text">效果</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2019/08/11/python必包的作用/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          python闭包的作用
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/03/29/微信小程序尺寸单位/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">微信小程序尺寸单位</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+
+
+
+  
+  <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMi8yMjg0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+
+  
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 cuikuikui<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://cuikuikui.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/API教程/">API教程</a><a class="category-link" href="/categories/Http服务器/">Http服务器</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/Markdown-教程/">Markdown 教程</a><a class="category-link" href="/categories/Python3爬虫教程/">Python3爬虫教程</a><a class="category-link" href="/categories/Quick-BI介绍/">Quick BI介绍</a><a class="category-link" href="/categories/Windows/">Windows</a><a class="category-link" href="/categories/git-教程/">git 教程</a><a class="category-link" href="/categories/nginx教程/">nginx教程</a><a class="category-link" href="/categories/python-教程/">python 教程</a><a class="category-link" href="/categories/python爬虫教程/">python爬虫教程</a><a class="category-link" href="/categories/微信小程序教程/">微信小程序教程</a><a class="category-link" href="/categories/软件安装教程/">软件安装教程</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

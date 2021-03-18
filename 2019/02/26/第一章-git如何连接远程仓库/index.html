@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>第一章-git如何连接远程仓库 | cuikuikui&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="cuikuikui,cuikuikui's Blog">
+  
+  <meta name="description" content="cd&amp;#x5230;&amp;#x4F60;&amp;#x7684;&amp;#x672C;&amp;#x5730;&amp;#x9879;&amp;#x76EE;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#xFF0C;&amp;#x6267;&amp;#x884C;&amp;#x5982;&amp;#x4E0B;git&amp;#x547D;&amp;#x4EE4; git init git add . git commit -m &amp;#x201C;&amp;#x6CE8;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一章-git如何连接远程仓库">
+<meta property="og:url" content="http://cuikuikui.github.io/2019/02/26/第一章-git如何连接远程仓库/index.html">
+<meta property="og:site_name" content="cuikuikui&#39;s blog">
+<meta property="og:description" content="cd&amp;#x5230;&amp;#x4F60;&amp;#x7684;&amp;#x672C;&amp;#x5730;&amp;#x9879;&amp;#x76EE;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#xFF0C;&amp;#x6267;&amp;#x884C;&amp;#x5982;&amp;#x4E0B;git&amp;#x547D;&amp;#x4EE4; git init git add . git commit -m &amp;#x201C;&amp;#x6CE8;&amp;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-26T09:59:36.345Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第一章-git如何连接远程仓库">
+<meta name="twitter:description" content="cd&amp;#x5230;&amp;#x4F60;&amp;#x7684;&amp;#x672C;&amp;#x5730;&amp;#x9879;&amp;#x76EE;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#xFF0C;&amp;#x6267;&amp;#x884C;&amp;#x5982;&amp;#x4E0B;git&amp;#x547D;&amp;#x4EE4; git init git add . git commit -m &amp;#x201C;&amp;#x6CE8;&amp;">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">崔魁魁的博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        崔魁魁的博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        博客学习
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="cuikuikui" target="_blank" href="https://www.cuikuikui.top/ck/cuikuikui.com/index.html">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/cuikuikui">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/cuikuikui">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-第一章-git如何连接远程仓库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      第一章-git如何连接远程仓库
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/git教程/">git 教程</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-02-26
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>cd&#x5230;&#x4F60;&#x7684;&#x672C;&#x5730;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x6267;&#x884C;&#x5982;&#x4E0B;git&#x547D;&#x4EE4;</p>
+<p>git init</p>
+<p>git add .</p>
+<p>git commit -m &#x201C;&#x6CE8;&#x91CA;&#x8BED;&#x53E5;&#x201D;</p>
+<p>git remote add origin https://&#x81EA;&#x5DF1;&#x7684;&#x4ED3;&#x5E93;url&#x5730;&#x5740;</p>
+<p>git pull origin master</p>
+<p>git push -u origin master</p>
+<p>B&#xFF0C;Github&#x5E38;&#x7528;&#x7684;&#x547D;&#x4EE4;&#xFF1A;</p>
+<p>git branch &#x67E5;&#x770B;&#x672C;&#x5730;&#x6240;&#x6709;&#x5206;&#x652F;<br>git status &#x67E5;&#x770B;&#x5F53;&#x524D;&#x72B6;&#x6001;<br>git commit &#x63D0;&#x4EA4;<br>git branch -a &#x67E5;&#x770B;&#x6240;&#x6709;&#x7684;&#x5206;&#x652F;<br>git branch -r &#x67E5;&#x770B;&#x8FDC;&#x7A0B;&#x6240;&#x6709;&#x5206;&#x652F;<br>git commit -am &#x201C;init&#x201D; &#x63D0;&#x4EA4;&#x5E76;&#x4E14;&#x52A0;&#x6CE8;&#x91CA;<br>git remote add origin <a href="mailto:git@192.168.1.119" target="_blank" rel="noopener">git@192.168.1.119</a>:ndshowgit<br>push origin master &#x5C06;&#x6587;&#x4EF6;&#x7ED9;&#x63A8;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E0A;<br>git remote show origin &#x663E;&#x793A;&#x8FDC;&#x7A0B;&#x5E93;origin&#x91CC;&#x7684;&#x8D44;&#x6E90;<br>git push origin master:develop<br>git push origin master:hb-dev &#x5C06;&#x672C;&#x5730;&#x5E93;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x5E93;&#x8FDB;&#x884C;&#x5173;&#x8054;<br>git checkout &#x2013;track origin/dev &#x5207;&#x6362;&#x5230;&#x8FDC;&#x7A0B;dev&#x5206;&#x652F;<br>git branch -D master develop &#x5220;&#x9664;&#x672C;&#x5730;&#x5E93;develop<br>git checkout -b dev &#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x672C;&#x5730;&#x5206;&#x652F;dev<br>git merge origin/dev &#x5C06;&#x5206;&#x652F;dev&#x4E0E;&#x5F53;&#x524D;&#x5206;&#x652F;&#x8FDB;&#x884C;&#x5408;&#x5E76;<br>git checkout dev &#x5207;&#x6362;&#x5230;&#x672C;&#x5730;dev&#x5206;&#x652F;<br>git remote show &#x67E5;&#x770B;&#x8FDC;&#x7A0B;&#x5E93;<br>git add .git rm &#x6587;&#x4EF6;&#x540D;(&#x5305;&#x62EC;&#x8DEF;&#x5F84;) &#x4ECE;git&#x4E2D;&#x5220;&#x9664;&#x6307;&#x5B9A;&#x6587;&#x4EF6;* git clone git://github.com/schacon/grit.git &#x4ECE;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x5C06;&#x4EE3;&#x7801;&#x7ED9;&#x62C9;&#x4E0B;&#x6765;<br>git config &#x2013;list &#x770B;&#x6240;&#x6709;&#x7528;&#x6237;<br>git ls-files &#x770B;&#x5DF2;&#x7ECF;&#x88AB;&#x63D0;&#x4EA4;&#x7684;<br>git rm [file name] &#x5220;&#x9664;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;<br>git commit -a &#x63D0;&#x4EA4;&#x5F53;&#x524D;repos&#x7684;&#x6240;&#x6709;&#x7684;&#x6539;&#x53D8;<br>git add [file name] &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5230;<br>git indexgit commit -v &#x5F53;&#x4F60;&#x7528;&#xFF0D;v&#x53C2;&#x6570;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x770B;commit&#x7684;&#x5DEE;&#x5F02;<br>git commit -m &#x201C;This is the message describing the commit&#x201D; &#x6DFB;&#x52A0;commit&#x4FE1;&#x606F;<br>git commit -a -a&#x662F;&#x4EE3;&#x8868;add&#xFF0C;&#x628A;&#x6240;&#x6709;&#x7684;change&#x52A0;&#x5230;git index&#x91CC;&#x7136;&#x540E;&#x518D;commit<br>git commit -a -v &#x4E00;&#x822C;&#x63D0;&#x4EA4;&#x547D;&#x4EE4;<br>git log &#x770B;&#x4F60;commit&#x7684;&#x65E5;&#x5FD7;<br>git diff &#x67E5;&#x770B;&#x5C1A;&#x672A;&#x6682;&#x5B58;&#x7684;&#x66F4;&#x65B0;<br>git rm a.a &#x79FB;&#x9664;&#x6587;&#x4EF6;(&#x4ECE;&#x6682;&#x5B58;&#x533A;&#x548C;&#x5DE5;&#x4F5C;&#x533A;&#x4E2D;&#x5220;&#x9664;)<br>git rm &#x2013;cached a.a &#x79FB;&#x9664;&#x6587;&#x4EF6;(&#x53EA;&#x4ECE;&#x6682;&#x5B58;&#x533A;&#x4E2D;&#x5220;&#x9664;)<br>git commit -m &#x201C;remove&#x201D; &#x79FB;&#x9664;&#x6587;&#x4EF6;(&#x4ECE;Git&#x4E2D;&#x5220;&#x9664;)<br>git rm -f a.a &#x5F3A;&#x884C;&#x79FB;&#x9664;&#x4FEE;&#x6539;&#x540E;&#x6587;&#x4EF6;(&#x4ECE;&#x6682;&#x5B58;&#x533A;&#x548C;&#x5DE5;&#x4F5C;&#x533A;&#x4E2D;&#x5220;&#x9664;)<br>git diff &#x2013;cached &#x6216; $ git diff &#x2013;staged &#x67E5;&#x770B;&#x5C1A;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x66F4;&#x65B0;<br>git stash push &#x5C06;&#x6587;&#x4EF6;&#x7ED9;push&#x5230;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x7A7A;&#x95F4;&#x4E2D;<br>git stash pop &#x5C06;&#x6587;&#x4EF6;&#x4ECE;&#x4E34;&#x65F6;&#x7A7A;&#x95F4;pop&#x4E0B;&#x6765;<br>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/Hello-World.git</p>
+<p>git push origin master &#x5C06;&#x672C;&#x5730;&#x9879;&#x76EE;&#x7ED9;&#x63D0;&#x4EA4;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E2D;</p>
+<p>git pull &#x672C;&#x5730;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x540C;&#x6B65;</p>
+<p>git push (&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x540D;) (&#x5206;&#x652F;&#x540D;) &#x5C06;&#x672C;&#x5730;&#x5206;&#x652F;&#x63A8;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x53BB;&#x3002;</p>
+<p>git push origin serverfix:awesomebranch</p>
+<p>git fetch &#x76F8;&#x5F53;&#x4E8E;&#x662F;&#x4ECE;&#x8FDC;&#x7A0B;&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x7248;&#x672C;&#x5230;&#x672C;&#x5730;&#xFF0C;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;merge</p>
+<p>git commit -a -m &#x201C;log_message&#x201D; (-a&#x662F;&#x63D0;&#x4EA4;&#x6240;&#x6709;&#x6539;&#x52A8;&#xFF0C;-m&#x662F;&#x52A0;&#x5165;log&#x4FE1;&#x606F;) &#x672C;&#x5730;&#x4FEE;&#x6539;&#x540C;&#x6B65;&#x81F3;&#x670D;&#x52A1;&#x5668;&#x7AEF; &#xFF1A;</p>
+<p>git branch branch_0.1 master &#x4ECE;&#x4E3B;&#x5206;&#x652F;master&#x521B;&#x5EFA;branch_0.1&#x5206;&#x652F;</p>
+<p>git branch -m branch_0.1 branch_1.0 &#x5C06;branch_0.1&#x91CD;&#x547D;&#x540D;&#x4E3A;branch_1.0</p>
+<p>git checkout branch_1.0/master &#x5207;&#x6362;&#x5230;branch_1.0/master&#x5206;&#x652F;du -hs</p>
+<p>git branch &#x5220;&#x9664;&#x8FDC;&#x7A0B;branchgit push origin :branch_remote_namegit branch -r -d branch_remote_name</p>
+<p> C&#xFF0C;&#x5220;&#x9664;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#xFF08;&#x6BD4;&#x5982;GitHub&#xFF09;&#x7684;&#x76EE;&#x5F55;&#x6216;&#x6587;&#x4EF6;</p>
+<p>&#x5177;&#x4F53;&#x64CD;&#x4F5C;</p>
+<p>&#x62C9;&#x53D6;&#x8FDC;&#x7A0B;&#x7684;Repo&#x5230;&#x672C;&#x5730;&#xFF08;&#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x53EF;&#x4EE5;&#x7565;&#x8FC7;&#xFF09;<br>$ git clone xxxxxx<br>&#x5728;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x5220;&#x9664;&#x6587;&#x4EF6;<br>$ git rm &#x6211;&#x7684;&#x6587;&#x4EF6;<br>&#x5728;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x5220;&#x9664;&#x6587;&#x4EF6;&#x5939;<br>$ git rm -r &#x6211;&#x7684;&#x6587;&#x4EF6;&#x5939;/<br>&#x6B64;&#x5904;-r&#x8868;&#x793A;&#x9012;&#x5F52;&#x6240;&#x6709;&#x5B50;&#x76EE;&#x5F55;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x8981;&#x5220;&#x9664;&#x7684;&#xFF0C;&#x662F;&#x7A7A;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x6B64;&#x5904;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5E26;&#x4E0A;-r&#x3002;<br>&#x63D0;&#x4EA4;&#x4EE3;&#x7801;<br>$ git commit -m&#x201D;&#x6211;&#x7684;&#x4FEE;&#x6539;&#x201D;<br>&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#xFF08;&#x6BD4;&#x5982;GitHub&#xFF09;<br>$ git push origin xxxxxx<br>&#x8865;&#x5145;: git rm</p>
+<p>&#x67E5;&#x770B;git rm&#x7684;&#x8BF4;&#x660E;&#x6587;&#x6863;:</p>
+<p>$ git rm -h</p>
+<p>&#x7528;&#x6CD5;&#xFF1A;git rm [&lt;&#x9009;&#x9879;&gt;] [&#x2013;] &lt;&#x6587;&#x4EF6;&gt;&#x2026;</p>
+<pre><code>-n, --dry-run         &#x6F14;&#x4E60;
+
+-q, --quiet           &#x4E0D;&#x5217;&#x51FA;&#x5220;&#x9664;&#x7684;&#x6587;&#x4EF6;
+
+--cached              &#x53EA;&#x4ECE;&#x7D22;&#x5F15;&#x533A;&#x5220;&#x9664;
+
+-f, --force           &#x5FFD;&#x7565;&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x72B6;&#x6001;&#x68C0;&#x67E5;
+
+-r                    &#x5141;&#x8BB8;&#x9012;&#x5F52;&#x5220;&#x9664;
+
+--ignore-unmatch      &#x5373;&#x4F7F;&#x6CA1;&#x6709;&#x5339;&#x914D;&#xFF0C;&#x4E5F;&#x4EE5;&#x96F6;&#x72B6;&#x6001;&#x9000;&#x51FA;</code></pre>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年02月26日 17:59</p>
+        <p>原始链接： <a class="post-url" href="/2019/02/26/第一章-git如何连接远程仓库/" title="第一章-git如何连接远程仓库">http://cuikuikui.github.io/2019/02/26/第一章-git如何连接远程仓库/</a></p>
+        <footer>
+            <a href="http://cuikuikui.github.io">
+                <img src="/images/logo.png" alt="cuikuikui">
+                cuikuikui
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cuikuikui.github.io/2019/02/26/第一章-git如何连接远程仓库/&title=《第一章-git如何连接远程仓库》 — cuikuikui's blog&pic=http://cuikuikui.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cuikuikui.github.io/2019/02/26/第一章-git如何连接远程仓库/&title=《第一章-git如何连接远程仓库》 — cuikuikui's blog&source=专注 WEB 开发的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cuikuikui.github.io/2019/02/26/第一章-git如何连接远程仓库/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第一章-git如何连接远程仓库》 — cuikuikui's blog&url=http://cuikuikui.github.io/2019/02/26/第一章-git如何连接远程仓库/&via=http://cuikuikui.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cuikuikui.github.io/2019/02/26/第一章-git如何连接远程仓库/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://cuikuikui.github.io/2019/02/26/第一章-git如何连接远程仓库/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/03/05/第一章-API产品简介/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          第一章 API产品简介
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/02/17/日志管理/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title"></span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+
+
+
+  
+  <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMi8yMjg0Mw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+
+  
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 cuikuikui<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://cuikuikui.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/API教程/">API教程</a><a class="category-link" href="/categories/Http服务器/">Http服务器</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/Markdown-教程/">Markdown 教程</a><a class="category-link" href="/categories/Python3爬虫教程/">Python3爬虫教程</a><a class="category-link" href="/categories/Quick-BI介绍/">Quick BI介绍</a><a class="category-link" href="/categories/Windows/">Windows</a><a class="category-link" href="/categories/git-教程/">git 教程</a><a class="category-link" href="/categories/nginx教程/">nginx教程</a><a class="category-link" href="/categories/python-教程/">python 教程</a><a class="category-link" href="/categories/python爬虫教程/">python爬虫教程</a><a class="category-link" href="/categories/微信小程序教程/">微信小程序教程</a><a class="category-link" href="/categories/软件安装教程/">软件安装教程</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Location详解/" style="font-size: 10px;">Location详解</a> <a href="/tags/Markdown-代码高亮显示/" style="font-size: 10px;">Markdown 代码高亮显示</a> <a href="/tags/Markdown-列表表示/" style="font-size: 10px;">Markdown 列表表示</a> <a href="/tags/Markdown-反斜杠/" style="font-size: 10px;">Markdown 反斜杠</a> <a href="/tags/Markdown-图片显示/" style="font-size: 10px;">Markdown 图片显示</a> <a href="/tags/Markdown-增加分割线/" style="font-size: 10px;">Markdown 增加分割线</a> <a href="/tags/Markdown-引用表现/" style="font-size: 10px;">Markdown 引用表现</a> <a href="/tags/Markdown-强调表现/" style="font-size: 10px;">Markdown 强调表现</a> <a href="/tags/Markdown-自然段换行/" style="font-size: 10px;">Markdown 自然段换行</a> <a href="/tags/Markdown-表格显示/" style="font-size: 10px;">Markdown 表格显示</a> <a href="/tags/Markdown-设置标题/" style="font-size: 10px;">Markdown 设置标题</a> <a href="/tags/Markdown-超文本链接/" style="font-size: 10px;">Markdown 超文本链接</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/Quick-BI介绍/" style="font-size: 10px;">Quick BI介绍</a> <a href="/tags/json数据处理/" style="font-size: 10px;">json数据处理</a> <a href="/tags/nginx信号量/" style="font-size: 10px;">nginx信号量</a> <a href="/tags/nginx虚拟主机配置/" style="font-size: 10px;">nginx虚拟主机配置</a> <a href="/tags/python字典/" style="font-size: 10px;">python字典</a> <a href="/tags/python文件/" style="font-size: 10px;">python文件</a> <a href="/tags/python递归/" style="font-size: 10px;">python递归</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/团队内协作/" style="font-size: 10px;">团队内协作</a> <a href="/tags/图形化报表介绍/" style="font-size: 10px;">图形化报表介绍</a> <a href="/tags/多个github配置/" style="font-size: 10px;">多个github配置</a> <a href="/tags/定时日志切割/" style="font-size: 10px;">定时日志切割</a> <a href="/tags/日志管理/" style="font-size: 10px;">日志管理</a> <a href="/tags/注册Github/" style="font-size: 10px;">注册Github</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/跨团队协作/" style="font-size: 10px;">跨团队协作</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/集合/" style="font-size: 10px;">集合</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
