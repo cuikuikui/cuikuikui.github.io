@@ -341,7 +341,7 @@
               </li>
             
               <li>
-                <a href="/tags/">
+                <a href="/tags/web/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-tags" aria-hidden="true"></i>
                     标签
@@ -376,46 +376,46 @@
           </header>
         
         <div class="entry-content">
-          <h1 id="import-&#x4E0E;include&#x7684;&#x533A;&#x522B;"><a href="#import-&#x4E0E;include&#x7684;&#x533A;&#x522B;" class="headerlink" title="import &#x4E0E;include&#x7684;&#x533A;&#x522B;"></a>import &#x4E0E;include&#x7684;&#x533A;&#x522B;</h1><h2 id="&#x7B80;&#x8FF0;"><a href="#&#x7B80;&#x8FF0;" class="headerlink" title="&#x7B80;&#x8FF0;"></a>&#x7B80;&#x8FF0;</h2><ul>
-<li>&#x4E00;&#x4E2A;wxml&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;include&#x6216;import&#x5F15;&#x5165;&#x5176;&#x4ED6;wxml&#x6587;&#x4EF6;</li>
-<li>import&#x5F15;&#x5165;wxml&#x6587;&#x4EF6;&#x53EA;&#x63A5;&#x53D7;&#x6A21;&#x677F;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x5FFD;&#x7565;&#x6A21;&#x677F;&#x4E4B;&#x5916;&#x7684;&#x5185;&#x5BB9;&#x5B9A;&#x4E49;&#x3002;</li>
-<li>include&#x6B63;&#x76F8;&#x53CD;&#xFF0C;&#x5176;&#x5F15;&#x5165;&#x9664;<template>&#x6807;&#x7B7E;&#x4E4B;&#x5916;&#x7684;&#x5185;&#x5BB9;</template></li>
-<li>import&#x5F15;&#x5165;&#x6A21;&#x677F;&#x5B9A;&#x4E49;&#xFF0C;include&#x5F15;&#x5165;&#x7EC4;&#x4EF6;</li>
+          <h1 id="import-与include的区别"><a href="#import-与include的区别" class="headerlink" title="import 与include的区别"></a>import 与include的区别</h1><h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><ul>
+<li>一个wxml文件可以通过include或import引入其他wxml文件</li>
+<li>import引入wxml文件只接受模板的定义，忽略模板之外的内容定义。</li>
+<li>include正相反，其引入除<template>标签之外的内容</template></li>
+<li>import引入模板定义，include引入组件</li>
 </ul>
-<h2 id="import&#x4F8B;&#x5B50;"><a href="#import&#x4F8B;&#x5B50;" class="headerlink" title="import&#x4F8B;&#x5B50;"></a>import&#x4F8B;&#x5B50;</h2><h3 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h3><p>&#x5982;&#x4E0B;&#x4F8B;&#x5728;a.wxml&#x5F15;&#x5165;b.wxml&#xFF0C;&#x5728;b.wxml&#x5F15;&#x5165;c.wxml,&#x8FD9;&#x6837;a&#x5C31;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528;b.wxml&#x4E2D;&#x7684;&#x6A21;&#x677F;&#xFF0C;b&#x5C31;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528;c.wxml&#x7684;&#x6A21;&#x677F;&#xFF0C;&#x4F46;&#x662F;a.wxml&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528;c.wxml&#x7684;&#x6A21;&#x677F;<br><strong>/pages/template/a</strong>  </p>
-<pre><code class="html"><span class="tag">&lt;<span class="name">import</span> <span class="attr">src</span>=<span class="string">&quot;../common/b.wxml&quot;</span> /&gt;</span>//&#x5BFC;&#x5165;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x6587;&#x4EF6;  
-<span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">&quot;btemplate&quot;</span> /&gt;</span>    
-<span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">&quot;ctemplate&quot;</span> /&gt;</span>//&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x8C03;&#x7528;c.wxml</code></pre>
+<h2 id="import例子"><a href="#import例子" class="headerlink" title="import例子"></a>import例子</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>如下例在a.wxml引入b.wxml，在b.wxml引入c.wxml,这样a就能直接使用b.wxml中的模板，b就能直接使用c.wxml的模板，但是a.wxml不能直接使用c.wxml的模板<br><strong>/pages/template/a</strong>  </p>
+<pre><code class="html">&lt;import src=&quot;../common/b.wxml&quot; /&gt;//导入模板文件文件  
+&lt;template is=&quot;btemplate&quot; /&gt;    
+&lt;template is=&quot;ctemplate&quot; /&gt;//不能直接调用c.wxml</code></pre>
 <p><strong>../commonImport/b.wxml</strong>    </p>
-<pre><code class="html"><span class="tag">&lt;<span class="name">import</span> <span class="attr">src</span>=<span class="string">&quot;c.wxml&quot;</span> /&gt;</span>
-<span class="tag">&lt;<span class="name">view</span>&gt;</span>b template content<span class="tag">&lt;/<span class="name">view</span>&gt;</span>//import&#x65F6;&#x88AB;&#x5FFD;&#x7565;  
-<span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">&quot;btemplate&quot;</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">&quot;ctemplate&quot;</span> /&gt;</span>
-    <span class="tag">&lt;<span class="name">view</span>&gt;</span>b template content<span class="tag">&lt;/<span class="name">view</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">template</span>&gt;</span>
-<span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">&quot;ctemplate&quot;</span> /&gt;</span>//import&#x65F6;&#x88AB;&#x5FFD;&#x7565;   </code></pre>
+<pre><code class="html">&lt;import src=&quot;c.wxml&quot; /&gt;
+&lt;view&gt;b template content&lt;/view&gt;//import时被忽略  
+&lt;template name=&quot;btemplate&quot;&gt;
+    &lt;template is=&quot;ctemplate&quot; /&gt;
+    &lt;view&gt;b template content&lt;/view&gt;
+&lt;/template&gt;
+&lt;template is=&quot;ctemplate&quot; /&gt;//import时被忽略   </code></pre>
 <p><strong>../commonImport/c.wxml</strong>    </p>
-<pre><code class="html"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">&quot;ctemplate&quot;</span>&gt;</span>
-<span class="tag">&lt;<span class="name">view</span>&gt;</span>c template content<span class="tag">&lt;/<span class="name">view</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">template</span>&gt;</span></code></pre>
-<h2 id="&#x7ED3;&#x679C;&#x663E;&#x793A;"><a href="#&#x7ED3;&#x679C;&#x663E;&#x793A;" class="headerlink" title="&#x7ED3;&#x679C;&#x663E;&#x793A;"></a>&#x7ED3;&#x679C;&#x663E;&#x793A;</h2><p><img src="/2019/03/29/import&#x4E0E;include/import.png" alt="git lessons">  </p>
-<h2 id="include&#x4F8B;&#x5B50;"><a href="#include&#x4F8B;&#x5B50;" class="headerlink" title="include&#x4F8B;&#x5B50;"></a>include&#x4F8B;&#x5B50;</h2><h3 id="&#x524D;&#x8A00;-1"><a href="#&#x524D;&#x8A00;-1" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h3><p>&#x5982;&#x4E0B;&#x4F8B;&#x5728;a.wxml&#x5F15;&#x5165;b.wxml&#xFF0C;&#x5728;b.wxml&#x5F15;&#x5165;c.wxml,&#x8FD9;&#x6837;a&#x5C31;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528;b.wxml&#x4E2D;&#x7684;&#x6A21;&#x677F;&#xFF0C;b&#x5C31;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528;c.wxml&#x7684;&#x6A21;&#x677F;&#xFF0C;&#x4F46;&#x662F;a.wxml&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528;c.wxml&#x7684;&#x6A21;&#x677F;<br><strong>/pages/template/a</strong>  </p>
-<pre><code class="html"><span class="tag">&lt;<span class="name">include</span> <span class="attr">src</span>=<span class="string">&quot;../commonInclude/b.wxml&quot;</span> /&gt;</span>//&#x5BFC;&#x5165;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x6587;&#x4EF6;   
-<span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">&quot;btemplate&quot;</span> /&gt;</span>//include&#x65F6;&#x88AB;&#x5FFD;&#x7565;    
-<span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">&quot;ctemplate&quot;</span> /&gt;</span>//include&#x65F6;&#x88AB;&#x5FFD;&#x7565;    </code></pre>
+<pre><code class="html">&lt;template name=&quot;ctemplate&quot;&gt;
+&lt;view&gt;c template content&lt;/view&gt;
+&lt;/template&gt;</code></pre>
+<h2 id="结果显示"><a href="#结果显示" class="headerlink" title="结果显示"></a>结果显示</h2><p><img src="import%E4%B8%8Einclude/import.png" alt="git lessons">  </p>
+<h2 id="include例子"><a href="#include例子" class="headerlink" title="include例子"></a>include例子</h2><h3 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h3><p>如下例在a.wxml引入b.wxml，在b.wxml引入c.wxml,这样a就能直接使用b.wxml中的模板，b就能直接使用c.wxml的模板，但是a.wxml不能直接使用c.wxml的模板<br><strong>/pages/template/a</strong>  </p>
+<pre><code class="html">&lt;include src=&quot;../commonInclude/b.wxml&quot; /&gt;//导入模板文件文件   
+&lt;template is=&quot;btemplate&quot; /&gt;//include时被忽略    
+&lt;template is=&quot;ctemplate&quot; /&gt;//include时被忽略    </code></pre>
 <p><strong>../commonInclude/b.wxml</strong>    </p>
-<pre><code class="html"><span class="tag">&lt;<span class="name">import</span> <span class="attr">src</span>=<span class="string">&quot;c.wxml&quot;</span> /&gt;</span>
-<span class="tag">&lt;<span class="name">view</span>&gt;</span>b template content<span class="tag">&lt;/<span class="name">view</span>&gt;</span>//include&#x65F6;&#x6B63;&#x5E38;&#x8C03;&#x7528; 
-<span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">&quot;btemplate&quot;</span>&gt;</span>//include&#x65F6;&#x88AB;&#x5FFD;&#x7565; 
-    <span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">&quot;ctemplate&quot;</span> /&gt;</span>
-    <span class="tag">&lt;<span class="name">view</span>&gt;</span>b template content<span class="tag">&lt;/<span class="name">view</span>&gt;</span>   
-<span class="tag">&lt;/<span class="name">template</span>&gt;</span>
-<span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">&quot;ctemplate&quot;</span> /&gt;</span>//include&#x65F6;&#x6B63;&#x5E38;&#x8C03;&#x7528;    </code></pre>
+<pre><code class="html">&lt;import src=&quot;c.wxml&quot; /&gt;
+&lt;view&gt;b template content&lt;/view&gt;//include时正常调用 
+&lt;template name=&quot;btemplate&quot;&gt;//include时被忽略 
+    &lt;template is=&quot;ctemplate&quot; /&gt;
+    &lt;view&gt;b template content&lt;/view&gt;   
+&lt;/template&gt;
+&lt;template is=&quot;ctemplate&quot; /&gt;//include时正常调用    </code></pre>
 <p><strong>../commonInclude/c.wxml</strong>    </p>
-<pre><code class="html"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">&quot;ctemplate&quot;</span>&gt;</span>
-<span class="tag">&lt;<span class="name">view</span>&gt;</span>c template content<span class="tag">&lt;/<span class="name">view</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">template</span>&gt;</span></code></pre>
-<h2 id="&#x7ED3;&#x679C;&#x663E;&#x793A;-1"><a href="#&#x7ED3;&#x679C;&#x663E;&#x793A;-1" class="headerlink" title="&#x7ED3;&#x679C;&#x663E;&#x793A;"></a>&#x7ED3;&#x679C;&#x663E;&#x793A;</h2><p><img src="/2019/03/29/import&#x4E0E;include/include.png" alt="git lessons"></p>
+<pre><code class="html">&lt;template name=&quot;ctemplate&quot;&gt;
+&lt;view&gt;c template content&lt;/view&gt;
+&lt;/template&gt;</code></pre>
+<h2 id="结果显示-1"><a href="#结果显示-1" class="headerlink" title="结果显示"></a>结果显示</h2><p><img src="import%E4%B8%8Einclude/include.png" alt="git lessons"></p>
 
         </div>
         <!-- .entry-content -->
@@ -825,7 +825,7 @@ $(document).ready(function() {
       </li>
     
       <li>
-        <a href="/tags/">
+        <a href="/tags/web/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-tags" aria-hidden="true"></i>
             标签
@@ -1102,7 +1102,7 @@ $(document).ready(function() {
       </li>
     
       <li>
-        <a href="/tags/">
+        <a href="/tags/web/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-tags" aria-hidden="true"></i>
             标签

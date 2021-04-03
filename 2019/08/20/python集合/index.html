@@ -341,7 +341,7 @@
               </li>
             
               <li>
-                <a href="/tags/">
+                <a href="/tags/web/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-tags" aria-hidden="true"></i>
                     标签
@@ -376,179 +376,179 @@
           </header>
         
         <div class="entry-content">
-          <h3 id="1-&#x96C6;&#x5408;&#x548C;&#x5217;&#x8868;&#x7684;&#x533A;&#x522B;"><a href="#1-&#x96C6;&#x5408;&#x548C;&#x5217;&#x8868;&#x7684;&#x533A;&#x522B;" class="headerlink" title="1 &#x96C6;&#x5408;&#x548C;&#x5217;&#x8868;&#x7684;&#x533A;&#x522B;"></a>1 &#x96C6;&#x5408;&#x548C;&#x5217;&#x8868;&#x7684;&#x533A;&#x522B;</h3><pre><code>- &#x96C6;&#x5408;&#x548C;&#x5217;&#x8868;&#x975E;&#x5E38;&#x76F8;&#x4F3C;
-- &#x4E0D;&#x540C;&#x70B9;&#xFF1A;
-    1.&#x96C6;&#x5408;&#x4E2D;&#x53EA;&#x80FD;&#x5B58;&#x50A8;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;
-    2.&#x96C6;&#x5408;&#x4E2D;&#x5B58;&#x50A8;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x65E0;&#x5E8F;&#xFF08;&#x4E0D;&#x662F;&#x6309;&#x7167;&#x5143;&#x7D20;&#x7684;&#x63D2;&#x5165;&#x987A;&#x5E8F;&#x4FDD;&#x5B58;&#xFF09;
-    3.&#x96C6;&#x5408;&#x4E2D;&#x4E0D;&#x80FD;&#x51FA;&#x73B0;&#x91CD;&#x590D;&#x7684;&#x5143;&#x7D20;</code></pre><h3 id="2-&#x521B;&#x5EFA;&#x96C6;&#x5408;"><a href="#2-&#x521B;&#x5EFA;&#x96C6;&#x5408;" class="headerlink" title="2 &#x521B;&#x5EFA;&#x96C6;&#x5408;"></a>2 &#x521B;&#x5EFA;&#x96C6;&#x5408;</h3><h4 id="2-1-&#x4F7F;&#x7528;-&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;"><a href="#2-1-&#x4F7F;&#x7528;-&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;" class="headerlink" title="2-1 &#x4F7F;&#x7528; {} &#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;"></a>2-1 &#x4F7F;&#x7528; {} &#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;</h4><pre><code>&gt;&gt;&gt; s = {10,3,5,1,2,1,2,3,1,1,1,1}
-&gt;&gt;&gt; s
-{1, 2, 3, 5, 10}
-&gt;&gt;&gt; 
-&#x7ED9;&#x51FA;&#x7684;&#x96C6;&#x5408;&#x662F;&#x5177;&#x6709;&#x91CD;&#x590D;&#x6570;&#x5B57;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x8F93;&#x51FA;&#x540E;&#x96C6;&#x5408;&#x9ED8;&#x8BA4;&#x5177;&#x6709;&#x53BB;&#x91CD;&#x529F;&#x80FD;</code></pre><h3 id="2-2-&#x4F7F;&#x7528;-set-&#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;"><a href="#2-2-&#x4F7F;&#x7528;-set-&#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;" class="headerlink" title="2-2 &#x4F7F;&#x7528; set() &#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;"></a>2-2 &#x4F7F;&#x7528; set() &#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x96C6;&#x5408;</h3><pre><code>&gt;&gt;&gt; s = {[1,2,3],[4,6,7]}
-Traceback (most recent call last):
-File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-TypeError: unhashable type: &apos;list&apos;
-&#x5982;&#x4E0A;&#x6240;&#x793A;&#x5728;&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;&#x521B;&#x5EFA;&#x5C31;&#x4E0D;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x5F15;&#x51FA;&#x53E6;&#x4E00;&#x79CD;&#x96C6;&#x5408;&#x7684;&#x521B;&#x5EFA;&#x65B9;&#x6CD5;&#x3002;
+          <h3 id="1-集合和列表的区别"><a href="#1-集合和列表的区别" class="headerlink" title="1 集合和列表的区别"></a>1 集合和列表的区别</h3><pre><code>- 集合和列表非常相似
+- 不同点：
+    1.集合中只能存储不可变对象
+    2.集合中存储的对象是无序（不是按照元素的插入顺序保存）
+    3.集合中不能出现重复的元素</code></pre><h3 id="2-创建集合"><a href="#2-创建集合" class="headerlink" title="2 创建集合"></a>2 创建集合</h3><h4 id="2-1-使用-来创建集合"><a href="#2-1-使用-来创建集合" class="headerlink" title="2-1 使用 {} 来创建集合"></a>2-1 使用 {} 来创建集合</h4><pre><code>    &gt;&gt;&gt; s = {10,3,5,1,2,1,2,3,1,1,1,1}
+    &gt;&gt;&gt; s
+    {1, 2, 3, 5, 10}
+    &gt;&gt;&gt; 
+    给出的集合是具有重复数字的集合，但是在输出后集合默认具有去重功能</code></pre><h3 id="2-2-使用-set-函数来创建集合"><a href="#2-2-使用-set-函数来创建集合" class="headerlink" title="2-2 使用 set() 函数来创建集合"></a>2-2 使用 set() 函数来创建集合</h3><pre><code>    &gt;&gt;&gt; s = {[1,2,3],[4,6,7]}
+    Traceback (most recent call last):
+    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+    TypeError: unhashable type: &#39;list&#39;
+    如上所示在使用大括号创建就不可以了，下面引出另一种集合的创建方法。
 
-s = set() # &#x7A7A;&#x96C6;&#x5408;
-# &#x53EF;&#x4EE5;&#x901A;&#x8FC7;set()&#x6765;&#x5C06;&#x5E8F;&#x5217;&#x548C;&#x5B57;&#x5178;&#x8F6C;&#x6362;&#x4E3A;&#x96C6;&#x5408;
-&gt;&gt;&gt; s = set([1,2,3,4,5,1,1,2,3,4,5])
-&gt;&gt;&gt; s
-{1, 2, 3, 4, 5}
-&gt;&gt;&gt; 
+    s = set() # 空集合
+    # 可以通过set()来将序列和字典转换为集合
+    &gt;&gt;&gt; s = set([1,2,3,4,5,1,1,2,3,4,5])
+    &gt;&gt;&gt; s
+    {1, 2, 3, 4, 5}
+    &gt;&gt;&gt; 
 
-# &#x4F7F;&#x7528;set()&#x5C06;&#x5B57;&#x5178;&#x8F6C;&#x6362;&#x4E3A;&#x96C6;&#x5408;&#x65F6;&#xFF0C;&#x53EA;&#x4F1A;&#x5305;&#x542B;&#x5B57;&#x5178;&#x4E2D;&#x7684;&#x952E;
-&gt;&gt;&gt; s = set({&apos;a&apos;:1,&apos;b&apos;:2,&apos;c&apos;:3}) 
-&gt;&gt;&gt; s
-{&apos;c&apos;, &apos;b&apos;, &apos;a&apos;}
-&gt;&gt;&gt; </code></pre><h3 id="3-&#x8BBF;&#x95EE;&#x96C6;&#x5408;"><a href="#3-&#x8BBF;&#x95EE;&#x96C6;&#x5408;" class="headerlink" title="3 &#x8BBF;&#x95EE;&#x96C6;&#x5408;"></a>3 &#x8BBF;&#x95EE;&#x96C6;&#x5408;</h3><pre><code>&#x7531;&#x4E8E;&#x96C6;&#x5408;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#x6240;&#x4EE5;&#x65E0;&#x6CD5;&#x50CF;&#x5E8F;&#x5217;&#x90A3;&#x6837;&#x7528;&#x4E0B;&#x6807;&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FED;&#x4EE3;&#x8FDB;&#x884C;&#x53D6;&#x51FA;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x3002;
+    # 使用set()将字典转换为集合时，只会包含字典中的键
+    &gt;&gt;&gt; s = set({&#39;a&#39;:1,&#39;b&#39;:2,&#39;c&#39;:3}) 
+    &gt;&gt;&gt; s
+    {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;}
+    &gt;&gt;&gt; </code></pre><h3 id="3-访问集合"><a href="#3-访问集合" class="headerlink" title="3 访问集合"></a>3 访问集合</h3><pre><code>    由于集合是无序的所以无法像序列那样用下标进行访问，但是可以通过迭代进行取出集合中的元素。
 
-1) &#x8FED;&#x4EE3;&#x8BBF;&#x95EE;
-sets={1,2,3,4,5}
-for each in sets:
-    print(each)
-&#x8F93;&#x51FA;&#xFF1A;
-    1
-    2
-    3
-    4
+    1) 迭代访问
+    sets={1,2,3,4,5}
+    for each in sets:
+        print(each)
+    输出：
+        1
+        2
+        3
+        4
+        5
+
+    2) 使用in和not in来检查集合中的元素是否存在
+
+    &gt;&gt;&gt; sets={1,2,3,4,5}
+    &gt;&gt;&gt; sets
+    {1, 2, 3, 4, 5}
+    &gt;&gt;&gt; 5 in sets
+    True
+    &gt;&gt;&gt; 6 in sets
+    False
+
+    3) 使用len()来获取集合中元素的数量
+    &gt;&gt;&gt; print(len(sets))
     5
+    &gt;&gt;&gt; 
 
-2) &#x4F7F;&#x7528;in&#x548C;not in&#x6765;&#x68C0;&#x67E5;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5B58;&#x5728;
+    4) add() 向集合中添加元素
+    &gt;&gt;&gt; sets
+    {1, 2, 3, 4, 5}
+    &gt;&gt;&gt; sets.add(&quot;helloworld&quot;)
+    &gt;&gt;&gt; sets.add(&quot;hellopython&quot;)
+    &gt;&gt;&gt; sets
+    {1, 2, 3, 4, 5, &#39;helloworld&#39;, &#39;hellopython&#39;}
+    &gt;&gt;&gt; 
 
-&gt;&gt;&gt; sets={1,2,3,4,5}
-&gt;&gt;&gt; sets
-{1, 2, 3, 4, 5}
-&gt;&gt;&gt; 5 in sets
-True
-&gt;&gt;&gt; 6 in sets
-False
+    5) update() 
+    将一个集合中的元素添加到当前集合中update()
+    可以传递序列或字典作为参数，字典只会使用键
 
-3) &#x4F7F;&#x7528;len()&#x6765;&#x83B7;&#x53D6;&#x96C6;&#x5408;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;
-&gt;&gt;&gt; print(len(sets))
-5
-&gt;&gt;&gt; 
+    &gt;&gt;&gt; sets
+    {1, 2, 3, 4, 5, &#39;helloworld&#39;, &#39;hellopython&#39;}
+    &gt;&gt;&gt; sets.update(set(&#39;hello&#39;))
+    &gt;&gt;&gt; sets.update((10,20,30,40,50))
+    &gt;&gt;&gt; sets.update({100:1,200:2,300:3,400:4,500:5})
+    &gt;&gt;&gt; sets
+    {1, 2, 3, 4, 5, 200, 10, 400, &#39;hellopython&#39;, 20, &#39;l&#39;, 30, &#39;h&#39;, 100, 40, 300, &#39;helloworld&#39;, 50, 500, &#39;e&#39;, &#39;o&#39;}
+    &gt;&gt;&gt; 
 
-4) add() &#x5411;&#x96C6;&#x5408;&#x4E2D;&#x6DFB;&#x52A0;&#x5143;&#x7D20;
-&gt;&gt;&gt; sets
-{1, 2, 3, 4, 5}
-&gt;&gt;&gt; sets.add(&quot;helloworld&quot;)
-&gt;&gt;&gt; sets.add(&quot;hellopython&quot;)
-&gt;&gt;&gt; sets
-{1, 2, 3, 4, 5, &apos;helloworld&apos;, &apos;hellopython&apos;}
-&gt;&gt;&gt; 
-
-5) update() 
-&#x5C06;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x5230;&#x5F53;&#x524D;&#x96C6;&#x5408;&#x4E2D;update()
-&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x5E8F;&#x5217;&#x6216;&#x5B57;&#x5178;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x5B57;&#x5178;&#x53EA;&#x4F1A;&#x4F7F;&#x7528;&#x952E;
-
-&gt;&gt;&gt; sets
-{1, 2, 3, 4, 5, &apos;helloworld&apos;, &apos;hellopython&apos;}
-&gt;&gt;&gt; sets.update(set(&apos;hello&apos;))
-&gt;&gt;&gt; sets.update((10,20,30,40,50))
-&gt;&gt;&gt; sets.update({100:1,200:2,300:3,400:4,500:5})
-&gt;&gt;&gt; sets
-{1, 2, 3, 4, 5, 200, 10, 400, &apos;hellopython&apos;, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, &apos;helloworld&apos;, 50, 500, &apos;e&apos;, &apos;o&apos;}
-&gt;&gt;&gt; 
-
-6) remove()&#x5220;&#x9664;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6307;&#x5B9A;&#x5143;&#x7D20;
-&gt;&gt;&gt; sets
-{1, 2, 3, 4, 5, 200, 10, 400, &apos;hellopython&apos;, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, &apos;helloworld&apos;, 50, 500, &apos;e&apos;, &apos;o&apos;}
-&gt;&gt;&gt; sets.remove(&apos;hellopython&apos;)
-&gt;&gt;&gt; sets.remove(&quot;helloworld&quot;)
-&gt;&gt;&gt; sets
-{1, 2, 3, 4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
-&gt;&gt;&gt; 
+    6) remove()删除集合中的指定元素
+    &gt;&gt;&gt; sets
+    {1, 2, 3, 4, 5, 200, 10, 400, &#39;hellopython&#39;, 20, &#39;l&#39;, 30, &#39;h&#39;, 100, 40, 300, &#39;helloworld&#39;, 50, 500, &#39;e&#39;, &#39;o&#39;}
+    &gt;&gt;&gt; sets.remove(&#39;hellopython&#39;)
+    &gt;&gt;&gt; sets.remove(&quot;helloworld&quot;)
+    &gt;&gt;&gt; sets
+    {1, 2, 3, 4, 5, 200, 10, 400, 20, &#39;l&#39;, 30, &#39;h&#39;, 100, 40, 300, 50, 500, &#39;e&#39;, &#39;o&#39;}
+    &gt;&gt;&gt; 
 
 
-7) pop()&#x968F;&#x673A;&#x5220;&#x9664;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;
+    7) pop()随机删除并返回一个集合中的元素
 
-&#x8FD9;&#x91CC;&#x968F;&#x673A;&#x9009;&#x62E9;&#x4ECE;&#x9996;&#x5143;&#x7D20;&#x6216;&#x8005;&#x5C3E;&#x5143;&#x7D20;&#x5F00;&#x59CB;&#x3002;
-&gt;&gt;&gt; sets
-{1, 2, 3, 4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
-&gt;&gt;&gt; sets.pop()
-1
-&gt;&gt;&gt; sets.pop()
-2
-&gt;&gt;&gt; sets.pop()
-3
-&gt;&gt;&gt; sets
-{4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
-&gt;&gt;&gt;
+    这里随机选择从首元素或者尾元素开始。
+    &gt;&gt;&gt; sets
+    {1, 2, 3, 4, 5, 200, 10, 400, 20, &#39;l&#39;, 30, &#39;h&#39;, 100, 40, 300, 50, 500, &#39;e&#39;, &#39;o&#39;}
+    &gt;&gt;&gt; sets.pop()
+    1
+    &gt;&gt;&gt; sets.pop()
+    2
+    &gt;&gt;&gt; sets.pop()
+    3
+    &gt;&gt;&gt; sets
+    {4, 5, 200, 10, 400, 20, &#39;l&#39;, 30, &#39;h&#39;, 100, 40, 300, 50, 500, &#39;e&#39;, &#39;o&#39;}
+    &gt;&gt;&gt;
 
-8) copy()&#x5BF9;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x6D45;&#x590D;&#x5236;
-&gt;&gt;&gt; sets_copy=sets.copy()
-&gt;&gt;&gt; sets_copy
-{4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
-&gt;&gt;&gt; sets
-{4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
-&gt;&gt;&gt; 
+    8) copy()对集合进行浅复制
+    &gt;&gt;&gt; sets_copy=sets.copy()
+    &gt;&gt;&gt; sets_copy
+    {4, 5, 200, 10, 400, 20, &#39;l&#39;, 30, &#39;h&#39;, 100, 40, 300, 50, 500, &#39;e&#39;, &#39;o&#39;}
+    &gt;&gt;&gt; sets
+    {4, 5, 200, 10, 400, 20, &#39;l&#39;, 30, &#39;h&#39;, 100, 40, 300, 50, 500, &#39;e&#39;, &#39;o&#39;}
+    &gt;&gt;&gt; 
 
-9&#xFF09; clear()&#x6E05;&#x7A7A;&#x96C6;&#x5408;
-  &gt;&gt;&gt; sets
-{4, 5, 200, 10, 400, 20, &apos;l&apos;, 30, &apos;h&apos;, 100, 40, 300, 50, 500, &apos;e&apos;, &apos;o&apos;}
-&gt;&gt;&gt; sets.clear()
-&gt;&gt;&gt; sets
- {}
-&gt;&gt;&gt; </code></pre><h3 id="4-&#x4E0D;&#x53EF;&#x53D8;&#x96C6;&#x5408;"><a href="#4-&#x4E0D;&#x53EF;&#x53D8;&#x96C6;&#x5408;" class="headerlink" title="4 &#x4E0D;&#x53EF;&#x53D8;&#x96C6;&#x5408;"></a>4 &#x4E0D;&#x53EF;&#x53D8;&#x96C6;&#x5408;</h3><pre><code>&#x6709;&#x65F6;&#x5019;&#x5E0C;&#x671B;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x5177;&#x6709;&#x7A33;&#x5B9A;&#x6027;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x50CF;&#x5143;&#x7956;&#x4E00;&#x6837;&#x4E0D;&#x80FD;&#x968F;&#x610F;&#x7684;&#x589E;&#x52A0;&#x548C;&#x4FEE;&#x6539;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x6210;&#x4E0D;&#x53EF;&#x53D8;&#x96C6;&#x5408;&#x3002;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;frozenset() &#x51FD;&#x6570;&#x3002;&#x8FD9;&#x91CC;&#x4FD7;&#x79F0;&#x628A;&#x5143;&#x7D20;&#x7ED9;&#x51B0;&#x51BB;&#x8D77;&#x6765;&#x4E86;&#x3002;
+    9） clear()清空集合
+      &gt;&gt;&gt; sets
+    {4, 5, 200, 10, 400, 20, &#39;l&#39;, 30, &#39;h&#39;, 100, 40, 300, 50, 500, &#39;e&#39;, &#39;o&#39;}
+    &gt;&gt;&gt; sets.clear()
+    &gt;&gt;&gt; sets
+     {}
+    &gt;&gt;&gt; </code></pre><h3 id="4-不可变集合"><a href="#4-不可变集合" class="headerlink" title="4 不可变集合"></a>4 不可变集合</h3><pre><code>    有时候希望集合中的数据具有稳定性，也就是像元祖一样不能随意的增加和修改，那么就需要定义成不可变集合。这里使用frozenset() 函数。这里俗称把元素给冰冻起来了。
 
-&gt;&gt;&gt; sets=frozenset({1,2,3,4,5,6,7,8})
-&gt;&gt;&gt; sets
-frozenset({1, 2, 3, 4, 5, 6, 7, 8})
-&gt;&gt;&gt; sets.add(9)
-Traceback (most recent call last):
-File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-AttributeError: &apos;frozenset&apos; object has no attribute &apos;add&apos;
-&gt;&gt;&gt; sets.remove(1)
-Traceback (most recent call last):
-File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-AttributeError: &apos;frozenset&apos; object has no attribute &apos;remove&apos;
-&gt;&gt;&gt; </code></pre><h3 id="5-&#x96C6;&#x5408;&#x7684;&#x8FD0;&#x7B97;"><a href="#5-&#x96C6;&#x5408;&#x7684;&#x8FD0;&#x7B97;" class="headerlink" title="5 &#x96C6;&#x5408;&#x7684;&#x8FD0;&#x7B97;"></a>5 &#x96C6;&#x5408;&#x7684;&#x8FD0;&#x7B97;</h3><pre><code># &#x5728;&#x5BF9;&#x96C6;&#x5408;&#x505A;&#x8FD0;&#x7B97;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x539F;&#x6765;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x800C;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8FD0;&#x7B97;&#x7ED3;&#x679C;
-# &#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x96C6;&#x5408;
-&gt;&gt;&gt; sets1={1,2,3,4,5}
-&gt;&gt;&gt; sets2={3,4,5,6,7}
+    &gt;&gt;&gt; sets=frozenset({1,2,3,4,5,6,7,8})
+    &gt;&gt;&gt; sets
+    frozenset({1, 2, 3, 4, 5, 6, 7, 8})
+    &gt;&gt;&gt; sets.add(9)
+    Traceback (most recent call last):
+    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+    AttributeError: &#39;frozenset&#39; object has no attribute &#39;add&#39;
+    &gt;&gt;&gt; sets.remove(1)
+    Traceback (most recent call last):
+    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+    AttributeError: &#39;frozenset&#39; object has no attribute &#39;remove&#39;
+    &gt;&gt;&gt; </code></pre><h3 id="5-集合的运算"><a href="#5-集合的运算" class="headerlink" title="5 集合的运算"></a>5 集合的运算</h3><pre><code>    # 在对集合做运算时，不会影响原来的集合，而是返回一个运算结果
+    # 创建两个集合
+    &gt;&gt;&gt; sets1={1,2,3,4,5}
+    &gt;&gt;&gt; sets2={3,4,5,6,7}
 
-# &amp; &#x4EA4;&#x96C6;&#x8FD0;&#x7B97;
-sets1&#x548C;sets2&#x5171;&#x540C;&#x7684;&#x5143;&#x7D20;
-&gt;&gt;&gt; sets1 &amp; sets2
-{3, 4, 5}
+    # &amp; 交集运算
+    sets1和sets2共同的元素
+    &gt;&gt;&gt; sets1 &amp; sets2
+    {3, 4, 5}
 
-# | &#x5E76;&#x96C6;&#x8FD0;&#x7B97;
-sets1&#x548C;sets2&#x6240;&#x6709;&#x7684;&#x5143;&#x7D20;
-&gt;&gt;&gt; sets1 | sets2
-{1, 2, 3, 4, 5, 6, 7}
-&gt;&gt;&gt;
+    # | 并集运算
+    sets1和sets2所有的元素
+    &gt;&gt;&gt; sets1 | sets2
+    {1, 2, 3, 4, 5, 6, 7}
+    &gt;&gt;&gt;
 
-# - &#x5DEE;&#x96C6;
-&#x5B58;&#x5728;sets1&#x4E2D;&#x4F46;&#x662F;&#x4E0D;&#x5B58;&#x5728;sets2&#x4E2D;
-&gt;&gt;&gt; sets1 - sets2
-{1, 2}
-&gt;&gt;&gt; 
+    # - 差集
+    存在sets1中但是不存在sets2中
+    &gt;&gt;&gt; sets1 - sets2
+    {1, 2}
+    &gt;&gt;&gt; 
 
-# ^ &#x5F02;&#x6216;&#x96C6; 
-&#x83B7;&#x53D6;&#x53EA;&#x5728;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x5143;&#x7D20;
-&gt;&gt;&gt; sets1 ^ sets2
-{1, 2, 6, 7}
-&gt;&gt;&gt; 
+    # ^ 异或集 
+    获取只在一个集合中出现的元素
+    &gt;&gt;&gt; sets1 ^ sets2
+    {1, 2, 6, 7}
+    &gt;&gt;&gt; 
 
-# &lt;= 
-&#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x662F;&#x5426;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x7684;&#x5B50;&#x96C6;
-# &#x5982;&#x679C;a&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x5168;&#x90E8;&#x90FD;&#x5728;b&#x96C6;&#x5408;&#x4E2D;&#x51FA;&#x73B0;&#xFF0C;&#x90A3;&#x4E48;a&#x96C6;&#x5408;&#x5C31;&#x662F;b&#x96C6;&#x5408;&#x7684;&#x5B50;&#x96C6;&#xFF0C;b&#x96C6;&#x5408;&#x662F;a&#x96C6;&#x5408;&#x8D85;&#x96C6;
-a = {1,2,3}
-b = {1,2,3,4,5}
+    # &lt;= 
+    检查一个集合是否是另一个集合的子集
+    # 如果a集合中的元素全部都在b集合中出现，那么a集合就是b集合的子集，b集合是a集合超集
+    a = {1,2,3}
+    b = {1,2,3,4,5}
 
-result = a &lt;= b # True
-result = {1,2,3} &lt;= {1,2,3} # True
-result = {1,2,3,4,5} &lt;= {1,2,3} # False
+    result = a &lt;= b # True
+    result = {1,2,3} &lt;= {1,2,3} # True
+    result = {1,2,3,4,5} &lt;= {1,2,3} # False
 
-# &lt; 
-&#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x662F;&#x5426;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x7684;&#x771F;&#x5B50;&#x96C6;
-# &#x5982;&#x679C;&#x8D85;&#x96C6;b&#x4E2D;&#x542B;&#x6709;&#x5B50;&#x96C6;a&#x4E2D;&#x6240;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x4E14;b&#x4E2D;&#x8FD8;&#x6709;a&#x4E2D;&#x6CA1;&#x6709;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;b&#x5C31;&#x662F;a&#x7684;&#x771F;&#x8D85;&#x96C6;&#xFF0C;a&#x662F;b&#x7684;&#x771F;&#x5B50;&#x96C6;
-result = {1,2,3} &lt; {1,2,3} # False
-result = {1,2,3} &lt; {1,2,3,4,5} # True
+    # &lt; 
+    检查一个集合是否是另一个集合的真子集
+    # 如果超集b中含有子集a中所有元素，并且b中还有a中没有的元素，则b就是a的真超集，a是b的真子集
+    result = {1,2,3} &lt; {1,2,3} # False
+    result = {1,2,3} &lt; {1,2,3,4,5} # True
 
-# &gt;= &#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x662F;&#x5426;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x7684;&#x8D85;&#x96C6;
-# &gt; &#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x662F;&#x5426;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x7684;&#x771F;&#x8D85;&#x96C6;</code></pre>
+    # &gt;= 检查一个集合是否是另一个的超集
+    # &gt; 检查一个集合是否是另一个的真超集</code></pre>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -957,7 +957,7 @@ $(document).ready(function() {
       </li>
     
       <li>
-        <a href="/tags/">
+        <a href="/tags/web/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-tags" aria-hidden="true"></i>
             标签
@@ -1234,7 +1234,7 @@ $(document).ready(function() {
       </li>
     
       <li>
-        <a href="/tags/">
+        <a href="/tags/web/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-tags" aria-hidden="true"></i>
             标签
