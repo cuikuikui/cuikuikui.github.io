@@ -376,37 +376,34 @@
           </header>
         
         <div class="entry-content">
-          <h1 id="第一步-下载-nginx"><a href="#第一步-下载-nginx" class="headerlink" title="第一步 下载 nginx"></a>第一步 下载 nginx</h1><p><img src="%E7%AC%AC%E4%B8%80%E7%AB%A0-nginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/1.jpg" alt="1.jpg"></p>
-<h1 id="第二步-解压-nginx"><a href="#第二步-解压-nginx" class="headerlink" title="第二步 解压 nginx"></a>第二步 解压 nginx</h1><p><img src="%E7%AC%AC%E4%B8%80%E7%AB%A0-nginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/2.jpg" alt="2.jpg">  </p>
-<h1 id="第三步-预安装-nginx"><a href="#第三步-预安装-nginx" class="headerlink" title="第三步 预安装 nginx"></a>第三步 预安装 nginx</h1><p>首先进入解压目录：<strong>cd nginx-1.4.2</strong><br>尝试预按装nginx中间如果缺少相应的库我们在一次安装nginx对应的库。  </p>
-<p><img src="%E7%AC%AC%E4%B8%80%E7%AB%A0-nginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/3.jpg" alt="3.jpg"> </p>
-<p>如下图所示缺少一个pcre库<br><img src="%E7%AC%AC%E4%B8%80%E7%AB%A0-nginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/4.jpg" alt="4.jpg"> </p>
-<p>安装pcre<br><img src="%E7%AC%AC%E4%B8%80%E7%AB%A0-nginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/5.jpg" alt="5.jpg"> </p>
-<p>如图所示安装结果出现pcre已存在，但是又提醒我们安装pcre.于是乎我们要安装一个pcre-devel;中间输入 y</p>
-<p><img src="%E7%AC%AC%E4%B8%80%E7%AB%A0-nginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/6.png" alt="6.jpg"> </p>
-<p>安装库结束后再次输入安装命令:<strong>./configure –prefix=/usr/local/nginx</strong>  </p>
-<h1 id="第四步-安装-nginx"><a href="#第四步-安装-nginx" class="headerlink" title="第四步 安装 nginx"></a>第四步 安装 nginx</h1><p>输入命令：<strong>make &amp;&amp; make install</strong><br><img src="%E7%AC%AC%E4%B8%80%E7%AB%A0-nginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/7.jpg" alt="7.jpg"> </p>
-<p>经过以上步骤正常情况下应该安装成功了。</p>
-<h1 id="第五步-启动-nginx"><a href="#第五步-启动-nginx" class="headerlink" title="第五步 启动 nginx"></a>第五步 启动 nginx</h1><ol>
-<li><p>首先输入命令：<strong>*cd /usr/local/nginx</strong>发现里面有四个目录：</p>
+          <h1 id="&#x7B2C;&#x4E00;&#x6B65;-&#x4E0B;&#x8F7D;-nginx"><a href="#&#x7B2C;&#x4E00;&#x6B65;-&#x4E0B;&#x8F7D;-nginx" class="headerlink" title="&#x7B2C;&#x4E00;&#x6B65; &#x4E0B;&#x8F7D; nginx"></a>&#x7B2C;&#x4E00;&#x6B65; &#x4E0B;&#x8F7D; nginx</h1><p><img src="/2019/02/11/&#x7B2C;&#x4E00;&#x7AE0;-nginx&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;/1.jpg" alt="1.jpg"></p>
+<h1 id="&#x7B2C;&#x4E8C;&#x6B65;-&#x89E3;&#x538B;-nginx"><a href="#&#x7B2C;&#x4E8C;&#x6B65;-&#x89E3;&#x538B;-nginx" class="headerlink" title="&#x7B2C;&#x4E8C;&#x6B65; &#x89E3;&#x538B; nginx"></a>&#x7B2C;&#x4E8C;&#x6B65; &#x89E3;&#x538B; nginx</h1><p><img src="/2019/02/11/&#x7B2C;&#x4E00;&#x7AE0;-nginx&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;/2.jpg" alt="2.jpg">  </p>
+<h1 id="&#x7B2C;&#x4E09;&#x6B65;-&#x9884;&#x5B89;&#x88C5;-nginx"><a href="#&#x7B2C;&#x4E09;&#x6B65;-&#x9884;&#x5B89;&#x88C5;-nginx" class="headerlink" title="&#x7B2C;&#x4E09;&#x6B65; &#x9884;&#x5B89;&#x88C5; nginx"></a>&#x7B2C;&#x4E09;&#x6B65; &#x9884;&#x5B89;&#x88C5; nginx</h1><p>&#x9996;&#x5148;&#x8FDB;&#x5165;&#x89E3;&#x538B;&#x76EE;&#x5F55;&#xFF1A;<strong>cd nginx-1.4.2</strong><br>&#x5C1D;&#x8BD5;&#x9884;&#x6309;&#x88C5;nginx&#x4E2D;&#x95F4;&#x5982;&#x679C;&#x7F3A;&#x5C11;&#x76F8;&#x5E94;&#x7684;&#x5E93;&#x6211;&#x4EEC;&#x5728;&#x4E00;&#x6B21;&#x5B89;&#x88C5;nginx&#x5BF9;&#x5E94;&#x7684;&#x5E93;&#x3002;  </p>
+<p><img src="/2019/02/11/&#x7B2C;&#x4E00;&#x7AE0;-nginx&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;/3.jpg" alt="3.jpg"> </p>
+<p>&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x7F3A;&#x5C11;&#x4E00;&#x4E2A;pcre&#x5E93;<br><img src="/2019/02/11/&#x7B2C;&#x4E00;&#x7AE0;-nginx&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;/4.jpg" alt="4.jpg"> </p>
+<p>&#x5B89;&#x88C5;pcre<br><img src="/2019/02/11/&#x7B2C;&#x4E00;&#x7AE0;-nginx&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;/5.jpg" alt="5.jpg"> </p>
+<p>&#x5982;&#x56FE;&#x6240;&#x793A;&#x5B89;&#x88C5;&#x7ED3;&#x679C;&#x51FA;&#x73B0;pcre&#x5DF2;&#x5B58;&#x5728;&#xFF0C;&#x4F46;&#x662F;&#x53C8;&#x63D0;&#x9192;&#x6211;&#x4EEC;&#x5B89;&#x88C5;pcre.&#x4E8E;&#x662F;&#x4E4E;&#x6211;&#x4EEC;&#x8981;&#x5B89;&#x88C5;&#x4E00;&#x4E2A;pcre-devel;&#x4E2D;&#x95F4;&#x8F93;&#x5165; y</p>
+<p><img src="/2019/02/11/&#x7B2C;&#x4E00;&#x7AE0;-nginx&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;/6.png" alt="6.jpg"> </p>
+<p>&#x5B89;&#x88C5;&#x5E93;&#x7ED3;&#x675F;&#x540E;&#x518D;&#x6B21;&#x8F93;&#x5165;&#x5B89;&#x88C5;&#x547D;&#x4EE4;:<strong>./configure &#x2013;prefix=/usr/local/nginx</strong>  </p>
+<h1 id="&#x7B2C;&#x56DB;&#x6B65;-&#x5B89;&#x88C5;-nginx"><a href="#&#x7B2C;&#x56DB;&#x6B65;-&#x5B89;&#x88C5;-nginx" class="headerlink" title="&#x7B2C;&#x56DB;&#x6B65; &#x5B89;&#x88C5; nginx"></a>&#x7B2C;&#x56DB;&#x6B65; &#x5B89;&#x88C5; nginx</h1><p>&#x8F93;&#x5165;&#x547D;&#x4EE4;&#xFF1A;<strong>make &amp;&amp; make install</strong><br><img src="/2019/02/11/&#x7B2C;&#x4E00;&#x7AE0;-nginx&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;/7.jpg" alt="7.jpg"> </p>
+<p>&#x7ECF;&#x8FC7;&#x4EE5;&#x4E0A;&#x6B65;&#x9AA4;&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x5E94;&#x8BE5;&#x5B89;&#x88C5;&#x6210;&#x529F;&#x4E86;&#x3002;</p>
+<h1 id="&#x7B2C;&#x4E94;&#x6B65;-&#x542F;&#x52A8;-nginx"><a href="#&#x7B2C;&#x4E94;&#x6B65;-&#x542F;&#x52A8;-nginx" class="headerlink" title="&#x7B2C;&#x4E94;&#x6B65; &#x542F;&#x52A8; nginx"></a>&#x7B2C;&#x4E94;&#x6B65; &#x542F;&#x52A8; nginx</h1><ol>
+<li><p>&#x9996;&#x5148;&#x8F93;&#x5165;&#x547D;&#x4EE4;&#xFF1A;<strong>*cd /usr/local/nginx</strong>&#x53D1;&#x73B0;&#x91CC;&#x9762;&#x6709;&#x56DB;&#x4E2A;&#x76EE;&#x5F55;&#xFF1A;</p>
 <ul>
-<li>conf 配置文件</li>
-<li>html 网页文件</li>
-<li>logs 日志文件</li>
-<li>sbin 二进制程序</li>
+<li>conf &#x914D;&#x7F6E;&#x6587;&#x4EF6;</li>
+<li>html &#x7F51;&#x9875;&#x6587;&#x4EF6;</li>
+<li>logs &#x65E5;&#x5FD7;&#x6587;&#x4EF6;</li>
+<li>sbin &#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F;</li>
 </ul>
 </li>
-<li><p>进入 sbin目录内输入命令<strong>./nginx</strong>启动nginx.<br><img src="%E7%AC%AC%E4%B8%80%E7%AB%A0-nginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/8.jpg" alt="8.jpg"><br>如上图所示在启动后可能会出现端口被占用问题。我这里出现了80端口被占用的问题，像这种情况可能是自己之前安装了apache，nginx等或者操作系统自带了apache服务。这里我们只要将80端口关闭即可。 </p>
+<li><p>&#x8FDB;&#x5165; sbin&#x76EE;&#x5F55;&#x5185;&#x8F93;&#x5165;&#x547D;&#x4EE4;<strong>./nginx</strong>&#x542F;&#x52A8;nginx.<br><img src="/2019/02/11/&#x7B2C;&#x4E00;&#x7AE0;-nginx&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;/8.jpg" alt="8.jpg"><br>&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#x5728;&#x542F;&#x52A8;&#x540E;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7AEF;&#x53E3;&#x88AB;&#x5360;&#x7528;&#x95EE;&#x9898;&#x3002;&#x6211;&#x8FD9;&#x91CC;&#x51FA;&#x73B0;&#x4E86;80&#x7AEF;&#x53E3;&#x88AB;&#x5360;&#x7528;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x50CF;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53EF;&#x80FD;&#x662F;&#x81EA;&#x5DF1;&#x4E4B;&#x524D;&#x5B89;&#x88C5;&#x4E86;apache&#xFF0C;nginx&#x7B49;&#x6216;&#x8005;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;&#x4E86;apache&#x670D;&#x52A1;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x5C06;80&#x7AEF;&#x53E3;&#x5173;&#x95ED;&#x5373;&#x53EF;&#x3002; </p>
 </li>
 </ol>
-<pre><code>netstat -ant  //查看端口情况。  
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">netstat -ant  //&#x67E5;&#x770B;&#x7AEF;&#x53E3;&#x60C5;&#x51B5;&#x3002;  </span><br><span class="line">  </span><br><span class="line">ps aux|grep 80 //&#x6839;&#x636E;&#x7AEF;&#x53E3;&#x540E;&#x67E5;&#x770B;&#x8FDB;&#x7A0B;&#x60C5;&#x51B5;  </span><br><span class="line"></span><br><span class="line">netstat -antp  //&#x67E5;&#x770B;80&#x7AEF;&#x53E3;&#x5BF9;&#x5E94;&#x7684;&#x670D;&#x52A1;  </span><br><span class="line">```      </span><br><span class="line">![9.jpg](&#x7B2C;&#x4E00;&#x7AE0;-nginx&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;/9.jpg)</span><br></pre></td></tr></table></figure>
 
-ps aux|grep 80 //根据端口后查看进程情况  
-
-netstat -antp  //查看80端口对应的服务  </code></pre><p><img src="%E7%AC%AC%E4%B8%80%E7%AB%A0-nginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/9.jpg" alt="9.jpg">     </p>
-<pre><code>pkill -9 http   //杀死所有http服务  
-./nginx         //启动nginx  </code></pre><p>经过以上操作ngin启动成功  </p>
-<h1 id="第六步-测试-nginx"><a href="#第六步-测试-nginx" class="headerlink" title="第六步 测试 nginx"></a>第六步 测试 nginx</h1><p>由于我的nginx是装载阿里云服务器上的这里是我是通过本地测试的；<br><img src="%E7%AC%AC%E4%B8%80%E7%AB%A0-nginx%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/10.png" alt="10.jpg">  </p>
+<p>pkill -9 http   //&#x6740;&#x6B7B;&#x6240;&#x6709;http&#x670D;&#x52A1;<br>./nginx         //&#x542F;&#x52A8;nginx<br>``` </p>
+<p>&#x7ECF;&#x8FC7;&#x4EE5;&#x4E0A;&#x64CD;&#x4F5C;ngin&#x542F;&#x52A8;&#x6210;&#x529F;  </p>
+<h1 id="&#x7B2C;&#x516D;&#x6B65;-&#x6D4B;&#x8BD5;-nginx"><a href="#&#x7B2C;&#x516D;&#x6B65;-&#x6D4B;&#x8BD5;-nginx" class="headerlink" title="&#x7B2C;&#x516D;&#x6B65; &#x6D4B;&#x8BD5; nginx"></a>&#x7B2C;&#x516D;&#x6B65; &#x6D4B;&#x8BD5; nginx</h1><p>&#x7531;&#x4E8E;&#x6211;&#x7684;nginx&#x662F;&#x88C5;&#x8F7D;&#x963F;&#x91CC;&#x4E91;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x8FD9;&#x91CC;&#x662F;&#x6211;&#x662F;&#x901A;&#x8FC7;&#x672C;&#x5730;&#x6D4B;&#x8BD5;&#x7684;&#xFF1B;<br><img src="/2019/02/11/&#x7B2C;&#x4E00;&#x7AE0;-nginx&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x5B89;&#x88C5;/10.png" alt="10.jpg">  </p>
 
         </div>
         <!-- .entry-content -->
@@ -515,7 +512,7 @@ netstat -antp  //查看80端口对应的服务  </code></pre><p><img src="%E7%AC
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -527,10 +524,10 @@ netstat -antp  //查看80端口对应的服务  </code></pre><p><img src="%E7%AC
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

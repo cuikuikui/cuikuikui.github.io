@@ -376,35 +376,35 @@
           </header>
         
         <div class="entry-content">
-          <h3 id="递归定义"><a href="#递归定义" class="headerlink" title="递归定义"></a>递归定义</h3><p>大家通常说普通程序员用迭代，天才程序员用递归。python3出于“善意的保护”，对递归深度默认是有限的，一般在写网络爬虫上会将递归深度加大。</p>
-<p>import sys<br>sys.setrecursionlimit(10000)  设置递归深度为1万层</p>
-<h3 id="有名的递归案例"><a href="#有名的递归案例" class="headerlink" title="有名的递归案例"></a>有名的递归案例</h3><p>（1）汉诺塔游戏<br>（2）树结构的定义<br>（3）谢尔宾斯基三角形<br>（4）女神自拍</p>
-<h4 id="递归案例-1-求阶乘"><a href="#递归案例-1-求阶乘" class="headerlink" title="递归案例 1-求阶乘"></a>递归案例 1-求阶乘</h4><p>写一个求阶乘的递归函数</p>
-<p>至于什么是阶乘我相信大家应该都明白的，这里我就不做过多解释了，在此之间我们先尝试用非递归的方法来实现阶乘。</p>
-<p>非递归方法实现阶乘</p>
-<p>def f(n):<br>  result=n<br>  for i in range(1,n):<br>    result*=i<br>  return result<br>x=int(input(“请输入一个整数：”))<br>y=f(x)<br>print(y)</p>
-<p>程序输出：<br>        请输入一个整数：5<br>        120</p>
-<p>普通的迭代法实现阶乘大家应该都会写，那么我们在尝试一下递归的版本</p>
-<p>def Recursion(n):<br>  if n==1:<br>    return n<br>  else:<br>    return n*Recursion(n-1)<br>x=int(input(“请输入一个整数：”))<br>y=Recursion(x)<br>print(y)</p>
-<p>程序输出：<br>        请输入一个整数：5<br>        120<br>毫无疑问使用递归方法比迭代法更加的简洁，麻雀虽小，五脏俱全，这个简单的阶乘递归满足了递归的最基本的两个条件<br>（1）调用函数本身<br>（2）设置了正确的返回条件</p>
-<pre><code>详细解剖每一步骤：
+          <h3 id="&#x9012;&#x5F52;&#x5B9A;&#x4E49;"><a href="#&#x9012;&#x5F52;&#x5B9A;&#x4E49;" class="headerlink" title="&#x9012;&#x5F52;&#x5B9A;&#x4E49;"></a>&#x9012;&#x5F52;&#x5B9A;&#x4E49;</h3><p>&#x5927;&#x5BB6;&#x901A;&#x5E38;&#x8BF4;&#x666E;&#x901A;&#x7A0B;&#x5E8F;&#x5458;&#x7528;&#x8FED;&#x4EE3;&#xFF0C;&#x5929;&#x624D;&#x7A0B;&#x5E8F;&#x5458;&#x7528;&#x9012;&#x5F52;&#x3002;python3&#x51FA;&#x4E8E;&#x201C;&#x5584;&#x610F;&#x7684;&#x4FDD;&#x62A4;&#x201D;&#xFF0C;&#x5BF9;&#x9012;&#x5F52;&#x6DF1;&#x5EA6;&#x9ED8;&#x8BA4;&#x662F;&#x6709;&#x9650;&#x7684;&#xFF0C;&#x4E00;&#x822C;&#x5728;&#x5199;&#x7F51;&#x7EDC;&#x722C;&#x866B;&#x4E0A;&#x4F1A;&#x5C06;&#x9012;&#x5F52;&#x6DF1;&#x5EA6;&#x52A0;&#x5927;&#x3002;</p>
+<p>import sys<br>sys.setrecursionlimit(10000)  &#x8BBE;&#x7F6E;&#x9012;&#x5F52;&#x6DF1;&#x5EA6;&#x4E3A;1&#x4E07;&#x5C42;</p>
+<h3 id="&#x6709;&#x540D;&#x7684;&#x9012;&#x5F52;&#x6848;&#x4F8B;"><a href="#&#x6709;&#x540D;&#x7684;&#x9012;&#x5F52;&#x6848;&#x4F8B;" class="headerlink" title="&#x6709;&#x540D;&#x7684;&#x9012;&#x5F52;&#x6848;&#x4F8B;"></a>&#x6709;&#x540D;&#x7684;&#x9012;&#x5F52;&#x6848;&#x4F8B;</h3><p>&#xFF08;1&#xFF09;&#x6C49;&#x8BFA;&#x5854;&#x6E38;&#x620F;<br>&#xFF08;2&#xFF09;&#x6811;&#x7ED3;&#x6784;&#x7684;&#x5B9A;&#x4E49;<br>&#xFF08;3&#xFF09;&#x8C22;&#x5C14;&#x5BBE;&#x65AF;&#x57FA;&#x4E09;&#x89D2;&#x5F62;<br>&#xFF08;4&#xFF09;&#x5973;&#x795E;&#x81EA;&#x62CD;</p>
+<h4 id="&#x9012;&#x5F52;&#x6848;&#x4F8B;-1-&#x6C42;&#x9636;&#x4E58;"><a href="#&#x9012;&#x5F52;&#x6848;&#x4F8B;-1-&#x6C42;&#x9636;&#x4E58;" class="headerlink" title="&#x9012;&#x5F52;&#x6848;&#x4F8B; 1-&#x6C42;&#x9636;&#x4E58;"></a>&#x9012;&#x5F52;&#x6848;&#x4F8B; 1-&#x6C42;&#x9636;&#x4E58;</h4><p>&#x5199;&#x4E00;&#x4E2A;&#x6C42;&#x9636;&#x4E58;&#x7684;&#x9012;&#x5F52;&#x51FD;&#x6570;</p>
+<p>&#x81F3;&#x4E8E;&#x4EC0;&#x4E48;&#x662F;&#x9636;&#x4E58;&#x6211;&#x76F8;&#x4FE1;&#x5927;&#x5BB6;&#x5E94;&#x8BE5;&#x90FD;&#x660E;&#x767D;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x5C31;&#x4E0D;&#x505A;&#x8FC7;&#x591A;&#x89E3;&#x91CA;&#x4E86;&#xFF0C;&#x5728;&#x6B64;&#x4E4B;&#x95F4;&#x6211;&#x4EEC;&#x5148;&#x5C1D;&#x8BD5;&#x7528;&#x975E;&#x9012;&#x5F52;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x9636;&#x4E58;&#x3002;</p>
+<p>&#x975E;&#x9012;&#x5F52;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x9636;&#x4E58;</p>
+<p>def f(n):<br>  result=n<br>  for i in range(1,n):<br>    result*=i<br>  return result<br>x=int(input(&#x201C;&#x8BF7;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#xFF1A;&#x201D;))<br>y=f(x)<br>print(y)</p>
+<p>&#x7A0B;&#x5E8F;&#x8F93;&#x51FA;&#xFF1A;<br>        &#x8BF7;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#xFF1A;5<br>        120</p>
+<p>&#x666E;&#x901A;&#x7684;&#x8FED;&#x4EE3;&#x6CD5;&#x5B9E;&#x73B0;&#x9636;&#x4E58;&#x5927;&#x5BB6;&#x5E94;&#x8BE5;&#x90FD;&#x4F1A;&#x5199;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5728;&#x5C1D;&#x8BD5;&#x4E00;&#x4E0B;&#x9012;&#x5F52;&#x7684;&#x7248;&#x672C;</p>
+<p>def Recursion(n):<br>  if n==1:<br>    return n<br>  else:<br>    return n*Recursion(n-1)<br>x=int(input(&#x201C;&#x8BF7;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#xFF1A;&#x201D;))<br>y=Recursion(x)<br>print(y)</p>
+<p>&#x7A0B;&#x5E8F;&#x8F93;&#x51FA;&#xFF1A;<br>        &#x8BF7;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#xFF1A;5<br>        120<br>&#x6BEB;&#x65E0;&#x7591;&#x95EE;&#x4F7F;&#x7528;&#x9012;&#x5F52;&#x65B9;&#x6CD5;&#x6BD4;&#x8FED;&#x4EE3;&#x6CD5;&#x66F4;&#x52A0;&#x7684;&#x7B80;&#x6D01;&#xFF0C;&#x9EBB;&#x96C0;&#x867D;&#x5C0F;&#xFF0C;&#x4E94;&#x810F;&#x4FF1;&#x5168;&#xFF0C;&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x9636;&#x4E58;&#x9012;&#x5F52;&#x6EE1;&#x8DB3;&#x4E86;&#x9012;&#x5F52;&#x7684;&#x6700;&#x57FA;&#x672C;&#x7684;&#x4E24;&#x4E2A;&#x6761;&#x4EF6;<br>&#xFF08;1&#xFF09;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x672C;&#x8EAB;<br>&#xFF08;2&#xFF09;&#x8BBE;&#x7F6E;&#x4E86;&#x6B63;&#x786E;&#x7684;&#x8FD4;&#x56DE;&#x6761;&#x4EF6;</p>
+<pre><code>&#x8BE6;&#x7EC6;&#x89E3;&#x5256;&#x6BCF;&#x4E00;&#x6B65;&#x9AA4;&#xFF1A;
   Recursion(5)=5*Recursion(4)  
     Recursion(4)=4*Recursion(3)
         Recursion(3)=3*Recursion(2)  
-            Recursion(2)=2*Recursion(1)    </code></pre><p>这是阶乘递归的整个过程，然后在递归到Recursion(1)时层层返回最终得出结果。</p>
-<p>“天才程序员用递归”，”普通程序员用迭代“这句话并不是绝对的，毕竟递归的实现是自己调用自己，每次函数的调用都需要进行压栈、弹栈、保存和恢复寄存器的栈的操作，所以会浪费大量的时间和空间，一旦忘记设置返回条件，或者返回条件设置错误，那么递归代码将会成为一个永远执行的无底洞。</p>
-<h4 id="递归案例-2-斐波那契数列"><a href="#递归案例-2-斐波那契数列" class="headerlink" title="递归案例 2-斐波那契数列"></a>递归案例 2-斐波那契数列</h4><p>  斐波那契数列发明者是意大利数学家列昂纳多 斐波那契发明的。当年是由兔子交配的故事引起的：假如说<br>兔子在出生两个月后，就有了繁殖能力，此后这对兔子在接下来的两个月都能生出一对可爱的小兔子。假设<br>所有兔子都不会老去，就这么一直折腾下去，那么一年后会繁殖多少个小兔子。<br>假设20个月总共呦多少对？</p>
-<p><img src="python%E9%80%92%E5%BD%92/rabit.jpg" alt="remote_addr"></p>
-<p>首先迭代方法：</p>
-<p>def fab(n):<br>  a1=1<br>  a2=1<br>  a3=1<br>  if n&lt;1:<br>    print(“输入错误”)<br>    return -1</p>
+            Recursion(2)=2*Recursion(1)    </code></pre><p>&#x8FD9;&#x662F;&#x9636;&#x4E58;&#x9012;&#x5F52;&#x7684;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x9012;&#x5F52;&#x5230;Recursion(1)&#x65F6;&#x5C42;&#x5C42;&#x8FD4;&#x56DE;&#x6700;&#x7EC8;&#x5F97;&#x51FA;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x201C;&#x5929;&#x624D;&#x7A0B;&#x5E8F;&#x5458;&#x7528;&#x9012;&#x5F52;&#x201D;&#xFF0C;&#x201D;&#x666E;&#x901A;&#x7A0B;&#x5E8F;&#x5458;&#x7528;&#x8FED;&#x4EE3;&#x201C;&#x8FD9;&#x53E5;&#x8BDD;&#x5E76;&#x4E0D;&#x662F;&#x7EDD;&#x5BF9;&#x7684;&#xFF0C;&#x6BD5;&#x7ADF;&#x9012;&#x5F52;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x81EA;&#x5DF1;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#xFF0C;&#x6BCF;&#x6B21;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x90FD;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x538B;&#x6808;&#x3001;&#x5F39;&#x6808;&#x3001;&#x4FDD;&#x5B58;&#x548C;&#x6062;&#x590D;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x6808;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x6D6A;&#x8D39;&#x5927;&#x91CF;&#x7684;&#x65F6;&#x95F4;&#x548C;&#x7A7A;&#x95F4;&#xFF0C;&#x4E00;&#x65E6;&#x5FD8;&#x8BB0;&#x8BBE;&#x7F6E;&#x8FD4;&#x56DE;&#x6761;&#x4EF6;&#xFF0C;&#x6216;&#x8005;&#x8FD4;&#x56DE;&#x6761;&#x4EF6;&#x8BBE;&#x7F6E;&#x9519;&#x8BEF;&#xFF0C;&#x90A3;&#x4E48;&#x9012;&#x5F52;&#x4EE3;&#x7801;&#x5C06;&#x4F1A;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x6C38;&#x8FDC;&#x6267;&#x884C;&#x7684;&#x65E0;&#x5E95;&#x6D1E;&#x3002;</p>
+<h4 id="&#x9012;&#x5F52;&#x6848;&#x4F8B;-2-&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;"><a href="#&#x9012;&#x5F52;&#x6848;&#x4F8B;-2-&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;" class="headerlink" title="&#x9012;&#x5F52;&#x6848;&#x4F8B; 2-&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;"></a>&#x9012;&#x5F52;&#x6848;&#x4F8B; 2-&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;</h4><p>  &#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x53D1;&#x660E;&#x8005;&#x662F;&#x610F;&#x5927;&#x5229;&#x6570;&#x5B66;&#x5BB6;&#x5217;&#x6602;&#x7EB3;&#x591A; &#x6590;&#x6CE2;&#x90A3;&#x5951;&#x53D1;&#x660E;&#x7684;&#x3002;&#x5F53;&#x5E74;&#x662F;&#x7531;&#x5154;&#x5B50;&#x4EA4;&#x914D;&#x7684;&#x6545;&#x4E8B;&#x5F15;&#x8D77;&#x7684;&#xFF1A;&#x5047;&#x5982;&#x8BF4;<br>&#x5154;&#x5B50;&#x5728;&#x51FA;&#x751F;&#x4E24;&#x4E2A;&#x6708;&#x540E;&#xFF0C;&#x5C31;&#x6709;&#x4E86;&#x7E41;&#x6B96;&#x80FD;&#x529B;&#xFF0C;&#x6B64;&#x540E;&#x8FD9;&#x5BF9;&#x5154;&#x5B50;&#x5728;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x4E24;&#x4E2A;&#x6708;&#x90FD;&#x80FD;&#x751F;&#x51FA;&#x4E00;&#x5BF9;&#x53EF;&#x7231;&#x7684;&#x5C0F;&#x5154;&#x5B50;&#x3002;&#x5047;&#x8BBE;<br>&#x6240;&#x6709;&#x5154;&#x5B50;&#x90FD;&#x4E0D;&#x4F1A;&#x8001;&#x53BB;&#xFF0C;&#x5C31;&#x8FD9;&#x4E48;&#x4E00;&#x76F4;&#x6298;&#x817E;&#x4E0B;&#x53BB;&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x5E74;&#x540E;&#x4F1A;&#x7E41;&#x6B96;&#x591A;&#x5C11;&#x4E2A;&#x5C0F;&#x5154;&#x5B50;&#x3002;<br>&#x5047;&#x8BBE;20&#x4E2A;&#x6708;&#x603B;&#x5171;&#x5466;&#x591A;&#x5C11;&#x5BF9;&#xFF1F;</p>
+<p><img src="/2019/08/17/python&#x9012;&#x5F52;/rabit.jpg" alt="remote_addr"></p>
+<p>&#x9996;&#x5148;&#x8FED;&#x4EE3;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>def fab(n):<br>  a1=1<br>  a2=1<br>  a3=1<br>  if n&lt;1:<br>    print(&#x201C;&#x8F93;&#x5165;&#x9519;&#x8BEF;&#x201D;)<br>    return -1</p>
 <p>  while(n-2)&gt;0:<br>    a3=a1+a2<br>    a1=a2<br>    a2=a3<br>    n-=1<br>  return a3</p>
-<p>result=fab(12)<br>if result!=-1:<br>  print(“总共有小兔子:”,result)</p>
-<p>递归法：<br>def fab(n):<br>  a1=1<br>  a2=1<br>  a3=1<br>  if n&lt;1:<br>    print(“输入错误”)<br>    return 1<br>  if n==1 or n==2:<br>      return 1<br>  else:<br>      return fab(n-1)+fab(n-2)<br>result=fab(20)<br>if result!=-1:<br>  print(“总共有小兔子:”,result)</p>
-<p>总结：如果将n的值改成100或者更大，你会发现使用迭代比递归的效率更高，因此在选择方式时如果数<br>值量大尽量不要选择递归。如果选择了递归除非你的CPU性能高。</p>
-<h4 id="递归案例-3-汉诺塔"><a href="#递归案例-3-汉诺塔" class="headerlink" title="递归案例 3 汉诺塔"></a>递归案例 3 汉诺塔</h4><p>汉诺塔：汉诺塔（又称河内塔）问题是源于印度一个古老传说的益智玩具。大梵天创造世界的时候做了三根<br>金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。大梵天命令婆罗门把圆盘从下面开<br>始按大小顺序重新摆放在另一根柱子上。并且规定，在小圆盘上不能放大圆盘，在三根柱子之间一次只能<br>移动一个圆盘。</p>
-<p>def hanoi(n,x,y,z):<br>      if n==1:<br>        print(x,’—–&gt;’,z)<br>      else:<br>        hanoi(n-1,x,z,y)<br>        print(x,’—–&gt;’,z)<br>        hanoi(n-1,y,x,z)<br>n=int(input(“请输入汉诺塔层数”))<br>hanoi(n,’X’,’Y’,’Z’)</p>
-<p>输出：<br>    请输入汉诺塔层数3<br>    X —–&gt; Z<br>    X —–&gt; Y<br>    Z —–&gt; Y<br>    X —–&gt; Z<br>    Y —–&gt; X<br>    Y —–&gt; Z<br>    X —–&gt; Z</p>
-<p>说明：如果只有一层，直接从X移动到Z,<br>     如果有两层，则将第一层移动到Y轴上，再将第二层移动到Z轴上，最后再将Y轴上的移动到Z轴上<br>如果超过n层，将前n-1个盘子看作一个整体，移动到Y轴上，再将第X轴上的移动到Z轴上，最后将第Y轴上移动到Z轴上。<br>总结：<br>    首先借助Z轴将前n-1层移动到Y轴上，再将X轴上第n层移动Z轴上。<br>    其次借助Z轴将Y轴上的前n-1层移动到X轴上，再将Y轴上的第n层移动到Z轴上。依此循环往复即可</p>
+<p>result=fab(12)<br>if result!=-1:<br>  print(&#x201C;&#x603B;&#x5171;&#x6709;&#x5C0F;&#x5154;&#x5B50;:&#x201D;,result)</p>
+<p>&#x9012;&#x5F52;&#x6CD5;&#xFF1A;<br>def fab(n):<br>  a1=1<br>  a2=1<br>  a3=1<br>  if n&lt;1:<br>    print(&#x201C;&#x8F93;&#x5165;&#x9519;&#x8BEF;&#x201D;)<br>    return 1<br>  if n==1 or n==2:<br>      return 1<br>  else:<br>      return fab(n-1)+fab(n-2)<br>result=fab(20)<br>if result!=-1:<br>  print(&#x201C;&#x603B;&#x5171;&#x6709;&#x5C0F;&#x5154;&#x5B50;:&#x201D;,result)</p>
+<p>&#x603B;&#x7ED3;&#xFF1A;&#x5982;&#x679C;&#x5C06;n&#x7684;&#x503C;&#x6539;&#x6210;100&#x6216;&#x8005;&#x66F4;&#x5927;&#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x4F7F;&#x7528;&#x8FED;&#x4EE3;&#x6BD4;&#x9012;&#x5F52;&#x7684;&#x6548;&#x7387;&#x66F4;&#x9AD8;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x9009;&#x62E9;&#x65B9;&#x5F0F;&#x65F6;&#x5982;&#x679C;&#x6570;<br>&#x503C;&#x91CF;&#x5927;&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x9009;&#x62E9;&#x9012;&#x5F52;&#x3002;&#x5982;&#x679C;&#x9009;&#x62E9;&#x4E86;&#x9012;&#x5F52;&#x9664;&#x975E;&#x4F60;&#x7684;CPU&#x6027;&#x80FD;&#x9AD8;&#x3002;</p>
+<h4 id="&#x9012;&#x5F52;&#x6848;&#x4F8B;-3-&#x6C49;&#x8BFA;&#x5854;"><a href="#&#x9012;&#x5F52;&#x6848;&#x4F8B;-3-&#x6C49;&#x8BFA;&#x5854;" class="headerlink" title="&#x9012;&#x5F52;&#x6848;&#x4F8B; 3 &#x6C49;&#x8BFA;&#x5854;"></a>&#x9012;&#x5F52;&#x6848;&#x4F8B; 3 &#x6C49;&#x8BFA;&#x5854;</h4><p>&#x6C49;&#x8BFA;&#x5854;&#xFF1A;&#x6C49;&#x8BFA;&#x5854;&#xFF08;&#x53C8;&#x79F0;&#x6CB3;&#x5185;&#x5854;&#xFF09;&#x95EE;&#x9898;&#x662F;&#x6E90;&#x4E8E;&#x5370;&#x5EA6;&#x4E00;&#x4E2A;&#x53E4;&#x8001;&#x4F20;&#x8BF4;&#x7684;&#x76CA;&#x667A;&#x73A9;&#x5177;&#x3002;&#x5927;&#x68B5;&#x5929;&#x521B;&#x9020;&#x4E16;&#x754C;&#x7684;&#x65F6;&#x5019;&#x505A;&#x4E86;&#x4E09;&#x6839;<br>&#x91D1;&#x521A;&#x77F3;&#x67F1;&#x5B50;&#xFF0C;&#x5728;&#x4E00;&#x6839;&#x67F1;&#x5B50;&#x4E0A;&#x4ECE;&#x4E0B;&#x5F80;&#x4E0A;&#x6309;&#x7167;&#x5927;&#x5C0F;&#x987A;&#x5E8F;&#x645E;&#x7740;64&#x7247;&#x9EC4;&#x91D1;&#x5706;&#x76D8;&#x3002;&#x5927;&#x68B5;&#x5929;&#x547D;&#x4EE4;&#x5A46;&#x7F57;&#x95E8;&#x628A;&#x5706;&#x76D8;&#x4ECE;&#x4E0B;&#x9762;&#x5F00;<br>&#x59CB;&#x6309;&#x5927;&#x5C0F;&#x987A;&#x5E8F;&#x91CD;&#x65B0;&#x6446;&#x653E;&#x5728;&#x53E6;&#x4E00;&#x6839;&#x67F1;&#x5B50;&#x4E0A;&#x3002;&#x5E76;&#x4E14;&#x89C4;&#x5B9A;&#xFF0C;&#x5728;&#x5C0F;&#x5706;&#x76D8;&#x4E0A;&#x4E0D;&#x80FD;&#x653E;&#x5927;&#x5706;&#x76D8;&#xFF0C;&#x5728;&#x4E09;&#x6839;&#x67F1;&#x5B50;&#x4E4B;&#x95F4;&#x4E00;&#x6B21;&#x53EA;&#x80FD;<br>&#x79FB;&#x52A8;&#x4E00;&#x4E2A;&#x5706;&#x76D8;&#x3002;</p>
+<p>def hanoi(n,x,y,z):<br>      if n==1:<br>        print(x,&#x2019;&#x2014;&#x2013;&gt;&#x2019;,z)<br>      else:<br>        hanoi(n-1,x,z,y)<br>        print(x,&#x2019;&#x2014;&#x2013;&gt;&#x2019;,z)<br>        hanoi(n-1,y,x,z)<br>n=int(input(&#x201C;&#x8BF7;&#x8F93;&#x5165;&#x6C49;&#x8BFA;&#x5854;&#x5C42;&#x6570;&#x201D;))<br>hanoi(n,&#x2019;X&#x2019;,&#x2019;Y&#x2019;,&#x2019;Z&#x2019;)</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;<br>    &#x8BF7;&#x8F93;&#x5165;&#x6C49;&#x8BFA;&#x5854;&#x5C42;&#x6570;3<br>    X &#x2014;&#x2013;&gt; Z<br>    X &#x2014;&#x2013;&gt; Y<br>    Z &#x2014;&#x2013;&gt; Y<br>    X &#x2014;&#x2013;&gt; Z<br>    Y &#x2014;&#x2013;&gt; X<br>    Y &#x2014;&#x2013;&gt; Z<br>    X &#x2014;&#x2013;&gt; Z</p>
+<p>&#x8BF4;&#x660E;&#xFF1A;&#x5982;&#x679C;&#x53EA;&#x6709;&#x4E00;&#x5C42;&#xFF0C;&#x76F4;&#x63A5;&#x4ECE;X&#x79FB;&#x52A8;&#x5230;Z,<br>     &#x5982;&#x679C;&#x6709;&#x4E24;&#x5C42;&#xFF0C;&#x5219;&#x5C06;&#x7B2C;&#x4E00;&#x5C42;&#x79FB;&#x52A8;&#x5230;Y&#x8F74;&#x4E0A;&#xFF0C;&#x518D;&#x5C06;&#x7B2C;&#x4E8C;&#x5C42;&#x79FB;&#x52A8;&#x5230;Z&#x8F74;&#x4E0A;&#xFF0C;&#x6700;&#x540E;&#x518D;&#x5C06;Y&#x8F74;&#x4E0A;&#x7684;&#x79FB;&#x52A8;&#x5230;Z&#x8F74;&#x4E0A;<br>&#x5982;&#x679C;&#x8D85;&#x8FC7;n&#x5C42;&#xFF0C;&#x5C06;&#x524D;n-1&#x4E2A;&#x76D8;&#x5B50;&#x770B;&#x4F5C;&#x4E00;&#x4E2A;&#x6574;&#x4F53;&#xFF0C;&#x79FB;&#x52A8;&#x5230;Y&#x8F74;&#x4E0A;&#xFF0C;&#x518D;&#x5C06;&#x7B2C;X&#x8F74;&#x4E0A;&#x7684;&#x79FB;&#x52A8;&#x5230;Z&#x8F74;&#x4E0A;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x7B2C;Y&#x8F74;&#x4E0A;&#x79FB;&#x52A8;&#x5230;Z&#x8F74;&#x4E0A;&#x3002;<br>&#x603B;&#x7ED3;&#xFF1A;<br>    &#x9996;&#x5148;&#x501F;&#x52A9;Z&#x8F74;&#x5C06;&#x524D;n-1&#x5C42;&#x79FB;&#x52A8;&#x5230;Y&#x8F74;&#x4E0A;&#xFF0C;&#x518D;&#x5C06;X&#x8F74;&#x4E0A;&#x7B2C;n&#x5C42;&#x79FB;&#x52A8;Z&#x8F74;&#x4E0A;&#x3002;<br>    &#x5176;&#x6B21;&#x501F;&#x52A9;Z&#x8F74;&#x5C06;Y&#x8F74;&#x4E0A;&#x7684;&#x524D;n-1&#x5C42;&#x79FB;&#x52A8;&#x5230;X&#x8F74;&#x4E0A;&#xFF0C;&#x518D;&#x5C06;Y&#x8F74;&#x4E0A;&#x7684;&#x7B2C;n&#x5C42;&#x79FB;&#x52A8;&#x5230;Z&#x8F74;&#x4E0A;&#x3002;&#x4F9D;&#x6B64;&#x5FAA;&#x73AF;&#x5F80;&#x590D;&#x5373;&#x53EF;</p>
 
         </div>
         <!-- .entry-content -->
@@ -513,7 +513,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -525,10 +525,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

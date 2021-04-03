@@ -376,15 +376,15 @@
           </header>
         
         <div class="entry-content">
-          <h3 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h3><p>wx:if 与 hidden 都可以控制微信小程序中元素的显示与否。</p>
-<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3><ul>
-<li><p>wx:if 是遇 true 显示，hidden 是遇 false 显示。</p>
+          <h3 id="&#x76F8;&#x540C;&#x70B9;"><a href="#&#x76F8;&#x540C;&#x70B9;" class="headerlink" title="&#x76F8;&#x540C;&#x70B9;"></a>&#x76F8;&#x540C;&#x70B9;</h3><p>wx:if &#x4E0E; hidden &#x90FD;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x663E;&#x793A;&#x4E0E;&#x5426;&#x3002;</p>
+<h3 id="&#x4E0D;&#x540C;&#x70B9;"><a href="#&#x4E0D;&#x540C;&#x70B9;" class="headerlink" title="&#x4E0D;&#x540C;&#x70B9;"></a>&#x4E0D;&#x540C;&#x70B9;</h3><ul>
+<li><p>wx:if &#x662F;&#x9047; true &#x663E;&#x793A;&#xFF0C;hidden &#x662F;&#x9047; false &#x663E;&#x793A;&#x3002;</p>
 </li>
-<li><p>wx:if 在隐藏的时候不渲染，而 hidden 在隐藏时仍然渲染，只是不呈现。</p>
+<li><p>wx:if &#x5728;&#x9690;&#x85CF;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x6E32;&#x67D3;&#xFF0C;&#x800C; hidden &#x5728;&#x9690;&#x85CF;&#x65F6;&#x4ECD;&#x7136;&#x6E32;&#x67D3;&#xFF0C;&#x53EA;&#x662F;&#x4E0D;&#x5448;&#x73B0;&#x3002;</p>
 </li>
-<li><p>如果频繁切换的话，用 wx:if 将会消耗更多资源，因为每次呈现的时候他都会渲染，每次隐藏的时候，他都会销毁。</p>
+<li><p>&#x5982;&#x679C;&#x9891;&#x7E41;&#x5207;&#x6362;&#x7684;&#x8BDD;&#xFF0C;&#x7528; wx:if &#x5C06;&#x4F1A;&#x6D88;&#x8017;&#x66F4;&#x591A;&#x8D44;&#x6E90;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x6B21;&#x5448;&#x73B0;&#x7684;&#x65F6;&#x5019;&#x4ED6;&#x90FD;&#x4F1A;&#x6E32;&#x67D3;&#xFF0C;&#x6BCF;&#x6B21;&#x9690;&#x85CF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x90FD;&#x4F1A;&#x9500;&#x6BC1;&#x3002;</p>
 </li>
-<li><p>如果切换并不频繁的话，用 wx:if 相对来说较好些，因为它会避免初始就一下渲染那么多。</p>
+<li><p>&#x5982;&#x679C;&#x5207;&#x6362;&#x5E76;&#x4E0D;&#x9891;&#x7E41;&#x7684;&#x8BDD;&#xFF0C;&#x7528; wx:if &#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#x8F83;&#x597D;&#x4E9B;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x907F;&#x514D;&#x521D;&#x59CB;&#x5C31;&#x4E00;&#x4E0B;&#x6E32;&#x67D3;&#x90A3;&#x4E48;&#x591A;&#x3002;</p>
 </li>
 </ul>
 
@@ -495,7 +495,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -507,10 +507,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

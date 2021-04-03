@@ -376,63 +376,58 @@
           </header>
         
         <div class="entry-content">
-          <h1 id="第三章-nginx虚拟主机配置"><a href="#第三章-nginx虚拟主机配置" class="headerlink" title="第三章 nginx虚拟主机配置"></a>第三章 nginx虚拟主机配置</h1><p>worker_processes  1;#有一个正在工作的子进程，可以自行修改，但太大无意义，因为要争夺cpu,一般设置为cpu数*核数。</p>
-<h1 id="3-1-工作模式及连接数上限"><a href="#3-1-工作模式及连接数上限" class="headerlink" title="3.1 工作模式及连接数上限"></a><strong>3.1 工作模式及连接数上限</strong></h1><pre><code>events {
-    worker_connections  1024; #一个子进程（work）能建立1024个连接
-}</code></pre><h1 id="3-2-配置http服务器的主要段"><a href="#3-2-配置http服务器的主要段" class="headerlink" title="3.2 配置http服务器的主要段"></a><strong>3.2 配置http服务器的主要段</strong></h1><pre><code>http {  
-    server1{
-        location{  //定位：把特殊的路径或文件再次定位，如imag目录单独处理，如php单独处理
+          <h1 id="&#x7B2C;&#x4E09;&#x7AE0;-nginx&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x914D;&#x7F6E;"><a href="#&#x7B2C;&#x4E09;&#x7AE0;-nginx&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x914D;&#x7F6E;" class="headerlink" title="&#x7B2C;&#x4E09;&#x7AE0; nginx&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x914D;&#x7F6E;"></a>&#x7B2C;&#x4E09;&#x7AE0; nginx&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x914D;&#x7F6E;</h1><p>worker_processes  1;#&#x6709;&#x4E00;&#x4E2A;&#x6B63;&#x5728;&#x5DE5;&#x4F5C;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x4F46;&#x592A;&#x5927;&#x65E0;&#x610F;&#x4E49;&#xFF0C;&#x56E0;&#x4E3A;&#x8981;&#x4E89;&#x593A;cpu,&#x4E00;&#x822C;&#x8BBE;&#x7F6E;&#x4E3A;cpu&#x6570;*&#x6838;&#x6570;&#x3002;</p>
+<h1 id="3-1-&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x53CA;&#x8FDE;&#x63A5;&#x6570;&#x4E0A;&#x9650;"><a href="#3-1-&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x53CA;&#x8FDE;&#x63A5;&#x6570;&#x4E0A;&#x9650;" class="headerlink" title="3.1 &#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x53CA;&#x8FDE;&#x63A5;&#x6570;&#x4E0A;&#x9650;"></a><strong>3.1 &#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x53CA;&#x8FDE;&#x63A5;&#x6570;&#x4E0A;&#x9650;</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">events {</span><br><span class="line">    worker_connections  1024; #&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#xFF08;work&#xFF09;&#x80FD;&#x5EFA;&#x7ACB;1024&#x4E2A;&#x8FDE;&#x63A5;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
-        }
-    }
-    ## **配置虚拟主机**
-    server2{ 
+<h1 id="3-2-&#x914D;&#x7F6E;http&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E3B;&#x8981;&#x6BB5;"><a href="#3-2-&#x914D;&#x7F6E;http&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E3B;&#x8981;&#x6BB5;" class="headerlink" title="3.2 &#x914D;&#x7F6E;http&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E3B;&#x8981;&#x6BB5;"></a><strong>3.2 &#x914D;&#x7F6E;http&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E3B;&#x8981;&#x6BB5;</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">http {  </span><br><span class="line">    server1{</span><br><span class="line">        location{  //&#x5B9A;&#x4F4D;&#xFF1A;&#x628A;&#x7279;&#x6B8A;&#x7684;&#x8DEF;&#x5F84;&#x6216;&#x6587;&#x4EF6;&#x518D;&#x6B21;&#x5B9A;&#x4F4D;&#xFF0C;&#x5982;imag&#x76EE;&#x5F55;&#x5355;&#x72EC;&#x5904;&#x7406;&#xFF0C;&#x5982;php&#x5355;&#x72EC;&#x5904;&#x7406;</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    ## **&#x914D;&#x7F6E;&#x865A;&#x62DF;&#x4E3B;&#x673A;**</span><br><span class="line">    server2{ </span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
-    }
-}</code></pre><h2 id="3-2-1-基于域名的虚拟主机"><a href="#3-2-1-基于域名的虚拟主机" class="headerlink" title="3.2.1 基于域名的虚拟主机"></a><strong>3.2.1 基于域名的虚拟主机</strong></h2><p><em>第一步：进入nginx.conf添加一个新的server</em></p>
-<pre><code>server{
-    listen 80; #监听端口
-    server_name z.com  #监听域名
-        location / { 
-            root z.com  //相对路径：这里root的路径为/usr/local/nginx,z.com创建在nginx目录下
-            index index.html
-        }
-    }</code></pre><blockquote>
-<p><strong>注释</strong> :此处的<strong>z.com</strong>是自定义的域名，无法使用，需要在本机电脑host文件中添加,也可以自己申请一个自己的域名，然后进行<a href="https://beian.aliyun.com/?spm=a3c00.7621327.1280361.5.43e6LCrkLCrkUW" target="_blank" rel="noopener">备案</a>后使用</p>
+<h2 id="3-2-1-&#x57FA;&#x4E8E;&#x57DF;&#x540D;&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;"><a href="#3-2-1-&#x57FA;&#x4E8E;&#x57DF;&#x540D;&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;" class="headerlink" title="3.2.1 &#x57FA;&#x4E8E;&#x57DF;&#x540D;&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;"></a><strong>3.2.1 &#x57FA;&#x4E8E;&#x57DF;&#x540D;&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;</strong></h2><p><em>&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x8FDB;&#x5165;nginx.conf&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;server</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server{</span><br><span class="line">    listen 80; #&#x76D1;&#x542C;&#x7AEF;&#x53E3;</span><br><span class="line">    server_name z.com  #&#x76D1;&#x542C;&#x57DF;&#x540D;</span><br><span class="line">        location / { </span><br><span class="line">            root z.com  //&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF1A;&#x8FD9;&#x91CC;root&#x7684;&#x8DEF;&#x5F84;&#x4E3A;/usr/local/nginx,z.com&#x521B;&#x5EFA;&#x5728;nginx&#x76EE;&#x5F55;&#x4E0B;</span><br><span class="line">            index index.html</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>&#x6CE8;&#x91CA;</strong> :&#x6B64;&#x5904;&#x7684;<strong>z.com</strong>&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x672C;&#x673A;&#x7535;&#x8111;host&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;,&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x7533;&#x8BF7;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;<a href="https://beian.aliyun.com/?spm=a3c00.7621327.1280361.5.43e6LCrkLCrkUW" target="_blank" rel="noopener">&#x5907;&#x6848;</a>&#x540E;&#x4F7F;&#x7528;</p>
 </blockquote>
-<p><em>第二步： 重启nginx</em></p>
-<pre><code>./nginx -s reload</code></pre><p><em>第三步:修改本机C:\Windows\System32\drivers\etc下的host文件,在末尾添加:*</em>IP 域名**</p>
-<pre><code>223.104.147.137 z.com  //此处是我自己ip</code></pre><p><em>第四步:测试</em></p>
-<pre><code>在本地网址输入:z.com</code></pre><h2 id="3-2-2-基于端口的虚拟主机"><a href="#3-2-2-基于端口的虚拟主机" class="headerlink" title="3.2.2 基于端口的虚拟主机"></a><strong>3.2.2 基于端口的虚拟主机</strong></h2><p><em>第一步：进入nginx.conf添加一个新的server</em></p>
-<pre><code>server{
-    listen 2022; #监听端口
-    server_name z.com  #监听域名
-        location / { 
-            root /var/www/html  //绝对路径
-            index index.html
-        }
-    }</code></pre><blockquote>
-<p><strong>注释</strong> :此处的<strong>z.com</strong>是自定义的域名，无法使用，需要在本机电脑host文件中添加,也可以自己申请一个自己的域名，然后进行<a href="https://beian.aliyun.com/?spm=a3c00.7621327.1280361.5.43e6LCrkLCrkUW" target="_blank" rel="noopener">备案</a>后使用</p>
+<p><em>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A; &#x91CD;&#x542F;nginx</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x7B2C;&#x4E09;&#x6B65;:&#x4FEE;&#x6539;&#x672C;&#x673A;C:\Windows\System32\drivers\etc&#x4E0B;&#x7684;host&#x6587;&#x4EF6;,&#x5728;&#x672B;&#x5C3E;&#x6DFB;&#x52A0;:*</em>IP &#x57DF;&#x540D;**</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">223.104.147.137 z.com  //&#x6B64;&#x5904;&#x662F;&#x6211;&#x81EA;&#x5DF1;ip</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x7B2C;&#x56DB;&#x6B65;:&#x6D4B;&#x8BD5;</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x5728;&#x672C;&#x5730;&#x7F51;&#x5740;&#x8F93;&#x5165;:z.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-2-&#x57FA;&#x4E8E;&#x7AEF;&#x53E3;&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;"><a href="#3-2-2-&#x57FA;&#x4E8E;&#x7AEF;&#x53E3;&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;" class="headerlink" title="3.2.2 &#x57FA;&#x4E8E;&#x7AEF;&#x53E3;&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;"></a><strong>3.2.2 &#x57FA;&#x4E8E;&#x7AEF;&#x53E3;&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;</strong></h2><p><em>&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x8FDB;&#x5165;nginx.conf&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;server</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server{</span><br><span class="line">    listen 2022; #&#x76D1;&#x542C;&#x7AEF;&#x53E3;</span><br><span class="line">    server_name z.com  #&#x76D1;&#x542C;&#x57DF;&#x540D;</span><br><span class="line">        location / { </span><br><span class="line">            root /var/www/html  //&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</span><br><span class="line">            index index.html</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>&#x6CE8;&#x91CA;</strong> :&#x6B64;&#x5904;&#x7684;<strong>z.com</strong>&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x672C;&#x673A;&#x7535;&#x8111;host&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;,&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x7533;&#x8BF7;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;<a href="https://beian.aliyun.com/?spm=a3c00.7621327.1280361.5.43e6LCrkLCrkUW" target="_blank" rel="noopener">&#x5907;&#x6848;</a>&#x540E;&#x4F7F;&#x7528;</p>
 </blockquote>
-<p><strong>结果显示</strong> :src=”images/1.jpg”</p>
-<p><em>第二步： 重启nginx</em></p>
-<pre><code>./nginx -s reload</code></pre><p><em>第三步:修改本机C:\Windows\System32\drivers\etc下的host文件,在末尾添加:*</em>IP 域名***</p>
-<pre><code>223.104.147.137 z.com   //此处是我自己ip</code></pre><p><em>第四步:测试</em></p>
-<pre><code>在本地网址输入:z.com：2022</code></pre><h2 id="3-2-3-基于ip的虚拟主机"><a href="#3-2-3-基于ip的虚拟主机" class="headerlink" title="3.2.3 基于ip的虚拟主机"></a><strong>3.2.3 基于ip的虚拟主机</strong></h2><p><em>第一步：进入nginx.conf添加一个新的server</em></p>
-<pre><code>server{
-    listen 172.13.212.31; #监听ip
-    server_name z.com  #监听域名
-        location / { 
-            root ip.com //相对路径：
-            index index.html
-        }
-    }</code></pre><blockquote>
-<p><strong>注释</strong> :此处的<strong>z.com</strong>是自定义的域名，无法使用，需要在本机电脑host文件中添加,也可以自己申请一个自己的域名，然后进行<a href="https://beian.aliyun.com/?spm=a3c00.7621327.1280361.5.43e6LCrkLCrkUW" target="_blank" rel="noopener">备案</a>后使用;此处的server_name 通过<strong>ifconfig</strong>查询</p>
+<p><strong>&#x7ED3;&#x679C;&#x663E;&#x793A;</strong> :src=&#x201D;images/1.jpg&#x201D;</p>
+<p><em>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A; &#x91CD;&#x542F;nginx</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x7B2C;&#x4E09;&#x6B65;:&#x4FEE;&#x6539;&#x672C;&#x673A;C:\Windows\System32\drivers\etc&#x4E0B;&#x7684;host&#x6587;&#x4EF6;,&#x5728;&#x672B;&#x5C3E;&#x6DFB;&#x52A0;:*</em>IP &#x57DF;&#x540D;***</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">223.104.147.137 z.com   //&#x6B64;&#x5904;&#x662F;&#x6211;&#x81EA;&#x5DF1;ip</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x7B2C;&#x56DB;&#x6B65;:&#x6D4B;&#x8BD5;</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x5728;&#x672C;&#x5730;&#x7F51;&#x5740;&#x8F93;&#x5165;:z.com&#xFF1A;2022</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-3-&#x57FA;&#x4E8E;ip&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;"><a href="#3-2-3-&#x57FA;&#x4E8E;ip&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;" class="headerlink" title="3.2.3 &#x57FA;&#x4E8E;ip&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;"></a><strong>3.2.3 &#x57FA;&#x4E8E;ip&#x7684;&#x865A;&#x62DF;&#x4E3B;&#x673A;</strong></h2><p><em>&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x8FDB;&#x5165;nginx.conf&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;server</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server{</span><br><span class="line">    listen 172.13.212.31; #&#x76D1;&#x542C;ip</span><br><span class="line">    server_name z.com  #&#x76D1;&#x542C;&#x57DF;&#x540D;</span><br><span class="line">        location / { </span><br><span class="line">            root ip.com //&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF1A;</span><br><span class="line">            index index.html</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>&#x6CE8;&#x91CA;</strong> :&#x6B64;&#x5904;&#x7684;<strong>z.com</strong>&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x672C;&#x673A;&#x7535;&#x8111;host&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;,&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x7533;&#x8BF7;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;<a href="https://beian.aliyun.com/?spm=a3c00.7621327.1280361.5.43e6LCrkLCrkUW" target="_blank" rel="noopener">&#x5907;&#x6848;</a>&#x540E;&#x4F7F;&#x7528;;&#x6B64;&#x5904;&#x7684;server_name &#x901A;&#x8FC7;<strong>ifconfig</strong>&#x67E5;&#x8BE2;</p>
 </blockquote>
-<p><em>第二步： 重启nginx</em></p>
-<pre><code>./nginx -s reload</code></pre><p><em>第三步:修改本机C:\Windows\System32\drivers\etc下的host文件,在末尾添加:*</em>IP 域名<strong>*   **（第三步忽略）</strong></p>
-<pre><code>223.104.147.137 z.com   //此处是我自己ip</code></pre><p><em>第四步:测试</em></p>
-<pre><code>在本地网址输入:172.13.212.31</code></pre>
+<p><em>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A; &#x91CD;&#x542F;nginx</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x7B2C;&#x4E09;&#x6B65;:&#x4FEE;&#x6539;&#x672C;&#x673A;C:\Windows\System32\drivers\etc&#x4E0B;&#x7684;host&#x6587;&#x4EF6;,&#x5728;&#x672B;&#x5C3E;&#x6DFB;&#x52A0;:*</em>IP &#x57DF;&#x540D;<strong>*   **&#xFF08;&#x7B2C;&#x4E09;&#x6B65;&#x5FFD;&#x7565;&#xFF09;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">223.104.147.137 z.com   //&#x6B64;&#x5904;&#x662F;&#x6211;&#x81EA;&#x5DF1;ip</span><br></pre></td></tr></table></figure>
+
+<p><em>&#x7B2C;&#x56DB;&#x6B65;:&#x6D4B;&#x8BD5;</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x5728;&#x672C;&#x5730;&#x7F51;&#x5740;&#x8F93;&#x5165;:172.13.212.31</span><br></pre></td></tr></table></figure>
+
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -540,7 +535,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -552,10 +547,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

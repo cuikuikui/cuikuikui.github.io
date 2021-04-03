@@ -376,131 +376,132 @@
           </header>
         
         <div class="entry-content">
-          <h1 id="第二章-nginx信号量"><a href="#第二章-nginx信号量" class="headerlink" title="第二章 nginx信号量"></a>第二章 nginx信号量</h1><h1 id="2-1-nginx命令行参数"><a href="#2-1-nginx命令行参数" class="headerlink" title="2.1 nginx命令行参数"></a>2.1 nginx命令行参数</h1><pre><code>不像许多其他软件系统，Nginx 仅有几个命令行参数，完全通过配置文件来配置</code></pre><p>  <strong>./nginx -c</strong> &lt;/path/to/config&gt; 为 Nginx 指定一个配置文件，来代替缺省的。<br>  <strong>./nginx -t</strong> 不运行，而仅仅测试配置文件。nginx 将检查配置文件的语法的正确性，并尝试打开配置文件中所引用到的文件。<br>  <strong>./nginx -v</strong> 显示 nginx 的版本。<br>  <strong>./nginx -V</strong> 显示 nginx 的版本，编译器版本和配置参数。</p>
-<h1 id="2-2-nginx控制信号"><a href="#2-2-nginx控制信号" class="headerlink" title="2.2 nginx控制信号"></a>2.2 nginx控制信号</h1><p><strong>说明</strong> :可以使用信号系统来控制主进程。默认，nginx 将其主进程的 pid 写入到 /usr/local/nginx/nginx.pid 文件中。通过传递参数给 ./configure 或使用 pid 指令，来改变该文件的位置。</p>
-<h2 id="2-2-1-进程信号使用列表"><a href="#2-2-1-进程信号使用列表" class="headerlink" title="2.2.1 进程信号使用列表"></a>2.2.1 进程信号使用列表</h2><table>
+          <h1 id="&#x7B2C;&#x4E8C;&#x7AE0;-nginx&#x4FE1;&#x53F7;&#x91CF;"><a href="#&#x7B2C;&#x4E8C;&#x7AE0;-nginx&#x4FE1;&#x53F7;&#x91CF;" class="headerlink" title="&#x7B2C;&#x4E8C;&#x7AE0; nginx&#x4FE1;&#x53F7;&#x91CF;"></a>&#x7B2C;&#x4E8C;&#x7AE0; nginx&#x4FE1;&#x53F7;&#x91CF;</h1><h1 id="2-1-nginx&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;"><a href="#2-1-nginx&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;" class="headerlink" title="2.1 nginx&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;"></a>2.1 nginx&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;</h1><pre><code>&#x4E0D;&#x50CF;&#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;Nginx &#x4EC5;&#x6709;&#x51E0;&#x4E2A;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#xFF0C;&#x5B8C;&#x5168;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6765;&#x914D;&#x7F6E;</code></pre><p>  <strong>./nginx -c</strong> &lt;/path/to/config&gt; &#x4E3A; Nginx &#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6765;&#x4EE3;&#x66FF;&#x7F3A;&#x7701;&#x7684;&#x3002;<br>  <strong>./nginx -t</strong> &#x4E0D;&#x8FD0;&#x884C;&#xFF0C;&#x800C;&#x4EC5;&#x4EC5;&#x6D4B;&#x8BD5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;nginx &#x5C06;&#x68C0;&#x67E5;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x8BED;&#x6CD5;&#x7684;&#x6B63;&#x786E;&#x6027;&#xFF0C;&#x5E76;&#x5C1D;&#x8BD5;&#x6253;&#x5F00;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6240;&#x5F15;&#x7528;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x3002;<br>  <strong>./nginx -v</strong> &#x663E;&#x793A; nginx &#x7684;&#x7248;&#x672C;&#x3002;<br>  <strong>./nginx -V</strong> &#x663E;&#x793A; nginx &#x7684;&#x7248;&#x672C;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x7248;&#x672C;&#x548C;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x3002;</p>
+<h1 id="2-2-nginx&#x63A7;&#x5236;&#x4FE1;&#x53F7;"><a href="#2-2-nginx&#x63A7;&#x5236;&#x4FE1;&#x53F7;" class="headerlink" title="2.2 nginx&#x63A7;&#x5236;&#x4FE1;&#x53F7;"></a>2.2 nginx&#x63A7;&#x5236;&#x4FE1;&#x53F7;</h1><p><strong>&#x8BF4;&#x660E;</strong> :&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4FE1;&#x53F7;&#x7CFB;&#x7EDF;&#x6765;&#x63A7;&#x5236;&#x4E3B;&#x8FDB;&#x7A0B;&#x3002;&#x9ED8;&#x8BA4;&#xFF0C;nginx &#x5C06;&#x5176;&#x4E3B;&#x8FDB;&#x7A0B;&#x7684; pid &#x5199;&#x5165;&#x5230; /usr/local/nginx/nginx.pid &#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x901A;&#x8FC7;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x7ED9; ./configure &#x6216;&#x4F7F;&#x7528; pid &#x6307;&#x4EE4;&#xFF0C;&#x6765;&#x6539;&#x53D8;&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<h2 id="2-2-1-&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x4F7F;&#x7528;&#x5217;&#x8868;"><a href="#2-2-1-&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x4F7F;&#x7528;&#x5217;&#x8868;" class="headerlink" title="2.2.1 &#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x4F7F;&#x7528;&#x5217;&#x8868;"></a>2.2.1 &#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x4F7F;&#x7528;&#x5217;&#x8868;</h2><table>
 <thead>
 <tr>
-<th align="center">下标</th>
-<th align="center">名称</th>
-<th align="center">功能</th>
+<th align="center">&#x4E0B;&#x6807;</th>
+<th align="center">&#x540D;&#x79F0;</th>
+<th align="center">&#x529F;&#x80FD;</th>
 </tr>
 </thead>
 <tbody><tr>
 <td align="center">1</td>
 <td align="center">TERM INT</td>
-<td align="center">快速关闭</td>
+<td align="center">&#x5FEB;&#x901F;&#x5173;&#x95ED;</td>
 </tr>
 <tr>
 <td align="center">2</td>
 <td align="center">QUIT</td>
-<td align="center">从容关闭</td>
+<td align="center">&#x4ECE;&#x5BB9;&#x5173;&#x95ED;</td>
 </tr>
 <tr>
 <td align="center">3</td>
 <td align="center">HUP</td>
-<td align="center">重载配置</td>
+<td align="center">&#x91CD;&#x8F7D;&#x914D;&#x7F6E;</td>
 </tr>
 <tr>
 <td align="center">4</td>
 <td align="center">USR1</td>
-<td align="center">重新打开日志文件</td>
+<td align="center">&#x91CD;&#x65B0;&#x6253;&#x5F00;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;</td>
 </tr>
 <tr>
 <td align="center">5</td>
 <td align="center">USR2</td>
-<td align="center">平滑升级可执行程序</td>
+<td align="center">&#x5E73;&#x6ED1;&#x5347;&#x7EA7;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;</td>
 </tr>
 <tr>
 <td align="center">6</td>
 <td align="center">WINCH</td>
-<td align="center">从容关闭工作进程</td>
+<td align="center">&#x4ECE;&#x5BB9;&#x5173;&#x95ED;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;</td>
 </tr>
 </tbody></table>
 <blockquote>
-<p><strong>注释</strong>：在4~6中是指用新的配置开始新的工作进程并且从容关闭旧的工作进程</p>
+<p><strong>&#x6CE8;&#x91CA;</strong>&#xFF1A;&#x5728;4~6&#x4E2D;&#x662F;&#x6307;&#x7528;&#x65B0;&#x7684;&#x914D;&#x7F6E;&#x5F00;&#x59CB;&#x65B0;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5E76;&#x4E14;&#x4ECE;&#x5BB9;&#x5173;&#x95ED;&#x65E7;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;</p>
 </blockquote>
-<h2 id="2-2-2-nginx进程说明"><a href="#2-2-2-nginx进程说明" class="headerlink" title="2.2.2 nginx进程说明"></a>2.2.2 nginx进程说明</h2><pre><code>root@iZuf66hara3tw540cd2g5kZ:~# ps aux | grep nginx
-root      7413  0.0  0.1  31936  3256 ?        Ss   Feb04   0:00 nginx: master process
-./nginx -c ./nginx.conf                  
-nobody    8702  0.0  0.1  32364  2984 ?        S    00:32   0:00 nginx: worker process     
-</code></pre><p>如上所示<strong>ps aux | grep nginx</strong>表示查询nginx进程。由上面我们可以看出存在两个nginx进程，<strong>nginx: master</strong>和<strong>nginx: worker process</strong>。<br><strong>master和worker的区别和联系</strong></p>
+<h2 id="2-2-2-nginx&#x8FDB;&#x7A0B;&#x8BF4;&#x660E;"><a href="#2-2-2-nginx&#x8FDB;&#x7A0B;&#x8BF4;&#x660E;" class="headerlink" title="2.2.2 nginx&#x8FDB;&#x7A0B;&#x8BF4;&#x660E;"></a>2.2.2 nginx&#x8FDB;&#x7A0B;&#x8BF4;&#x660E;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@iZuf66hara3tw540cd2g5kZ:~# ps aux | grep nginx</span><br><span class="line">root      7413  0.0  0.1  31936  3256 ?        Ss   Feb04   0:00 nginx: master process</span><br><span class="line">./nginx -c ./nginx.conf                  </span><br><span class="line">nobody    8702  0.0  0.1  32364  2984 ?        S    00:32   0:00 nginx: worker process</span><br></pre></td></tr></table></figure>
+
+<p>&#x5982;&#x4E0A;&#x6240;&#x793A;<strong>ps aux | grep nginx</strong>&#x8868;&#x793A;&#x67E5;&#x8BE2;nginx&#x8FDB;&#x7A0B;&#x3002;&#x7531;&#x4E0A;&#x9762;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x5B58;&#x5728;&#x4E24;&#x4E2A;nginx&#x8FDB;&#x7A0B;&#xFF0C;<strong>nginx: master</strong>&#x548C;<strong>nginx: worker process</strong>&#x3002;<br><strong>master&#x548C;worker&#x7684;&#x533A;&#x522B;&#x548C;&#x8054;&#x7CFB;</strong></p>
 <ul>
-<li>master:表示是主进程，worker;表示正在运行中的子进程。</li>
-<li>一个主进程管理若干个子进程，当子进程完成整个工作流程时，主进程将负责告诉子进程进行自动释放，同时主进程将继续产生一个新的子进程。</li>
-<li>主进程被杀死，所有对应的子进程也将消失。所以作为一个程序员尤其是一个运维不能随意的用</li>
-<li>不可以随意<strong>Kill+进程号</strong>这样杀掉子进程。  </li>
+<li>master:&#x8868;&#x793A;&#x662F;&#x4E3B;&#x8FDB;&#x7A0B;&#xFF0C;worker;&#x8868;&#x793A;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x4E2D;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x3002;</li>
+<li>&#x4E00;&#x4E2A;&#x4E3B;&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;&#x82E5;&#x5E72;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x5F53;&#x5B50;&#x8FDB;&#x7A0B;&#x5B8C;&#x6210;&#x6574;&#x4E2A;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x65F6;&#xFF0C;&#x4E3B;&#x8FDB;&#x7A0B;&#x5C06;&#x8D1F;&#x8D23;&#x544A;&#x8BC9;&#x5B50;&#x8FDB;&#x7A0B;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x91CA;&#x653E;&#xFF0C;&#x540C;&#x65F6;&#x4E3B;&#x8FDB;&#x7A0B;&#x5C06;&#x7EE7;&#x7EED;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x3002;</li>
+<li>&#x4E3B;&#x8FDB;&#x7A0B;&#x88AB;&#x6740;&#x6B7B;&#xFF0C;&#x6240;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x4E5F;&#x5C06;&#x6D88;&#x5931;&#x3002;&#x6240;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x5458;&#x5C24;&#x5176;&#x662F;&#x4E00;&#x4E2A;&#x8FD0;&#x7EF4;&#x4E0D;&#x80FD;&#x968F;&#x610F;&#x7684;&#x7528;</li>
+<li>&#x4E0D;&#x53EF;&#x4EE5;&#x968F;&#x610F;<strong>Kill+&#x8FDB;&#x7A0B;&#x53F7;</strong>&#x8FD9;&#x6837;&#x6740;&#x6389;&#x5B50;&#x8FDB;&#x7A0B;&#x3002;  </li>
 </ul>
-<p><strong>举例说明</strong> ：例如当消费者正在提交订单，付款时，突然进程被杀死，你却支付一半的钱，但是订单没有完成，因此订单不会被写入到服务器上，商家也就不会发货。</p>
-<h2 id="2-3-nginx进程信号分析"><a href="#2-3-nginx进程信号分析" class="headerlink" title="2.3 nginx进程信号分析"></a>2.3 nginx进程信号分析</h2><ol>
+<p><strong>&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;</strong> &#xFF1A;&#x4F8B;&#x5982;&#x5F53;&#x6D88;&#x8D39;&#x8005;&#x6B63;&#x5728;&#x63D0;&#x4EA4;&#x8BA2;&#x5355;&#xFF0C;&#x4ED8;&#x6B3E;&#x65F6;&#xFF0C;&#x7A81;&#x7136;&#x8FDB;&#x7A0B;&#x88AB;&#x6740;&#x6B7B;&#xFF0C;&#x4F60;&#x5374;&#x652F;&#x4ED8;&#x4E00;&#x534A;&#x7684;&#x94B1;&#xFF0C;&#x4F46;&#x662F;&#x8BA2;&#x5355;&#x6CA1;&#x6709;&#x5B8C;&#x6210;&#xFF0C;&#x56E0;&#x6B64;&#x8BA2;&#x5355;&#x4E0D;&#x4F1A;&#x88AB;&#x5199;&#x5165;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF0C;&#x5546;&#x5BB6;&#x4E5F;&#x5C31;&#x4E0D;&#x4F1A;&#x53D1;&#x8D27;&#x3002;</p>
+<h2 id="2-3-nginx&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x5206;&#x6790;"><a href="#2-3-nginx&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x5206;&#x6790;" class="headerlink" title="2.3 nginx&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x5206;&#x6790;"></a>2.3 nginx&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x5206;&#x6790;</h2><ol>
 <li>TERM INT   </li>
 </ol>
-<p><strong>说明</strong> :这个表示尽快杀死，不建议使用  </p>
-<pre><code>代码 :kill -INT 7413   ./sbin/nginx/ -s stop</code></pre><ol start="2">
+<p><strong>&#x8BF4;&#x660E;</strong> :&#x8FD9;&#x4E2A;&#x8868;&#x793A;&#x5C3D;&#x5FEB;&#x6740;&#x6B7B;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x4EE3;&#x7801; :kill -INT 7413   ./sbin/nginx/ -s stop</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
 <li>QUIT  </li>
 </ol>
-<p><strong>说明</strong> :优雅的杀掉进程，假如你执行完<strong>kill QUIT 7413</strong>，支付进程只有在你付完款才会被杀掉，</p>
-<pre><code>代码 :kill -QUIT 7413    ./sbin/nginx/ -s quit</code></pre><ol start="3">
+<p><strong>&#x8BF4;&#x660E;</strong> :&#x4F18;&#x96C5;&#x7684;&#x6740;&#x6389;&#x8FDB;&#x7A0B;&#xFF0C;&#x5047;&#x5982;&#x4F60;&#x6267;&#x884C;&#x5B8C;<strong>kill QUIT 7413</strong>&#xFF0C;&#x652F;&#x4ED8;&#x8FDB;&#x7A0B;&#x53EA;&#x6709;&#x5728;&#x4F60;&#x4ED8;&#x5B8C;&#x6B3E;&#x624D;&#x4F1A;&#x88AB;&#x6740;&#x6389;&#xFF0C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x4EE3;&#x7801; :kill -QUIT 7413    ./sbin/nginx/ -s quit</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
 <li>HUB  </li>
 </ol>
-<p><strong>说明</strong> :优雅的杀掉旧进程，然后开启新进程，不需要像tomcat一样改了配置文件后要想加载新的进程就要重新启动一下服务器</p>
-<pre><code>代码 :kill -HUP  7413 或者 ./sbin/nginx/ -s roload</code></pre><ol start="4">
+<p><strong>&#x8BF4;&#x660E;</strong> :&#x4F18;&#x96C5;&#x7684;&#x6740;&#x6389;&#x65E7;&#x8FDB;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#x5F00;&#x542F;&#x65B0;&#x8FDB;&#x7A0B;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x50CF;tomcat&#x4E00;&#x6837;&#x6539;&#x4E86;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x540E;&#x8981;&#x60F3;&#x52A0;&#x8F7D;&#x65B0;&#x7684;&#x8FDB;&#x7A0B;&#x5C31;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x4E00;&#x4E0B;&#x670D;&#x52A1;&#x5668;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x4EE3;&#x7801; :kill -HUP  7413 &#x6216;&#x8005; ./sbin/nginx/ -s roload</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
 <li>USER1</li>
 </ol>
-<p><strong>说明</strong> :这个信号多用于日志备份切割，一般nginx是通过一个个knode指向磁盘从而进行日志并进行备份。要想每天备份一份日志，需要进行结点的切割（<strong>kill -USER1 ‘cat logs/nginx.pid’</strong>），将结点连接到新的日志文件上.尤其是运维，公司老板可能会要求你每天晚上备份日志文件，第二天用一个新的日志文件继续运行</p>
-<pre><code>代码 :kill -USER1  7413   或者 ./sbin/nginx/ -s reopen</code></pre><blockquote>
-<p><strong>注释</strong> ‘cat logs/nginx.pid’指获取进程号</p>
+<p><strong>&#x8BF4;&#x660E;</strong> :&#x8FD9;&#x4E2A;&#x4FE1;&#x53F7;&#x591A;&#x7528;&#x4E8E;&#x65E5;&#x5FD7;&#x5907;&#x4EFD;&#x5207;&#x5272;&#xFF0C;&#x4E00;&#x822C;nginx&#x662F;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4E2A;knode&#x6307;&#x5411;&#x78C1;&#x76D8;&#x4ECE;&#x800C;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x5E76;&#x8FDB;&#x884C;&#x5907;&#x4EFD;&#x3002;&#x8981;&#x60F3;&#x6BCF;&#x5929;&#x5907;&#x4EFD;&#x4E00;&#x4EFD;&#x65E5;&#x5FD7;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x7ED3;&#x70B9;&#x7684;&#x5207;&#x5272;&#xFF08;<strong>kill -USER1 &#x2018;cat logs/nginx.pid&#x2019;</strong>&#xFF09;&#xFF0C;&#x5C06;&#x7ED3;&#x70B9;&#x8FDE;&#x63A5;&#x5230;&#x65B0;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E0A;.&#x5C24;&#x5176;&#x662F;&#x8FD0;&#x7EF4;&#xFF0C;&#x516C;&#x53F8;&#x8001;&#x677F;&#x53EF;&#x80FD;&#x4F1A;&#x8981;&#x6C42;&#x4F60;&#x6BCF;&#x5929;&#x665A;&#x4E0A;&#x5907;&#x4EFD;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF0C;&#x7B2C;&#x4E8C;&#x5929;&#x7528;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x4EE3;&#x7801; :kill -USER1  7413   &#x6216;&#x8005; ./sbin/nginx/ -s reopen</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>&#x6CE8;&#x91CA;</strong> &#x2018;cat logs/nginx.pid&#x2019;&#x6307;&#x83B7;&#x53D6;&#x8FDB;&#x7A0B;&#x53F7;</p>
 <ol start="5">
-<li>USER2 和 WINCH</li>
+<li>USER2 &#x548C; WINCH</li>
 </ol>
 </blockquote>
-<p>你可以在不中断服务的情况下 - 新的请求也不会丢失，使用新的 nginx 可执行程序替换旧的（当升级新版本或添加/删除服务器模块时）。</p>
-<p>首先，使用新的可执行程序替换旧的（最好做好备份），然后，发送 USR2 (kill -USR2 pid)信号给主进程。主进程将重命名它的 .pid 文件为 .oldbin (比如：/usr/local/nginx/logs/nginx.pid.oldbin)，然后执行新的可执行程序，依次启动新的主进程和新的工作进程：</p>
-<pre><code> PID   PPID USER    %CPU   VSZ WCHAN  COMMAND
-33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx
-33134 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)
-33135 33126 nobody   0.0  1380 kqread nginx: worker process (nginx)
-33136 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)
-36264 33126 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx
-36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</code></pre><p>在这时，两个 nginx 实例会同时运行，一起处理输入的请求。要逐步停止旧的实例，你必须发送 WINCH 信号给旧的主进程，然后，它的工作进程就将开始从容关闭：</p>
-<pre><code>PID    PPID USER    %CPU   VSZ WCHAN  COMMAND
-33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx
-33135 33126 nobody   0.0  1380 kqread nginx: worker process is shutting down (nginx)
-36264 33126 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx
-36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-</code></pre><p>一段时间后，旧的工作进程处理了所有已连接的请求后退出，就仅由新的工作进程来处理输入的请求了：</p>
-<pre><code> PID   PPID USER    %CPU   VSZ WCHAN  COMMAND
-33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx
-36264 33126 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx
-36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</code></pre><p>这时，因为旧的服务器还尚未关闭它监听的套接字，所以，通过下面的几步，你仍可以恢复旧的服务器：</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x4E2D;&#x65AD;&#x670D;&#x52A1;&#x7684;&#x60C5;&#x51B5;&#x4E0B; - &#x65B0;&#x7684;&#x8BF7;&#x6C42;&#x4E5F;&#x4E0D;&#x4F1A;&#x4E22;&#x5931;&#xFF0C;&#x4F7F;&#x7528;&#x65B0;&#x7684; nginx &#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x66FF;&#x6362;&#x65E7;&#x7684;&#xFF08;&#x5F53;&#x5347;&#x7EA7;&#x65B0;&#x7248;&#x672C;&#x6216;&#x6DFB;&#x52A0;/&#x5220;&#x9664;&#x670D;&#x52A1;&#x5668;&#x6A21;&#x5757;&#x65F6;&#xFF09;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x4F7F;&#x7528;&#x65B0;&#x7684;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x66FF;&#x6362;&#x65E7;&#x7684;&#xFF08;&#x6700;&#x597D;&#x505A;&#x597D;&#x5907;&#x4EFD;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#xFF0C;&#x53D1;&#x9001; USR2 (kill -USR2 pid)&#x4FE1;&#x53F7;&#x7ED9;&#x4E3B;&#x8FDB;&#x7A0B;&#x3002;&#x4E3B;&#x8FDB;&#x7A0B;&#x5C06;&#x91CD;&#x547D;&#x540D;&#x5B83;&#x7684; .pid &#x6587;&#x4EF6;&#x4E3A; .oldbin (&#x6BD4;&#x5982;&#xFF1A;/usr/local/nginx/logs/nginx.pid.oldbin)&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;&#x65B0;&#x7684;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#xFF0C;&#x4F9D;&#x6B21;&#x542F;&#x52A8;&#x65B0;&#x7684;&#x4E3B;&#x8FDB;&#x7A0B;&#x548C;&#x65B0;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> PID   PPID USER    %CPU   VSZ WCHAN  COMMAND</span><br><span class="line">33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx</span><br><span class="line">33134 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)</span><br><span class="line">33135 33126 nobody   0.0  1380 kqread nginx: worker process (nginx)</span><br><span class="line">33136 33126 nobody   0.0  1368 kqread nginx: worker process (nginx)</span><br><span class="line">36264 33126 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx</span><br><span class="line">36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br><span class="line">36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br><span class="line">36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br></pre></td></tr></table></figure>
+
+<p>&#x5728;&#x8FD9;&#x65F6;&#xFF0C;&#x4E24;&#x4E2A; nginx &#x5B9E;&#x4F8B;&#x4F1A;&#x540C;&#x65F6;&#x8FD0;&#x884C;&#xFF0C;&#x4E00;&#x8D77;&#x5904;&#x7406;&#x8F93;&#x5165;&#x7684;&#x8BF7;&#x6C42;&#x3002;&#x8981;&#x9010;&#x6B65;&#x505C;&#x6B62;&#x65E7;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x53D1;&#x9001; WINCH &#x4FE1;&#x53F7;&#x7ED9;&#x65E7;&#x7684;&#x4E3B;&#x8FDB;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#xFF0C;&#x5B83;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5C31;&#x5C06;&#x5F00;&#x59CB;&#x4ECE;&#x5BB9;&#x5173;&#x95ED;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PID    PPID USER    %CPU   VSZ WCHAN  COMMAND</span><br><span class="line">33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx</span><br><span class="line">33135 33126 nobody   0.0  1380 kqread nginx: worker process is shutting down (nginx)</span><br><span class="line">36264 33126 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx</span><br><span class="line">36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br><span class="line">36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br><span class="line">36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br></pre></td></tr></table></figure>
+
+<p>&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x65E7;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5904;&#x7406;&#x4E86;&#x6240;&#x6709;&#x5DF2;&#x8FDE;&#x63A5;&#x7684;&#x8BF7;&#x6C42;&#x540E;&#x9000;&#x51FA;&#xFF0C;&#x5C31;&#x4EC5;&#x7531;&#x65B0;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x6765;&#x5904;&#x7406;&#x8F93;&#x5165;&#x7684;&#x8BF7;&#x6C42;&#x4E86;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> PID   PPID USER    %CPU   VSZ WCHAN  COMMAND</span><br><span class="line">33126     1 root     0.0  1164 pause  nginx: master process /usr/local/nginx/sbin/nginx</span><br><span class="line">36264 33126 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx</span><br><span class="line">36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br><span class="line">36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br><span class="line">36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br></pre></td></tr></table></figure>
+
+<p>&#x8FD9;&#x65F6;&#xFF0C;&#x56E0;&#x4E3A;&#x65E7;&#x7684;&#x670D;&#x52A1;&#x5668;&#x8FD8;&#x5C1A;&#x672A;&#x5173;&#x95ED;&#x5B83;&#x76D1;&#x542C;&#x7684;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x51E0;&#x6B65;&#xFF0C;&#x4F60;&#x4ECD;&#x53EF;&#x4EE5;&#x6062;&#x590D;&#x65E7;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF1A;</p>
 <ul>
-<li>发送 HUP 信号给旧的主进程 - 它将在不重载配置文件的情况下启动它的工作进程</li>
-<li>发送 QUIT 信号给新的主进程，要求其从容关闭其工作进程</li>
-<li>发送 TERM 信号给新的主进程，迫使其退出</li>
-<li>如果因为某些原因新的工作进程不能退出，向其发送 KILL 信号<br>新的主进程退出后，旧的主进程会由移除 .oldbin 前缀，恢复为它的 .pid 文件，这样，一切就都恢复到升级之前了。</li>
+<li>&#x53D1;&#x9001; HUP &#x4FE1;&#x53F7;&#x7ED9;&#x65E7;&#x7684;&#x4E3B;&#x8FDB;&#x7A0B; - &#x5B83;&#x5C06;&#x5728;&#x4E0D;&#x91CD;&#x8F7D;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x542F;&#x52A8;&#x5B83;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;</li>
+<li>&#x53D1;&#x9001; QUIT &#x4FE1;&#x53F7;&#x7ED9;&#x65B0;&#x7684;&#x4E3B;&#x8FDB;&#x7A0B;&#xFF0C;&#x8981;&#x6C42;&#x5176;&#x4ECE;&#x5BB9;&#x5173;&#x95ED;&#x5176;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;</li>
+<li>&#x53D1;&#x9001; TERM &#x4FE1;&#x53F7;&#x7ED9;&#x65B0;&#x7684;&#x4E3B;&#x8FDB;&#x7A0B;&#xFF0C;&#x8FEB;&#x4F7F;&#x5176;&#x9000;&#x51FA;</li>
+<li>&#x5982;&#x679C;&#x56E0;&#x4E3A;&#x67D0;&#x4E9B;&#x539F;&#x56E0;&#x65B0;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4E0D;&#x80FD;&#x9000;&#x51FA;&#xFF0C;&#x5411;&#x5176;&#x53D1;&#x9001; KILL &#x4FE1;&#x53F7;<br>&#x65B0;&#x7684;&#x4E3B;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x540E;&#xFF0C;&#x65E7;&#x7684;&#x4E3B;&#x8FDB;&#x7A0B;&#x4F1A;&#x7531;&#x79FB;&#x9664; .oldbin &#x524D;&#x7F00;&#xFF0C;&#x6062;&#x590D;&#x4E3A;&#x5B83;&#x7684; .pid &#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;&#x4E00;&#x5207;&#x5C31;&#x90FD;&#x6062;&#x590D;&#x5230;&#x5347;&#x7EA7;&#x4E4B;&#x524D;&#x4E86;&#x3002;</li>
 </ul>
-<p>如果尝试升级成功，而你也希望保留新的服务器时，发送 QUIT 信号给旧的主进程使其退出而只留下新的服务器运行：</p>
-<pre><code>   PID  PPID USER    %CPU   VSZ WCHAN  COMMAND
-    36264     1 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx
-    36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-    36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)
-    36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</code></pre><h1 id="2-4-nginx-启动、停止、重启命令"><a href="#2-4-nginx-启动、停止、重启命令" class="headerlink" title="2.4 nginx 启动、停止、重启命令"></a>2.4 nginx 启动、停止、重启命令</h1><h2 id="2-4-1-nginx启动"><a href="#2-4-1-nginx启动" class="headerlink" title="2.4.1 nginx启动"></a><strong>2.4.1 nginx启动</strong></h2><pre><code>sudo /usr/local/nginx/nginx     (nginx二进制文件绝对路径，可以根据自己安装路径实际决定)</code></pre><h2 id="2-4-2-nginx从容停止命令，等所有请求结束后关闭服务"><a href="#2-4-2-nginx从容停止命令，等所有请求结束后关闭服务" class="headerlink" title="2.4.2 nginx从容停止命令，等所有请求结束后关闭服务"></a><strong>2.4.2 nginx从容停止命令，等所有请求结束后关闭服务</strong></h2><pre><code>ps -ef |grep nginx
+<p>&#x5982;&#x679C;&#x5C1D;&#x8BD5;&#x5347;&#x7EA7;&#x6210;&#x529F;&#xFF0C;&#x800C;&#x4F60;&#x4E5F;&#x5E0C;&#x671B;&#x4FDD;&#x7559;&#x65B0;&#x7684;&#x670D;&#x52A1;&#x5668;&#x65F6;&#xFF0C;&#x53D1;&#x9001; QUIT &#x4FE1;&#x53F7;&#x7ED9;&#x65E7;&#x7684;&#x4E3B;&#x8FDB;&#x7A0B;&#x4F7F;&#x5176;&#x9000;&#x51FA;&#x800C;&#x53EA;&#x7559;&#x4E0B;&#x65B0;&#x7684;&#x670D;&#x52A1;&#x5668;&#x8FD0;&#x884C;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PID  PPID USER    %CPU   VSZ WCHAN  COMMAND</span><br><span class="line"> 36264     1 root     0.0  1148 pause  nginx: master process /usr/local/nginx/sbin/nginx</span><br><span class="line"> 36265 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br><span class="line"> 36266 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br><span class="line"> 36267 36264 nobody   0.0  1364 kqread nginx: worker process (nginx)</span><br></pre></td></tr></table></figure>
 
-kill -QUIT  nginx主进程号</code></pre><h2 id="2-4-3-nginx-快速停止命令，立刻关闭nginx进程"><a href="#2-4-3-nginx-快速停止命令，立刻关闭nginx进程" class="headerlink" title="2.4.3 nginx 快速停止命令，立刻关闭nginx进程"></a><strong>2.4.3 nginx 快速停止命令，立刻关闭nginx进程</strong></h2><pre><code>ps -ef |grep nginx
+<h1 id="2-4-nginx-&#x542F;&#x52A8;&#x3001;&#x505C;&#x6B62;&#x3001;&#x91CD;&#x542F;&#x547D;&#x4EE4;"><a href="#2-4-nginx-&#x542F;&#x52A8;&#x3001;&#x505C;&#x6B62;&#x3001;&#x91CD;&#x542F;&#x547D;&#x4EE4;" class="headerlink" title="2.4 nginx &#x542F;&#x52A8;&#x3001;&#x505C;&#x6B62;&#x3001;&#x91CD;&#x542F;&#x547D;&#x4EE4;"></a>2.4 nginx &#x542F;&#x52A8;&#x3001;&#x505C;&#x6B62;&#x3001;&#x91CD;&#x542F;&#x547D;&#x4EE4;</h1><h2 id="2-4-1-nginx&#x542F;&#x52A8;"><a href="#2-4-1-nginx&#x542F;&#x52A8;" class="headerlink" title="2.4.1 nginx&#x542F;&#x52A8;"></a><strong>2.4.1 nginx&#x542F;&#x52A8;</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/nginx/nginx     (nginx&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#x5B9E;&#x9645;&#x51B3;&#x5B9A;)</span><br></pre></td></tr></table></figure>
 
-kill -TERM nginx主进程号 </code></pre><h2 id="2-4-4-如果以上命令不管用，可以强制停止"><a href="#2-4-4-如果以上命令不管用，可以强制停止" class="headerlink" title="2.4.4 如果以上命令不管用，可以强制停止"></a><strong>2.4.4 如果以上命令不管用，可以强制停止</strong></h2><pre><code>kill -9 nginx主进程号</code></pre><p>如果嫌麻烦可以不用查看进程号，直接使用命令进行操作<br>其中/usr/local/nginx/nginx.pid 为nginx.conf中pid命令设置的参数，用来存放nginx主进程号的文件<br>kill -信号类型(HUP|TERM|QUIT) cat /usr/local/nginx/nginx.pid<br>例如</p>
-<pre><code>kill -QUIT `cat /usr/local/nginx/nginx.pid`
-1
-kill -QUIT `cat /usr/local/nginx/nginx.pid`</code></pre><h2 id="2-5-nginx重启命令"><a href="#2-5-nginx重启命令" class="headerlink" title="2.5 nginx重启命令"></a><strong>2.5 nginx重启命令</strong></h2><p>nginx重启可以分成几种类型</p>
-<p>1.简单型，先关闭进程，修改你的配置后，重启进程。</p>
-<pre><code>kill -QUIT cat /usr/local/nginx/nginx.pid
-sudo /usr/local/nginx/nginx</code></pre>
+
+
+<h2 id="2-4-2-nginx&#x4ECE;&#x5BB9;&#x505C;&#x6B62;&#x547D;&#x4EE4;&#xFF0C;&#x7B49;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x7ED3;&#x675F;&#x540E;&#x5173;&#x95ED;&#x670D;&#x52A1;"><a href="#2-4-2-nginx&#x4ECE;&#x5BB9;&#x505C;&#x6B62;&#x547D;&#x4EE4;&#xFF0C;&#x7B49;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x7ED3;&#x675F;&#x540E;&#x5173;&#x95ED;&#x670D;&#x52A1;" class="headerlink" title="2.4.2 nginx&#x4ECE;&#x5BB9;&#x505C;&#x6B62;&#x547D;&#x4EE4;&#xFF0C;&#x7B49;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x7ED3;&#x675F;&#x540E;&#x5173;&#x95ED;&#x670D;&#x52A1;"></a><strong>2.4.2 nginx&#x4ECE;&#x5BB9;&#x505C;&#x6B62;&#x547D;&#x4EE4;&#xFF0C;&#x7B49;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x7ED3;&#x675F;&#x540E;&#x5173;&#x95ED;&#x670D;&#x52A1;</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -ef |grep nginx</span><br><span class="line"></span><br><span class="line">kill -QUIT  nginx&#x4E3B;&#x8FDB;&#x7A0B;&#x53F7;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-4-3-nginx-&#x5FEB;&#x901F;&#x505C;&#x6B62;&#x547D;&#x4EE4;&#xFF0C;&#x7ACB;&#x523B;&#x5173;&#x95ED;nginx&#x8FDB;&#x7A0B;"><a href="#2-4-3-nginx-&#x5FEB;&#x901F;&#x505C;&#x6B62;&#x547D;&#x4EE4;&#xFF0C;&#x7ACB;&#x523B;&#x5173;&#x95ED;nginx&#x8FDB;&#x7A0B;" class="headerlink" title="2.4.3 nginx &#x5FEB;&#x901F;&#x505C;&#x6B62;&#x547D;&#x4EE4;&#xFF0C;&#x7ACB;&#x523B;&#x5173;&#x95ED;nginx&#x8FDB;&#x7A0B;"></a><strong>2.4.3 nginx &#x5FEB;&#x901F;&#x505C;&#x6B62;&#x547D;&#x4EE4;&#xFF0C;&#x7ACB;&#x523B;&#x5173;&#x95ED;nginx&#x8FDB;&#x7A0B;</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -ef |grep nginx</span><br><span class="line"></span><br><span class="line">kill -TERM nginx&#x4E3B;&#x8FDB;&#x7A0B;&#x53F7;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-4-&#x5982;&#x679C;&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x4E0D;&#x7BA1;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5F3A;&#x5236;&#x505C;&#x6B62;"><a href="#2-4-4-&#x5982;&#x679C;&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x4E0D;&#x7BA1;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5F3A;&#x5236;&#x505C;&#x6B62;" class="headerlink" title="2.4.4 &#x5982;&#x679C;&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x4E0D;&#x7BA1;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5F3A;&#x5236;&#x505C;&#x6B62;"></a><strong>2.4.4 &#x5982;&#x679C;&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x4E0D;&#x7BA1;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5F3A;&#x5236;&#x505C;&#x6B62;</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 nginx&#x4E3B;&#x8FDB;&#x7A0B;&#x53F7;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>&#x5982;&#x679C;&#x5ACC;&#x9EBB;&#x70E6;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x67E5;&#x770B;&#x8FDB;&#x7A0B;&#x53F7;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;<br>&#x5176;&#x4E2D;/usr/local/nginx/nginx.pid &#x4E3A;nginx.conf&#x4E2D;pid&#x547D;&#x4EE4;&#x8BBE;&#x7F6E;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x7528;&#x6765;&#x5B58;&#x653E;nginx&#x4E3B;&#x8FDB;&#x7A0B;&#x53F7;&#x7684;&#x6587;&#x4EF6;<br>kill -&#x4FE1;&#x53F7;&#x7C7B;&#x578B;(HUP|TERM|QUIT) cat /usr/local/nginx/nginx.pid<br>&#x4F8B;&#x5982;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kill -QUIT `cat /usr/local/nginx/nginx.pid`</span><br><span class="line">1</span><br><span class="line">kill -QUIT `cat /usr/local/nginx/nginx.pid`</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-5-nginx&#x91CD;&#x542F;&#x547D;&#x4EE4;"><a href="#2-5-nginx&#x91CD;&#x542F;&#x547D;&#x4EE4;" class="headerlink" title="2.5 nginx&#x91CD;&#x542F;&#x547D;&#x4EE4;"></a><strong>2.5 nginx&#x91CD;&#x542F;&#x547D;&#x4EE4;</strong></h2><p>nginx&#x91CD;&#x542F;&#x53EF;&#x4EE5;&#x5206;&#x6210;&#x51E0;&#x79CD;&#x7C7B;&#x578B;</p>
+<p>1.&#x7B80;&#x5355;&#x578B;&#xFF0C;&#x5148;&#x5173;&#x95ED;&#x8FDB;&#x7A0B;&#xFF0C;&#x4FEE;&#x6539;&#x4F60;&#x7684;&#x914D;&#x7F6E;&#x540E;&#xFF0C;&#x91CD;&#x542F;&#x8FDB;&#x7A0B;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -QUIT cat /usr/local/nginx/nginx.pid</span><br><span class="line">sudo /usr/local/nginx/nginx</span><br></pre></td></tr></table></figure>
+
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -608,7 +609,7 @@ sudo /usr/local/nginx/nginx</code></pre>
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -620,10 +621,10 @@ sudo /usr/local/nginx/nginx</code></pre>
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

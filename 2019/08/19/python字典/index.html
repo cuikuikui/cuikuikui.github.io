@@ -376,32 +376,32 @@
           </header>
         
         <div class="entry-content">
-          <p>大家好天给大家引入一个新的数据结构，字典，在 python中字典是一个非常重要的数据结构。python在有些地方被称为哈希或者关系数组。</p>
-<h4 id="1、创建字典"><a href="#1、创建字典" class="headerlink" title="1、创建字典"></a>1、创建字典</h4><p>字典包括键和值。键是独一无二的。但是值则不必。</p>
-<p>1-1 字典的格式：<br>dict={<br>    ‘key1’:’value1’,<br>    ‘key1’:’value1’,<br>    ‘key1’:’value1’,<br>    ‘key1’:’value1’,<br>         .<br>         .<br>         .<br>         .<br>         .</p>
+          <p>&#x5927;&#x5BB6;&#x597D;&#x5929;&#x7ED9;&#x5927;&#x5BB6;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5B57;&#x5178;&#xFF0C;&#x5728; python&#x4E2D;&#x5B57;&#x5178;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;python&#x5728;&#x6709;&#x4E9B;&#x5730;&#x65B9;&#x88AB;&#x79F0;&#x4E3A;&#x54C8;&#x5E0C;&#x6216;&#x8005;&#x5173;&#x7CFB;&#x6570;&#x7EC4;&#x3002;</p>
+<h4 id="1&#x3001;&#x521B;&#x5EFA;&#x5B57;&#x5178;"><a href="#1&#x3001;&#x521B;&#x5EFA;&#x5B57;&#x5178;" class="headerlink" title="1&#x3001;&#x521B;&#x5EFA;&#x5B57;&#x5178;"></a>1&#x3001;&#x521B;&#x5EFA;&#x5B57;&#x5178;</h4><p>&#x5B57;&#x5178;&#x5305;&#x62EC;&#x952E;&#x548C;&#x503C;&#x3002;&#x952E;&#x662F;&#x72EC;&#x4E00;&#x65E0;&#x4E8C;&#x7684;&#x3002;&#x4F46;&#x662F;&#x503C;&#x5219;&#x4E0D;&#x5FC5;&#x3002;</p>
+<p>1-1 &#x5B57;&#x5178;&#x7684;&#x683C;&#x5F0F;&#xFF1A;<br>dict={<br>    &#x2018;key1&#x2019;:&#x2019;value1&#x2019;,<br>    &#x2018;key1&#x2019;:&#x2019;value1&#x2019;,<br>    &#x2018;key1&#x2019;:&#x2019;value1&#x2019;,<br>    &#x2018;key1&#x2019;:&#x2019;value1&#x2019;,<br>         .<br>         .<br>         .<br>         .<br>         .</p>
 <p>}</p>
-<p>字典的值支持不同类型的键和值大家可以根据实际情况进行创建。</p>
-<p>1-2 声明一个字典：<br>dict={}<br>这里是一个空字典<br>dict[1]=1,<br>dict[2]=2<br>dict[3]=3<br>这里是给字典赋值。但是字典不允许同一个键被赋值两次，否则后一个值会被记住。</p>
-<h4 id="2-字典的各种内置方法"><a href="#2-字典的各种内置方法" class="headerlink" title="2  字典的各种内置方法"></a>2  字典的各种内置方法</h4><p>1) fromkeys(seq[,value])<br>    fromkeys()方法用于创建并返回一个新的字典，他有两个参数，第一个是字典的键，第二个是传入的值，如果不提供默认为None。<br>    dict={}<br>    &gt;&gt;&gt; dict.fromkeys((1,2,3,4))<br>    {1: None, 2: None, 3: None, 4: None}<br>    &gt;&gt;&gt; dict.fromkeys((1,2,3,4),”111”)<br>    {1: ‘111’, 2: ‘111’, 3: ‘111’, 4: ‘111’}</p>
-<p>2) items(),values(),keys()<br>    items()返回字典中所有的键值对。<br>        &gt;&gt;&gt; dict.items()<br>        dict_items([(1, ‘111’), (2, ‘222’), (3, ‘333’)])<br>    values()返回字典中所有的值<br>        &gt;&gt;&gt; dict.values()<br>        dict_values([‘111’, ‘222’, ‘333’])</p>
-<pre><code>keys()返回字典中所有的键
+<p>&#x5B57;&#x5178;&#x7684;&#x503C;&#x652F;&#x6301;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x952E;&#x548C;&#x503C;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x8FDB;&#x884C;&#x521B;&#x5EFA;&#x3002;</p>
+<p>1-2 &#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#xFF1A;<br>dict={}<br>&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x5B57;&#x5178;<br>dict[1]=1,<br>dict[2]=2<br>dict[3]=3<br>&#x8FD9;&#x91CC;&#x662F;&#x7ED9;&#x5B57;&#x5178;&#x8D4B;&#x503C;&#x3002;&#x4F46;&#x662F;&#x5B57;&#x5178;&#x4E0D;&#x5141;&#x8BB8;&#x540C;&#x4E00;&#x4E2A;&#x952E;&#x88AB;&#x8D4B;&#x503C;&#x4E24;&#x6B21;&#xFF0C;&#x5426;&#x5219;&#x540E;&#x4E00;&#x4E2A;&#x503C;&#x4F1A;&#x88AB;&#x8BB0;&#x4F4F;&#x3002;</p>
+<h4 id="2-&#x5B57;&#x5178;&#x7684;&#x5404;&#x79CD;&#x5185;&#x7F6E;&#x65B9;&#x6CD5;"><a href="#2-&#x5B57;&#x5178;&#x7684;&#x5404;&#x79CD;&#x5185;&#x7F6E;&#x65B9;&#x6CD5;" class="headerlink" title="2  &#x5B57;&#x5178;&#x7684;&#x5404;&#x79CD;&#x5185;&#x7F6E;&#x65B9;&#x6CD5;"></a>2  &#x5B57;&#x5178;&#x7684;&#x5404;&#x79CD;&#x5185;&#x7F6E;&#x65B9;&#x6CD5;</h4><p>1) fromkeys(seq[,value])<br>    fromkeys()&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B57;&#x5178;&#xFF0C;&#x4ED6;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x662F;&#x5B57;&#x5178;&#x7684;&#x952E;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x662F;&#x4F20;&#x5165;&#x7684;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x63D0;&#x4F9B;&#x9ED8;&#x8BA4;&#x4E3A;None&#x3002;<br>    dict={}<br>    &gt;&gt;&gt; dict.fromkeys((1,2,3,4))<br>    {1: None, 2: None, 3: None, 4: None}<br>    &gt;&gt;&gt; dict.fromkeys((1,2,3,4),&#x201D;111&#x201D;)<br>    {1: &#x2018;111&#x2019;, 2: &#x2018;111&#x2019;, 3: &#x2018;111&#x2019;, 4: &#x2018;111&#x2019;}</p>
+<p>2) items(),values(),keys()<br>    items()&#x8FD4;&#x56DE;&#x5B57;&#x5178;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x3002;<br>        &gt;&gt;&gt; dict.items()<br>        dict_items([(1, &#x2018;111&#x2019;), (2, &#x2018;222&#x2019;), (3, &#x2018;333&#x2019;)])<br>    values()&#x8FD4;&#x56DE;&#x5B57;&#x5178;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x503C;<br>        &gt;&gt;&gt; dict.values()<br>        dict_values([&#x2018;111&#x2019;, &#x2018;222&#x2019;, &#x2018;333&#x2019;])</p>
+<pre><code>keys()&#x8FD4;&#x56DE;&#x5B57;&#x5178;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x952E;
     &gt;&gt;&gt; dict.keys()
-    dict_keys([1, 2, 3])</code></pre><p>3)get(key[,default])<br>  get()方法根据传入的keys返回字典的值。但是键不存在时，会默认返回一个none。<br>        &gt;&gt;&gt; dict<br>        {1: ‘111’, 2: ‘222’, 3: ‘333’}<br>        &gt;&gt;&gt; dict.get(1)<br>        ‘111’<br>        &gt;&gt;&gt; dict.get(4)<br>除此之外，可以通过in 或者not in判断字典中是否存在此键值对。<br>        &gt;&gt;&gt; 4 in dict<br>        False<br>        &gt;&gt;&gt; 4 not in dict<br>        True<br>        &gt;&gt;&gt;<br>清空字典调用clear()方法。<br>        &gt;&gt;&gt; dict.clear()<br>        &gt;&gt;&gt; dict<br>        {}<br>4 copy()<br>用于拷贝整个字典。<br>        &gt;&gt;&gt; dict={1:’111’,2:’222’,3:’333’}<br>        &gt;&gt;&gt; dict_copy=dict.copy()<br>        &gt;&gt;&gt; dict_copy<br>        {1: ‘111’, 2: ‘222’, 3: ‘333’}</p>
-<p>5 pop(key)和popitem()</p>
-<p>pop(key)是根据键进行删除键值对。<br>        &gt;&gt;&gt; dict<br>        {1: ‘111’, 2: ‘222’, 3: ‘333’}<br>        &gt;&gt;&gt; dict.pop(2)<br>        ‘222’<br>        &gt;&gt;&gt; dict<br>        {1: ‘111’, 3: ‘333’}<br>        &gt;&gt;&gt; </p>
-<p>popitem()默认从最后一个键值对进行开始删除。<br>        &gt;&gt;&gt; dict<br>        {1: ‘111’, 2: ‘222’, 3: ‘333’, 4: ‘444’, 5: ‘555’, 6: ‘666’}<br>        &gt;&gt;&gt; dict.popitem()<br>        (6, ‘666’)<br>        &gt;&gt;&gt; dict.popitem()<br>        (5, ‘555’)<br>        &gt;&gt;&gt; dict.popitem()<br>        (4, ‘444’)<br>        &gt;&gt;&gt; dict<br>        {1: ‘111’, 2: ‘222’, 3: ‘333’}<br>        &gt;&gt;&gt; </p>
-<p>6） setdefault(key)</p>
-<p>这个方法和get()方法相似都可以根据key返回值，但是setdefault(key)假如找不到键会自动添加<br>        &gt;&gt;&gt; dict<br>        {1: ‘111’, 3: ‘333’}<br>        &gt;&gt;&gt; dict.setdefault(2)<br>        &gt;&gt;&gt; dict<br>        {1: ‘111’, 3: ‘333’, 2: None}<br>        &gt;&gt;&gt;<br>7) update([other])</p>
-<pre><code>用来更新字典。
+    dict_keys([1, 2, 3])</code></pre><p>3)get(key[,default])<br>  get()&#x65B9;&#x6CD5;&#x6839;&#x636E;&#x4F20;&#x5165;&#x7684;keys&#x8FD4;&#x56DE;&#x5B57;&#x5178;&#x7684;&#x503C;&#x3002;&#x4F46;&#x662F;&#x952E;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#xFF0C;&#x4F1A;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;none&#x3002;<br>        &gt;&gt;&gt; dict<br>        {1: &#x2018;111&#x2019;, 2: &#x2018;222&#x2019;, 3: &#x2018;333&#x2019;}<br>        &gt;&gt;&gt; dict.get(1)<br>        &#x2018;111&#x2019;<br>        &gt;&gt;&gt; dict.get(4)<br>&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;in &#x6216;&#x8005;not in&#x5224;&#x65AD;&#x5B57;&#x5178;&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x6B64;&#x952E;&#x503C;&#x5BF9;&#x3002;<br>        &gt;&gt;&gt; 4 in dict<br>        False<br>        &gt;&gt;&gt; 4 not in dict<br>        True<br>        &gt;&gt;&gt;<br>&#x6E05;&#x7A7A;&#x5B57;&#x5178;&#x8C03;&#x7528;clear()&#x65B9;&#x6CD5;&#x3002;<br>        &gt;&gt;&gt; dict.clear()<br>        &gt;&gt;&gt; dict<br>        {}<br>4 copy()<br>&#x7528;&#x4E8E;&#x62F7;&#x8D1D;&#x6574;&#x4E2A;&#x5B57;&#x5178;&#x3002;<br>        &gt;&gt;&gt; dict={1:&#x2019;111&#x2019;,2:&#x2019;222&#x2019;,3:&#x2019;333&#x2019;}<br>        &gt;&gt;&gt; dict_copy=dict.copy()<br>        &gt;&gt;&gt; dict_copy<br>        {1: &#x2018;111&#x2019;, 2: &#x2018;222&#x2019;, 3: &#x2018;333&#x2019;}</p>
+<p>5 pop(key)&#x548C;popitem()</p>
+<p>pop(key)&#x662F;&#x6839;&#x636E;&#x952E;&#x8FDB;&#x884C;&#x5220;&#x9664;&#x952E;&#x503C;&#x5BF9;&#x3002;<br>        &gt;&gt;&gt; dict<br>        {1: &#x2018;111&#x2019;, 2: &#x2018;222&#x2019;, 3: &#x2018;333&#x2019;}<br>        &gt;&gt;&gt; dict.pop(2)<br>        &#x2018;222&#x2019;<br>        &gt;&gt;&gt; dict<br>        {1: &#x2018;111&#x2019;, 3: &#x2018;333&#x2019;}<br>        &gt;&gt;&gt; </p>
+<p>popitem()&#x9ED8;&#x8BA4;&#x4ECE;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x8FDB;&#x884C;&#x5F00;&#x59CB;&#x5220;&#x9664;&#x3002;<br>        &gt;&gt;&gt; dict<br>        {1: &#x2018;111&#x2019;, 2: &#x2018;222&#x2019;, 3: &#x2018;333&#x2019;, 4: &#x2018;444&#x2019;, 5: &#x2018;555&#x2019;, 6: &#x2018;666&#x2019;}<br>        &gt;&gt;&gt; dict.popitem()<br>        (6, &#x2018;666&#x2019;)<br>        &gt;&gt;&gt; dict.popitem()<br>        (5, &#x2018;555&#x2019;)<br>        &gt;&gt;&gt; dict.popitem()<br>        (4, &#x2018;444&#x2019;)<br>        &gt;&gt;&gt; dict<br>        {1: &#x2018;111&#x2019;, 2: &#x2018;222&#x2019;, 3: &#x2018;333&#x2019;}<br>        &gt;&gt;&gt; </p>
+<p>6&#xFF09; setdefault(key)</p>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x548C;get()&#x65B9;&#x6CD5;&#x76F8;&#x4F3C;&#x90FD;&#x53EF;&#x4EE5;&#x6839;&#x636E;key&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x4F46;&#x662F;setdefault(key)&#x5047;&#x5982;&#x627E;&#x4E0D;&#x5230;&#x952E;&#x4F1A;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;<br>        &gt;&gt;&gt; dict<br>        {1: &#x2018;111&#x2019;, 3: &#x2018;333&#x2019;}<br>        &gt;&gt;&gt; dict.setdefault(2)<br>        &gt;&gt;&gt; dict<br>        {1: &#x2018;111&#x2019;, 3: &#x2018;333&#x2019;, 2: None}<br>        &gt;&gt;&gt;<br>7) update([other])</p>
+<pre><code>&#x7528;&#x6765;&#x66F4;&#x65B0;&#x5B57;&#x5178;&#x3002;
     &gt;&gt;&gt; pets={}
-    &gt;&gt;&gt; pets[&#39;米奇&#39;]=&#39;老鼠&#39;
-    &gt;&gt;&gt; pets[&#39;Tom&#39;]=&#39;猫&#39;
-    &gt;&gt;&gt; pets[&#39;小白&#39;]=&#39;猪&#39;
+    &gt;&gt;&gt; pets[&apos;&#x7C73;&#x5947;&apos;]=&apos;&#x8001;&#x9F20;&apos;
+    &gt;&gt;&gt; pets[&apos;Tom&apos;]=&apos;&#x732B;&apos;
+    &gt;&gt;&gt; pets[&apos;&#x5C0F;&#x767D;&apos;]=&apos;&#x732A;&apos;
     &gt;&gt;&gt; pets
-    {&#39;米奇&#39;: &#39;老鼠&#39;, &#39;Tom&#39;: &#39;猫&#39;, &#39;小白&#39;: &#39;猪&#39;}
-    &gt;&gt;&gt; pets.update(小白=&#39;狗&#39;)
+    {&apos;&#x7C73;&#x5947;&apos;: &apos;&#x8001;&#x9F20;&apos;, &apos;Tom&apos;: &apos;&#x732B;&apos;, &apos;&#x5C0F;&#x767D;&apos;: &apos;&#x732A;&apos;}
+    &gt;&gt;&gt; pets.update(&#x5C0F;&#x767D;=&apos;&#x72D7;&apos;)
     &gt;&gt;&gt; pets
-    {&#39;米奇&#39;: &#39;老鼠&#39;, &#39;Tom&#39;: &#39;猫&#39;, &#39;小白&#39;: &#39;狗&#39;}
+    {&apos;&#x7C73;&#x5947;&apos;: &apos;&#x8001;&#x9F20;&apos;, &apos;Tom&apos;: &apos;&#x732B;&apos;, &apos;&#x5C0F;&#x767D;&apos;: &apos;&#x72D7;&apos;}
     &gt;&gt;&gt; </code></pre>
         </div>
         <!-- .entry-content -->
@@ -510,7 +510,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -522,10 +522,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

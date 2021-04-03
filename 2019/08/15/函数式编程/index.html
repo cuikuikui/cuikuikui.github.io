@@ -376,50 +376,50 @@
           </header>
         
         <div class="entry-content">
-          <h3 id="前言：函数式编程"><a href="#前言：函数式编程" class="headerlink" title="前言：函数式编程"></a>前言：函数式编程</h3><p>  函数是Python内建支持的一种封装，我们通过把大段代码拆成函数，通过一层一层的函数调用，<br>就可以把复杂任务分解成简单的任务，这种分解可以称之为面向过程的程序设计。函数就是面向过程<br>的程序设计的基本单元。而函数式编程（请注意多了一个“式”字）——Functional Programming，<br>虽然也可以归结到面向过程的程序设计，但其思想更接近数学计算。</p>
-<p>   函数式编程就是一种抽象程度很高的编程范式，纯粹的函数式编程语言编写的函数没有变量，因此，任<br>一个函数，只要输入是确定的，输出就是确定的，这种纯函数我们称之为没有副作用。而允许使用变量的程序<br>设计语言，由于函数内部的变量状态不确定，同样的输入，可能得到不同的输出，因此，这种函数是有副作用的。</p>
-<p>  Python对函数式编程提供部分支持。由于Python允许使用变量，因此，Python不是纯函数式编程语言。</p>
-<h4 id="1-lambda"><a href="#1-lambda" class="headerlink" title="1 lambda"></a>1 lambda</h4><p>python 允许使用lambda关键字来创建匿名函数，匿名函数可以很大程度上简化了函数的定义过程。<br>基本语法：使用冒号（:）分割函数的参数及返回值，<br>        冒号左边放置函数的参数，如果多个参数，使用逗号(,)分割即可。<br>        冒号（:）右边是函数的返回值<br>执行完lambda语句后实际上返回一个函数对象，如果对他进行调用，只需要给他绑定一个临时名字即可。</p>
-<p>add=lambda x,y:x+y<br>print(add(1,5))<br>输出：6</p>
-<h4 id="2-filter"><a href="#2-filter" class="headerlink" title="2 filter()"></a>2 filter()</h4><p>filter()函数是一个过滤器，它的作用是在海量的数据中提取有用信息。<br>基本语法：filter()函数有两个参数：第一个参数可以是一个参数也可以是None,<br>        如果是一个函数的话，则将第二个可迭代对象里的每一个元素作为函数的参数进行计算的，把返回True的值筛选出来；<br>        如果第一个参数为None，则直接将第二个参数中为True的值帅选出来。</p>
-<p>temp=filter(None,[1,0,False,True])<br>print(list(temp))<br>输出：[1, True]</p>
+          <h3 id="&#x524D;&#x8A00;&#xFF1A;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;"><a href="#&#x524D;&#x8A00;&#xFF1A;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;" class="headerlink" title="&#x524D;&#x8A00;&#xFF1A;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;"></a>&#x524D;&#x8A00;&#xFF1A;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;</h3><p>  &#x51FD;&#x6570;&#x662F;Python&#x5185;&#x5EFA;&#x652F;&#x6301;&#x7684;&#x4E00;&#x79CD;&#x5C01;&#x88C5;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x628A;&#x5927;&#x6BB5;&#x4EE3;&#x7801;&#x62C6;&#x6210;&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x5C42;&#x4E00;&#x5C42;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;<br>&#x5C31;&#x53EF;&#x4EE5;&#x628A;&#x590D;&#x6742;&#x4EFB;&#x52A1;&#x5206;&#x89E3;&#x6210;&#x7B80;&#x5355;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x8FD9;&#x79CD;&#x5206;&#x89E3;&#x53EF;&#x4EE5;&#x79F0;&#x4E4B;&#x4E3A;&#x9762;&#x5411;&#x8FC7;&#x7A0B;&#x7684;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x3002;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x9762;&#x5411;&#x8FC7;&#x7A0B;<br>&#x7684;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x7684;&#x57FA;&#x672C;&#x5355;&#x5143;&#x3002;&#x800C;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#xFF08;&#x8BF7;&#x6CE8;&#x610F;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x201C;&#x5F0F;&#x201D;&#x5B57;&#xFF09;&#x2014;&#x2014;Functional Programming&#xFF0C;<br>&#x867D;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x5F52;&#x7ED3;&#x5230;&#x9762;&#x5411;&#x8FC7;&#x7A0B;&#x7684;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#xFF0C;&#x4F46;&#x5176;&#x601D;&#x60F3;&#x66F4;&#x63A5;&#x8FD1;&#x6570;&#x5B66;&#x8BA1;&#x7B97;&#x3002;</p>
+<p>   &#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x62BD;&#x8C61;&#x7A0B;&#x5EA6;&#x5F88;&#x9AD8;&#x7684;&#x7F16;&#x7A0B;&#x8303;&#x5F0F;&#xFF0C;&#x7EAF;&#x7CB9;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7F16;&#x5199;&#x7684;&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x53D8;&#x91CF;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x4EFB;<br>&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x8981;&#x8F93;&#x5165;&#x662F;&#x786E;&#x5B9A;&#x7684;&#xFF0C;&#x8F93;&#x51FA;&#x5C31;&#x662F;&#x786E;&#x5B9A;&#x7684;&#xFF0C;&#x8FD9;&#x79CD;&#x7EAF;&#x51FD;&#x6570;&#x6211;&#x4EEC;&#x79F0;&#x4E4B;&#x4E3A;&#x6CA1;&#x6709;&#x526F;&#x4F5C;&#x7528;&#x3002;&#x800C;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#x7684;&#x7A0B;&#x5E8F;<br>&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF0C;&#x7531;&#x4E8E;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x91CF;&#x72B6;&#x6001;&#x4E0D;&#x786E;&#x5B9A;&#xFF0C;&#x540C;&#x6837;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x53EF;&#x80FD;&#x5F97;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x8FD9;&#x79CD;&#x51FD;&#x6570;&#x662F;&#x6709;&#x526F;&#x4F5C;&#x7528;&#x7684;&#x3002;</p>
+<p>  Python&#x5BF9;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x63D0;&#x4F9B;&#x90E8;&#x5206;&#x652F;&#x6301;&#x3002;&#x7531;&#x4E8E;Python&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;Python&#x4E0D;&#x662F;&#x7EAF;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;</p>
+<h4 id="1-lambda"><a href="#1-lambda" class="headerlink" title="1 lambda"></a>1 lambda</h4><p>python &#x5141;&#x8BB8;&#x4F7F;&#x7528;lambda&#x5173;&#x952E;&#x5B57;&#x6765;&#x521B;&#x5EFA;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x533F;&#x540D;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5F88;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x7B80;&#x5316;&#x4E86;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x8FC7;&#x7A0B;&#x3002;<br>&#x57FA;&#x672C;&#x8BED;&#x6CD5;&#xFF1A;&#x4F7F;&#x7528;&#x5192;&#x53F7;&#xFF08;:&#xFF09;&#x5206;&#x5272;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x53CA;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;<br>        &#x5192;&#x53F7;&#x5DE6;&#x8FB9;&#x653E;&#x7F6E;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4F7F;&#x7528;&#x9017;&#x53F7;(,)&#x5206;&#x5272;&#x5373;&#x53EF;&#x3002;<br>        &#x5192;&#x53F7;&#xFF08;:&#xFF09;&#x53F3;&#x8FB9;&#x662F;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;<br>&#x6267;&#x884C;&#x5B8C;lambda&#x8BED;&#x53E5;&#x540E;&#x5B9E;&#x9645;&#x4E0A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x4ED6;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7ED9;&#x4ED6;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x540D;&#x5B57;&#x5373;&#x53EF;&#x3002;</p>
+<p>add=lambda x,y:x+y<br>print(add(1,5))<br>&#x8F93;&#x51FA;&#xFF1A;6</p>
+<h4 id="2-filter"><a href="#2-filter" class="headerlink" title="2 filter()"></a>2 filter()</h4><p>filter()&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x5728;&#x6D77;&#x91CF;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x63D0;&#x53D6;&#x6709;&#x7528;&#x4FE1;&#x606F;&#x3002;<br>&#x57FA;&#x672C;&#x8BED;&#x6CD5;&#xFF1A;filter()&#x51FD;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;None,<br>        &#x5982;&#x679C;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x8BDD;&#xFF0C;&#x5219;&#x5C06;&#x7B2C;&#x4E8C;&#x4E2A;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#x91CC;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x7684;&#xFF0C;&#x628A;&#x8FD4;&#x56DE;True&#x7684;&#x503C;&#x7B5B;&#x9009;&#x51FA;&#x6765;&#xFF1B;<br>        &#x5982;&#x679C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;None&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x5C06;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E2D;&#x4E3A;True&#x7684;&#x503C;&#x5E05;&#x9009;&#x51FA;&#x6765;&#x3002;</p>
+<p>temp=filter(None,[1,0,False,True])<br>print(list(temp))<br>&#x8F93;&#x51FA;&#xFF1A;[1, True]</p>
 <p>def is_odd(n):<br>    return n % 2==1<br>odds=filter(is_odd, range(1, 20))<br>L = list(odds)<br>print(L)</p>
-<p>输出：[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]</p>
-<p>结合前面学的lambda进行精简代码<br>print(list(filter(lambda x:x%2,range(20))))<br>输出：[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]</p>
-<h4 id="3-map"><a href="#3-map" class="headerlink" title="3 map()"></a>3 map()</h4><p>Python内建了map()和reduce()函数。<br>我们先看map。map()函数接收两个参数，一个是函数，一个是Iterable，map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回。<br>  举例说明，比如我们有一个函数f(x)=x^2，要把这个函数作用在一个list [1, 2, 3, 4, 5, 6, 7, 8, 9]上，就可以用map()实现如下</p>
-<p>map()传入的第一个参数是f，即函数对象本身。由于结果r是一个Iterator，Iterator是惰性序列，因此通过list()函数让它把整个序列都计算出来并返回一个list。</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]</p>
+<p>&#x7ED3;&#x5408;&#x524D;&#x9762;&#x5B66;&#x7684;lambda&#x8FDB;&#x884C;&#x7CBE;&#x7B80;&#x4EE3;&#x7801;<br>print(list(filter(lambda x:x%2,range(20))))<br>&#x8F93;&#x51FA;&#xFF1A;[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]</p>
+<h4 id="3-map"><a href="#3-map" class="headerlink" title="3 map()"></a>3 map()</h4><p>Python&#x5185;&#x5EFA;&#x4E86;map()&#x548C;reduce()&#x51FD;&#x6570;&#x3002;<br>&#x6211;&#x4EEC;&#x5148;&#x770B;map&#x3002;map()&#x51FD;&#x6570;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;Iterable&#xFF0C;map&#x5C06;&#x4F20;&#x5165;&#x7684;&#x51FD;&#x6570;&#x4F9D;&#x6B21;&#x4F5C;&#x7528;&#x5230;&#x5E8F;&#x5217;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x628A;&#x7ED3;&#x679C;&#x4F5C;&#x4E3A;&#x65B0;&#x7684;Iterator&#x8FD4;&#x56DE;&#x3002;<br>  &#x4E3E;&#x4F8B;&#x8BF4;&#x660E;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;&#x51FD;&#x6570;f(x)=x^2&#xFF0C;&#x8981;&#x628A;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x5728;&#x4E00;&#x4E2A;list [1, 2, 3, 4, 5, 6, 7, 8, 9]&#x4E0A;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7528;map()&#x5B9E;&#x73B0;&#x5982;&#x4E0B;</p>
+<p>map()&#x4F20;&#x5165;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;f&#xFF0C;&#x5373;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#x3002;&#x7531;&#x4E8E;&#x7ED3;&#x679C;r&#x662F;&#x4E00;&#x4E2A;Iterator&#xFF0C;Iterator&#x662F;&#x60F0;&#x6027;&#x5E8F;&#x5217;&#xFF0C;&#x56E0;&#x6B64;&#x901A;&#x8FC7;list()&#x51FD;&#x6570;&#x8BA9;&#x5B83;&#x628A;&#x6574;&#x4E2A;&#x5E8F;&#x5217;&#x90FD;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;list&#x3002;</p>
 <p>def f(x):<br>    return x * x<br>r = list(map(f, [1, 2, 3, 4, 5, 6]))<br>print(r)</p>
-<p>然后是reduce()函数。<br>reduce把一个函数作用在一个序列[x1, x2, x3, …]上，这个函数必须接收两个参数，reduce把结果继续和序列的下一个元素做累积计算，其效果就是：</p>
+<p>&#x7136;&#x540E;&#x662F;reduce()&#x51FD;&#x6570;&#x3002;<br>reduce&#x628A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x5728;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;[x1, x2, x3, &#x2026;]&#x4E0A;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;reduce&#x628A;&#x7ED3;&#x679C;&#x7EE7;&#x7EED;&#x548C;&#x5E8F;&#x5217;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x505A;&#x7D2F;&#x79EF;&#x8BA1;&#x7B97;&#xFF0C;&#x5176;&#x6548;&#x679C;&#x5C31;&#x662F;&#xFF1A;</p>
 <p>reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)</p>
-<p>计算流像是这个样子<br>f(x1, x2)<br>f(f(x1, x2), x3)<br>f(f(f(x1, x2), x3), x4)</p>
-<p>比方说对一个序列求和，就可以用reduce实现：</p>
+<p>&#x8BA1;&#x7B97;&#x6D41;&#x50CF;&#x662F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;<br>f(x1, x2)<br>f(f(x1, x2), x3)<br>f(f(f(x1, x2), x3), x4)</p>
+<p>&#x6BD4;&#x65B9;&#x8BF4;&#x5BF9;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;&#x6C42;&#x548C;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7528;reduce&#x5B9E;&#x73B0;&#xFF1A;</p>
 <p>from functools import reduce<br>def add(x, y):<br>    return x + y<br>reduce(add, [1, 2, 3, 4, 5])</p>
-<p>输出：15</p>
-<p>当然求和运算可以直接用Python内建函数sum()，没必要动用reduce。</p>
-<p>但是如果要把序列[1, 3, 5, 7, 9]变换成整数13579，reduce就可以派上用场：</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;15</p>
+<p>&#x5F53;&#x7136;&#x6C42;&#x548C;&#x8FD0;&#x7B97;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7528;Python&#x5185;&#x5EFA;&#x51FD;&#x6570;sum()&#xFF0C;&#x6CA1;&#x5FC5;&#x8981;&#x52A8;&#x7528;reduce&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x5982;&#x679C;&#x8981;&#x628A;&#x5E8F;&#x5217;[1, 3, 5, 7, 9]&#x53D8;&#x6362;&#x6210;&#x6574;&#x6570;13579&#xFF0C;reduce&#x5C31;&#x53EF;&#x4EE5;&#x6D3E;&#x4E0A;&#x7528;&#x573A;&#xFF1A;</p>
 <p>from functools import reduce</p>
 <p>def fn(x, y):<br>  return x * 10 + y<br>r=reduce(fn, [1, 3, 5, 7, 9])<br>print(r)</p>
-<p>输出：13579</p>
-<p>做个练习，利用map()函数，把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字。输入：[‘adam’, ‘LISA’, ‘barT’]，输出：[‘Adam’, ‘Lisa’, ‘Bart’]：</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;13579</p>
+<p>&#x505A;&#x4E2A;&#x7EC3;&#x4E60;&#xFF0C;&#x5229;&#x7528;map()&#x51FD;&#x6570;&#xFF0C;&#x628A;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x4E0D;&#x89C4;&#x8303;&#x7684;&#x82F1;&#x6587;&#x540D;&#x5B57;&#xFF0C;&#x53D8;&#x4E3A;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#xFF0C;&#x5176;&#x4ED6;&#x5C0F;&#x5199;&#x7684;&#x89C4;&#x8303;&#x540D;&#x5B57;&#x3002;&#x8F93;&#x5165;&#xFF1A;[&#x2018;adam&#x2019;, &#x2018;LISA&#x2019;, &#x2018;barT&#x2019;]&#xFF0C;&#x8F93;&#x51FA;&#xFF1A;[&#x2018;Adam&#x2019;, &#x2018;Lisa&#x2019;, &#x2018;Bart&#x2019;]&#xFF1A;</p>
 <p>def normalize(name):<br>    return name.upper()[0:1] + name.lower()[1:]</p>
-<p>L1 = [‘adam’, ‘LISA’, ‘barT’]<br>L2 = list(map(normalize, L1))<br>print(L2)</p>
-<p>写完第一个版本后，虽然完成了需求，但是其实有可以优化的地方<br>觉得下面的写法更pythonic些</p>
+<p>L1 = [&#x2018;adam&#x2019;, &#x2018;LISA&#x2019;, &#x2018;barT&#x2019;]<br>L2 = list(map(normalize, L1))<br>print(L2)</p>
+<p>&#x5199;&#x5B8C;&#x7B2C;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x540E;&#xFF0C;&#x867D;&#x7136;&#x5B8C;&#x6210;&#x4E86;&#x9700;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x5B9E;&#x6709;&#x53EF;&#x4EE5;&#x4F18;&#x5316;&#x7684;&#x5730;&#x65B9;<br>&#x89C9;&#x5F97;&#x4E0B;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x66F4;pythonic&#x4E9B;</p>
 <p>def normalize(name):<br>    this_name = name.lower()<br>    return this_name[0:1].upper() + this_name[1:].lower()</p>
-<p>L1 = [‘adam’, ‘LISA’, ‘barT’]<br>L2 = list(map(normalize, L1))<br>print(L2)</p>
-<p>第二个练习： Python提供的sum()函数可以接受一个list并求和，请编写一个prod()函数，可以接受一个list并利用reduce()求积：</p>
+<p>L1 = [&#x2018;adam&#x2019;, &#x2018;LISA&#x2019;, &#x2018;barT&#x2019;]<br>L2 = list(map(normalize, L1))<br>print(L2)</p>
+<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x7EC3;&#x4E60;&#xFF1A; Python&#x63D0;&#x4F9B;&#x7684;sum()&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;list&#x5E76;&#x6C42;&#x548C;&#xFF0C;&#x8BF7;&#x7F16;&#x5199;&#x4E00;&#x4E2A;prod()&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;list&#x5E76;&#x5229;&#x7528;reduce()&#x6C42;&#x79EF;&#xFF1A;</p>
 <p>from functools import reduce</p>
 <p>def fn(x, y):<br>    return x * y</p>
 <p>def prod(L):<br>    return reduce(fn, L)</p>
-<p>print(“3 * 5 * 7 * 9 =”, prod([3, 5, 7, 9]))</p>
-<h4 id="4-filter"><a href="#4-filter" class="headerlink" title="4 filter"></a>4 filter</h4><p>Python内建的filter()函数用于过滤序列。</p>
-<p>和map()类似，filter()也接收一个函数和一个序列。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。</p>
-<p>例如，在一个list中，删掉偶数，只保留奇数，可以这么写：</p>
+<p>print(&#x201C;3 * 5 * 7 * 9 =&#x201D;, prod([3, 5, 7, 9]))</p>
+<h4 id="4-filter"><a href="#4-filter" class="headerlink" title="4 filter"></a>4 filter</h4><p>Python&#x5185;&#x5EFA;&#x7684;filter()&#x51FD;&#x6570;&#x7528;&#x4E8E;&#x8FC7;&#x6EE4;&#x5E8F;&#x5217;&#x3002;</p>
+<p>&#x548C;map()&#x7C7B;&#x4F3C;&#xFF0C;filter()&#x4E5F;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x548C;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;&#x3002;&#x548C;map()&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;filter()&#x628A;&#x4F20;&#x5165;&#x7684;&#x51FD;&#x6570;&#x4F9D;&#x6B21;&#x4F5C;&#x7528;&#x4E8E;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E;&#x8FD4;&#x56DE;&#x503C;&#x662F;True&#x8FD8;&#x662F;False&#x51B3;&#x5B9A;&#x4FDD;&#x7559;&#x8FD8;&#x662F;&#x4E22;&#x5F03;&#x8BE5;&#x5143;&#x7D20;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;list&#x4E2D;&#xFF0C;&#x5220;&#x6389;&#x5076;&#x6570;&#xFF0C;&#x53EA;&#x4FDD;&#x7559;&#x5947;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x5199;&#xFF1A;</p>
 <p>def is_odd(n):<br>    return n % 2 == 1<br>L=list(filter(is_odd, [1,2,3,4,5,6,10,15]))<br>print(L)</p>
-<h4 id="5-sorted"><a href="#5-sorted" class="headerlink" title="5 sorted"></a>5 sorted</h4><p>排序也是在程序中经常用到的算法。无论使用冒泡排序还是快速排序，排序的核心是比较两个元素的大小。如果是数字，我们可以直接比较，但如果是字符串或者两个dict呢？直接比较数学上的大小是没有意义的，因此，比较的过程必须通过函数抽象出来。</p>
-<p>Python内置的sorted()函数就可以对list进行排序：</p>
-<p>print(sorted([36, 5, -12, 9, -21]))<br>输出：[-21, -12, 5, 9, 36]</p>
-<p>此外，sorted()函数也是一个高阶函数，它还可以接收一个key函数来实现自定义的排序，例如按绝对值大小排序</p>
-<p>print(sorted([36, 5, -12, 9, -21], key=abs))<br>输出：[5, 9, -12, -21, 36]</p>
+<h4 id="5-sorted"><a href="#5-sorted" class="headerlink" title="5 sorted"></a>5 sorted</h4><p>&#x6392;&#x5E8F;&#x4E5F;&#x662F;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x7ECF;&#x5E38;&#x7528;&#x5230;&#x7684;&#x7B97;&#x6CD5;&#x3002;&#x65E0;&#x8BBA;&#x4F7F;&#x7528;&#x5192;&#x6CE1;&#x6392;&#x5E8F;&#x8FD8;&#x662F;&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#xFF0C;&#x6392;&#x5E8F;&#x7684;&#x6838;&#x5FC3;&#x662F;&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x5982;&#x679C;&#x662F;&#x6570;&#x5B57;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6BD4;&#x8F83;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x4E24;&#x4E2A;dict&#x5462;&#xFF1F;&#x76F4;&#x63A5;&#x6BD4;&#x8F83;&#x6570;&#x5B66;&#x4E0A;&#x7684;&#x5927;&#x5C0F;&#x662F;&#x6CA1;&#x6709;&#x610F;&#x4E49;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x6BD4;&#x8F83;&#x7684;&#x8FC7;&#x7A0B;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x62BD;&#x8C61;&#x51FA;&#x6765;&#x3002;</p>
+<p>Python&#x5185;&#x7F6E;&#x7684;sorted()&#x51FD;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x5BF9;list&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF1A;</p>
+<p>print(sorted([36, 5, -12, 9, -21]))<br>&#x8F93;&#x51FA;&#xFF1A;[-21, -12, 5, 9, 36]</p>
+<p>&#x6B64;&#x5916;&#xFF0C;sorted()&#x51FD;&#x6570;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x8FD8;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x4E00;&#x4E2A;key&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6392;&#x5E8F;&#xFF0C;&#x4F8B;&#x5982;&#x6309;&#x7EDD;&#x5BF9;&#x503C;&#x5927;&#x5C0F;&#x6392;&#x5E8F;</p>
+<p>print(sorted([36, 5, -12, 9, -21], key=abs))<br>&#x8F93;&#x51FA;&#xFF1A;[5, 9, -12, -21, 36]</p>
 
         </div>
         <!-- .entry-content -->
@@ -528,7 +528,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -540,10 +540,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
