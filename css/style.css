@@ -2703,7 +2703,7 @@ i.iconfont.hotpost {
 }
 
 .entry-content h3:after {
-	content: "#";
+	content: "";
 	left: 0;
 	position: absolute;
 	color: #ff6d6d
@@ -2717,7 +2717,7 @@ i.iconfont.hotpost {
 }
 
 .entry-content h5:after {
-	content: "♯";
+	content: "";
 	left: 0;
 	position: absolute;
 	color: #ff6d6d
