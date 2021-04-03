@@ -2756,7 +2756,7 @@ h1.entry-title {
 }
 
 .entry-header h1.entry-title:before {
-	content:" {";
+	content:"";
 	color: #f8ba0b;
 	font-size: 1.5em;
 	margin-right: 6px;
@@ -2764,7 +2764,7 @@ h1.entry-title {
 }
 
 .entry-header h1.entry-title:after {
-	content: "}";
+	content: "";
 	color: #f8ba0b;
 	font-size: 1.5em;
 	margin-left: 6px;
