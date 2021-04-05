@@ -377,8 +377,8 @@
         
         <div class="entry-content">
           <hr>
-<p>title: &#x7B2C;&#x56DB;&#x7AE0; &#x65E5;&#x5FD7;&#x7BA1;&#x7406;<br>date: 2019-02-09 21:30:35<br>tags: nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;  </p>
-<h2 id="categories-nginx&#x6559;&#x7A0B;"><a href="#categories-nginx&#x6559;&#x7A0B;" class="headerlink" title="categories: nginx&#x6559;&#x7A0B;  "></a>categories: nginx&#x6559;&#x7A0B;  </h2><h1 id="&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;"><a href="#&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;" class="headerlink" title="&#x7B2C;&#x56DB;&#x7AE0; nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;"></a>&#x7B2C;&#x56DB;&#x7AE0; nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;</h1><blockquote>
+<p>title: &#x7B2C;&#x56DB;&#x7AE0; &#x65E5;&#x5FD7;&#x7BA1;&#x7406;<br>date: 2019-02-09 21:30:35<br>tags: nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;<br>categories: nginx&#x6559;&#x7A0B;<br>author: ckk</p>
+<h2 id="avatar-&#x65E5;&#x5FD7;&#x7BA1;&#x7406;-avatar-jpg"><a href="#avatar-&#x65E5;&#x5FD7;&#x7BA1;&#x7406;-avatar-jpg" class="headerlink" title="avatar: ../&#x65E5;&#x5FD7;&#x7BA1;&#x7406;/avatar.jpg"></a>avatar: ../&#x65E5;&#x5FD7;&#x7BA1;&#x7406;/avatar.jpg</h2><h1 id="&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;"><a href="#&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;" class="headerlink" title="&#x7B2C;&#x56DB;&#x7AE0; nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;"></a>&#x7B2C;&#x56DB;&#x7AE0; nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;</h1><blockquote>
 <p>&#x524D;&#x8A00;&#xFF1A;&#x5728;&#x89C2;&#x5BDF;nginx&#x7684;server&#x6BB5;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;access_log  logs/host.access.log  main;&#x7531;&#x6B64;&#x5F97;&#x51FA;&#x8BE5;server&#x7684;&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;&#x7684;&#x6587;&#x4EF6;&#x662F;&#xFF1A;<strong>host.access.log</strong>&#xFF0C;&#x8DEF;&#x5F84;&#x662F;&#xFF1A;<strong>logs/host.access.log</strong>&#xFF0C;&#x683C;&#x5F0F;&#x662F;&#xFF1A;<strong>main</strong>&#x3002;&#x4F46;&#x662F;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x5176;&#x4ED6;&#x683C;&#x5F0F;&#x3002;</p>
 </blockquote>
 <h1 id="4-1-main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;"><a href="#4-1-main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;" class="headerlink" title="4.1 main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;"></a><strong>4.1 main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</span><br><span class="line">    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</span><br><span class="line">    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</span><br></pre></td></tr></table></figure>
@@ -542,7 +542,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -554,10 +554,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
