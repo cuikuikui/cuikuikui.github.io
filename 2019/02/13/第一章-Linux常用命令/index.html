@@ -361,6 +361,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs1.sinaimg.cn%2Fmw690%2F0070PlgBzy7hjq9EyL640%26690&amp;refer=http%3A%2F%2Fs1.sinaimg.cn&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620229339&amp;t=1622f835e0d936e275bea6f2d30d4dc3);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs1.sinaimg.cn%2Fmw690%2F0070PlgBzy7hjq9EyL640%26690&amp;refer=http%3A%2F%2Fs1.sinaimg.cn&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620229339&amp;t=1622f835e0d936e275bea6f2d30d4dc3">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      第一章 Linux常用命令</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="../第一章-Linux常用命令/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">ckk</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-2-13<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
@@ -368,23 +392,22 @@
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-          <header class="entry-header">
-            <h1 class="entry-title">第一章 Linux常用命令</h1>
-            <p class="entry-census">ckk&nbsp;·&nbsp;2019-2-13&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
-
-            <hr>
-          </header>
-        
         <div class="entry-content">
           <ol>
-<li><p>&#x67E5;&#x770B;linux&#x662F;&#x591A;&#x5C11;&#x4F4D;<br>1&#x3001;uname -a<br>armv7l&#x8868;&#x660E;&#x7CFB;&#x7EDF;&#x5B89;&#x88C5;&#x7684;&#x662F;32&#x4F4D;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x5E76;&#x4E0D;&#x660E;&#x663E;&#xFF0C;&#x5BF9;linux&#x7CFB;&#x7EDF;&#x4E0D;&#x719F;&#x7684;&#x662F;&#x65E0;&#x6CD5;&#x5206;&#x8FA8;&#x51FA;&#x662F;32&#x4F4D;&#x8FD8;&#x662F;64&#x4F4D;&#x7684;&#x3002;</p>
+<li><p>&#x67E5;&#x770B;linux&#x662F;&#x591A;&#x5C11;&#x4F4D;<br> 1&#x3001;uname -a<br> armv7l&#x8868;&#x660E;&#x7CFB;&#x7EDF;&#x5B89;&#x88C5;&#x7684;&#x662F;32&#x4F4D;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x5E76;&#x4E0D;&#x660E;&#x663E;&#xFF0C;&#x5BF9;linux&#x7CFB;&#x7EDF;&#x4E0D;&#x719F;&#x7684;&#x662F;&#x65E0;&#x6CD5;&#x5206;&#x8FA8;&#x51FA;&#x662F;32&#x4F4D;&#x8FD8;&#x662F;64&#x4F4D;&#x7684;&#x3002;</p>
 </li>
-<li><p>&#x67E5;&#x770B;MySQL&#x7684;&#x7248;&#x672C;<br>mysql &#x2013;help |grep Distrib</p>
+<li><p>&#x67E5;&#x770B;MySQL&#x7684;&#x7248;&#x672C;<br> mysql &#x2013;help |grep Distrib</p>
 </li>
 </ol>
-<p> create table student(<br>    number int(10) primary key,<br>    username varchar(30),<br>    password varchar(30),<br>    sex varchar(30)<br>   );</p>
-<p>ALTER TABLE student DEFAULT CHARACTER SET utf8;<br>ALTER TABLE student CHANGE sex sex VARCHAR(36) CHARACTER SET utf8;</p>
+<pre><code> create table student(
+    number int(10) primary key,
+    username varchar(30), 
+    password varchar(30),
+    sex varchar(30)
+   );
 
+ALTER TABLE student DEFAULT CHARACTER SET utf8;
+ALTER TABLE student CHANGE sex sex VARCHAR(36) CHARACTER SET utf8;</code></pre>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -418,15 +441,15 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/02/17/日志管理/" rel="prev">
+            <a href="/2019/02/26/第一章-git如何连接远程仓库/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.learnku.com%2Fuploads%2Fimages%2F201911%2F20%2F1%2FtcnsXi0G1J.png%21large&refer=http%3A%2F%2Fcdn.learnku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620229307&t=33e2de50f7e312b1d64cf1ab18721a8f" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.learnku.com%2Fuploads%2Fimages%2F201911%2F20%2F1%2FtcnsXi0G1J.png%21large&refer=http%3A%2F%2Fcdn.learnku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620229307&t=33e2de50f7e312b1d64cf1ab18721a8f">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                </h3>
+                第一章-git如何连接远程仓库</h3>
                 <hr>
               </div>
             </a>
@@ -438,7 +461,7 @@
           
             <a href="/2019/02/13/第一章-nginx、tomcat、Apache之间的区别/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F11825783117%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620229470&t=92daff8022a375a33e54ae0a9637140a" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F11825783117%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620229470&t=92daff8022a375a33e54ae0a9637140a">
               </div>
               <span class="label">
               Next Post</span>
@@ -492,7 +515,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -504,10 +527,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

@@ -361,6 +361,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180627%2F4f8192a2790b4a0db3cdfda4733ad9a7.jpeg&amp;refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620224453&amp;t=ff4b05045518c9a97d3ba63841827d25);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180627%2F4f8192a2790b4a0db3cdfda4733ad9a7.jpeg&amp;refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620224453&amp;t=ff4b05045518c9a97d3ba63841827d25">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      微信小程序Css选择器::after和::before的使用</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="../微信小程序Css选择器-after和-before的使用/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">ckk</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-3-29<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
@@ -368,32 +392,45 @@
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-          <header class="entry-header">
-            <h1 class="entry-title">微信小程序Css选择器::after和::before的使用</h1>
-            <p class="entry-census">ckk&nbsp;·&nbsp;2019-3-29&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
-
-            <hr>
-          </header>
-        
         <div class="entry-content">
-          <h1 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;"><a href="#&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="headerlink" title="&#x57FA;&#x672C;&#x6982;&#x5FF5;"></a>&#x57FA;&#x672C;&#x6982;&#x5FF5;</h1><ul>
-<li>::before&#x5373;view::before&#xFF0C;&#x8868;&#x793A;&#x548B;&#x8BE5;view&#x7EC4;&#x4EF6;&#x7684;&#x524D;&#x9762;&#x52A0;&#x5165;&#x5185;&#x5BB9;</li>
-<li>::after&#x5373;view::after,&#x8868;&#x793A;&#x5728;&#x8BE5;view&#x7EC4;&#x4EF6;&#x7684;&#x540E;&#x9762;&#x52A0;&#x5165;&#x5185;&#x5BB9;<blockquote>
-<p>&#x8FD9;&#x91CC;&#x53CC;&#x5192;&#x53F7;&#x8868;&#x793A;&#x662F;css3&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5355;&#x5192;&#x53F7;&#x8868;&#x793A;css2&#x7684;&#x6837;&#x5F0F;  </p>
-</blockquote>
-</li>
-</ul>
-<h1 id="&#x4F8B;&#x5B50;"><a href="#&#x4F8B;&#x5B50;" class="headerlink" title="&#x4F8B;&#x5B50;"></a>&#x4F8B;&#x5B50;</h1><p><strong>wxml</strong>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;view class=&quot;price&quot;&gt;{{price}}&lt;/view&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>wxss</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">.container{</span><br><span class="line">    width:auto;</span><br><span class="line">    margin: 30rpx;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    text-align: center</span><br><span class="line">}  </span><br><span class="line">.price{</span><br><span class="line">    position: relative;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    font-size: 78rpx;</span><br><span class="line">    color: red</span><br><span class="line">}  </span><br><span class="line">.price::before{</span><br><span class="line">    content: &quot;&#x91D1;&#x989D;:&#xFFE5;&quot;;</span><br><span class="line">    position: absolute;</span><br><span class="line">    font-size: 40rpx;</span><br><span class="line">    top:30rpx;</span><br><span class="line">    left:-160rpx;</span><br><span class="line">    color:black</span><br><span class="line">}  </span><br><span class="line">.price::after{</span><br><span class="line">    content:&quot;.00&#x5143;&quot;;</span><br><span class="line">    font-size: 35rpx;</span><br><span class="line">    top:40rpx;</span><br><span class="line">    position: absolute;</span><br><span class="line">    right:-90rpx;</span><br><span class="line">    color:black</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
-<p><strong>js</strong> </p>
+          <h1 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;"><a href="#&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="headerlink" title="&#x57FA;&#x672C;&#x6982;&#x5FF5;"></a>&#x57FA;&#x672C;&#x6982;&#x5FF5;</h1><pre><code>- ::before&#x5373;view::before&#xFF0C;&#x8868;&#x793A;&#x548B;&#x8BE5;view&#x7EC4;&#x4EF6;&#x7684;&#x524D;&#x9762;&#x52A0;&#x5165;&#x5185;&#x5BB9;
+- ::after&#x5373;view::after,&#x8868;&#x793A;&#x5728;&#x8BE5;view&#x7EC4;&#x4EF6;&#x7684;&#x540E;&#x9762;&#x52A0;&#x5165;&#x5185;&#x5BB9;
+ &#x8FD9;&#x91CC;&#x53CC;&#x5192;&#x53F7;&#x8868;&#x793A;&#x662F;css3&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5355;&#x5192;&#x53F7;&#x8868;&#x793A;css2&#x7684;&#x6837;&#x5F0F;  </code></pre><h1 id="&#x4F8B;&#x5B50;"><a href="#&#x4F8B;&#x5B50;" class="headerlink" title="&#x4F8B;&#x5B50;"></a>&#x4F8B;&#x5B50;</h1><p><strong>wxml</strong>  </p>
+<pre><code>&lt;view class=&quot;container&quot;&gt;
+    &lt;view class=&quot;price&quot;&gt;{{price}}&lt;/view&gt;
+&lt;/view&gt;</code></pre><p><strong>wxss</strong></p>
+<pre><code>.container{
+    width:auto;
+    margin: 30rpx;
+    background-color: #fff;
+    text-align: center
+}  
+.price{
+    position: relative;
+    display: inline-block;
+    font-size: 78rpx;
+    color: red
+}  
+.price::before{
+    content: &quot;&#x91D1;&#x989D;:&#xFFE5;&quot;;
+    position: absolute;
+    font-size: 40rpx;
+    top:30rpx;
+    left:-160rpx;
+    color:black
+}  
+.price::after{
+    content:&quot;.00&#x5143;&quot;;
+    font-size: 35rpx;
+    top:40rpx;
+    position: absolute;
+    right:-90rpx;
+    color:black
+}  </code></pre><p><strong>js</strong> </p>
 <pre><code>onLoad: function (options) {
-  this.setData({
-    price:100
-  })
+this.setData({
+  price:100
+})
 }</code></pre><h1 id="&#x6548;&#x679C;"><a href="#&#x6548;&#x679C;" class="headerlink" title="&#x6548;&#x679C;"></a>&#x6548;&#x679C;</h1><p><img src="/2019/03/29/&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;Css&#x9009;&#x62E9;&#x5668;-after&#x548C;-before&#x7684;&#x4F7F;&#x7528;/price.png" alt="price">  </p>
 
         </div>
@@ -449,7 +486,7 @@
           
             <a href="/2019/03/29/微信小程序尺寸单位/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2103646732,1921559011&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2103646732,1921559011&fm=26&gp=0.jpg">
               </div>
               <span class="label">
               Next Post</span>
@@ -481,7 +518,7 @@
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="../微信小程序Css选择器::after和::before的使用/avatar.jpg" itemprop="image" alt="ckk" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="../微信小程序Css选择器-after和-before的使用/avatar.jpg" itemprop="image" alt="ckk" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
@@ -503,7 +540,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -515,10 +552,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

@@ -361,6 +361,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.hd.zcypai.com%2Fuploads%2Fallimg%2F180810%2F1-1PQ0140426306.jpg&amp;refer=http%3A%2F%2Fimg.hd.zcypai.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620228935&amp;t=0b9de80ce2079d5242736d48bee925d7);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.hd.zcypai.com%2Fuploads%2Fallimg%2F180810%2F1-1PQ0140426306.jpg&amp;refer=http%3A%2F%2Fimg.hd.zcypai.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620228935&amp;t=0b9de80ce2079d5242736d48bee925d7">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      wx:if与hidden的区别</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="../wx-if与hidden的区别/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">ckk</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-3-28<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
@@ -368,26 +392,13 @@
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-          <header class="entry-header">
-            <h1 class="entry-title">wx:if与hidden的区别</h1>
-            <p class="entry-census">ckk&nbsp;·&nbsp;2019-3-28&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
-
-            <hr>
-          </header>
-        
         <div class="entry-content">
-          <h3 id="&#x76F8;&#x540C;&#x70B9;"><a href="#&#x76F8;&#x540C;&#x70B9;" class="headerlink" title="&#x76F8;&#x540C;&#x70B9;"></a>&#x76F8;&#x540C;&#x70B9;</h3><p>wx:if &#x4E0E; hidden &#x90FD;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x663E;&#x793A;&#x4E0E;&#x5426;&#x3002;</p>
-<h3 id="&#x4E0D;&#x540C;&#x70B9;"><a href="#&#x4E0D;&#x540C;&#x70B9;" class="headerlink" title="&#x4E0D;&#x540C;&#x70B9;"></a>&#x4E0D;&#x540C;&#x70B9;</h3><ul>
-<li><p>wx:if &#x662F;&#x9047; true &#x663E;&#x793A;&#xFF0C;hidden &#x662F;&#x9047; false &#x663E;&#x793A;&#x3002;</p>
-</li>
-<li><p>wx:if &#x5728;&#x9690;&#x85CF;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x6E32;&#x67D3;&#xFF0C;&#x800C; hidden &#x5728;&#x9690;&#x85CF;&#x65F6;&#x4ECD;&#x7136;&#x6E32;&#x67D3;&#xFF0C;&#x53EA;&#x662F;&#x4E0D;&#x5448;&#x73B0;&#x3002;</p>
-</li>
-<li><p>&#x5982;&#x679C;&#x9891;&#x7E41;&#x5207;&#x6362;&#x7684;&#x8BDD;&#xFF0C;&#x7528; wx:if &#x5C06;&#x4F1A;&#x6D88;&#x8017;&#x66F4;&#x591A;&#x8D44;&#x6E90;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x6B21;&#x5448;&#x73B0;&#x7684;&#x65F6;&#x5019;&#x4ED6;&#x90FD;&#x4F1A;&#x6E32;&#x67D3;&#xFF0C;&#x6BCF;&#x6B21;&#x9690;&#x85CF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x90FD;&#x4F1A;&#x9500;&#x6BC1;&#x3002;</p>
-</li>
-<li><p>&#x5982;&#x679C;&#x5207;&#x6362;&#x5E76;&#x4E0D;&#x9891;&#x7E41;&#x7684;&#x8BDD;&#xFF0C;&#x7528; wx:if &#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#x8F83;&#x597D;&#x4E9B;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x907F;&#x514D;&#x521D;&#x59CB;&#x5C31;&#x4E00;&#x4E0B;&#x6E32;&#x67D3;&#x90A3;&#x4E48;&#x591A;&#x3002;</p>
-</li>
-</ul>
+          <h3 id="&#x76F8;&#x540C;&#x70B9;"><a href="#&#x76F8;&#x540C;&#x70B9;" class="headerlink" title="&#x76F8;&#x540C;&#x70B9;"></a>&#x76F8;&#x540C;&#x70B9;</h3><pre><code>wx:if &#x4E0E; hidden &#x90FD;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x663E;&#x793A;&#x4E0E;&#x5426;&#x3002;</code></pre><h3 id="&#x4E0D;&#x540C;&#x70B9;"><a href="#&#x4E0D;&#x540C;&#x70B9;" class="headerlink" title="&#x4E0D;&#x540C;&#x70B9;"></a>&#x4E0D;&#x540C;&#x70B9;</h3><pre><code>- wx:if &#x662F;&#x9047; true &#x663E;&#x793A;&#xFF0C;hidden &#x662F;&#x9047; false &#x663E;&#x793A;&#x3002;
 
+- wx:if &#x5728;&#x9690;&#x85CF;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x6E32;&#x67D3;&#xFF0C;&#x800C; hidden &#x5728;&#x9690;&#x85CF;&#x65F6;&#x4ECD;&#x7136;&#x6E32;&#x67D3;&#xFF0C;&#x53EA;&#x662F;&#x4E0D;&#x5448;&#x73B0;&#x3002;
+- &#x5982;&#x679C;&#x9891;&#x7E41;&#x5207;&#x6362;&#x7684;&#x8BDD;&#xFF0C;&#x7528; wx:if &#x5C06;&#x4F1A;&#x6D88;&#x8017;&#x66F4;&#x591A;&#x8D44;&#x6E90;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x6B21;&#x5448;&#x73B0;&#x7684;&#x65F6;&#x5019;&#x4ED6;&#x90FD;&#x4F1A;&#x6E32;&#x67D3;&#xFF0C;&#x6BCF;&#x6B21;&#x9690;&#x85CF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x90FD;&#x4F1A;&#x9500;&#x6BC1;&#x3002;
+
+- &#x5982;&#x679C;&#x5207;&#x6362;&#x5E76;&#x4E0D;&#x9891;&#x7E41;&#x7684;&#x8BDD;&#xFF0C;&#x7528; wx:if &#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#x8F83;&#x597D;&#x4E9B;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x907F;&#x514D;&#x521D;&#x59CB;&#x5C31;&#x4E00;&#x4E0B;&#x6E32;&#x67D3;&#x90A3;&#x4E48;&#x591A;&#x3002;</code></pre>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -423,7 +434,7 @@
           
             <a href="/2019/03/29/import与include/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1833106120,2870573181&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1833106120,2870573181&fm=26&gp=0.jpg">
               </div>
               <span class="label">
               Previous Post</span>
@@ -441,7 +452,7 @@
           
             <a href="/2019/03/05/第一章-API产品简介/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.kandao.com%2FNewFile%2FUserNewData%2FnewUpload%2F2019041515090721925.png&refer=http%3A%2F%2Fimg.kandao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620229243&t=7514de939443a8b9a49f7723a4921939" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.kandao.com%2FNewFile%2FUserNewData%2FnewUpload%2F2019041515090721925.png&refer=http%3A%2F%2Fimg.kandao.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620229243&t=7514de939443a8b9a49f7723a4921939">
               </div>
               <span class="label">
               Next Post</span>
@@ -473,7 +484,7 @@
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="../wx:if与hidden的区别/avatar.jpg" itemprop="image" alt="ckk" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="../wx-if与hidden的区别/avatar.jpg" itemprop="image" alt="ckk" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
@@ -495,7 +506,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -507,10 +518,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
