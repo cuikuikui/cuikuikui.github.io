@@ -361,19 +361,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2F02.imgmini.eastday.com%2Fmobile%2F20180718%2F20180718110605_813c49caea93a4c75427d888586b5ad5_2.jpeg&amp;refer=http%3A%2F%2F02.imgmini.eastday.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620230277&amp;t=e138d820a53fc4419f679805045c17a4);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2F02.imgmini.eastday.com%2Fmobile%2F20180718%2F20180718110605_813c49caea93a4c75427d888586b5ad5_2.jpeg&amp;refer=http%3A%2F%2F02.imgmini.eastday.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620230277&amp;t=e138d820a53fc4419f679805045c17a4">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      第三章 nginx虚拟主机配置</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="../第三章-nginx虚拟主机配置/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">ckk</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-2-9<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
       <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-          <header class="entry-header">
-            <h1 class="entry-title">第三章 nginx虚拟主机配置</h1>
-            <p class="entry-census">ckk&nbsp;·&nbsp;2019-2-9&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
-
-            <hr>
-          </header>
         
         <div class="entry-content">
           <h1 id="&#x7B2C;&#x4E09;&#x7AE0;-nginx&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x914D;&#x7F6E;"><a href="#&#x7B2C;&#x4E09;&#x7AE0;-nginx&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x914D;&#x7F6E;" class="headerlink" title="&#x7B2C;&#x4E09;&#x7AE0; nginx&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x914D;&#x7F6E;"></a>&#x7B2C;&#x4E09;&#x7AE0; nginx&#x865A;&#x62DF;&#x4E3B;&#x673A;&#x914D;&#x7F6E;</h1><p>worker_processes  1;#&#x6709;&#x4E00;&#x4E2A;&#x6B63;&#x5728;&#x5DE5;&#x4F5C;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x4F46;&#x592A;&#x5927;&#x65E0;&#x610F;&#x4E49;&#xFF0C;&#x56E0;&#x4E3A;&#x8981;&#x4E89;&#x593A;cpu,&#x4E00;&#x822C;&#x8BBE;&#x7F6E;&#x4E3A;cpu&#x6570;*&#x6838;&#x6570;&#x3002;</p>
@@ -463,7 +480,7 @@
           
             <a href="/2019/02/09/第五章-定时日志切割/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fs0%2F87%2FQJ9123005952.jpg%3Fx-oss-process%3Dstyle%2Fshows&refer=http%3A%2F%2Fdpic.tiankong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620230277&t=c8369694fef06242f16e1dbccc5b8d48" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fs0%2F87%2FQJ9123005952.jpg%3Fx-oss-process%3Dstyle%2Fshows&refer=http%3A%2F%2Fdpic.tiankong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620230277&t=c8369694fef06242f16e1dbccc5b8d48">
               </div>
               <span class="label">
               Previous Post</span>
@@ -481,7 +498,7 @@
           
             <a href="/2019/02/09/第二章-nginx信号量/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs5.sinaimg.cn%2Fmw690%2F007jU4D9zy7rGy7yw2824%26690&refer=http%3A%2F%2Fs5.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620230277&t=1b3d7b53224e0c90d60bf592d72675a2" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs5.sinaimg.cn%2Fmw690%2F007jU4D9zy7rGy7yw2824%26690&refer=http%3A%2F%2Fs5.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620230277&t=1b3d7b53224e0c90d60bf592d72675a2">
               </div>
               <span class="label">
               Next Post</span>
