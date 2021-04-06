@@ -361,6 +361,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201511%2F08%2F20151108132245_ATezV.thumb.700_0.jpeg&amp;refer=http%3A%2F%2Fimg3.duitang.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620314754&amp;t=b14518e021e4230e8dda66c89591778e);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201511%2F08%2F20151108132245_ATezV.thumb.700_0.jpeg&amp;refer=http%3A%2F%2Fimg3.duitang.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620314754&amp;t=b14518e021e4230e8dda66c89591778e">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      第四章 nginx日志管理</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="../第四章-nginx日志管理/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">ckk</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-2-5<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
@@ -368,24 +392,11 @@
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-          <header class="entry-header">
-            <h1 class="entry-title">第四章 nginx日志管理</h1>
-            <p class="entry-census">ckk&nbsp;·&nbsp;2019-2-5&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
-
-            <hr>
-          </header>
-        
         <div class="entry-content">
-          <h1 id="&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;"><a href="#&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;" class="headerlink" title="&#x7B2C;&#x56DB;&#x7AE0; nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;"></a>&#x7B2C;&#x56DB;&#x7AE0; nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;</h1><blockquote>
-<p>&#x524D;&#x8A00;&#xFF1A;&#x5728;&#x89C2;&#x5BDF;nginx&#x7684;server&#x6BB5;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;access_log  logs/host.access.log  main;&#x7531;&#x6B64;&#x5F97;&#x51FA;&#x8BE5;server&#x7684;&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;&#x7684;&#x6587;&#x4EF6;&#x662F;&#xFF1A;<strong>host.access.log</strong>&#xFF0C;&#x8DEF;&#x5F84;&#x662F;&#xFF1A;<strong>logs/host.access.log</strong>&#xFF0C;&#x683C;&#x5F0F;&#x662F;&#xFF1A;<strong>main</strong>&#x3002;&#x4F46;&#x662F;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x5176;&#x4ED6;&#x683C;&#x5F0F;&#x3002;</p>
-</blockquote>
-<h1 id="4-1-main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;"><a href="#4-1-main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;" class="headerlink" title="4.1 main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;"></a><strong>4.1 main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</span><br><span class="line">    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</span><br><span class="line">    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
+          <h1 id="&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;"><a href="#&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;" class="headerlink" title="&#x7B2C;&#x56DB;&#x7AE0; nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;"></a>&#x7B2C;&#x56DB;&#x7AE0; nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;</h1><p>&#x524D;&#x8A00;&#xFF1A;&#x5728;&#x89C2;&#x5BDF;nginx&#x7684;server&#x6BB5;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;access_log  logs/host.access.log  main;&#x7531;&#x6B64;&#x5F97;&#x51FA;&#x8BE5;server&#x7684;&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;&#x7684;&#x6587;&#x4EF6;&#x662F;&#xFF1A;<strong>host.access.log</strong>&#xFF0C;&#x8DEF;&#x5F84;&#x662F;&#xFF1A;<strong>logs/host.access.log</strong>&#xFF0C;&#x683C;&#x5F0F;&#x662F;&#xFF1A;<strong>main</strong>&#x3002;&#x4F46;&#x662F;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x5176;&#x4ED6;&#x683C;&#x5F0F;&#x3002;</p>
+<h1 id="4-1-main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;"><a href="#4-1-main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;" class="headerlink" title="4.1 main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;"></a><strong>4.1 main&#x683C;&#x5F0F;&#x4E3E;&#x4F8B;</strong></h1><p>#log_format  main  &#x2018;$remote_addr - $remote_user [$time_local] &#x201C;$request&#x201D; &#x2018;<br>    #                  &#x2018;$status $body_bytes_sent &#x201C;$http_referer&#x201D; &#x2018;<br>    #                  &#x2018;&#x201C;$http_user_agent&#x201D; &#x201C;$http_x_forwarded_for&#x201D;&#x2018;;</p>
 <p>&#x6CE8;&#x91CA;&#xFF1A;main&#x683C;&#x5F0F;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x4E00;&#x79CD;&#x65E5;&#x5FD7;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x65B9;&#x4FBF;&#x4E8E;&#x5F15;&#x7528;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;main&#x7C7B;&#x578B;&#x7684;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x4E86;&#x4ECE;<strong>remote_addr</strong>&#x4E00;&#x76F4;&#x5230;<strong>http_x_forwarded_for</strong>&#x7B49;&#x9009;&#x9879;</p>
-</blockquote>
-<h1 id="4-2-logs&#x5185;&#x5BB9;&#x89E3;&#x91CA;"><a href="#4-2-logs&#x5185;&#x5BB9;&#x89E3;&#x91CA;" class="headerlink" title="4.2 logs&#x5185;&#x5BB9;&#x89E3;&#x91CA;:"></a><strong>4.2 logs&#x5185;&#x5BB9;&#x89E3;&#x91CA;:</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">177.105.227.23 - - [07/Feb/2019:08:26:19 +0800] &quot;GET / HTTP/1.1&quot; 200 32 &quot;-&quot;</span><br><span class="line">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/ 51.0.2704.103 Safari/537.36&quot;</span><br></pre></td></tr></table></figure>
-
+<h1 id="4-2-logs&#x5185;&#x5BB9;&#x89E3;&#x91CA;"><a href="#4-2-logs&#x5185;&#x5BB9;&#x89E3;&#x91CA;" class="headerlink" title="4.2 logs&#x5185;&#x5BB9;&#x89E3;&#x91CA;:"></a><strong>4.2 logs&#x5185;&#x5BB9;&#x89E3;&#x91CA;:</strong></h1><p>177.105.227.23 - - [07/Feb/2019:08:26:19 +0800] &#x201C;GET / HTTP/1.1&#x201D; 200 32 &#x201C;-&#x201C;<br>&#x201C;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/ 51.0.2704.103 Safari/537.36&#x201D;</p>
 <p>4.2.1. remote_addr:&#x5373;&#x672C;&#x673A;&#x8FDC;&#x7A0B;&#x8BBF;&#x95EE;nginx&#x7684;&#x5730;&#x5740;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#xFF1A;<strong>tail -10 logs/access.log</strong> &#x67E5;&#x8BE2;</p>
 <p><strong>&#x7ED3;&#x679C;&#x622A;&#x56FE;&#xFF1A;</strong></p>
 <p><img src="/2019/02/05/&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;/remote_addr.png" alt="remote_addr"></p>
@@ -407,10 +418,8 @@
 <p>4.2.7. http_referer &#x8868;&#x793A;&#x4E0A;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x6765;&#x81EA;&#x4E8E;&#x54EA;&#x91CC;&#xFF0C;&#x5E94;&#x7528;&#x4E8E;&#x505A;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x56FE;&#x7247;&#x7684;&#x9632;&#x76D7;&#x94FE;</p>
 <p>4.2.8. http_user_agent &#x7528;&#x6237;&#x4EE3;&#x7406;&#xFF1A;&#x8FD9;&#x91CC;&#x6211;&#x7406;&#x89E3;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x4FE1;&#x606F;&#x3002;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;    </p>
 <p><strong>&#x7ED3;&#x679C;&#x622A;&#x56FE;&#xFF1A;</strong>  </p>
-<p><img src="%E7%AC%AC%E5%9B%9B%E7%AB%A0-nginx%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/http_user_agent.png" alt="http_user_agent">   </p>
-<blockquote>
+<p><img src="%E7%AC%AC%E5%9B%9B%E7%AB%A0-nginx%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/http_user_agent" alt="http_user_agent"></p>
 <p>&#x6CE8;&#x91CA;:&#x6709;&#x65F6;&#x4F60;&#x770B;&#x81EA;&#x5DF1;&#x7684;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x65E2;&#x4E0D;&#x662F;&#x4F60;&#x7684;&#x706B;&#x72D0;&#x6D4F;&#x89C8;&#x5668;&#x4E5F;&#x4E0D;&#x662F;IE&#x4E5F;&#x4E0D;&#x662F;Chrom&#x6D4F;&#x89C8;&#x5668;,&#x8FD9;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x8718;&#x86DB;(&#x641C;&#x7D22;&#x5F15;&#x64CE;&#x7684;&#x670D;&#x52A1;&#x5668;)&#x722C;&#x5230;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5668;&#x91CC;&#x4E86;.&#x8FD9;&#x79CD;&#x641C;&#x7D22;&#x5F15;&#x64CE;&#x670D;&#x52A1;&#x5668;&#x4E00;&#x5929;&#x5230;&#x665A;&#x7684;&#x53BB;&#x722C;&#x53D6;&#x6570;&#x636E;.&#x4ED6;&#x4EEC;&#x4E5F;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x534F;&#x8BAE;&#x53EB;&#x505A;&#x8718;&#x86DB;&#x534F;&#x8BAE;.</p>
-</blockquote>
 <p><strong>&#x4E3E;&#x4F8B;&#x767E;&#x5EA6;&#x6D4F;&#x89C8;&#x5668;</strong></p>
 <p>&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x662F;&#x767E;&#x5EA6;&#x6D4F;&#x89C8;&#x5668;.&#x8FD9;&#x91CC;&#x663E;&#x793A;&#x767E;&#x5EA6;&#x88AB;&#x626B;&#x63CF;&#x9057;&#x7559;&#x4E0B;&#x6765;&#x7684;&#x4E00;&#x4E9B;&#x641C;&#x7D22;&#x5F15;&#x64CE;&#x670D;&#x52A1;&#x5668;&#x7684;&#x4FE1;&#x606F;&#x5373;&#x5404;&#x4E2A;&#x8718;&#x86DB;.<strong>User-agent</strong>&#x8868;&#x793A;&#x8718;&#x86DB;&#x7684;&#x6765;&#x6E90;.<strong>Disallow</strong>&#x8868;&#x793A;&#x88AB;&#x7981;&#x6B62;&#x626B;&#x63CF;&#x7684;&#x76EE;&#x5F55;.&#x5982;&#x679C;&#x4F60;&#x90A3;&#x4E00;&#x5929;&#x53D1;&#x73B0;&#x4F60;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4FE1;&#x606F;<strong>http_user_agent</strong>&#x51FA;&#x73B0; <strong>Baiduspider</strong>;&#x8BF4;&#x660E;&#x767E;&#x5EA6;&#x6765;&#x5149;&#x987E;&#x4F60;&#x4E86;,&#x4F60;&#x7684;&#x7F51;&#x7AD9;&#x505A;&#x7684;&#x5F88;&#x597D;.</p>
 <p><img src="/2019/02/05/&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;/example_baidu.png" alt="example_baidu"></p>
@@ -425,9 +434,7 @@
 <p><strong>&#x7ED3;&#x679C;&#x622A;&#x56FE;&#xFF1A;</strong></p>
 <p><img src="/2019/02/05/&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;/main.png" alt="main"></p>
 <p><em>&#x7B2C;&#x4E09;&#x6B65;: &#x91CD;&#x542F;nginx</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -s reload</span><br></pre></td></tr></table></figure>
-
-<p><em>&#x7B2C;&#x56DB;&#x6B65;:&#x6D4B;&#x8BD5;</em></p>
+<pre><code>./nginx -s reload</code></pre><p><em>&#x7B2C;&#x56DB;&#x6B65;:&#x6D4B;&#x8BD5;</em></p>
 <p>&#x6253;&#x5F00;&#x672C;&#x5730;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE; <strong><a href="http://www.Z.com" target="_blank" rel="noopener">www.Z.com</a></strong>,&#x8FDE;&#x7EED;&#x5237;&#x65B0;6&#x6B21;;&#x5728;&#x5BF9;&#x5E94;&#x7684; <strong>/usr/local/nginx/logs</strong> &#x76EE;&#x5F55;&#x4E0B;&#x5C31;&#x51FA;&#x73B0;&#x4E86;<strong>z.com.access.log</strong>,&#x4E14;&#x5BF9;&#x5E94;&#x7684;&#x5185;&#x5BB9;&#x51FA;&#x73B0;6&#x6B21;&#x8BBF;&#x95EE;&#x8BB0;&#x5F55;.</p>
 <p><strong>&#x7ED3;&#x679C;&#x622A;&#x56FE;&#xFF1A;</strong></p>
 <p><img src="/2019/02/05/&#x7B2C;&#x56DB;&#x7AE0;-nginx&#x65E5;&#x5FD7;&#x7BA1;&#x7406;/z_com_logs1.png" alt="z_com_logs1"></p>
@@ -439,10 +446,10 @@
           <div class="reward-open">赏
             <div class="reward-main">
               <ul class="reward-row">
-			  <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/images/AliPayQR.jpg"></li>
-			  <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/images/WeChanQR.jpg"></li>
-			  // <li class="alipay-code"><img src="http://47.102.124.213/images/Blog/AliPayQR.jpg"></li>
-			  // <li class="wechat-code"><img src="http://47.102.124.213/images/Blog/WeChanQR.jpg"></li>
+			  // <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/images/AliPayQR.jpg"></li>
+			  // <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/images/WeChanQR.jpg"></li>
+			  <li class="alipay-code"><img src="http://47.102.124.213/images/Blog/AliPayQR.jpg"></li>
+			  <li class="wechat-code"><img src="http://47.102.124.213/images/Blog/WeChanQR.jpg"></li>
              
 			  </ul>
             </div>
