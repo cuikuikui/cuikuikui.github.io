@@ -3,6 +3,7 @@
 	height:800px;
 	display: flex;
 	justify-content: center;
+	flex-direction: column;
 	top: 70px;
 	position: fixed;
 	/* background-color: #0077B5; */
