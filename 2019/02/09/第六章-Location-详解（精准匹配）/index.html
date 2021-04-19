@@ -531,20 +531,22 @@
         
       </section>
       
-  <script src="https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.1/gitalk.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
-  <div id="gitalk-container"></div>
-  <script type="text/javascript">
-      var gitalk = new Gitalk({
-          clientID: '3f85c4f07706fa16f58c',
-          clientSecret: '16cd2f9b7ba23fa45f6b668ceb37f8dacc59c168',
-          id: window.location.pathname,
-          repo: 'cuikuikui.github.io',
-          owner: 'cuikuikui',
-          admin: 'cuikuikui'
-      })
-      gitalk.render('gitalk-container')
-    </script>
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+	<div id="gitalk-container" class="comment"></div> 
+	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+	<script src="/js/md5.min.js"></script>
+	<script type="text/javascript">
+		var gitalk = new Gitalk({
+		clientID: '3f85c4f07706fa16f58c',
+		clientSecret: '16cd2f9b7ba23fa45f6b668ceb37f8dacc59c168',
+		repo: 'cuikuikui.github.io',
+		owner: 'cuikuikui',
+		admin: ['cuikuikui'],
+		distractionFreeMode: 'true',
+		id: md5(location.pathname)
+	})
+	gitalk.render('gitalk-container') 
+	</script>
 
 
       <section class="author-profile">
@@ -563,46 +565,6 @@
     </main><!-- #main -->
   </div><!-- #primary -->
 </div>
-
-
-
-
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<div id="gitalk-container" class="comment"></div> 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script src="/js/md5.min.js"></script>
-<script type="text/javascript">
-	var gitalk = new Gitalk({
-  	clientID: '3f85c4f07706fa16f58c',
-  	clientSecret: '16cd2f9b7ba23fa45f6b668ceb37f8dacc59c168',
-  	repo: 'cuikuikui.github.io',
-  	owner: 'cuikuikui',
-	admin: ['cuikuikui'],
-	distractionFreeMode: 'true',
-    id: md5(location.pathname)
-})
-gitalk.render('gitalk-container') 
-</script>
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<div id="gitalk-container" class="comment"></div> 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script src="/js/md5.min.js"></script>
-<script type="text/javascript">
-	var gitalk = new Gitalk({
-  	clientID: '3f85c4f07706fa16f58c',
-  	clientSecret: '16cd2f9b7ba23fa45f6b668ceb37f8dacc59c168',
-  	repo: 'cuikuikui.github.io',
-  	owner: 'cuikuikui',
-	admin: ['cuikuikui'],
-	distractionFreeMode: 'true',
-    id: md5(location.pathname)
-})
-gitalk.render('gitalk-container') 
-</script>
-
 
 
 
