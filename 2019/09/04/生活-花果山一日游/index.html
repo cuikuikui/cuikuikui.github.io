@@ -470,22 +470,22 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/08/30/github-跨团队协作/" rel="next">
+            <a href="/2019/09/04/python爬虫教程/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2315203031,3983315615&fm=26&gp=0.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2315203031,3983315615&fm=26&gp=0.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F7190875697%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620211969&t=32f43dcf153551b9758b4bb586288bef" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F7190875697%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620211969&t=32f43dcf153551b9758b4bb586288bef">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                github 跨团队协作</h3>
+                QQ音乐爬取</h3>
                 <hr>
               </div>
             </a>
           </div>
         
       </section>
-      
+      // 
 	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 	<div id="gitalk-container" class="comment"></div> 
 	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
@@ -504,6 +504,27 @@
 	</script>
 
 
+	  
+	    
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+	<div id="gitalk-container" class="comment"></div> 
+	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+	<script src="/js/md5.min.js"></script>
+	<script type="text/javascript">
+		var gitalk = new Gitalk({
+		clientID: '3f85c4f07706fa16f58c',
+		clientSecret: '16cd2f9b7ba23fa45f6b668ceb37f8dacc59c168',
+		repo: 'cuikuikui.github.io',
+		owner: 'cuikuikui',
+		admin: ['cuikuikui'],
+		distractionFreeMode: 'true',
+		id: md5(location.pathname)
+	})
+	gitalk.render('gitalk-container') 
+	</script>
+
+
+	  
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
           <a href="https://cuikuikui.github.io/" class="profile gravatar"><img src="../python爬虫教程/avatar.jpg" itemprop="image" alt="ckk" height="70" width="70"></a>
@@ -524,36 +545,13 @@
 
 
 
-  
-	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-	<div id="gitalk-container" class="comment"></div> 
-	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-	<script src="/js/md5.min.js"></script>
-	<script type="text/javascript">
-		var gitalk = new Gitalk({
-		clientID: '3f85c4f07706fa16f58c',
-		clientSecret: '16cd2f9b7ba23fa45f6b668ceb37f8dacc59c168',
-		repo: 'cuikuikui.github.io',
-		owner: 'cuikuikui',
-		admin: ['cuikuikui'],
-		distractionFreeMode: 'true',
-		id: md5(location.pathname)
-	})
-	gitalk.render('gitalk-container') 
-	</script>
-
-
-
-
-
-
 
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -565,10 +563,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
