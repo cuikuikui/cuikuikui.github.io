@@ -3,10 +3,7 @@
 	height:800px;
 	top: 70px;
 	position: fixed;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	/* padding: 0px 450px; */
+	padding: 0px 450px;
 	background-color: #33B045;
 }
 .project{
