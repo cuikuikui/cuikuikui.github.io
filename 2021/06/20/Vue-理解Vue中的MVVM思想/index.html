@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Tag: 爬虫 | cuikuikui&#39;s blog</title>
+  <title itemprop="name">Vue-理解Vue中的MVVM思想 | cuikuikui&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -381,71 +381,134 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="爬虫.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.yzlsoft.cn%2Fimg%2Fnews%2Fvue.jpg&amp;refer=http%3A%2F%2Fwww.yzlsoft.cn&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1626683465&amp;t=a57ace5762595ad1031ff60d21829d1a);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.yzlsoft.cn%2Fimg%2Fnews%2Fvue.jpg&amp;refer=http%3A%2F%2Fwww.yzlsoft.cn&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1626683465&amp;t=a57ace5762595ad1031ff60d21829d1a">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Vue-理解Vue中的MVVM思想</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://cuikuikui.github.io/">
+            <img src="../Vue-理解Vue中的MVVM思想/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://cuikuikui.github.io/">ckk</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-6-20<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">爬虫</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2019/09/04/python爬虫教程/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          
         </div>
-        <img width="150" height="150" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F7190875697%2F0.jpg&amp;refer=http%3A%2F%2Finews.gtimg.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620211969&amp;t=32f43dcf153551b9758b4bb586288bef" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-	
-	
-    <h1 class="entry-title">
-      
-		<a href="/2019/09/04/python爬虫教程/">  
-		 QQ音乐爬取   
-		</a>
-	
-    </h1>
-	
-	
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2019-9-4</div>
-    <p>
-    爬虫</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2019/09/04/python爬虫教程/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+			  // <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/images/AliPayQR.jpg"></li>
+			  // <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/images/WeChanQR.jpg"></li>
+			  <li class="alipay-code"><img src="http://47.102.124.213/images/Blog/AliPayQR.jpg"></li>
+			  <li class="wechat-code"><img src="http://47.102.124.213/images/Blog/WeChanQR.jpg"></li>
+             
+			  </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2021/06/19/Vue-Vue响应式原理/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Foss.cyzone.cn%2F2021%2F0609%2F294d69f3d994a9d4bd8e7e7cf5678d58.jpeg%3Fx-oss-process%3Dimage%2Fformat%2Cjpeg&refer=http%3A%2F%2Foss.cyzone.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626683620&t=0a9319226152e476061f4cd763c3e827" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Foss.cyzone.cn%2F2021%2F0609%2F294d69f3d994a9d4bd8e7e7cf5678d58.jpeg%3Fx-oss-process%3Dimage%2Fformat%2Cjpeg&refer=http%3A%2F%2Foss.cyzone.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626683620&t=0a9319226152e476061f4cd763c3e827">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Vue-Vue响应式原理</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+	  
+	    
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+	<div id="gitalk-container" class="comment"></div> 
+	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+	<script src="/js/md5.min.js"></script>
+	<script type="text/javascript">
+		var gitalk = new Gitalk({
+		clientID: '3f85c4f07706fa16f58c',
+		clientSecret: 'f841c3e355d89900ccfac825451f2a9ef9ec65cb',
+		repo: 'cuikuikui.github.io',
+		owner: 'cuikuikui',
+		admin: ['cuikuikui'],
+		distractionFreeMode: 'true',
+		id: md5(location.pathname)
+	})
+	gitalk.render('gitalk-container') 
+	</script>
 
 
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+	  
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="https://cuikuikui.github.io/" class="profile gravatar"><img src="../Vue-理解Vue中的MVVM思想/avatar.jpg" itemprop="image" alt="ckk" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://cuikuikui.github.io/" itemprop="url" rel="author">ckk</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
