@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Vue-如何进行非父子组件通信 | cuikuikui&#39;s blog</title>
+  <title itemprop="name">Vue-Vue的常用的内置函数 | cuikuikui&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -387,15 +387,15 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.yzlsoft.cn%2Fimg%2Fnews%2Fvue.jpg&amp;refer=http%3A%2F%2Fwww.yzlsoft.cn&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1626683465&amp;t=a57ace5762595ad1031ff60d21829d1a);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.yzlsoft.cn%2Fimg%2Fnews%2Fvue.jpg&amp;refer=http%3A%2F%2Fwww.yzlsoft.cn&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1626683465&amp;t=a57ace5762595ad1031ff60d21829d1a">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F13503724594%2F1000&amp;refer=http%3A%2F%2Finews.gtimg.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1626967755&amp;t=abf6c53930479388368ea275411c1c32t=0a9319226152e476061f4cd763c3e827);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F13503724594%2F1000&amp;refer=http%3A%2F%2Finews.gtimg.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1626967755&amp;t=abf6c53930479388368ea275411c1c32t=0a9319226152e476061f4cd763c3e827">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      Vue-如何进行非父子组件通信</h1>
+      Vue-Vue的常用的内置函数</h1>
       <p class="entry-census">
         <span>
           <a href="https://cuikuikui.github.io/">
-            <img src="../Vue-如何进行非父子组件通信/avatar.jpg">
+            <img src="../Vue-Vue的常用的内置函数/avatar.jpg">
           </a>
         </span>
         <span>
@@ -403,7 +403,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2021-6-19<span class="bull">
+        2021-6-22<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -448,36 +448,19 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2021/06/19/Vue-Vue响应式原理/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Foss.cyzone.cn%2F2021%2F0609%2F294d69f3d994a9d4bd8e7e7cf5678d58.jpeg%3Fx-oss-process%3Dimage%2Fformat%2Cjpeg&refer=http%3A%2F%2Foss.cyzone.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626683620&t=0a9319226152e476061f4cd763c3e827" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Foss.cyzone.cn%2F2021%2F0609%2F294d69f3d994a9d4bd8e7e7cf5678d58.jpeg%3Fx-oss-process%3Dimage%2Fformat%2Cjpeg&refer=http%3A%2F%2Foss.cyzone.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626683620&t=0a9319226152e476061f4cd763c3e827">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                Vue-Vue响应式原理</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2021/06/19/Vue-如何理解Vue的生命周期/" rel="next">
+            <a href="/2021/06/22/Vue-Vuex学习/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F12577968-df37520be7eb50a4.jpg&refer=http%3A%2F%2Fupload-images.jianshu.io&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626683143&t=3d7ea4c9fe0a0cf6c14874e501b12ba9" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F12577968-df37520be7eb50a4.jpg&refer=http%3A%2F%2Fupload-images.jianshu.io&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626683143&t=3d7ea4c9fe0a0cf6c14874e501b12ba9">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.mukewang.com%2F5d3fe66408c059fd06000338.jpg&refer=http%3A%2F%2Fimg3.mukewang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626967340&t=bb4df4d7374350e6e3ae75c14003fefa" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.mukewang.com%2F5d3fe66408c059fd06000338.jpg&refer=http%3A%2F%2Fimg3.mukewang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626967340&t=bb4df4d7374350e6e3ae75c14003fefa">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                Vue-如何理解Vue的生命周期</h3>
+                Vue-Vuex学习</h3>
                 <hr>
               </div>
             </a>
@@ -507,7 +490,7 @@
 	  
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="https://cuikuikui.github.io/" class="profile gravatar"><img src="../Vue-如何进行非父子组件通信/avatar.jpg" itemprop="image" alt="ckk" height="70" width="70"></a>
+          <a href="https://cuikuikui.github.io/" class="profile gravatar"><img src="../Vue-Vue的常用的内置函数/avatar.jpg" itemprop="image" alt="ckk" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
@@ -531,7 +514,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -543,10 +526,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
