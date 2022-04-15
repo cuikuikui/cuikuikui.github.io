@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">python的装饰器 | cuikuikui&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/iconfont.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+  <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+  <link rel="stylesheet" href="/css/matery.css">
+  <!-- tags标签 -->
+  <link rel="stylesheet" href="/css/tags.css" media="all">
+  <!-- 评论 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
+  <!-- <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "曙光星云Sunny";
+  mashiro_option.author_name = "Sunny";
+  mashiro_option.site_url = "https://sakura.hojun.cn";
+  mashiro_option.v_appId = "";
+  mashiro_option.v_appKey = "";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/cover/(1).jpg.webp,https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/cover/(2).jpg.webp,https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/cover/(3).jpg.webp,https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/cover/(4).jpg.webp,https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/cover/(6).jpg.webp,https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/cover/(7).jpg.webp,https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/cover/(8).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}
+  </style>
+  <!-- 看板娘 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <script src="/live2d-widget/autoload.js"></script>
+  <!-- 添加标题恶搞 -->
+  <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/hititle.js"></script>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://cuikuikui.github.io/">
+          <img src="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/head.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>梦想是免费的，不想是浪费的。</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://github.com/cuikuikui" target="_blank" class="social-github" title="github">
+              <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/github.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://www.sina.com.cn/" target="_blank" class="social-github" title="sina">
+              <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/sina.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="https://www.zhihu.com/" target="_blank" class="social-github" title="zhihu">
+              <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/zhihu.png">
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="email">
+              <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/email.svg">
+            </a>
+          </li>
+          
+          
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">曙光星云Sunny</span>
+            <!--span class="shironeko">Sunny</span-->
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-desktop" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/categories/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-sitemap" aria-hidden="true"></i>
+                    分类
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-file-text-o" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/随笔/">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                          随笔
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/count">
+                          <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                          统计
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/tags">
+                          <i class="fa fa-tag" aria-hidden="true"></i>
+                          标签
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-music" aria-hidden="true"></i>
+                    娱乐
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/videos/">
+                          <i class="fa fa-film" aria-hidden="true"></i>
+                          励志
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/books/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          音乐
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/gallery/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          美图
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-calendar" aria-hidden="true"></i>
+                    时间轴
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    生态圈
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/friends/">
+                          <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                          友链
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/collection/">
+                          <i class="fa fa-chain-broken" aria-hidden="true"></i>
+                          优链
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/project/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          项目
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+<div class="pattern-center single-center">
+  <!-- 有配图默认渲染第一张 -->
+  <div class="pattern-attachment-img lazyload" style="background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ft.ki4.cn%2F2019%2F10%2FAjam6j.png&refer=http%3A%2F%2Ft.ki4.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620212097&t=10de0b4865e1b024883b8c9d827e4dd5)"
+    src="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ft.ki4.cn%2F2019%2F10%2FAjam6j.png&amp;refer=http%3A%2F%2Ft.ki4.cn&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1620212097&amp;t=10de0b4865e1b024883b8c9d827e4dd5"></div>
+  <header class="pattern-header single-header">
+    <h1 class="entry-title">python的装饰器</h1>
+    <p class="entry-census">
+      <span>
+        <a href="">
+          <img src="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/head.jpg">
+        </a>
+      </span>
+      <span>
+        <a href="">ckk</a>
+      </span>
+      <span class="bull">
+        ·</span>
+      2019-8-12<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    <!-- 开始添加字数统计-->
+    
+    <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <!-- 安装插件npm install hexo-wordcount --save -->
+      <span class="post-count">2.4k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">15分</span>
+    </span>
+  </span>
+</div>
+
+    
+  </header>
+</div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1"
+        class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        
+        <div class="entry-content">
+          <h3 id="&#x4E00;&#x3001;-&#x5F15;&#x8A00;"><a href="#&#x4E00;&#x3001;-&#x5F15;&#x8A00;" class="headerlink" title="&#x4E00;&#x3001; &#x5F15;&#x8A00;"></a>&#x4E00;&#x3001; &#x5F15;&#x8A00;</h3><p> &#x88C5;&#x9970;&#x5668;&#x662F;&#x6BCF;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;Python&#x7684;&#x4EBA;&#x90FD;&#x4F1A;&#x63A5;&#x89E6;&#x5230;&#x7684;&#x4E00;&#x79CD;&#x589E;&#x5F3A;&#x51FD;&#x6570;&#x529F;&#x80FD;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4E5F;&#x662F;&#x9762;&#x8BD5;&#x5B98;&#x7ECF;&#x5E38;&#x4F1A;&#x95EE;&#x5230;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#xFF0C;&#x8FD9;&#x91CC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x7684;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;&#x5E38;&#x89C1;&#x7684;&#x56DB;&#x79CD;&#x88C5;&#x9970;&#x5668;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;</p>
+<h3 id="1-&#x88C5;&#x9970;&#x5668;&#x7684;&#x5B9A;&#x4E49;"><a href="#1-&#x88C5;&#x9970;&#x5668;&#x7684;&#x5B9A;&#x4E49;" class="headerlink" title="1 &#x88C5;&#x9970;&#x5668;&#x7684;&#x5B9A;&#x4E49;**"></a>1 &#x88C5;&#x9970;&#x5668;&#x7684;&#x5B9A;&#x4E49;**</h3><p><strong>&#x5728;python&#x4E2D;&#x88C5;&#x9970;&#x5668;&#x7684;&#x529F;&#x80FD;&#x662F;&#x5C06;&#x88AB;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;&#x5F53;&#x4F5C;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x4E0E;&#x88C5;&#x9970;&#x5668;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;&#xFF08;&#x540D;&#x79F0;&#x76F8;&#x540C;&#x7684;&#x51FD;&#x6570;&#xFF09;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5305;&#x88C5;&#x540E;&#x7684;&#x88AB;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;&#x3002;</strong></p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;&#x73B0;&#x5728;&#x6709;&#x4E00;&#x4E2A;&#x9700;&#x6C42;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6267;&#x884C;&#x8BE5;&#x51FD;&#x6570;&#x65F6;&#x52A0;&#x4E0A;&#x65E5;&#x5FD7;<br>    &#x5148;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF1A;<br>    def eat():<br>        print(&#x201C;&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&#x201D;)<br>    &#x9700;&#x6C42;&#xFF1A;&#x5728;&#x6267;&#x884C;eat()&#x65F6;&#x52A0;&#x4E0A;&#x51FD;&#x6570;&#x6267;&#x884C;&#x65E5;&#x5FD7;&#x3002;</p>
+<h4 id="1-1-&#x4E00;&#x822C;&#x65B9;&#x6CD5;&#xFF1A;"><a href="#1-1-&#x4E00;&#x822C;&#x65B9;&#x6CD5;&#xFF1A;" class="headerlink" title="1-1 &#x4E00;&#x822C;&#x65B9;&#x6CD5;&#xFF1A;"></a>1-1 &#x4E00;&#x822C;&#x65B9;&#x6CD5;&#xFF1A;</h4><p>print(&#x201C;&#x2026;&#x2026;&#x2026;.&#x5F00;&#x59CB;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;&#x2026;&#x2026;..&#x201D;)<br>eat()<br>print(&#x201C;&#x2026;&#x2026;&#x2026;.&#x7ED3;&#x675F;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;&#x2026;&#x2026;..&#x201D;)</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;<br>    &#x5F00;&#x59CB;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;<br>    &#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;<br>    &#x7ED3;&#x675F;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;<br>&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x867D;&#x7136;&#x5B9E;&#x73B0;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x9700;&#x6C42;&#x4FB5;&#x5165;&#x5230;&#x539F;&#x6765;&#x7684;&#x4EE3;&#x7801;&#x91CC;&#x9762;&#xFF0C;&#x4F7F;&#x5F97;&#x539F;&#x6765;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x53D8;&#x5F97;&#x590D;&#x6742;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#x4E5F;&#x4E0D;&#x7B26;&#x5408;&#x201C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x53EA;&#x505A;&#x4E00;&#x4EF6;&#x4E8B;&#x60C5;&#x201D;&#x7684;&#x539F;&#x5219;</p>
+<h4 id="1-2-&#x95ED;&#x5305;&#x65B9;&#x6CD5;&#xFF1A;"><a href="#1-2-&#x95ED;&#x5305;&#x65B9;&#x6CD5;&#xFF1A;" class="headerlink" title="1-2 &#x95ED;&#x5305;&#x65B9;&#x6CD5;&#xFF1A;"></a>1-2 &#x95ED;&#x5305;&#x65B9;&#x6CD5;&#xFF1A;</h4><p>def log(func):<br>    def wrapper():<br>        print(&#x201C;&#x5F00;&#x59CB;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&#x201D;)<br>        func()<br>        print(&#x201C;&#x7ED3;&#x675F;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&#x201D;)<br>    return wrapper<br>def eat():<br>    print(&#x201C;&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&#x201D;)<br>eat=log(eat)<br>eat()</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;<br>    &#x5F00;&#x59CB;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;<br>    &#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;<br>    &#x7ED3;&#x675F;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;<br>  log(eat)&#x5C06;eat&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;log(),&#x7531;&#x4E8E;wrapper()&#x662F;log()&#x95ED;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;log()<br>log()&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;func, &#x4E5F;&#x5C31;&#x662F;&#x521A;&#x521A;&#x4F20;&#x9012;&#x8FDB;&#x6765;&#x7684;eat&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x6267;&#x884C;func()&#x4E0E;&#x6267;&#x884C;eat()&#x662F;&#x4E00;&#x4E2A;&#x6548;&#x679C;&#x3002;<br>&#x8FD9;&#x6837;&#x5C31;&#x6CA1;&#x6709;&#x4FEE;&#x6539;eat()&#x51FD;&#x6570;&#x91CC;&#x9762;&#x7684;&#x903B;&#x8F91;&#x7ED3;&#x6784;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x7ED9;&#x4E3B;&#x7A0B;&#x5E8F;&#x5E26;&#x6765;&#x592A;&#x591A;&#x5E72;&#x6270;&#x3002;&#x4F46;&#x603B;&#x662F;&#x611F;&#x89C9;&#x8FD9;&#x4E2A;eat()&#x51FD;&#x6570;&#x6709;&#x70B9;&#x522B;&#x626D;&#x3002;<br>  &#x56E0;&#x6B64;python&#x53D1;&#x660E;&#x4E86;&#x201C;@&#x8BED;&#x6CD5;&#x7CD6;&#x201D;</p>
+<h4 id="1-3-&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;"><a href="#1-3-&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;" class="headerlink" title="1-3 &#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;"></a>1-3 &#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;</h4><p>&#x6240;&#x8C13;&#x8BED;&#x6CD5;&#x7CD6;&#x5C31;&#x662F;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x8BED;&#x8A00;&#x4E2D;&#x6DFB;&#x52A0;&#x7684;&#x67D0;&#x79CD;&#x8BED;&#x6CD5;&#xFF0C;&#x8FD9;&#x79CD;&#x8BED;&#x6CD5;&#x5BF9;&#x8BED;&#x8A00;&#x7684;&#x529F;&#x80FD;&#x6CA1;&#x6709;&#x5F71;&#x54CD;&#xFF0C;&#x4F46;&#x662F;&#x66F4;&#x52A0;&#x65B9;&#x9762;&#x7A0B;&#x5E8F;&#x5458;&#xFF0C;&#x8BA9;&#x7A0B;&#x5E8F;&#x66F4;&#x52A0;&#x7B80;&#x6D01;&#xFF0C;&#x6709;&#x66F4;&#x9AD8;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x3002;</p>
+<p>def log(func):<br>    def wrapper():<br>        print(&#x201C;&#x5F00;&#x59CB;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&#x201D;)<br>        func()<br>        print(&#x201C;&#x7ED3;&#x675F;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&#x201D;)<br>    return wrapper<br>@log<br>def eat():<br>    print(&#x201C;&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&#x201D;)<br>eat()</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;<br>    &#x5F00;&#x59CB;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;<br>    &#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;<br>    &#x7ED3;&#x675F;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;<br>&#x8FD9;&#x6837;&#x5C31;&#x7701;&#x53BB;&#x4E86;&#x624B;&#x52A8;&#x5C06;eat()&#x51FD;&#x6570;&#x4F20;&#x9012;&#x7ED9;log()&#x518D;&#x5C06;&#x8FD4;&#x56DE;&#x503C;&#x91CD;&#x65B0;&#x8D4B;&#x503C;&#x7684;&#x6B65;&#x9AA4;&#x3002;&#x4F46;&#x662F;&#x4E0B;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x5982;&#x679C;eat()&#x51FD;&#x6570;&#x6709;&#x53C2;&#x6570;&#x600E;&#x4E48;&#x529E;&#x3002;</p>
+<h4 id="1-4-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;"><a href="#1-4-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;" class="headerlink" title="1-4 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;"></a>1-4 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;</h4><p>&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x53C2;&#x6570;&#x5185;&#x90E8;&#x7684;wrapper()&#x53C2;&#x6570;<br>def log(func):<br>    def wrapper(name):<br>        print(&#x201C;&#x5F00;&#x59CB;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&#x201D;)<br>        func(name)<br>        print(&#x201C;&#x7ED3;&#x675F;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&#x201D;)<br>    return wrapper<br>@log<br>def eat(name):<br>    print(&#x201C;%s&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&#x201D; % name)<br>eat(&#x201C;&#x5C0F;&#x7532;&#x9C7C;&#x201D;)</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;<br>    &#x5F00;&#x59CB;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;<br>    &#x5C0F;&#x7532;&#x9C7C;&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;<br>    &#x7ED3;&#x675F;&#x8C03;&#x7528;eat()&#x51FD;&#x6570;<br>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x5173;&#x6CE8;eat()&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x6570;&#x91CF;</p>
+<p>&#x4F46;&#x662F;&#x8BE5;&#x88C5;&#x9970;&#x5668;&#x4F9D;&#x7136;&#x5B58;&#x5728;&#x5F88;&#x5927;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x4FEE;&#x6539;&#x4E86;eat()&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x8981;&#x4FEE;&#x6539;&#x88C5;&#x9970;&#x5668;log() ,&#x4E0D;&#x4EC5;&#x4E0D;&#x65B9;&#x9762;&#x800C;&#x4E14;&#x4E5F;&#x5BB9;&#x6613;&#x51FA;&#x9519;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5728;&#x8BBE;&#x8BA1;&#x88C5;&#x9970;&#x5668;&#x65F6;&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x6539;&#x52A8;&#x3002;</p>
+<h4 id="1-5-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#x5B8C;&#x7F8E;&#x7248;&#xFF1A;"><a href="#1-5-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#x5B8C;&#x7F8E;&#x7248;&#xFF1A;" class="headerlink" title="1-5 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#x5B8C;&#x7F8E;&#x7248;&#xFF1A;"></a>1-5 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#x5B8C;&#x7F8E;&#x7248;&#xFF1A;</h4><p>&#x5728;&#x5B9A;&#x4E49;&#x88C5;&#x9970;&#x5668;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x624B;&#x673A;&#x53C2;&#x6570;&#xFF0C;&#x5C06;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x6253;&#x5305;&#x5230;&#x4E00;&#x4E2A;&#x5143;&#x7956;&#x4E2D;&#xFF0C;&#x5728;&#x8C03;&#x7528;&#x65F6;&#x53EA;&#x8981;&#x4F7F;&#x7528;&#xFF08;*&#xFF09;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x89E3;&#x5305;&#x5373;&#x53EF;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x8BBA;eat()&#x51FD;&#x6570;&#x91CC;&#x65E0;&#x8BBA;&#x4F20;&#x5165;&#x591A;&#x5C11;&#x53C2;&#x6570;&#xFF0C;&#x90FD;&#x65E0;&#x4F24;&#x5927;&#x96C5;&#x4E86;&#x3002;</p>
+<p>def log(func):<br>    def decorator(<em>param,*</em>params):<br>        print(&#x201C;&#x5F00;&#x59CB;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&#x201D;)<br>        func(<em>param,*</em>params)<br>        print(&#x201C;&#x7ED3;&#x675F;&#x8C03;&#x7528;eat&#x51FD;&#x6570;&#x201D;)<br>    return wrapper<br>@log<br>def eat(age,name):<br>    print(&#x201C;%s&#x5C81;&#x7684;%s&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&#x201D; % (age,name))<br>eat(10,&#x201D;&#x5C0F;&#x7532;&#x9C7C;&#x201D;)</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;<br>    &#x5F00;&#x59CB;&#x8C03;&#x7528;eat&#x51FD;&#x6570;<br>    10&#x5C81;&#x7684;&#x5C0F;&#x7532;&#x9C7C;&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;<br>    &#x7ED3;&#x675F;&#x8C03;&#x7528;eat&#x51FD;&#x6570;</p>
+<p>decorator&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x4F7F;&#x7528;@decorator&#x88C5;&#x9970;eat&#x51FD;&#x6570;&#x4E4B;&#x540E;&#xFF0C;<br>&#x76F8;&#x5F53;&#x4E8E;&#x6267;&#x884C;&#x4E86;eat= decorator(eat),&#x800C;decorator&#x65B9;&#x6CD5;return wrapper&#xFF0C;<br>&#x56E0;&#x6B64;&#x88AB;&#x88C5;&#x9970;&#x540E;&#x6267;&#x884C;&#x7684;eat()&#x76F8;&#x5F53;&#x4E8E;&#x6267;&#x884C;&#x4E86;wrapper()&#x8FD9;&#x91CC;decorator(<em>param, *</em>params)<br>&#x63A5;&#x6536;&#x6240;&#x6709;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x628A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;func&#x5F62;&#x53C2;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;(&#x4E5F;&#x5C31;&#x662F;eat&#x51FD;&#x6570;)&#x6267;&#x884C;.</p>
+<h4 id="1-6-&#x88C5;&#x9970;&#x5668;&#x7684;&#x9AD8;&#x7EA7;&#x73A9;&#x6CD5;-&#x591A;&#x5C42;&#x88C5;&#x9970;&#x5668;&#xFF1A;"><a href="#1-6-&#x88C5;&#x9970;&#x5668;&#x7684;&#x9AD8;&#x7EA7;&#x73A9;&#x6CD5;-&#x591A;&#x5C42;&#x88C5;&#x9970;&#x5668;&#xFF1A;" class="headerlink" title="1-6 &#x88C5;&#x9970;&#x5668;&#x7684;&#x9AD8;&#x7EA7;&#x73A9;&#x6CD5;-&#x591A;&#x5C42;&#x88C5;&#x9970;&#x5668;&#xFF1A;"></a>1-6 &#x88C5;&#x9970;&#x5668;&#x7684;&#x9AD8;&#x7EA7;&#x73A9;&#x6CD5;-&#x591A;&#x5C42;&#x88C5;&#x9970;&#x5668;&#xFF1A;</h4><p>@buffer<br>@performance<br>@log<br>def eat(name):<br>    print(&#x201C;%s&#x5F00;&#x59CB;&#x5403;&#x996D;&#x4E86;&#x201D; %name)</p>
+<p>&#x5728;&#x8C03;&#x7528;&#x65F6;&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528;&#x4E86;buffer(performance(log(eat)))</p>
+<h3 id="&#x4E8C;-&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x51FD;&#x6570;"><a href="#&#x4E8C;-&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x51FD;&#x6570;" class="headerlink" title="&#x4E8C; &#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x51FD;&#x6570;"></a>&#x4E8C; &#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x51FD;&#x6570;</h3><h5 id="2-1-&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;"><a href="#2-1-&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;" class="headerlink" title="2-1 &#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;"></a>2-1 &#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;</h5><p>&#x5728;&#x9762;&#x8BD5;&#x65F6;&#x5927;&#x591A;&#x6570;&#x9762;&#x8BD5;&#x5B98;&#x90FD;&#x4F1A;&#x8BA9;&#x4F60;&#x5199;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x4E00;&#x822C;&#x4F1A;&#x8BA9;&#x4F60;&#x5199;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x7684;&#x88C5;&#x9970;&#x5668;&#x3002;<br>&#x4E0B;&#x9762;&#x5C31;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x7684;&#x88C5;&#x9970;&#x5668;&#x8FDB;&#x884C;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;</p>
+<p>import time<br>def calculate_time(func):<br>    def wrapper(<em>args, *</em>kwargs):<br>        start = time.time()<br>        result = func(<em>args, *</em>kwargs)<br>        end = time.time()<br>        print(&#x201C;Function run time is: &#x201C;, end - start)<br>        return result<br>    return wrapper</p>
+<p>@calculate_time<br>def test_func(time_val):<br>    time.sleep(time_val)<br>    print(&#x201C;Function sleep %s second&#x201D; % time_val)<br>    return &#x201C;end&#x201D;<br>if <strong>name</strong> == &#x2018;<strong>main</strong>&#x2018;:<br>    test_func(2)</p>
+<p>&#x6574;&#x4E2A;&#x7A0B;&#x5E8F;&#x7684;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;,<br>&#x7B2C;&#x4E00; : @calculate_time&#x7B49;&#x4EF7;&#x4E8E;test_func=calculate_time(test_func(2))<br>&#x7B2C;&#x4E8C; : func=test_func(2),&#x8FDB;&#x5165;wrapper&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x4E4B;&#x540E;&#x8FDB;&#x5165;func&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5373;&#x6267;&#x884C;test_func()<br>&#x7B2C;&#x4E09; : &#x8F93;&#x51FA;&#xFF1A;Function sleep 2 second<br>&#x7B2C;&#x56DB; : &#x8F93;&#x51FA;&#xFF1A;Function run time is:  2.0002989768981934<br>&#x6CE8;&#x91CA;&#xFF1A;wrapper(<em>args, *</em>kwargs)&#x63A5;&#x6536;&#x4EFB;&#x610F;&#x53C2;&#x6570;&#x3002;<em>args&#x6307;&#x7684;&#x662F;&#x6536;&#x96C6;&#x53C2;&#x6570;&#xFF08;&#x5305;&#x62EC;&#x6574;&#x578B;&#xFF0C;&#x5217;&#x8868;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5143;&#x7956;&#xFF09;&#xFF0C;*</em>kwargs&#x662F;&#x5B57;&#x5178;</p>
+<h5 id="2-2-&#x542B;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;"><a href="#2-2-&#x542B;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;" class="headerlink" title="2-2 &#x542B;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;"></a>2-2 &#x542B;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;</h5><p>&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x88C5;&#x9970;&#x5668;&#x5F80;&#x5F80;&#x9700;&#x8981;&#x63A5;&#x6536;&#x53C2;&#x6570;&#xFF0C;&#x6839;&#x636E;&#x4F20;&#x5165;&#x88C5;&#x9970;&#x5668;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x540C;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x529F;&#x80FD;&#xFF0C;<br>&#x90A3;&#x5C31;&#x9700;&#x8981;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;decorator&#x7684;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#xFF0C;&#x5199;&#x51FA;&#x6765;&#x4F1A;&#x66F4;&#x590D;&#x6742;</p>
+<p>import time<br>def cacular(time_val):<br>    def decorot(func):<br>        def wrapper(<em>param,*</em>params):<br>            star=time.time()<br>            result=func(time_val=time_val,<em>param,*</em>params)<br>            end=time.time()<br>            print(&#x201C;Function run time is: &#x201C;, end-star )<br>            return result<br>        return wrapper<br>    return decorot<br>@cacular(2)<br>def test_time(time_val):<br>    time.sleep(time_val)<br>    print(&#x201C;Function sleep %s second&#x201D; %time_val)<br>if <strong>name</strong> == &#x201C;<strong>main</strong>&#x201C;:<br>    test_time()</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x6848;&#x4F8B;&#x4E2D;&#x5C06;&#x88C5;&#x9970;&#x5668;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x7ED9;&#x4E86;&#x539F;&#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x6B64;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#x4E0D;&#x9700;&#x8981;&#x4F20;&#x503C;&#x3002;<br>&#x5E26;&#x53C2;&#x6570;&#x7684;&#x88C5;&#x9970;&#x5668;&#x76F8;&#x5F53;&#x4E8E;&#x6267;&#x884C;&#x4E86;test_func = calculate_time(2)(test_func)<br>&#x9996;&#x5148;&#x6267;&#x884C;calculate_time(2)&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;decorator&#x51FD;&#x6570;&#xFF0C;&#x518D;&#x8C03;&#x7528;&#x8FD4;&#x56DE;&#x7684;decorator&#x51FD;&#x6570;&#xFF0C;&#x53C2;&#x6570;&#x662F;test_func&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x6700;&#x7EC8;&#x8DDF;&#x65E0;&#x53C2;&#x6570;&#x7684;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x662F;wrapper&#x51FD;&#x6570;</p>
+<h5 id="2-3-&#x7C7B;&#x88C5;&#x9970;&#x5668;"><a href="#2-3-&#x7C7B;&#x88C5;&#x9970;&#x5668;" class="headerlink" title="2-3 &#x7C7B;&#x88C5;&#x9970;&#x5668;"></a>2-3 &#x7C7B;&#x88C5;&#x9970;&#x5668;</h5><h6 id="2-3-1-call-&#x65B9;&#x6CD5;-&#x4EFF;&#x51FD;&#x6570;-&#x51FD;&#x6570;&#x5BF9;&#x8C61;"><a href="#2-3-1-call-&#x65B9;&#x6CD5;-&#x4EFF;&#x51FD;&#x6570;-&#x51FD;&#x6570;&#x5BF9;&#x8C61;" class="headerlink" title="2-3-1 call &#x65B9;&#x6CD5;(&#x4EFF;&#x51FD;&#x6570;/&#x51FD;&#x6570;&#x5BF9;&#x8C61;)"></a>2-3-1 <strong>call</strong> &#x65B9;&#x6CD5;(&#x4EFF;&#x51FD;&#x6570;/&#x51FD;&#x6570;&#x5BF9;&#x8C61;)</h6><p>&#x5F53;&#x5B9E;&#x4F8B;&#x4EE5;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;&#x4F7F;&#x7528;&#x65F6;, &#x8C03;&#x7528;&#x7684;&#x662F;<strong>call</strong>&#x65B9;&#x6CD5;&#x5185;&#x7684;&#x51FD;&#x6570;<br>&#x5B9E;&#x73B0;<strong>call</strong>&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5BF9;&#x8C61;&#x5F53;&#x505A;&#x51FD;&#x6570;&#x4E00;&#x6837;&#x53BB;&#x4F7F;&#x7528;&#xFF0C;&#x79F0;&#x4E3A;&#x4EFF;&#x51FD;&#x6570;&#x6216;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x4F8B;&#x5982;</p>
+<p>class Student(object):<br>    def <strong>init</strong>(self, name):<br>        self.name = name</p>
+<pre><code>def __call__(self):
+    print(&apos;My name is %s.&apos; % self.name)</code></pre><p>test = Student(&#x2018;Michael&#x2019;)<br>test()</p>
+<h6 id="2-3-2-&#x4F7F;&#x7528;&#x7C7B;&#x7684;call&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x88C5;&#x9970;&#x5668;"><a href="#2-3-2-&#x4F7F;&#x7528;&#x7C7B;&#x7684;call&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x88C5;&#x9970;&#x5668;" class="headerlink" title="2-3-2 &#x4F7F;&#x7528;&#x7C7B;&#x7684;call&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x88C5;&#x9970;&#x5668;"></a>2-3-2 &#x4F7F;&#x7528;&#x7C7B;&#x7684;<strong>call</strong>&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x88C5;&#x9970;&#x5668;</h6><p>import time</p>
+<p>class CalculateTime(object):<br>    def <strong>init</strong>(self, func):<br>        self.__func = func</p>
+<pre><code>def __call__(self, *args, **kwargs):
+    start = time.time()
+    result = self.__func(*args, **kwargs)
+    end = time.time()
+    print(&quot;Function run time is: &quot;, end - start)
+    return result</code></pre><p>@CalculateTime<br>def test_func(time_val):<br>    time.sleep(time_val)<br>    print(&#x201C;Function sleep %s second&#x201D; % time_val)<br>    return &#x201C;end&#x201D;</p>
+<p>if <strong>name</strong> == &#x2018;<strong>main</strong>&#x2018;:<br>    test_func(2)</p>
+<p>&#x5982;&#x4E0A;&#x6240;&#x793A;&#xFF0C;@CalculateTime&#x7B49;&#x4EF7;&#x4E8E;test_func=CalculateTime(test_func),<br>&#x5E76;&#x8C03;&#x7528;<strong>init</strong>&#x51FD;&#x6570;&#xFF0C;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;&#x4E4B;&#x540E;&#x8C03;&#x7528;<strong>call</strong>()&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;result&#xFF0C;<br>&#x7B49;&#x4EF7;&#x4E8E;test_func(),&#x5373;&#x6267;&#x884C;test_func()&#x51FD;&#x6570;</p>
+<h5 id="2-4-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x88C5;&#x9970;&#x5668;"><a href="#2-4-&#x5E26;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x88C5;&#x9970;&#x5668;" class="headerlink" title="2-4 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x88C5;&#x9970;&#x5668;"></a>2-4 &#x5E26;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x88C5;&#x9970;&#x5668;</h5><p>&#x4F7F;&#x7528;&#x7C7B;&#x5B9E;&#x73B0;&#x5E26;&#x53C2;&#x6570;&#x7684;&#x88C5;&#x9970;&#x5668;&#x7684;&#x601D;&#x60F3;&#x4E0E;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x88C5;&#x9970;&#x5668;&#x4E00;&#x81F4;&#xFF0C;&#x540C;&#x6837;&#x662F;&#x5C06;&#x88C5;&#x9970;&#x5668;&#x7684;&#x6DF1;&#x5EA6;&#x52A0;&#x6DF1;&#x4E00;&#x5C42;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;&#x5728;<strong>call</strong>&#x65B9;&#x6CD5;&#x5C06;&#x539F;&#x51FD;&#x6570;&#x518D;&#x5305;&#x4E00;&#x5C42;<br>&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x7C7B;&#x7684;<strong>init</strong>&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x88C5;&#x9970;&#x5668;&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x800C;&#x4E0D;&#x518D;&#x63A5;&#x6536;&#x539F;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;<br>&#x539F;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;<strong>call</strong>&#x7684;&#x5F62;&#x53C2;&#x4F20;&#x5165;&#xFF0C;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;wrapper&#x51FD;&#x6570;</p>
+<p>import time</p>
+<p>class CalculateTime(object):<br>    def <strong>init</strong>(self, time_val):<br>        self.__time_val = time_val</p>
+<pre><code>def __call__(self, func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(time_val=self.__time_val, *args, **kwargs)
+        end = time.time()
+        print(&quot;Function run time is: &quot;, end - start)
+        return result
+    return wrapper</code></pre><p>@CalculateTime(2)<br>def test_func(time_val):<br>    time.sleep(time_val)<br>    print(&#x201C;Function sleep %s second&#x201D; % time_val)<br>    return &#x201C;end&#x201D;</p>
+<p>if <strong>name</strong> == &#x2018;<strong>main</strong>&#x2018;:<br>    test_func()</p>
+<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;test_func = CalculateTime(2)(test_func)&#xFF0C;<br>&#x5176;&#x4E2D;&#x5148;&#x6267;&#x884C;CalculateTime(2)&#x8FDB;&#x884C;&#x7C7B;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4E4B;&#x540E;&#x76F8;&#x5F53;&#x4E8E;&#x6267;&#x884C;<strong>call</strong>(test_func)&#xFF0C;&#x6700;&#x7EC8;&#x8FD4;&#x56DE;wrapper&#x51FD;&#x6570;</p>
+<h3 id="&#x4E09;&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x7C7B;"><a href="#&#x4E09;&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x7C7B;" class="headerlink" title="&#x4E09;&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x7C7B;"></a>&#x4E09;&#x3001;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x88C5;&#x9970;&#x7C7B;</h3><p>1&#x3001;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;</p>
+<p>def DecoratorClass(cls):<br>    def wrapper(<em>args, *</em>kwargs):<br>        print(&#x2018;class name:&#x2019;, cls.<strong>name</strong>)<br>        return cls(<em>args, *</em>kwargs)<br>    return wrapper</p>
+<p>@DecoratorClass<br>class Example(object):<br>    def <strong>init</strong>(self, name):<br>        self.name = name</p>
+<pre><code>def fun(self):
+    print(&apos;self.name =&apos;, self.name)</code></pre><p>e = Example(&#x2018;Bryce&#x2019;)<br>e.fun()</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;<br>    class name: Example<br>    self.name = Bryce</p>
+<p>2&#x3001;&#x5E26;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x88C5;&#x9970;&#x5668;</p>
+<p>def DecoratorClass(description):<br>    def decorator(cls):<br>        def wrapper(<em>args, *</em>kwargs):<br>            print(description, cls.<strong>name</strong>)<br>            return cls(<em>args, *</em>kwargs)<br>        return wrapper<br>    return decorator</p>
+<p>@DecoratorClass(&#x2018;class name:&#x2019;)<br>class Example(object):<br>    def <strong>init</strong>(self, name):<br>        self.name = name</p>
+<pre><code>def fun(self):
+    print(&apos;self.name =&apos;, self.name)</code></pre><p>e = Example(&#x2018;Bryce&#x2019;)<br>e.fun()</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;<br>    class name: Example<br>    self.name = Bryce</p>
+<p>3&#x3001;&#x7C7B;&#x88C5;&#x9970;&#x5668;</p>
+<p>class DecoratorClass(object):<br>    def <strong>init</strong>(self, cls):<br>        self._cls = cls</p>
+<pre><code>def __call__(self, *args, **kwargs):
+    print(&apos;class name:&apos;, self._cls.__name__)
+    return self._cls(*args, **kwargs)</code></pre><p>@DecoratorClass<br>class Example(object):<br>    def <strong>init</strong>(self, name):<br>        self.name = name</p>
+<pre><code>def fun(self):
+    print(&apos;self.name =&apos;, self.name)</code></pre><p>e = Example(&#x2018;Bryce&#x2019;)<br>e.fun()</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;<br>    class name: Example<br>    self.name = Bryce</p>
+<p>4&#x3001;&#x5E26;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x88C5;&#x9970;&#x5668;</p>
+<p>class DecoratorClass(object):<br>    def <strong>init</strong>(self, description):<br>        self.__description = description</p>
+<pre><code>def __call__(self, cls):
+    def wrapper(*args, **kwargs):
+        print(self.__description, cls.__name__)
+        return cls(*args, **kwargs)
+    return wrapper</code></pre><p>@DecoratorClass(&#x2018;class name:&#x2019;)<br>class Example(object):<br>    def <strong>init</strong>(self, name):<br>        self.name = name</p>
+<pre><code>def fun(self):
+    print(&apos;self.name =&apos;, self.name)</code></pre><p>e = Example(&#x2018;Bryce&#x2019;)<br>e.fun()</p>
+<p>&#x8F93;&#x51FA;&#xFF1A;<br>    class name: Example<br>    self.name = Bryce</p>
+
+        </div>
+
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent">
+        </div>
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+        <div class="post-nepre half previous">
+          
+            <a href="/2019/08/15/函数式编程/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/orange.progress-bar-stripe-loader.svg" data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg4.mukewang.com%2F5ce4b199083e469306000338.jpg&refer=http%3A%2F%2Fimg4.mukewang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620212592&t=90559b407ea41fc6ee4bc471a6804ddf"
+                  style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)"
+                  src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg4.mukewang.com%2F5ce4b199083e469306000338.jpg&refer=http%3A%2F%2Fimg4.mukewang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620212592&t=90559b407ea41fc6ee4bc471a6804ddf">
+              </div>
+              <span class="label">
+                Previous Post</span>
+              <div class="info">
+                <h3>
+                  函数式编程</h3>
+                <!-- <hr> -->
+              </div>
+            </a>
+          </div>
+          
+          
+          
+          <div class="post-nepre half next">
+            
+              <a href="/2019/08/11/python必包的作用/" rel="next">
+                <div class="background">
+                  <img class="lazyload" src="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/orange.progress-bar-stripe-loader.svg" data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=246592261,2571324954&fm=26&gp=0.jpg"
+                    style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"
+                    onerror="imgError(this,3)" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=246592261,2571324954&fm=26&gp=0.jpg">
+                </div>
+                <span class="label">
+                  Next Post</span>
+                <div class="info">
+                  <h3>
+                    python闭包的作用</h3>
+                  <!-- <hr> -->
+                </div>
+              </a>
+            </div>
+            
+      </section>
+      <!-- 评论模块 -->
+      
+      
+      <div class="card valine-card" id="vcomments-top">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评 论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid;margin-top: 20px;padding: 10px;"></div>
+</div>
+<!-- <script src="https://cdn.jsdelivr.net/gh/skyls03/skyls03.github.io/libs/valine/av-min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/skyls03/skyls03.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        enableQQ: true,
+        boolean: true,
+        appId: 'NAlPP7GMIeK05nVRWLy4alBA-9Nh9j0Va',
+        appKey: '9izQjJ1jsm7H8AcTLWtE8JRU',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'false' === 'true',
+        // avatar: 'mm',
+        avatar: '/medias/robot.png',
+        pageSize: '16',
+        lang: 'zh-cn',
+        placeholder: '欢迎畅所欲言~ （客官留下QQ邮箱可好，会得到及时回复哦~）',    
+
+        adminEmailMd5: '',
+
+        master: [""],
+        friends: [""],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        // tagMeta: '博主,小伙伴,访客',
+        // master: '',
+        // friends: '',
+        emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@latest"]
+    });
+</script>
+<!-- 直达评论 -->
+<div id="to_comment" class="comment-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
+        <i class="fas fa-comments"></i>
+    </a>
+</div>
+
+
+<!-- 评论机器人验证 -->
+<script>
+    $('.roboter').on('click',function(){
+        $('.robot-check-text').html('·&nbsp;&nbsp;&nbsp;验证成功！');
+        $('.roboter:hover .robot-check-text::before').css('border','2px solid #26a69a');
+        $('.robotxian').css('background','#26a69a');
+        $('.robotimg').attr('src','/medias/robot.png');
+        $('.robot-check-text').css('color','#26a69a');
+    });
+    
+    if(!$('.robot-check').checked) {
+        // alert("请勾选机器人验证后再发表评论！");
+        $('.vsubmit').attr('disabled',true).attr('title','评论前勾选机器人验证按钮');
+    } 
+    $('.robot-check').on('click',function(){
+        $('.vsubmit').attr('disabled',false).attr('title','欢迎畅所欲言');
+    });
+</script>
+
+      
+      <section class="author-profile">
+
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/head.jpg" itemprop="image"
+              alt="ckk" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+              <a href="" itemprop="url" rel="author">ckk</a>
+            </h3>
+          </div>
+        </div>
+        <!-- <hr> -->
+        <!-- <p><i class="iconfont icon-write"></i></p> -->
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+<!-- <script>
+  if (location.href.indexOf("#reloaded") == -1) {
+    location.href = location.href + "#reloaded";
+    location.reload();
+  }
+</script> -->
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    
+<!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 cuikuikui<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo" style="margin-top: 30px;">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018 曙光星云Sunny 沪ICP备xxxxxxxx号</p>
+    </div>
+
+    <!-- <div class="footer-device">
+      <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme 
+          <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank"
+            style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura
+          </a> 
+            <i
+            class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block">
+          </i>
+          
+          by 
+          <a
+            href="https://github.com/cuikuikui/hexo-theme-sakura" target="_blank"
+            style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">cuikuikui</a>
+            
+            &
+            <a
+            href="https://www.hojun.cn/" target="_blank"
+            style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>
+           
+            </span>
+          </a>
+            , Powered by
+            <a
+            href="https://www.hexo.io/" target="_blank"
+            style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hexo
+          </a>  
+        </span>
+      </p>
+    </div> -->
+
+  </div>
+  <div id="gitalk-container"></div>
+  <div style="display: flex;justify-content: center;font-size: 25px;">
+    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  </div>
+</footer>
+<!--1、 网站运行时间 -->
+<script>
+  var now = new Date();
+  function createtime() {
+    var grt= new Date("03/08/2019 16:44:00");//此处修改你的建站时间或者网站上线时间
+    now.setTime(now.getTime()+250);
+    days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+    hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+    if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+    seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+    document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+  }
+  setInterval("createtime()",250);
+</script>
+<!--2、评论 -->
+<script src="https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.1/gitalk.js"></script>
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
+<script src='https://cdn.jsdelivr.net/npm/valine@1.4.18/dist/Valine.min.js'></script>
+
+<script src="/js/botui.js"></script>
+<!--3、 不蒜子 网页计数器 -->
+<!-- <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+  /* <![CDATA[ */
+  if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    var Poi = {
+      "pjax": "1",
+      "movies": {
+        "url": "https://cdn.jsdelivr.net/gh/cuikuikui/Dynamic@master/Blog/video",
+        "name": "Unbroken.mp4",
+        "live": "close"
+      },
+      "windowheight": "fixed",
+      "codelamp": "close",
+      "ajaxurl": "",
+      "order": "asc",
+      "formpostion": "bottom"
+    };
+  } else {
+    var Poi = {
+      "pjax": "1",
+      "movies": {
+        "url": "https://cdn.jsdelivr.net/gh/cuikuikui/Dynamic@master/Blog/video",
+        "name": "Unbroken.mp4",
+        "live": "open"
+      },
+      "windowheight": "auto",
+      "codelamp": "close",
+      "ajaxurl": "",
+      "order": "asc",
+      "formpostion": "bottom"
+    };
+  }
+  /* ]]> */
+</script>
+<script>
+  $(document).ready(function () {
+    if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+      if ($(".pattern-center").length > 0) { //有图的情况
+        tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+        });
+      } else {
+        tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+        });
+      }
+      var offsetTop = $('.toc').offset().top - 95;
+      window.onscroll = function () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollTop >= offsetTop) {
+          $('.toc').addClass('toc-fixed');
+        } else {
+          $('.toc').removeClass('toc-fixed');
+        }
+      }
+    }
+  });
+</script>
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/head.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">曙光星云Sunny</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/honjun" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="http://weibo.com/mashirozx?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=954655431&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-desktop" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/categories/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-sitemap" aria-hidden="true"></i>
+            分类
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-file-text-o" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/随笔/">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                  随笔
+                </a>
+              </li>
+            
+              <li>
+                <a href="/count">
+                  <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                  统计
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags">
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                  标签
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-music" aria-hidden="true"></i>
+            娱乐
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/videos/">
+                  <i class="fa fa-film" aria-hidden="true"></i>
+                  励志
+                </a>
+              </li>
+            
+              <li>
+                <a href="/books/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  音乐
+                </a>
+              </li>
+            
+              <li>
+                <a href="/gallery/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  美图
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-calendar" aria-hidden="true"></i>
+            时间轴
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            生态圈
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/friends/">
+                  <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                  友链
+                </a>
+              </li>
+            
+              <li>
+                <a href="/collection/">
+                  <i class="fa fa-chain-broken" aria-hidden="true"></i>
+                  优链
+                </a>
+              </li>
+            
+              <li>
+                <a href="/project/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  项目
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script> -->
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="7326708394"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+  <!-- 2、实现换肤功能 -->
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed">
+ <div class="theme-controls row-container">
+  <ul class="menu-list">
+   <li id="white-bg"> <i class="fa fa-television" aria-hidden="true"></i></li>
+   <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+   <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+   <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+   <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+   <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+   <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+   <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+  </ul>
+ </div>
+</div>
+<canvas id="night-mode-cover"></canvas>
+ 
+  <div class="changeSkin-gear no-select">
+  <div class="keys" id="setbtn"> 
+   <span id="open-skinMenu"> 切换主题 | SCHEME TOOL  
+     <i class="iconfont icon-gear inline-block rotating"></i> 
+   </span>
+  </div>
+</div>
+
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/head.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">曙光星云Sunny</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/honjun" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="http://weibo.com/mashirozx?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=954655431&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-desktop" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/categories/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-sitemap" aria-hidden="true"></i>
+            分类
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-file-text-o" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/随笔/">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                  随笔
+                </a>
+              </li>
+            
+              <li>
+                <a href="/count">
+                  <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                  统计
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags">
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                  标签
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-music" aria-hidden="true"></i>
+            娱乐
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/videos/">
+                  <i class="fa fa-film" aria-hidden="true"></i>
+                  励志
+                </a>
+              </li>
+            
+              <li>
+                <a href="/books/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  音乐
+                </a>
+              </li>
+            
+              <li>
+                <a href="/gallery/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  美图
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-calendar" aria-hidden="true"></i>
+            时间轴
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            生态圈
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/friends/">
+                  <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                  友链
+                </a>
+              </li>
+            
+              <li>
+                <a href="/collection/">
+                  <i class="fa fa-chain-broken" aria-hidden="true"></i>
+                  优链
+                </a>
+              </li>
+            
+              <li>
+                <a href="/project/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  项目
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script> -->
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="7326708394"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script> 
+</body>
+<!-- 3、添加鼠标单击特效 -->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/shehuizhuyi.js"></script>
+<!-- 4、鼠标滑过的特效 -->
+<!-- <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/xuehua.js"></script> -->
+<!-- 5、背景显示飘动的彩带 -->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/piao.js"></script>
+<!-- 6、背景添加动态线条，随鼠标动 -->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/canvas-nest.min.js"></script>
+<!-- 7、樱花飘落或雪花飘落 -->
+<!-- <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/sakura.js"></script> -->
+<!-- 8、图片懒加载 -->
+<script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<!-- 9、添加计数 -->
+<!-- <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+
+
+</html>
