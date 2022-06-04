@@ -3374,7 +3374,7 @@ body.themechris .bg-cover::before {
     background-image: none;
 }
 .bg-cover::before {
-    background-image: url(https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/bggrid.png);
+    background-image: url(https://gitee.com/cuikuikui/Static/raw/master/Blog/Image/common/bggrid.png);
 }
 body.dark .mohuxiaoguo {
     display: none;
