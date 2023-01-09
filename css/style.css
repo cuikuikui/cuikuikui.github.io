@@ -6,7 +6,7 @@
 }
 
 #veditor {
-	background-image: url(https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/comment_bg.webp);
+	background-image: url(/images/common/comment_bg.webp);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: right;
@@ -4522,7 +4522,7 @@ a.page-numbers {
 }
 
 .comment-respond textarea {
-	background-image: url('https://cdn.jsdelivr.net/gh/cuikuikui/Static@master/Blog/Image/common/comment_bg.webp');
+	background-image: url('/images/common/comment_bg.webp');
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: right;
