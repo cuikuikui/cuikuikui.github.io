@@ -10,23 +10,27 @@
   
   <meta http-equiv="x-dns-prefetch-control" content="on">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
-  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
-  <link rel="stylesheet" href="/css/lib.min.css" media="all">
-  <link rel="stylesheet" href="/css/font.css" media="all">
-  <link rel="stylesheet" href="/css/iconfont.css" media="all">
   <link rel="stylesheet" href="/css/insight.css" media="all">
-  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
-  <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-  <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-  <link rel="stylesheet" href="/css/matery.css">
+  <link rel="stylesheet" href="/css/matery.css"><!-- 时间轴 -->
   <!-- tags标签 -->
   <link rel="stylesheet" href="/css/tags.css" media="all">
   <!-- 评论 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
-  <!-- <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
-" type="text/css" media="all"> -->
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+ <!-- 注释开始 -->
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+  <link rel="stylesheet" type="text/css" href="/css/libs/awesome/css/all.css">
+  <link rel="stylesheet" type="text/css" href="/css/lib.min.css">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/iconfont.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+ <!-- 注释结束 -->
+
   <script>
   /*Initial Variables*/
   var mashiro_option = new Object();
@@ -68,8 +72,9 @@
   </style>
   <!-- 看板娘 -->
   <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
   <!-- 添加标题恶搞 -->
   <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/hititle.js"></script>
 </head>
@@ -77,6 +82,7 @@
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
+
   <a href="#" class="cd-top faa-float animated"></a>
   <section id="main-container">
     <div class="headertop filter-dot">
@@ -277,9 +283,9 @@
                       </li>
                     
                       <li>
-                        <a href="/gallery/">
+                        <a href="/galleries">
                           <i class="fa fa-photo" aria-hidden="true"></i>
-                          美图
+                          相册
                         </a>
                       </li>
                     
@@ -450,28 +456,30 @@
     }
 </style>
 <main class="content" style="min-height: 281px;display: flex;justify-content: center;	flex-wrap: wrap;">
-
     
 
-<div id="tags" class="container chip-container" style="display: flex;justify-content: center;" >
+<div id="tags" class="container chip-container">
     <div class="card">
         <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fa fa-tags"></i>&nbsp;&nbsp;文章标签
+            </div>
             <div class="tag-chips">
                 
                 
-                <a href="/tags/user-select/" title="user-select: 1">
+                <a href="/tags/Python3-Pip环境配置/" title="Python3+Pip环境配置: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="user-select" style="background-color: #F9EBEA;">🔖&nbsp;user-select
+                             chip-default "
+                            data-tagname="Python3+Pip环境配置" style="background-color: #F9EBEA;">Python3+Pip环境配置
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/Python3-Pip环境配置/" title="Python3+Pip环境配置: 1">
+                <a href="/tags/user-select/" title="user-select: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Python3+Pip环境配置" style="background-color: #F5EEF8;">🔖&nbsp;Python3+Pip环境配置
+                             chip-default "
+                            data-tagname="user-select" style="background-color: #F5EEF8;">user-select
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -479,8 +487,8 @@
                 
                 <a href="/tags/事件循环/" title="事件循环: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="事件循环" style="background-color: #D5F5E3;">🔖&nbsp;事件循环
+                             chip-default "
+                            data-tagname="事件循环" style="background-color: #D5F5E3;">事件循环
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -488,17 +496,8 @@
                 
                 <a href="/tags/数组操作/" title="数组操作: 2">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="数组操作" style="background-color: #E8F8F5;">🔖&nbsp;数组操作
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/邂逅Vue/" title="邂逅Vue: 2">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="邂逅Vue" style="background-color: #FEF9E7;">🔖&nbsp;邂逅Vue
+                             chip-default "
+                            data-tagname="数组操作" style="background-color: #E8F8F5;">数组操作
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -506,26 +505,26 @@
                 
                 <a href="/tags/BI企业报表制作/" title="BI企业报表制作: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="BI企业报表制作" style="background-color: #F8F9F9;">🔖&nbsp;BI企业报表制作
+                             chip-default "
+                            data-tagname="BI企业报表制作" style="background-color: #FEF9E7;">BI企业报表制作
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/邂逅Vue/" title="邂逅Vue: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="邂逅Vue" style="background-color: #F8F9F9;">邂逅Vue
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
                 <a href="/tags/vuex/" title="vuex: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="vuex" style="background-color: #82E0AA;">🔖&nbsp;vuex
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/常用的内置函数/" title="常用的内置函数: 1">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="常用的内置函数" style="background-color: #D7BDE2;">🔖&nbsp;常用的内置函数
+                             chip-default "
+                            data-tagname="vuex" style="background-color: #82E0AA;">vuex
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -533,17 +532,8 @@
                 
                 <a href="/tags/Vue响应式原理/" title="Vue响应式原理: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Vue响应式原理" style="background-color: #A3E4D7;">🔖&nbsp;Vue响应式原理
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Vue的生命周期/" title="Vue的生命周期: 1">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Vue的生命周期" style="background-color: #85C1E9;">🔖&nbsp;Vue的生命周期
+                             chip-default "
+                            data-tagname="Vue响应式原理" style="background-color: #D7BDE2;">Vue响应式原理
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -551,8 +541,26 @@
                 
                 <a href="/tags/组件通信/" title="组件通信: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="组件通信" style="background-color: #F8C471;">🔖&nbsp;组件通信
+                             chip-default "
+                            data-tagname="组件通信" style="background-color: #A3E4D7;">组件通信
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/常用的内置函数/" title="常用的内置函数: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="常用的内置函数" style="background-color: #85C1E9;">常用的内置函数
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Vue的生命周期/" title="Vue的生命周期: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Vue的生命周期" style="background-color: #F8C471;">Vue的生命周期
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -560,8 +568,8 @@
                 
                 <a href="/tags/手写vue-router/" title="手写vue-router: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="手写vue-router" style="background-color: #F9E79F;">🔖&nbsp;手写vue-router
+                             chip-default "
+                            data-tagname="手写vue-router" style="background-color: #F9E79F;">手写vue-router
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -569,8 +577,8 @@
                 
                 <a href="/tags/手写vuex/" title="手写vuex: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="手写vuex" style="background-color: #D7BDE2;">🔖&nbsp;手写vuex
+                             chip-default "
+                            data-tagname="手写vuex" style="background-color: #D7BDE2;">手写vuex
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -578,8 +586,8 @@
                 
                 <a href="/tags/数组的操作/" title="数组的操作: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="数组的操作" style="background-color: #E8F8F5;">🔖&nbsp;数组的操作
+                             chip-default "
+                            data-tagname="数组的操作" style="background-color: #E8F8F5;">数组的操作
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -587,8 +595,8 @@
                 
                 <a href="/tags/MVVM思想/" title="MVVM思想: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="MVVM思想" style="background-color: #F9E79F;">🔖&nbsp;MVVM思想
+                             chip-default "
+                            data-tagname="MVVM思想" style="background-color: #F9E79F;">MVVM思想
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -596,17 +604,8 @@
                 
                 <a href="/tags/Windows常用指令/" title="Windows常用指令: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Windows常用指令" style="background-color: #FFF;">🔖&nbsp;Windows常用指令
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/团队内协作/" title="团队内协作: 1">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="团队内协作" style="background-color: #82E0AA;">🔖&nbsp;团队内协作
+                             chip-default "
+                            data-tagname="Windows常用指令" style="background-color: #FFF;">Windows常用指令
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -614,8 +613,17 @@
                 
                 <a href="/tags/布局方式/" title="布局方式: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="布局方式" style="background-color: #D7BDE2;">🔖&nbsp;布局方式
+                             chip-default "
+                            data-tagname="布局方式" style="background-color: #D7BDE2;">布局方式
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/团队内协作/" title="团队内协作: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="团队内协作" style="background-color: #82E0AA;">团队内协作
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -623,8 +631,8 @@
                 
                 <a href="/tags/跨团队协作/" title="跨团队协作: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="跨团队协作" style="background-color: #82E0AA;">🔖&nbsp;跨团队协作
+                             chip-default "
+                            data-tagname="跨团队协作" style="background-color: #82E0AA;">跨团队协作
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -632,8 +640,8 @@
                 
                 <a href="/tags/import与include/" title="import与include: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="import与include" style="background-color: #F8F9F9;">🔖&nbsp;import与include
+                             chip-default "
+                            data-tagname="import与include" style="background-color: #F8F9F9;">import与include
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -641,8 +649,8 @@
                 
                 <a href="/tags/python文件/" title="python文件: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="python文件" style="background-color: #D5F5E3;">🔖&nbsp;python文件
+                             chip-default "
+                            data-tagname="python文件" style="background-color: #D5F5E3;">python文件
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -650,8 +658,8 @@
                 
                 <a href="/tags/python字典/" title="python字典: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="python字典" style="background-color: #82E0AA;">🔖&nbsp;python字典
+                             chip-default "
+                            data-tagname="python字典" style="background-color: #82E0AA;">python字典
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -659,8 +667,8 @@
                 
                 <a href="/tags/闭包/" title="闭包: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="闭包" style="background-color: #F8C471;">🔖&nbsp;闭包
+                             chip-default "
+                            data-tagname="闭包" style="background-color: #F8C471;">闭包
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -668,8 +676,8 @@
                 
                 <a href="/tags/爬虫/" title="爬虫: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="爬虫" style="background-color: #D7BDE2;">🔖&nbsp;爬虫
+                             chip-default "
+                            data-tagname="爬虫" style="background-color: #D7BDE2;">爬虫
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -677,17 +685,8 @@
                 
                 <a href="/tags/python递归/" title="python递归: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="python递归" style="background-color: #D5F5E3;">🔖&nbsp;python递归
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/wx-if与hidden的区别/" title="wx:if与hidden的区别: 1">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="wx:if与hidden的区别" style="background-color: #FEF9E7;">🔖&nbsp;wx:if与hidden的区别
+                             chip-default "
+                            data-tagname="python递归" style="background-color: #D5F5E3;">python递归
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -695,8 +694,17 @@
                 
                 <a href="/tags/集合/" title="集合: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="集合" style="background-color: #D5F5E3;">🔖&nbsp;集合
+                             chip-default "
+                            data-tagname="集合" style="background-color: #D5F5E3;">集合
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/wx-if与hidden的区别/" title="wx:if与hidden的区别: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="wx:if与hidden的区别" style="background-color: #FEF9E7;">wx:if与hidden的区别
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -704,8 +712,8 @@
                 
                 <a href="/tags/谈薪资注意事项/" title="谈薪资注意事项: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="谈薪资注意事项" style="background-color: #FEF9E7;">🔖&nbsp;谈薪资注意事项
+                             chip-default "
+                            data-tagname="谈薪资注意事项" style="background-color: #FEF9E7;">谈薪资注意事项
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -713,8 +721,8 @@
                 
                 <a href="/tags/函数式编程/" title="函数式编程: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="函数式编程" style="background-color: #D5F5E3;">🔖&nbsp;函数式编程
+                             chip-default "
+                            data-tagname="函数式编程" style="background-color: #D5F5E3;">函数式编程
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -722,17 +730,8 @@
                 
                 <a href="/tags/注册Github/" title="注册Github: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="注册Github" style="background-color: #82E0AA;">🔖&nbsp;注册Github
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Java/" title="Java: 1">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Java" style="background-color: #FFF;">🔖&nbsp;Java
+                             chip-default "
+                            data-tagname="注册Github" style="background-color: #82E0AA;">注册Github
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -740,8 +739,17 @@
                 
                 <a href="/tags/多个github配置/" title="多个github配置: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="多个github配置" style="background-color: #A3E4D7;">🔖&nbsp;多个github配置
+                             chip-default "
+                            data-tagname="多个github配置" style="background-color: #A3E4D7;">多个github配置
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Java/" title="Java: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Java" style="background-color: #FFF;">Java
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -749,8 +757,8 @@
                 
                 <a href="/tags/选择器/" title="选择器: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="选择器" style="background-color: #F9EBEA;">🔖&nbsp;选择器
+                             chip-default "
+                            data-tagname="选择器" style="background-color: #F9EBEA;">选择器
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -758,8 +766,8 @@
                 
                 <a href="/tags/尺寸单位/" title="尺寸单位: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="尺寸单位" style="background-color: #F8C471;">🔖&nbsp;尺寸单位
+                             chip-default "
+                            data-tagname="尺寸单位" style="background-color: #F8C471;">尺寸单位
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -767,8 +775,8 @@
                 
                 <a href="/tags/中断/" title="中断: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="中断" style="background-color: #D7BDE2;">🔖&nbsp;中断
+                             chip-default "
+                            data-tagname="中断" style="background-color: #D7BDE2;">中断
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -776,8 +784,8 @@
                 
                 <a href="/tags/多道程序设计与多重处理/" title="多道程序设计与多重处理: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="多道程序设计与多重处理" style="background-color: #85C1E9;">🔖&nbsp;多道程序设计与多重处理
+                             chip-default "
+                            data-tagname="多道程序设计与多重处理" style="background-color: #85C1E9;">多道程序设计与多重处理
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -785,17 +793,8 @@
                 
                 <a href="/tags/文件管理/" title="文件管理: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="文件管理" style="background-color: #F9EBEA;">🔖&nbsp;文件管理
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/API简介/" title="API简介: 1">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="API简介" style="background-color: #E8F8F5;">🔖&nbsp;API简介
+                             chip-default "
+                            data-tagname="文件管理" style="background-color: #F9EBEA;">文件管理
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -803,8 +802,17 @@
                 
                 <a href="/tags/常用命令/" title="常用命令: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="常用命令" style="background-color: #F8F9F9;">🔖&nbsp;常用命令
+                             chip-default "
+                            data-tagname="常用命令" style="background-color: #F8F9F9;">常用命令
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/API简介/" title="API简介: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="API简介" style="background-color: #E8F8F5;">API简介
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -812,17 +820,8 @@
                 
                 <a href="/tags/Markdown-设置标题/" title="Markdown 设置标题: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Markdown 设置标题" style="background-color: #FEF9E7;">🔖&nbsp;Markdown 设置标题
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/nginx、tomcat、Apache之间的区别/" title="nginx、tomcat、Apache之间的区别: 1">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="nginx、tomcat、Apache之间的区别" style="background-color: #D5F5E3;">🔖&nbsp;nginx、tomcat、Apache之间的区别
+                             chip-default "
+                            data-tagname="Markdown 设置标题" style="background-color: #FEF9E7;">Markdown 设置标题
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -830,8 +829,8 @@
                 
                 <a href="/tags/github连接远程仓库/" title="github连接远程仓库: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="github连接远程仓库" style="background-color: #F5EEF8;">🔖&nbsp;github连接远程仓库
+                             chip-default "
+                            data-tagname="github连接远程仓库" style="background-color: #F5EEF8;">github连接远程仓库
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -839,8 +838,17 @@
                 
                 <a href="/tags/nginx的编译和安装/" title="nginx的编译和安装: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="nginx的编译和安装" style="background-color: #F8F9F9;">🔖&nbsp;nginx的编译和安装
+                             chip-default "
+                            data-tagname="nginx的编译和安装" style="background-color: #F8F9F9;">nginx的编译和安装
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/nginx、tomcat、Apache之间的区别/" title="nginx、tomcat、Apache之间的区别: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="nginx、tomcat、Apache之间的区别" style="background-color: #D5F5E3;">nginx、tomcat、Apache之间的区别
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -848,17 +856,8 @@
                 
                 <a href="/tags/Markdown-超文本链接/" title="Markdown 超文本链接: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Markdown 超文本链接" style="background-color: #F8F9F9;">🔖&nbsp;Markdown 超文本链接
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Markdown-引用表现/" title="Markdown 引用表现: 1">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Markdown 引用表现" style="background-color: #F8F9F9;">🔖&nbsp;Markdown 引用表现
+                             chip-default "
+                            data-tagname="Markdown 超文本链接" style="background-color: #F8F9F9;">Markdown 超文本链接
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -866,8 +865,17 @@
                 
                 <a href="/tags/nginx虚拟主机配置/" title="nginx虚拟主机配置: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="nginx虚拟主机配置" style="background-color: #F9E79F;">🔖&nbsp;nginx虚拟主机配置
+                             chip-default "
+                            data-tagname="nginx虚拟主机配置" style="background-color: #F9E79F;">nginx虚拟主机配置
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Markdown-引用表现/" title="Markdown 引用表现: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Markdown 引用表现" style="background-color: #F8F9F9;">Markdown 引用表现
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -875,17 +883,8 @@
                 
                 <a href="/tags/Markdown-图片显示/" title="Markdown 图片显示: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Markdown 图片显示" style="background-color: #FFF;">🔖&nbsp;Markdown 图片显示
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Markdown-强调表现/" title="Markdown 强调表现: 1">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Markdown 强调表现" style="background-color: #85C1E9;">🔖&nbsp;Markdown 强调表现
+                             chip-default "
+                            data-tagname="Markdown 图片显示" style="background-color: #FFF;">Markdown 图片显示
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -893,8 +892,8 @@
                 
                 <a href="/tags/第二章-Markdown-自然段换行/" title="第二章 Markdown 自然段换行: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="第二章 Markdown 自然段换行" style="background-color: #D5F5E3;">🔖&nbsp;第二章 Markdown 自然段换行
+                             chip-default "
+                            data-tagname="第二章 Markdown 自然段换行" style="background-color: #D5F5E3;">第二章 Markdown 自然段换行
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -902,8 +901,17 @@
                 
                 <a href="/tags/nginx信号量/" title="nginx信号量: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="nginx信号量" style="background-color: #E8F8F5;">🔖&nbsp;nginx信号量
+                             chip-default "
+                            data-tagname="nginx信号量" style="background-color: #E8F8F5;">nginx信号量
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Markdown-强调表现/" title="Markdown 强调表现: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Markdown 强调表现" style="background-color: #85C1E9;">Markdown 强调表现
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -911,8 +919,8 @@
                 
                 <a href="/tags/定时日志切割/" title="定时日志切割: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="定时日志切割" style="background-color: #F9EBEA;">🔖&nbsp;定时日志切割
+                             chip-default "
+                            data-tagname="定时日志切割" style="background-color: #F9EBEA;">定时日志切割
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -920,8 +928,8 @@
                 
                 <a href="/tags/第八章-Markdown-代码高亮显示/" title="第八章 Markdown 代码高亮显示: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="第八章 Markdown 代码高亮显示" style="background-color: #F9EBEA;">🔖&nbsp;第八章 Markdown 代码高亮显示
+                             chip-default "
+                            data-tagname="第八章 Markdown 代码高亮显示" style="background-color: #F9EBEA;">第八章 Markdown 代码高亮显示
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -929,8 +937,8 @@
                 
                 <a href="/tags/Location详解/" title="Location详解: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Location详解" style="background-color: #F9E79F;">🔖&nbsp;Location详解
+                             chip-default "
+                            data-tagname="Location详解" style="background-color: #F9E79F;">Location详解
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -938,8 +946,8 @@
                 
                 <a href="/tags/Markdown-列表表示/" title="Markdown 列表表示: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Markdown 列表表示" style="background-color: #D5F5E3;">🔖&nbsp;Markdown 列表表示
+                             chip-default "
+                            data-tagname="Markdown 列表表示" style="background-color: #D5F5E3;">Markdown 列表表示
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -947,17 +955,8 @@
                 
                 <a href="/tags/第十二章-Markdown语法新增/" title="第十二章 Markdown语法新增: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="第十二章 Markdown语法新增" style="background-color: #F8F9F9;">🔖&nbsp;第十二章 Markdown语法新增
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Markdown-表格显示/" title="Markdown 表格显示: 1">
-                    <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Markdown 表格显示" style="background-color: #D7BDE2;">🔖&nbsp;Markdown 表格显示
+                             chip-default "
+                            data-tagname="第十二章 Markdown语法新增" style="background-color: #F8F9F9;">第十二章 Markdown语法新增
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -965,8 +964,17 @@
                 
                 <a href="/tags/Markdown-反斜杠/" title="Markdown 反斜杠: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Markdown 反斜杠" style="background-color: #F5EEF8;">🔖&nbsp;Markdown 反斜杠
+                             chip-default "
+                            data-tagname="Markdown 反斜杠" style="background-color: #F5EEF8;">Markdown 反斜杠
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Markdown-表格显示/" title="Markdown 表格显示: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Markdown 表格显示" style="background-color: #D7BDE2;">Markdown 表格显示
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -974,8 +982,8 @@
                 
                 <a href="/tags/Markdown-增加分割线/" title="Markdown 增加分割线: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="Markdown 增加分割线" style="background-color: #F5EEF8;">🔖&nbsp;Markdown 增加分割线
+                             chip-default "
+                            data-tagname="Markdown 增加分割线" style="background-color: #F5EEF8;">Markdown 增加分割线
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -983,8 +991,8 @@
                 
                 <a href="/tags/日志管理/" title="日志管理: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="日志管理" style="background-color: #82E0AA;">🔖&nbsp;日志管理
+                             chip-default "
+                            data-tagname="日志管理" style="background-color: #82E0AA;">日志管理
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -992,8 +1000,8 @@
                 
                 <a href="/tags/装饰器/" title="装饰器: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="装饰器" style="background-color: #FFF;">🔖&nbsp;装饰器
+                             chip-default "
+                            data-tagname="装饰器" style="background-color: #FFF;">装饰器
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -1001,8 +1009,8 @@
                 
                 <a href="/tags/PS安装/" title="PS安装: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="PS安装" style="background-color: #F9E79F;">🔖&nbsp;PS安装
+                             chip-default "
+                            data-tagname="PS安装" style="background-color: #F9E79F;">PS安装
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -1010,8 +1018,8 @@
                 
                 <a href="/tags/鼋头渚/" title="鼋头渚: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="鼋头渚" style="background-color: #FEF9E7;">🔖&nbsp;鼋头渚
+                             chip-default "
+                            data-tagname="鼋头渚" style="background-color: #FEF9E7;">鼋头渚
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -1019,8 +1027,8 @@
                 
                 <a href="/tags/花果山/" title="花果山: 1">
                     <span class="chip center-align waves-effect waves-light
-                     chip-default "
-                            data-tagname="花果山" style="background-color: #FEF9E7;">🔖&nbsp;花果山
+                             chip-default "
+                            data-tagname="花果山" style="background-color: #FEF9E7;">花果山
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -1029,53 +1037,30 @@
         </div>
     </div>
 </div>
-
-
     
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skyls03/skyls03.github.io/libs/jqcloud/jqcloud.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/wallleap/cdn/css/jqcloud.css">
 <style type="text/css">
     #tag-wordcloud {
         width: 100%;
         height: 300px;
     }
-  .card {
-    width:90%;
-    background: url(/images/common/flowerbg-white.png) top;
-  }
-
-  .card {
-      border-radius: 10px;
-      box-shadow: 0 15px 35px rgb(50 50 93 / 10%), 0 5px 15px rgb(0 0 0 / 7%) !important;
-  }
-  .card {
-      position: relative;
-      margin: 0.5rem 0 1rem 0;
-      background-color: #fff;
-      -webkit-transition: -webkit-box-shadow .25s;
-      transition: -webkit-box-shadow .25s;
-      transition: box-shadow .25s;
-      transition: box-shadow .25s, -webkit-box-shadow .25s;
-      border-radius: 2px;
-  }
 </style>
 
-<div class="container" style="display: flex;justify-content: center;">
+<div class="container" data-aos="fade-up">
     <div class="card">
         <div id="tag-wordcloud" class="card-content"></div>
     </div>
 </div>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/skyls03/skyls03.github.io/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/jqcloud-1.0.4.js"></script>
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"user-select","weight":1,"link":"/tags/user-select/"},{"text":"Python3+Pip环境配置","weight":1,"link":"/tags/Python3-Pip环境配置/"},{"text":"事件循环","weight":1,"link":"/tags/事件循环/"},{"text":"数组操作","weight":2,"link":"/tags/数组操作/"},{"text":"邂逅Vue","weight":2,"link":"/tags/邂逅Vue/"},{"text":"BI企业报表制作","weight":1,"link":"/tags/BI企业报表制作/"},{"text":"vuex","weight":1,"link":"/tags/vuex/"},{"text":"常用的内置函数","weight":1,"link":"/tags/常用的内置函数/"},{"text":"Vue响应式原理","weight":1,"link":"/tags/Vue响应式原理/"},{"text":"Vue的生命周期","weight":1,"link":"/tags/Vue的生命周期/"},{"text":"组件通信","weight":1,"link":"/tags/组件通信/"},{"text":"手写vue-router","weight":1,"link":"/tags/手写vue-router/"},{"text":"手写vuex","weight":1,"link":"/tags/手写vuex/"},{"text":"数组的操作","weight":1,"link":"/tags/数组的操作/"},{"text":"MVVM思想","weight":1,"link":"/tags/MVVM思想/"},{"text":"Windows常用指令","weight":1,"link":"/tags/Windows常用指令/"},{"text":"团队内协作","weight":1,"link":"/tags/团队内协作/"},{"text":"布局方式","weight":1,"link":"/tags/布局方式/"},{"text":"跨团队协作","weight":1,"link":"/tags/跨团队协作/"},{"text":"import与include","weight":1,"link":"/tags/import与include/"},{"text":"python文件","weight":1,"link":"/tags/python文件/"},{"text":"python字典","weight":1,"link":"/tags/python字典/"},{"text":"闭包","weight":1,"link":"/tags/闭包/"},{"text":"爬虫","weight":1,"link":"/tags/爬虫/"},{"text":"python递归","weight":1,"link":"/tags/python递归/"},{"text":"wx:if与hidden的区别","weight":1,"link":"/tags/wx-if与hidden的区别/"},{"text":"集合","weight":1,"link":"/tags/集合/"},{"text":"谈薪资注意事项","weight":1,"link":"/tags/谈薪资注意事项/"},{"text":"函数式编程","weight":1,"link":"/tags/函数式编程/"},{"text":"注册Github","weight":1,"link":"/tags/注册Github/"},{"text":"Java","weight":1,"link":"/tags/Java/"},{"text":"多个github配置","weight":1,"link":"/tags/多个github配置/"},{"text":"选择器","weight":1,"link":"/tags/选择器/"},{"text":"尺寸单位","weight":1,"link":"/tags/尺寸单位/"},{"text":"中断","weight":1,"link":"/tags/中断/"},{"text":"多道程序设计与多重处理","weight":1,"link":"/tags/多道程序设计与多重处理/"},{"text":"文件管理","weight":1,"link":"/tags/文件管理/"},{"text":"API简介","weight":1,"link":"/tags/API简介/"},{"text":"常用命令","weight":1,"link":"/tags/常用命令/"},{"text":"Markdown 设置标题","weight":1,"link":"/tags/Markdown-设置标题/"},{"text":"nginx、tomcat、Apache之间的区别","weight":1,"link":"/tags/nginx、tomcat、Apache之间的区别/"},{"text":"github连接远程仓库","weight":1,"link":"/tags/github连接远程仓库/"},{"text":"nginx的编译和安装","weight":1,"link":"/tags/nginx的编译和安装/"},{"text":"Markdown 超文本链接","weight":1,"link":"/tags/Markdown-超文本链接/"},{"text":"Markdown 引用表现","weight":1,"link":"/tags/Markdown-引用表现/"},{"text":"nginx虚拟主机配置","weight":1,"link":"/tags/nginx虚拟主机配置/"},{"text":"Markdown 图片显示","weight":1,"link":"/tags/Markdown-图片显示/"},{"text":"Markdown 强调表现","weight":1,"link":"/tags/Markdown-强调表现/"},{"text":"第二章 Markdown 自然段换行","weight":1,"link":"/tags/第二章-Markdown-自然段换行/"},{"text":"nginx信号量","weight":1,"link":"/tags/nginx信号量/"},{"text":"定时日志切割","weight":1,"link":"/tags/定时日志切割/"},{"text":"第八章 Markdown 代码高亮显示","weight":1,"link":"/tags/第八章-Markdown-代码高亮显示/"},{"text":"Location详解","weight":1,"link":"/tags/Location详解/"},{"text":"Markdown 列表表示","weight":1,"link":"/tags/Markdown-列表表示/"},{"text":"第十二章 Markdown语法新增","weight":1,"link":"/tags/第十二章-Markdown语法新增/"},{"text":"Markdown 表格显示","weight":1,"link":"/tags/Markdown-表格显示/"},{"text":"Markdown 反斜杠","weight":1,"link":"/tags/Markdown-反斜杠/"},{"text":"Markdown 增加分割线","weight":1,"link":"/tags/Markdown-增加分割线/"},{"text":"日志管理","weight":1,"link":"/tags/日志管理/"},{"text":"装饰器","weight":1,"link":"/tags/装饰器/"},{"text":"PS安装","weight":1,"link":"/tags/PS安装/"},{"text":"鼋头渚","weight":1,"link":"/tags/鼋头渚/"},{"text":"花果山","weight":1,"link":"/tags/花果山/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"Python3+Pip环境配置","weight":1,"link":"http://cuikuikui.github.io/tags/Python3-Pip环境配置/"},{"text":"user-select","weight":1,"link":"http://cuikuikui.github.io/tags/user-select/"},{"text":"事件循环","weight":1,"link":"http://cuikuikui.github.io/tags/事件循环/"},{"text":"数组操作","weight":2,"link":"http://cuikuikui.github.io/tags/数组操作/"},{"text":"BI企业报表制作","weight":1,"link":"http://cuikuikui.github.io/tags/BI企业报表制作/"},{"text":"邂逅Vue","weight":2,"link":"http://cuikuikui.github.io/tags/邂逅Vue/"},{"text":"vuex","weight":1,"link":"http://cuikuikui.github.io/tags/vuex/"},{"text":"Vue响应式原理","weight":1,"link":"http://cuikuikui.github.io/tags/Vue响应式原理/"},{"text":"组件通信","weight":1,"link":"http://cuikuikui.github.io/tags/组件通信/"},{"text":"常用的内置函数","weight":1,"link":"http://cuikuikui.github.io/tags/常用的内置函数/"},{"text":"Vue的生命周期","weight":1,"link":"http://cuikuikui.github.io/tags/Vue的生命周期/"},{"text":"手写vue-router","weight":1,"link":"http://cuikuikui.github.io/tags/手写vue-router/"},{"text":"手写vuex","weight":1,"link":"http://cuikuikui.github.io/tags/手写vuex/"},{"text":"数组的操作","weight":1,"link":"http://cuikuikui.github.io/tags/数组的操作/"},{"text":"MVVM思想","weight":1,"link":"http://cuikuikui.github.io/tags/MVVM思想/"},{"text":"Windows常用指令","weight":1,"link":"http://cuikuikui.github.io/tags/Windows常用指令/"},{"text":"布局方式","weight":1,"link":"http://cuikuikui.github.io/tags/布局方式/"},{"text":"团队内协作","weight":1,"link":"http://cuikuikui.github.io/tags/团队内协作/"},{"text":"跨团队协作","weight":1,"link":"http://cuikuikui.github.io/tags/跨团队协作/"},{"text":"import与include","weight":1,"link":"http://cuikuikui.github.io/tags/import与include/"},{"text":"python文件","weight":1,"link":"http://cuikuikui.github.io/tags/python文件/"},{"text":"python字典","weight":1,"link":"http://cuikuikui.github.io/tags/python字典/"},{"text":"闭包","weight":1,"link":"http://cuikuikui.github.io/tags/闭包/"},{"text":"爬虫","weight":1,"link":"http://cuikuikui.github.io/tags/爬虫/"},{"text":"python递归","weight":1,"link":"http://cuikuikui.github.io/tags/python递归/"},{"text":"集合","weight":1,"link":"http://cuikuikui.github.io/tags/集合/"},{"text":"wx:if与hidden的区别","weight":1,"link":"http://cuikuikui.github.io/tags/wx-if与hidden的区别/"},{"text":"谈薪资注意事项","weight":1,"link":"http://cuikuikui.github.io/tags/谈薪资注意事项/"},{"text":"函数式编程","weight":1,"link":"http://cuikuikui.github.io/tags/函数式编程/"},{"text":"注册Github","weight":1,"link":"http://cuikuikui.github.io/tags/注册Github/"},{"text":"多个github配置","weight":1,"link":"http://cuikuikui.github.io/tags/多个github配置/"},{"text":"Java","weight":1,"link":"http://cuikuikui.github.io/tags/Java/"},{"text":"选择器","weight":1,"link":"http://cuikuikui.github.io/tags/选择器/"},{"text":"尺寸单位","weight":1,"link":"http://cuikuikui.github.io/tags/尺寸单位/"},{"text":"中断","weight":1,"link":"http://cuikuikui.github.io/tags/中断/"},{"text":"多道程序设计与多重处理","weight":1,"link":"http://cuikuikui.github.io/tags/多道程序设计与多重处理/"},{"text":"文件管理","weight":1,"link":"http://cuikuikui.github.io/tags/文件管理/"},{"text":"常用命令","weight":1,"link":"http://cuikuikui.github.io/tags/常用命令/"},{"text":"API简介","weight":1,"link":"http://cuikuikui.github.io/tags/API简介/"},{"text":"Markdown 设置标题","weight":1,"link":"http://cuikuikui.github.io/tags/Markdown-设置标题/"},{"text":"github连接远程仓库","weight":1,"link":"http://cuikuikui.github.io/tags/github连接远程仓库/"},{"text":"nginx的编译和安装","weight":1,"link":"http://cuikuikui.github.io/tags/nginx的编译和安装/"},{"text":"nginx、tomcat、Apache之间的区别","weight":1,"link":"http://cuikuikui.github.io/tags/nginx、tomcat、Apache之间的区别/"},{"text":"Markdown 超文本链接","weight":1,"link":"http://cuikuikui.github.io/tags/Markdown-超文本链接/"},{"text":"nginx虚拟主机配置","weight":1,"link":"http://cuikuikui.github.io/tags/nginx虚拟主机配置/"},{"text":"Markdown 引用表现","weight":1,"link":"http://cuikuikui.github.io/tags/Markdown-引用表现/"},{"text":"Markdown 图片显示","weight":1,"link":"http://cuikuikui.github.io/tags/Markdown-图片显示/"},{"text":"第二章 Markdown 自然段换行","weight":1,"link":"http://cuikuikui.github.io/tags/第二章-Markdown-自然段换行/"},{"text":"nginx信号量","weight":1,"link":"http://cuikuikui.github.io/tags/nginx信号量/"},{"text":"Markdown 强调表现","weight":1,"link":"http://cuikuikui.github.io/tags/Markdown-强调表现/"},{"text":"定时日志切割","weight":1,"link":"http://cuikuikui.github.io/tags/定时日志切割/"},{"text":"第八章 Markdown 代码高亮显示","weight":1,"link":"http://cuikuikui.github.io/tags/第八章-Markdown-代码高亮显示/"},{"text":"Location详解","weight":1,"link":"http://cuikuikui.github.io/tags/Location详解/"},{"text":"Markdown 列表表示","weight":1,"link":"http://cuikuikui.github.io/tags/Markdown-列表表示/"},{"text":"第十二章 Markdown语法新增","weight":1,"link":"http://cuikuikui.github.io/tags/第十二章-Markdown语法新增/"},{"text":"Markdown 反斜杠","weight":1,"link":"http://cuikuikui.github.io/tags/Markdown-反斜杠/"},{"text":"Markdown 表格显示","weight":1,"link":"http://cuikuikui.github.io/tags/Markdown-表格显示/"},{"text":"Markdown 增加分割线","weight":1,"link":"http://cuikuikui.github.io/tags/Markdown-增加分割线/"},{"text":"日志管理","weight":1,"link":"http://cuikuikui.github.io/tags/日志管理/"},{"text":"装饰器","weight":1,"link":"http://cuikuikui.github.io/tags/装饰器/"},{"text":"PS安装","weight":1,"link":"http://cuikuikui.github.io/tags/PS安装/"},{"text":"鼋头渚","weight":1,"link":"http://cuikuikui.github.io/tags/鼋头渚/"},{"text":"花果山","weight":1,"link":"http://cuikuikui.github.io/tags/花果山/"}], {
         autoResize: true
     });
 </script>
-
     
-
 </main>
 <script>
   if (location.href.indexOf("#reloaded") == -1) {
@@ -1089,7 +1074,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -1101,10 +1086,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -1188,20 +1173,19 @@
 </script>
 <!--2、评论 -->
 <script src="https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.1/gitalk.js"></script>
-<script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-<script type="text/javascript" src="/js/InsightSearch.js"></script>
-<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
-<script type="text/javascript" src="/js/zoom.min.js"></script>
-<script type="text/javascript" src="/js/sakura-app.js"></script>
-<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
-<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
-<script src='https://cdn.jsdelivr.net/npm/valine@1.4.18/dist/Valine.min.js'></script>
+<!-- 搜索功能 -->
+<script type="text/javascript" src="/js/InsightSearch.js"></script> 
 
+<!-- 待验证开始 -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script> 
+<!-- 待验证结束 -->
+
+<script src='https://cdn.jsdelivr.net/npm/valine@1.4.18/dist/Valine.min.js'></script>
 <script src="/js/botui.js"></script>
-<!--3、 不蒜子 网页计数器 -->
-<!-- <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
 <script type="text/javascript">
   /* <![CDATA[ */
   if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
@@ -1403,9 +1387,9 @@
               </li>
             
               <li>
-                <a href="/gallery/">
+                <a href="/galleries">
                   <i class="fa fa-photo" aria-hidden="true"></i>
-                  美图
+                  相册
                 </a>
               </li>
             
@@ -1495,8 +1479,6 @@
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<!-- require MetingJS -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script> -->
 <style>
   .aplayer .aplayer-lrc {
     height: 35px;
@@ -1701,9 +1683,9 @@
               </li>
             
               <li>
-                <a href="/gallery/">
+                <a href="/galleries">
                   <i class="fa fa-photo" aria-hidden="true"></i>
-                  美图
+                  相册
                 </a>
               </li>
             
@@ -1793,8 +1775,6 @@
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<!-- require MetingJS -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script> -->
 <style>
   .aplayer .aplayer-lrc {
     height: 35px;
