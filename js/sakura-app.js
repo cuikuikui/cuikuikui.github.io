@@ -386,6 +386,7 @@ function headertop_down () {
   $('html,body').animate({
     scrollTop: coverOffset
   }, 600)
+  console.log("=======headertop_down========",coverOffset)
 }
 
 function scrollBar () {
